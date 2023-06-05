@@ -93,7 +93,7 @@ Om een repository van een ander te klonen of te pullen naar je lokale machine is
 Het schermdeel voor het klonen van een repository binnen de website.
  
 
-[Screenshot van het binnenhalen van een kloon in de app](../00_includes/repo_cloning_app.png)
+![Screenshot van het binnenhalen van een kloon in de app](../00_includes/repo_cloning_app.png)
 Het schermdeel van de app.
 
 Als je kiest voor “Open with Github Desktop” zal de desktop app openen en kan je de URL ingeven (wat standaard al gedaan is) en de opslag locatie onder “Local path” aan te geven.
