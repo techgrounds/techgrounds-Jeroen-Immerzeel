@@ -1,4 +1,4 @@
-Opdracht 1:
+Opdracht 1:\
 GIT-01: Git en GitHub:
 
 Algemene beschrijving van de opdracht:
@@ -8,15 +8,16 @@ Alle doorlopen delen van de opdrachten worden afgevinkt met een “✓”.
 Aanpassing puur voor het testen
 
 
-Key-terms
-#Github
-#GitHub desktop app
-#Repositories
-#Main / master
-#Branch
-#Merge 
-#Fork
-#Push/pull/clone
+Key-terms:
+
+Github
+GitHub desktop app
+Repositories
+Main / master
+Branch
+Merge 
+Fork
+Push/pull/clone
 
 
 
@@ -24,8 +25,9 @@ Opdracht
 Gebruikte bronnen
 GitHub Tutorials
 
-Ervaren problemen
-Veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app.
+Ervaren problemen:\
+
+Redelijk veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app. Ook met de hulp van mijn teamgenoten het 1 en ander kunnen oplossen.
 
 ####Uitwerking van de Opdracht:#####
 
