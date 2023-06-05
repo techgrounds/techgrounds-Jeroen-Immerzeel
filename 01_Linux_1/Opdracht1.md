@@ -52,7 +52,7 @@ Bij het werken binnen een repository  heb je een Master repository welke alle go
 Het onderverdelen van een repository in een Master en branches wordt gedaan om zo de master versie van het project en de versie waaraan je werkt niet door elkaar te halen en daarmee aanpassingen te maken aan de inhoud zonder problemen te veroorzaken in de master code/files.
 Een branch aanmaken kan binnen de app via Current Branch -> New Branch waarbij je bij het benamen van de nieuwe branch een waarschuwing krijgt mocht je een al gebruikte branch naam willen gebruiken.
 
-new_branch2_warning.png
+(../00_includes/new_branch2_warning.png) 
  
 In deze is de naam “main” al gebruikt en dus wordt er een waarschuwing gegeven.
 
