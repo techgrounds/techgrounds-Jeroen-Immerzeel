@@ -3,29 +3,27 @@ GIT-01: Git en GitHub:
 
 Algemene beschrijving van de opdracht:
 
-Het leren van wat Git en GitHub zijn, en hoe deze werken. 
-Alle doorlopen delen van de opdrachten worden afgevinkt met een “✓”.
-Aanpassing puur voor het testen
+Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
+Key-terms:<br>
 
-Key-terms:
-
-Github
-GitHub desktop app
-Repositories
-Main / master
-Branch
-Merge 
-Fork
-Push/pull/clone
+Github<br>
+GitHub desktop app<br>
+Repositories<br>
+Main / master<br>
+Branch<br>
+Merge <br>
+Fork<br>
+Push/pull/clone<br>
 
 
 
-Opdracht
-Gebruikte bronnen
+
+Gebruikte bronnen:
 GitHub Tutorials
+Stack Overflow website
 
-Ervaren problemen:\
+Ervaren problemen:
 
 Redelijk veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app. Ook met de hulp van mijn teamgenoten het 1 en ander kunnen oplossen.
 
@@ -92,10 +90,12 @@ Pull/clone repository:
 Om een repository van een ander te klonen of te pullen naar je lokale machine is het nodig om naar de github pagina van de ander te gaan en daar via de <> Code -tab de gewilde repository te selecteren en vervolgens via de <> code -knop de Clone opties te openen en daarbij te kiezen voor optie die je wilt waarbij de optie “Open with Github Desktop” de meest simpele optie is.
 
 ![Screenshot van het klonen van een repository](../00_includes/repo_cloning_site.png)
+
 Het schermdeel voor het klonen van een repository binnen de website.
  
 
 ![Screenshot van het binnenhalen van een kloon in de app](../00_includes/repo_cloning_app.png)
+
 Het schermdeel van de app.
 
 Als je kiest voor “Open with Github Desktop” zal de desktop app openen en kan je de URL ingeven (wat standaard al gedaan is) en de opslag locatie onder “Local path” aan te geven.
