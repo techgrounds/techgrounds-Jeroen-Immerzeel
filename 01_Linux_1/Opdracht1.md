@@ -5,7 +5,7 @@ Algemene beschrijving van de opdracht:
 
 Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
-<bold>Key-terms:</bold><br>
+<em>Key-terms:</em><br>
 
 Github<br>
 GitHub desktop app<br>
@@ -22,6 +22,8 @@ Push/pull/clone<br>
 Gebruikte bronnen:
 GitHub Tutorials
 Stack Overflow website
+<br>
+<br>
 
 Ervaren problemen:
 
