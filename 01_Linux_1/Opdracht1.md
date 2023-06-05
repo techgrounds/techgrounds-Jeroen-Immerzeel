@@ -5,7 +5,7 @@ Algemene beschrijving van de opdracht:
 
 Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
-<em>Key-terms:</em><br>
+<bold>Key-terms:</bold><br>
 
 Github<br>
 GitHub desktop app<br>
