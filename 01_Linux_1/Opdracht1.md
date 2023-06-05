@@ -41,7 +41,7 @@ Bij het aanmaken van een repository moet je een naam opgeven, een omschrijving v
 
 Voor de opleiding heb ik een repository met de naam “Techgrounds-Cloud-11” aangemaakt met als description “Voor de Cloud opleiding”. Daarbij heb ik ook een README file aangemaakt waarbinnen ik heb vermeld dat deze repository bedoeld is voor de Cloud opleiding.
 
-new_repo.png
+![Screenshot van het aannmaken van een nieuwe repository](../00_includes/new_repo.png)
  
 
 Het pushen van een repository:
