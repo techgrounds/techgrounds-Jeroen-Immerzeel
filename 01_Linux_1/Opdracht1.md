@@ -9,25 +9,25 @@ Aanpassing puur voor het testen
 
 
 Key-terms
-Github
-GitHub desktop app
-Repositories
-Main / master
-Branch
-Merge 
-Fork
-Push/pull/clone
+#Github
+#GitHub desktop app
+#Repositories
+#Main / master
+#Branch
+#Merge 
+#Fork
+#Push/pull/clone
 
 
 
 Opdracht
 Gebruikte bronnen
-GitHub
+GitHub Tutorials
 
 Ervaren problemen
 Veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app.
 
-Uitwerking van de Opdracht:
+####Uitwerking van de Opdracht:#####
 
 Aanmaken Repository:
 
