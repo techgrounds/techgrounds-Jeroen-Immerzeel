@@ -5,7 +5,7 @@ Algemene beschrijving van de opdracht:
 
 Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
-Key-terms:<br>
+<em>Key-terms:</em><br>
 
 Github<br>
 GitHub desktop app<br>
@@ -79,7 +79,7 @@ Een andere, veiligere manier, is door collega's oftwel "collaborators" toegang t
 
 
 
-![Screenshot van het public maken van een repository op de minder veilige manier](../00_includes/change_visibility_dangerzone.png)
+![Screenshot van het public maken van een repository op de minder veilige manier](../00_includes/change_visibility_dangerzone.png)<br>
 De minder veilige manier om een repository te delen.
 
 ![Screenshot van het toegang geven tot je repository aan collaborators](../00_includes/acces_collab.png)
