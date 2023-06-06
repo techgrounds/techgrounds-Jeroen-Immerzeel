@@ -36,7 +36,7 @@ De GitHub versie van Markdown wordt sinds 2009 gebruikt en kent extra features z
 Sinds 2017 is er een officiële specificatie van markdown voor GitHub onder de naam "GitHub Flavoured markdown".  
 
 # Wat betekenen de afkortingen WYSIWYG en WYSIWYM?
-De afkortingen WYSIWYG en WYSIWYM staan voor *What *You *See *Is *What *You *Get en *What *You *See *Is *What *You *Mean. 
+De afkortingen WYSIWYG en WYSIWYM staan voor *What You See Is What You Get* en *What You See Is What You Mean*. 
 - WYSIWYG is het systeem waarbij een texteditor de volledige opmaak direct laat zien. Een voorbeeld hiervan is de manier waarop Microsoft Word de opmaak van een word-file renderd.
 - WYSIWYM is het systeem waarbij tekst door markeringen van betekenis wordt voorzien. Voorbeelden hiervan zijn markdown en HTML. Hierbij is het ook mogelijk om met style sheets de tekst van opmaak te voorzien. 
 
@@ -52,9 +52,9 @@ Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de te
 Codeblocks worden toegevoegd door "Fenced Code Blocks" te creëren door een code block te met 3 backticks of tildes (\` of ~).
 Dus bijvoorbeeld:
 
-\`\`\`
+\~\~\~
 some code
-\`\`\`   
+\~\~\~   
 
 Wordt:
 ~~~  
