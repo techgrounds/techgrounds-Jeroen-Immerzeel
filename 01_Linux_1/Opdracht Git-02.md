@@ -45,6 +45,11 @@ Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de te
 ## Codeblocks:
 Codeblocks worden toegevoegd door "Fenced Code Blocks" te creëren door een code block te met 3 backticks of tildes (\` of ~).
 Dus bijvoorbeeld:
+~x3~
+some code
+~x3~
+
+Wordt:
 ~~~
 some code
 ~~~
