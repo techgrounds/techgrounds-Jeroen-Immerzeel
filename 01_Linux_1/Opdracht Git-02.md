@@ -16,7 +16,7 @@ De markdownguide.org website.
 Mijn al reeds bestaande kennis van HTML.
 
 
-### Ervaren problemen
+# Ervaren problemen
 Ik kwam weinig echte problemen tegen. De gebruikte website (https://markdownguide.org/) had alle informatie voor de opdracht. Al was het formateren soms wat lastig doordat het breken van de code bij de voorbeelden soms niet makkelijk ging; wat de kracht van een markdown language goed laat zien.
 
 ### Resultaat
@@ -46,9 +46,9 @@ Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de te
 Codeblocks worden toegevoegd door "Fenced Code Blocks" te creëren door een code block te met 3 backticks of tildes (\` of ~).
 Dus bijvoorbeeld:
 
-``` ``
+\`\`\`
 some code
-``` ``  
+\`\`\`   
 
 Wordt:
 ~~~  
