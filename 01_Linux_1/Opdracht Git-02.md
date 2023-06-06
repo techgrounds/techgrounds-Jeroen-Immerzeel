@@ -17,7 +17,7 @@ Mijn al reeds bestaande kennis van HTML.
 
 
 ### Ervaren problemen
-Weinig. De gebruikte website had alle informatie voor de opdracht. Al was het formateren soms wat lastig doordat het breken van de code bij de voorbeelden soms niet makkelijk ging; wat de kracht van een markdown language goed laat zien.
+Ik kwam weinig echte problemen tegen. De gebruikte website (https://markdownguide.org/) had alle informatie voor de opdracht. Al was het formateren soms wat lastig doordat het breken van de code bij de voorbeelden soms niet makkelijk ging; wat de kracht van een markdown language goed laat zien.
 
 ### Resultaat
 De opdracht vraagt om 7 termen te bestuderen en te omschrijven:
@@ -45,16 +45,16 @@ Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de te
 ## Codeblocks:
 Codeblocks worden toegevoegd door "Fenced Code Blocks" te creëren door een code block te met 3 backticks of tildes (\` of ~).
 Dus bijvoorbeeld:
-`` ```
+`` ```  
 some code
-``` ``
+``` ``  
 
 Wordt:
-~~~
+~~~  
 some code
-~~~
+~~~  
 
-## bold tekst
+## Bold tekst
 Voor bold tekst worden er 2 \*\* voor en na de tekst geplaatst.
 Dus \*\* dit is bold tekst\*\* wordt gerenderd als **dit is bold tekst**.
 
