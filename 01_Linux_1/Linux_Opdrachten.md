@@ -51,6 +51,7 @@ Deze geeft als output: **/home/jeroen_**
 ### Make a listing of all files and directories in your home directory.
 Voor de tweede deelopdracht wordt het **ls** commando gebruikt. Deze geeft als output niets; er zijn geen niet-verborgen bestanden. Met **ls -a** wordt de output:
 **. .. .bash_history .bash_logout .bashrc .cache .profile .ssh**
+Binnen de output zijn witte namen files, blauwe namen directories en met een . of .. wordt een bestand of directory verborgen. 
 
 ![ls -a output](/00_includes/ls_a.png)
 
@@ -68,7 +69,7 @@ Deze kent een aantal argumenten die handig zijn:
 -v      Verbose; geeft een melding weer over wat het commando heeft gedaan.
 
 
-![De output van mkdir]
+![De output van mkdir](/00_includes/mkdir.png)
 
 
 ### "Within the techgrounds directory, create a file containing some text."
@@ -77,7 +78,7 @@ Deze heeft als standard output de tekst die je zelf opgeeft. Door deze output me
 In deze is het eerst nodig met met **cd techgrounds** naar de techgrounds folder te gaan en daarna dit commando te gebruiken:  
 **echo 'By redirecting an echo to a new file you can simply create a new file with the contents you want. This is only one way out of many to do this' > /techgrounds/textfile2**
 
-![De output van Echo](/00_includes/)
+![De output van Echo](/00_includes/echo.png)
 
 ### Move around your directory tree using both absolute and relative paths.
 Voor de vijfde deelopdracht wordt het **cd** commando gebruikt.
@@ -105,7 +106,7 @@ Om een output naar een file weg te schrijven waarbij de originele inhoud blijft 
 Dus voor deze deelopdracht is het commando:
 **echo textfile2 >> Leren via techgrounds is erg leuk.**
 
-![echo commando]
+![echo commando](/00_includes/echo_redirect.png)
 
 ### Use a command to write the contents of your text file to the terminal. Make use of a command to filter the output so that only the sentence containing ‘techgrounds’ appears.
 
@@ -115,7 +116,7 @@ Daarom is het te gebruiken commando in deze:
 **cat textfile2 | grep "techgrounds"**
 
 
-![De output van Cat en Grep ]
+![De output van Cat en Grep](/00_includes/grep_redirect.png)
 ### "Read your text file with the command used in the second step, once again filtering for the word ‘techgrounds’. This time, redirect the output to a new file called ‘techgrounds.txt’."
 Voor de derde deelopdracht moet er weer gewerkt worden met een redirection via > en een nieuwe file, maar dan ná het filteren met **grep**.
 Hiermee is het te gebruiken commando:
