@@ -113,12 +113,12 @@ Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer 
 Hiervoor kan je 2 manieren gebruiken:
 Bij de eerste optie deel je de gehele repository met collaborators.Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
 
-![Screenshot van de settings tab binnen een repository](../00_includes/access_collab.png)
+![Screenshot van de settings tab binnen een repository](../00_includes/acces_collab.png)
 settings tab
 
 Binnen de settingstab onder het kopje "access" selecteer "collaborators and teams", en klik daarna op de groene "add people"-knop. Gebruik vervolgens de zoekbalk en de selecteer de persoon die je toegang wilt geven tot je repository.
 
-![De add people knop](../00_includes/manage_access.png)
+![De add people knop](../00_includes/manage_access.png)  
 De add people knop.
 
 Voor de rechten van collaborators kan je, net zoals bij access control lists, kiezen voor meerdere niveau's:
@@ -139,5 +139,6 @@ permalink
 
 <h2>Feedback geven aan een teamgenoot:</h2>
 
-Hierbij moet je toegevoegd worden aan de access control list voor de repository in kwestie. Als je dan naar de repository gaat van de ander kan je de files in deze repository bekijken en, liggende aan de rechten die je hebt, eventueel aanpassen en beheren.
+Hierbij moet je toegevoegd worden aan de access control list voor de repository in kwestie. Als je dan naar de repository gaat van de ander kan je de files in deze repository bekijken en, liggende aan de rechten die je hebt, eventueel aanpassen en beheren. 
+Ook hier is het mogelijk om te werken met een door de eigenaar aangemaakte permalink naar de file waarop men feedback wilt.
 
