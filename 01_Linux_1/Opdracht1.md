@@ -1,11 +1,11 @@
-Opdracht 1:\
+Opdracht 1:
 GIT-01: Git en GitHub:
 
 Algemene beschrijving van de opdracht:
 
 Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
-<em>Key-terms:</em><br>
+<h2>**Key-terms:**<br></h2>
 
 Github<br>
 GitHub desktop app<br>
@@ -19,19 +19,19 @@ Push/pull/clone<br>
 
 
 
-Gebruikte bronnen:
+<h2>**Gebruikte bronnen:**</h2>
 GitHub Tutorials
 Stack Overflow website
 <br>
 <br>
 
-Ervaren problemen:
+<h2>**Ervaren problemen:**</h2>
 
 Redelijk veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app. Ook met de hulp van mijn teamgenoten het 1 en ander kunnen oplossen.
 
-####Uitwerking van de Opdracht:#####
+<h1>**Uitwerking van de Opdracht:**</h1>
 
-Aanmaken Repository:
+<h2>**Aanmaken Repository:**</h2>
 
 Om te werken binnen Git is het nodig om een repository aan te maken.
 
@@ -46,10 +46,10 @@ Voor de opleiding heb ik een repository met de naam “Techgrounds-Cloud-11” a
 ![Screenshot van het aannmaken van een nieuwe repository](../00_includes/new_repo.png)
  
 
-Het pushen van een repository:
+<h2>**Het pushen van een repository:**</h2>
 Het is mogelijk om een repository (al dan niet aangepast) te pushen naar Git via de shortcut ctrl-p of via repository -> push. Dit zorgt ervoor dat een repository of de aanpassingen binnen een repository worden opgeslagen in Git.
 
-Main / Master en Branches:
+<h2>**Main / Master en Branches:**</h2>
 Bij het werken binnen een repository  heb je een Master repository welke alle goedgekeurde files bevat en kan je branches aanmaken. 
 Het onderverdelen van een repository in een Master en branches wordt gedaan om zo de master versie van het project en de versie waaraan je werkt niet door elkaar te halen en daarmee aanpassingen te maken aan de inhoud zonder problemen te veroorzaken in de master code/files.
 Een branch aanmaken kan binnen de app via Current Branch -> New Branch waarbij je bij het benamen van de nieuwe branch een waarschuwing krijgt mocht je een al gebruikte branch naam willen gebruiken.
@@ -58,7 +58,7 @@ Een branch aanmaken kan binnen de app via Current Branch -> New Branch waarbij j
  
 In deze is de naam “main” al gebruikt en dus wordt er een waarschuwing gegeven.
 
-Aanpassen en commit van een file:
+<h2>**Aanpassen en commit van een file:**</h2>
 Een file aanpassen doe je door deze te openen in Git zelf (online of in de app) of op je local machine en dan binnen de editor (die je zelf kiest in de opties van de app) de aanpassingen te maken. Dit kan je het snelste doen via de shortcut ctrl + shift + A De editor is in mijn geval Visual Studio Code.
 
 
@@ -73,7 +73,7 @@ Door op dit potlood-icoontje te klikken kan je de geselecteerde file aanpassen; 
  
 ![Screenshot van het edit-icoontje](../00_includes/edit_icon.png)
 
-Delen van een eigen repository en permissies geven aan derden:
+<h2>**Delen van een eigen repository en permissies geven aan derden:**</2>
 
 Het delen van een repository kan op meerdere manieren. 
 Zo is het mogelijk om een repository publiekelijk toegankelijk te maken door in de settings onder "Danger Zone" de visibility aan te passen en deze op "public" te zetten. Dit is echter niet de beste manier gezien iedereen de gehele repository kan zien.
@@ -88,7 +88,7 @@ De minder veilige manier om een repository te delen.
 Toegang voor collaborators
 
 
-Pull/clone repository:
+<h2>**Pull/clone repository:**</h2>
 Om een repository van een ander te klonen of te pullen naar je lokale machine is het nodig om naar de github pagina van de ander te gaan en daar via de <> Code -tab de gewilde repository te selecteren en vervolgens via de <> code -knop de Clone opties te openen en daarbij te kiezen voor optie die je wilt waarbij de optie “Open with Github Desktop” de meest simpele optie is.
 
 ![Screenshot van het klonen van een repository](../00_includes/repo_cloning_site.png)
@@ -107,7 +107,7 @@ Nadat je een repository hebt gekloond naar de app kan je deze bekijken door onde
 
 Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer je binnen je eigen repository zou werken.
 
-Feedback krijgen van een teamgenoot:
+<h2>**Feedback krijgen van een teamgenoot:**</h2>
 Dit gaat via de Issues tab
 
 Feedback geven:
