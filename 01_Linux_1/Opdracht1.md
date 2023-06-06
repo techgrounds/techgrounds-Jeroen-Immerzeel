@@ -19,7 +19,7 @@ Main / master:
 Branch:
 - Een aftakking van de main of master repository, meestal gebruikt om updates in op te slaan alvorens deze te testen.
 Merge:
-- 
+
 Fork:
 - Een afsplitsing van een main of master versie bedoeld voor derden die gebruik willen maken van de broncode in de master versie. 
 Push/pull/clone
@@ -89,7 +89,7 @@ Door op dit potlood-icoontje te klikken kan je de geselecteerde file aanpassen; 
  
 ![Screenshot van het edit-icoontje](../00_includes/edit_icon.png)
 
-<h2>**Delen van een eigen repository en permissies geven aan derden:**</2>
+<h2>**Delen van een eigen repository en permissies geven aan derden:**</h 2>
 
 Het delen van een repository kan op meerdere manieren. 
 Zo is het mogelijk om een repository publiekelijk toegankelijk te maken door in de settings onder "Danger Zone" de visibility aan te passen en deze op "public" te zetten. Dit is echter niet de beste manier gezien iedereen de gehele repository kan zien.
@@ -126,34 +126,36 @@ Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer 
 <h2>**Feedback krijgen van een teamgenoot:**</h2>
 
 Hiervoor kan je 2 manieren gebruiken:
-Bij de eerste optie deel je de gehele repository met collaborators.Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
+Bij de eerste optie deel je de gehele repository met collaborators. Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
 
 ![Screenshot van de settings tab binnen een repository](../00_includes/acces_collab.png)
-settings tab
+De settings tab
 
 Binnen de settingstab onder het kopje "access" selecteer "collaborators and teams", en klik daarna op de groene "add people"-knop. Gebruik vervolgens de zoekbalk en de selecteer de persoon die je toegang wilt geven tot je repository.
 
 ![De add people knop](../00_includes/manage_access.png)  
 De add people knop.
 
-Voor de rechten van collaborators kan je, net zoals bij access control lists, kiezen voor meerdere niveau's:
-Read:       Lezen en klonen van de repository plus open en reageren op   issues en pull requests. 
-Triage:     Lezen en klonen van de repository en het managen van issues en pull requests
-Write:      Lezen, klonen en pushen naar de repository en het managen van issues en pull requests.
-Maintain:   Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en een aantal repository settings. 
+Voor de rechten van collaborators kan je, net zoals bij access control lists, kiezen voor meerdere niveau's:<br>
+Read:       Lezen en klonen van de repository plus open en reageren op   issues en pull requests.<br> 
+Triage:     Lezen en klonen van de repository en het managen van issues en pull requests.<br>
+Write:      Lezen, klonen en pushen naar de repository en het managen van issues en pull requests.<br>
+Maintain:   Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en een aantal repository settings.<br> 
 Admin:      Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en alle repository settings inclusief het toevoegen van collaborators.
 
 
 De tweede optie is het delen van een link naar de specifieke file in je repository.
 Hiervoor ga je naar de file in kwestie en klik je op de "..." -knop en kies ervoor om een permalink aan te maken.
+
 ![De ...-knop.](../00_includes/dropdown_file_access.png)
-"..."-knop
-![Het aanmaken van een permalink](../00_includes/dropdown_file_permalink_.png)
+"..."-knop  
+
+![Het aanmaken van een permalink](../00_includes/dropdown_file_permalink_.png)  
 permalink
 
 
 <h2>Feedback geven aan een teamgenoot:</h2>
 
 Hierbij moet je toegevoegd worden aan de access control list voor de repository in kwestie. Als je dan naar de repository gaat van de ander kan je de files in deze repository bekijken en, liggende aan de rechten die je hebt, eventueel aanpassen en beheren. 
-Ook hier is het mogelijk om te werken met een door de eigenaar aangemaakte permalink naar de file waarop men feedback wilt.
+Ook hier is het mogelijk om te werken met een door de eigenaar aangemaakte permalink naar de specifieke file waarop men feedback wilt.
 
