@@ -7,28 +7,43 @@ Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
 <h2>Key-terms:<br></h2>
 
-Github<br>
-GitHub desktop app<br>
-Repositories<br>
-Main / master<br>
-Branch<br>
-Merge <br>
-Fork<br>
-Push/pull/clone<br>
+Github:
+- De website van Microsoft om Git repositories in te beheren.
+GitHub desktop app:
+- De app van GitHub waarmee men makkelijk lokaal kan werken en aangepaste files direct kan uploaden naar GitHub.
+Repositories:
+- Gecentraliseerde opslag plaatsen voor files binnen Git.
+
+Main / master:
+- De centrale versie van een repository; meestal bevat deze de "live" versie van een programma c.q. de goedgekeurde bestanden. 
+Branch:
+- Een aftakking van de main of master repository, meestal gebruikt om updates in op te slaan alvorens deze te testen.
+Merge:
+- 
+Fork:
+- Een afsplitsing van een main of master versie bedoeld voor derden die gebruik willen maken van de broncode in de master versie. 
+Push/pull/clone
+- Pull is het binnenhalen/downloaden van een repository
+- Push is het uploaden van een geüpdate versie van een of meerdere bestanden.
+- Clone is het klonen van een repository voor eigen gebruik, al dan niet om lokaal te werken met de repository.
 
 
 
 
 <h2>**Gebruikte bronnen:**</h2>
-GitHub Tutorials<br>
+GitHub Tutorials website<br>
 Stack Overflow website<br>
-Mijn mede studenten<br>
+Mijn mede-studenten<br>
+Markdownguide.org website.<br>
+
 <br>
 <br>
 
 <h2>**Ervaren problemen:**</h2>
 
-Redelijk veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app. Ook met de hulp van mijn teamgenoten het 1 en ander kunnen oplossen.
+Redelijk veel, maar niets wat niet duidelijk werd na wat gezoek binnen GitHub en/of de destop app. Ook met de hulp van mijn teamgenoten en Google-searches het 1 en ander kunnen oplossen.
+<br>
+<br>
 
 <h1>**Uitwerking van de Opdracht:**</h1>
 
