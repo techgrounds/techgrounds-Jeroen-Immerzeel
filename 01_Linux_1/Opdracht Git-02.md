@@ -66,12 +66,13 @@ Voor bold tekst worden er 2 \*\* voor en na de tekst geplaatst.
 Dus \*\* dit is bold tekst\*\* wordt gerenderd als **dit is bold tekst**.
 
 ## Het toevoegen van urls:
-Op een snelle manier een url toevoegen gebeurt door de url tussen punt haakjes oftewel \<\> te plaatsen.
+Op een snelle manier een url toevoegen gebeurt door de url tussen punt haakjes oftewel < > te plaatsen.
 
 <br>
 Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeert tussen blokhaakjes, oftewel [ ] te plaatsen en de url zelf tussen haakjes ( ).
- Als voorbeeld:
-\[deze link gaat naar google.com\]\(url naar google) wordt gerenderd als [deze link gaat naar google.com](https://google.com/)
+
+Als voorbeeld:
+[deze link gaat naar google.com](url naar google) wordt gerenderd als [deze link gaat naar google.com](https://google.com/)
 
 # Extraas:
 ## Het toevoegen van schuine tekst:
