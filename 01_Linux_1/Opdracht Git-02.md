@@ -45,8 +45,9 @@ Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de te
 ## Codeblocks:
 Codeblocks worden toegevoegd door "Fenced Code Blocks" te creëren door een code block te met 3 backticks of tildes (\` of ~).
 Dus bijvoorbeeld:
-`` ```  
-some code
+
+`` ``` <br>  
+some code<br>
 ``` ``  
 
 Wordt:
@@ -65,8 +66,12 @@ Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeerd
 
 # Extraas:
 ## Het toevoegen van schuine tekst:
-Voor schuinne teskt wordt een enkele \* voor en na een tekst gebruikt.
+Voor schuine tekst wordt een enkele \* voor en na een tekst gebruikt.
 \*deze tekst wordt schuin gerenderd\* zal dus gerenderd worden als *deze teskt wordt schuin gerenderd*.
 
+## Het "escapen" van tekens.
+Doordat sommige tekens worden gebruikt als onderdeel van de codeertaal en dusdanig een bepaaldse betekenis kennen is het soms nodig om deze betekenis via "escaping" te voorkomen. In markdown wordt hier de \\ voor gebruikt.
+
 ## Het toevoegen van images:
-Een image kan worden toegevoegd door een ! en een link naar het 
+Een image kan worden toegevoegd door een ! en een alt-tekst en link naar het bestand op te geven. Deze link staat bij GitHub in de lokale "includes" directory.
+De syntax is hier \!\[Een alt tekst voor de afbeeldin\]\(url/link naar de afbeelding\)
