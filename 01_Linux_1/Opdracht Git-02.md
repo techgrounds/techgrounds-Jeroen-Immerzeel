@@ -17,7 +17,7 @@ Mijn al reeds bestaande kennis van HTML.
 
 
 ### Ervaren problemen
-Weinig. De gebruikte website had alle informatie voor de opdracht.
+Weinig. De gebruikte website had alle informatie voor de opdracht. Al was het formateren soms wat lastig doordat het breken van de code bij de voorbeelden soms niet makkelijk ging; wat de kracht van een markdown language goed laat zien.
 
 ### Resultaat
 De opdracht vraagt om 7 termen te bestuderen en te omschrijven:
@@ -43,18 +43,25 @@ Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de te
 
 ## Codeblocks:
 Codeblocks worden toegevoegd door de code 8 spaces of 2 tabs te indenten.
-Dit is wat lastig om te laten zien(zelf toch proberen)
+<html>
+    <p>voorbeeld van html</p>
+</html>
+
+Wordt met 2 tabs:
+        <html>
+            </p>voorbeeld van html</p>
+        </html>
 
 ## bold tekst
 Voor bold tekst worden er 2 \*\* voor en na de tekst geplaatst.
 Dus \*\* dit is bold tekst\*\* wordt gerenderd als **dit is bold tekst**.
 
 ## Het toevoegen van urls:
-Op een snelle manier een url toevoegen gebeurt door de url tussen punt haakjes te plaatsen.
-Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeerd tussen \[\] te plaatsen en de url zelf tussen \(\); dus bijvoorbeeld:
-\[deze link gaat naar google.com\]\(https://google.com/\) wordt gerenderd als [deze link gaat naar google.com](https://google.com/)
+Op een snelle manier een url toevoegen gebeurt door de url tussen punt haakjes te plaatsen.  
+Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeerd tussen \[\] te plaatsen en de url zelf tussen \( \); dus bijvoorbeeld:
+\[deze link gaat naar google.com\]\(url naar google) wordt gerenderd als [deze link gaat naar google.com](https://google.com/)
 
-Extraas:
+# Extraas:
 ## Het toevoegen van schuine tekst:
 Voor schuinne teskt wordt een enkele \* voor en na een tekst gebruikt.
 \*deze tekst wordt schuin gerenderd\* zal dus gerenderd worden als *deze teskt wordt schuin gerenderd*.
