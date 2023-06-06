@@ -5,7 +5,7 @@ Algemene beschrijving van de opdracht:
 
 Het leren van wat Git en GitHub zijn, en hoe deze werken.
 
-<h2>**Key-terms:**<br></h2>
+<h2>Key-terms:<br></h2>
 
 Github<br>
 GitHub desktop app<br>
@@ -20,8 +20,9 @@ Push/pull/clone<br>
 
 
 <h2>**Gebruikte bronnen:**</h2>
-GitHub Tutorials
-Stack Overflow website
+GitHub Tutorials<br>
+Stack Overflow website<br>
+Mijn mede studenten<br>
 <br>
 <br>
 
@@ -108,7 +109,26 @@ Nadat je een repository hebt gekloond naar de app kan je deze bekijken door onde
 Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer je binnen je eigen repository zou werken.
 
 <h2>**Feedback krijgen van een teamgenoot:**</h2>
-Dit gaat via de Issues tab
 
-Feedback geven:
+Hiervoor kan je 2 manieren gebruiken:
+Bij de eerste deel je de gehele repository met collaboratis.Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
+
+![Screenshot van de settings tab binnen een repository](../00_includes/)
+settings tab
+
+Binnen de settingstab onder het kopje "access" selecteer "collaborators and teams", en klik daarna op de groene "add people"-knop. Gebruik vervolgens de zoekbalk en de selecteer de persoon die je toegang wilt geven tot je repository.
+
+![Het toevoegen van collaborators](../00_includes/)
+
+Voor de rechten van collaborators kan je, net zoals bij access control lists, kiezen voor meerdere niveau's:
+Read:       Lezen en klonen van de repository plus open en reageren op   issues en pull requests. 
+Triage:     Lezen en klonen van de repository en het managen van issues en pull requests
+Write:      Lezen, klonen en pushen naar de repository en het managen van issues en pull requests.
+Maintain:   Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en een aantal repository settings. 
+Admin:      Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en alle repository settings inclusief het toevoegen van collaborators.
+
+
+<h2>Feedback geven aan een teamgenoot:</h2>
+
+Hierbij moet je toegevoegd worden aan de access control list voor de repository in kwestie. Als je dan naar de repository gaat van de ander kan je de files in deze repository bekijken en, liggende aan de rechten die je hebt, eventueel aanpassen en beheren.
 
