@@ -38,19 +38,16 @@ En het aanmaken van dit document met daarin de volgende elementen:
 ## Headings:
 Headings zijn eigenlijk kopteksten met een groter lettertype dat ook "bold" is.
 Deze worden aangemaakt met of een x aantal #, of met de header tags van HTML.
-Met 1 \# maak je een level 1 header en met 6 \#\#\#\#\#\# een level 6 
+Met 1 \# maak je een level 1 header en met 6 \#\#\#\#\#\# een level 6 heading.
+
 Hierbij is het een best practice om een spatie te plaatsen tussen de \# en de tekst van de heading.
 
 ## Codeblocks:
-Codeblocks worden toegevoegd door de code 8 spaces of 2 tabs te indenten.
-<html>
-    <p>voorbeeld van html</p>
-</html>
-
-Wordt met 2 tabs:
-        <html>
-            </p>voorbeeld van html</p>
-        </html>
+Codeblocks worden toegevoegd door "Fenced Code Blocks" te creëren door een code block te met 3 backticks of tildes (\` of ~).
+Dus bijvoorbeeld:
+~~~
+some code
+~~~
 
 ## bold tekst
 Voor bold tekst worden er 2 \*\* voor en na de tekst geplaatst.
