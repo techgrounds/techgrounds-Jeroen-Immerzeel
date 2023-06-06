@@ -31,8 +31,14 @@ En het aanmaken van dit document met daarin de volgende elementen:
 - urls
 
 # Wat is markdown?
+Markdown is een markup language bedoeld voor het formatteren van tekst met een plain-texteditor.
+De GitHub versie van Markdown wordt sinds 2009 gebruikt en kent extra features zoals nesting block content en het automatisch linken naar GitHub features. 
+Sinds 2017 is er een officiële specificatie van markdown voor GitHub onder de naam "GitHub Flavoured markdown".  
 
 # Wat betekenen de afkortingen WYSIWYG en WYSIWYM?
+De afkortingen WYSIWYG en WYSIWYM staan voor *What *You *See *Is *What *You *Get en *What *You *See *Is *What *You *Mean. 
+- WYSIWYG is het systeem waarbij een texteditor de volledige opmaak direct laat zien. Een voorbeeld hiervan is de manier waarop Microsoft Word de opmaak van een word-file renderd.
+- WYSIWYM is het systeem waarbij tekst door markeringen van betekenis wordt voorzien. Voorbeelden hiervan zijn markdown en HTML. Hierbij is het ook mogelijk om met style sheets de tekst van opmaak te voorzien. 
 
 # Voorbeelden van de gevraagde elementen:
 ## Headings:
