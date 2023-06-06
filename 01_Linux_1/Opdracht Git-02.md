@@ -20,11 +20,11 @@ Mijn al reeds bestaande kennis van HTML.
 Ik kwam weinig echte problemen tegen. De gebruikte website (https://markdownguide.org/) had alle informatie voor de opdracht. Al was het formateren soms wat lastig doordat het breken van de code bij de voorbeelden soms niet makkelijk ging; wat de kracht van een markdown language goed laat zien.
 
 ### Resultaat
-De opdracht vraagt om 7 termen te bestuderen en te omschrijven:  
+De opdracht vraagt om 3 termen te bestuderen en te omschrijven:  
 Wat is Markdown?  
 Wat betekenen de afkortingen WYSIWYG en WYSIWYM?  
 
-En het aanmaken van dit document met daarin de volgende elementen:
+Daarnaast vraagt de opdracht om het aanmaken van dit document met daarin de volgende elementen:
 - Headers
 - Codeblocks
 - Bold tekst
@@ -66,9 +66,10 @@ Voor bold tekst worden er 2 \*\* voor en na de tekst geplaatst.
 Dus \*\* dit is bold tekst\*\* wordt gerenderd als **dit is bold tekst**.
 
 ## Het toevoegen van urls:
-Op een snelle manier een url toevoegen gebeurt door de url tussen punt haakjes te plaatsen; dus bijvoorbeeld \<https://google.com\> wordt <https://google.com>
+Op een snelle manier een url toevoegen gebeurt door de url tussen punt haakjes oftewel \<\> te plaatsen.
+
 <br>
-Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeert tussen \[\] te plaatsen en de url zelf tussen \( \); dus bijvoorbeeld:
+Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeert tussen blockhaakes, oftewel \[ \] te plaatsen en de url zelf tussen haakjes \( \); dus bijvoorbeeld:
 \[deze link gaat naar google.com\]\(url naar google) wordt gerenderd als [deze link gaat naar google.com](https://google.com/)
 
 # Extraas:
