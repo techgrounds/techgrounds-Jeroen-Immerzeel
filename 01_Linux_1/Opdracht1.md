@@ -111,14 +111,15 @@ Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer 
 <h2>**Feedback krijgen van een teamgenoot:**</h2>
 
 Hiervoor kan je 2 manieren gebruiken:
-Bij de eerste deel je de gehele repository met collaboratis.Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
+Bij de eerste optie deel je de gehele repository met collaborators.Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
 
-![Screenshot van de settings tab binnen een repository](../00_includes/)
+![Screenshot van de settings tab binnen een repository](../00_includes/access_collab.png)
 settings tab
 
 Binnen de settingstab onder het kopje "access" selecteer "collaborators and teams", en klik daarna op de groene "add people"-knop. Gebruik vervolgens de zoekbalk en de selecteer de persoon die je toegang wilt geven tot je repository.
 
-![Het toevoegen van collaborators](../00_includes/)
+![De add people knop](../00_includes/manage_access.png)
+De add people knop.
 
 Voor de rechten van collaborators kan je, net zoals bij access control lists, kiezen voor meerdere niveau's:
 Read:       Lezen en klonen van de repository plus open en reageren op   issues en pull requests. 
@@ -126,6 +127,14 @@ Triage:     Lezen en klonen van de repository en het managen van issues en pull 
 Write:      Lezen, klonen en pushen naar de repository en het managen van issues en pull requests.
 Maintain:   Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en een aantal repository settings. 
 Admin:      Lezen, klonen en pushen naar de repository en het managen van issues, pulls requests en alle repository settings inclusief het toevoegen van collaborators.
+
+
+De tweede optie is het delen van een link naar de specifieke file in je repository.
+Hiervoor ga je naar de file in kwestie en klik je op de "..." -knop en kies ervoor om een permalink aan te maken.
+![De ...-knop.](../00_includes/dropdown_file_access.png)
+"..."-knop
+![Het aanmaken van een permalink](../00_includes/dropdown_file_permalink_.png)
+permalink
 
 
 <h2>Feedback geven aan een teamgenoot:</h2>
