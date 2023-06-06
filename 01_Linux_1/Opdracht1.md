@@ -147,7 +147,7 @@ Admin:      Lezen, klonen en pushen naar de repository en het managen van issues
 De tweede optie is het delen van een link naar de specifieke file in je repository.
 Hiervoor ga je naar de file in kwestie en klik je op de "..." -knop en kies ervoor om een permalink aan te maken.
 
-![De ...-knop.](../00_includes/dropdown_file_access.png)
+![De ...-knop.](../00_includes/dropdown_file_access.png)  
 "..."-knop  
 
 ![Het aanmaken van een permalink](../00_includes/dropdown_file_permalink_.png)  
