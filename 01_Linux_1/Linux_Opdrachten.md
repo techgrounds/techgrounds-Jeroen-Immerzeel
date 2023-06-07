@@ -17,6 +17,8 @@ Dit zijn de eerste 4 Linux opdrachten samengevoegd.
 - adduser
 - useradd
 - passwd
+- passwd-file
+- shadow-file
 
 
 ## Gebruikte bronnen:
@@ -193,7 +195,7 @@ Dit is op eerste gezicht een heel simpele opdracht, maar kan wat moeilijker word
 Er zijn namelijk 2 commando's die user acccounts aanmaken, maar de 1 werkt anders dan de ander.   
 De 2 commando's zijn:
 - adduser
-- useradd
+- useradd  
 Daarnaast zijn er per distribution verschillen in de configuraties van deze commando's.
 
 Het **adduser** commando.  
@@ -218,11 +220,11 @@ Dus om de user "jake" aan te maken en deze een een home directory te geven, is h
 Om te controleren of **useradd** een home-directory heeft aangemaakt kan je **ls /home | grep [username]** gebruiken; geeft deze geen output dan is er geen home-directory voor de opgegeven user anders wordt de username de output. 
 
 
-![useradd geeft zonder -m geen /home-directory](/00_includes/useradd_m.png)
+![useradd geeft zonder -m geen /home-directory](/00_includes/useradd_m.png)  
 *Zonder het -m argument wordt er geen home-directory aangemaakt.*   
 
-<br>
-Met **cat /etc/passwd | grep "username"** kan je bekijken of een user bestaat.
+
+Met **cat /etc/passwd | grep [username]** kan je bekijken of een user bestaat.
 
 
 ![Grep /etc/passwd](/00_includes/grep_passwd.png)
@@ -230,10 +232,24 @@ Met **cat /etc/passwd | grep "username"** kan je bekijken of een user bestaat.
 
 ### *"2: The new user should be part of an admin group."*
 
+Elke user krijgt bij de creatie een eigen group.
+Op deze VM is de group "admin" al aangemaakt; was dat niet het geval kon deze worden aangemaakt met het **groupadd** commando. 
+Voor het toevoegen van een user aan een nieuwe group wordt het **usermod** commando gebruikt met het argument **-G**.   
+
+Wat ook belangrijk is dat er door het argument **-a** te gebruiken wordt het lidmaatschap van andere groups wordt behouden; wordt **-a** niet gebruikt wordt het lidmaatschap van alle andere groups verwijderd en daarmee ook alle rechten behorende tot deze groups.
+
+
+Dus om de user JBond toe te voegen aan de admin group en zijn lidmaatschap van zijn eigen group te behouden is het commando: **sudo usermod -aG JBond admin**
+
+![De groups waar JBond lid van was](/00_includes/JBond_group1.png)
+*De groups waar JBond lid van was*
+![De groups waar JBond lid van is na **usermod**](/00_includes/JBond_group2.png)
+*De groupd waar JBond lid van is na **usermod***
+
 ### *"3: The new user should have a password."*
 
 Je kan een password aanmaken of aanpassen met het passwd commando.
-Door simpelweg "sudo passwd [username]" te gebruiken kan je een password aanpassen.
+Door simpelweg **sudo passwd [username]** te gebruiken kan je een password aanpassen.
 Door gebruik te maken van argumenten kan je de regels van passwords aanpassen waaronder:
 - -d verwijder password
 - -e expire password en verplicht het aanmaken van een nieuw password bij login
@@ -246,8 +262,11 @@ Door gebruik te maken van argumenten kan je de regels van passwords aanpassen wa
 Accounts die sudo mogen gebruiken moeten in de sudoers-file staan, en logischerwijs mogen alleen die accounts die in de sudoers-file deze aanpassen.
 
 ![Het gebruik van sudo voor accounts die niet in de sudoers-file staan geeft een foutmelding](/00_includes/su_sudoers.png)
-*Oeps, gen toestemming*  
+*Oeps, geen toestemming*  
   
+  ![Als iemand wel in de sudoers-file staat mag deze wel sudo gebruiken](/00_includes/JBond_sudo.png)
+  *Nu wel toestemming*
+
 
 Om de sudoers-file aan te passen moet je **sudo** gebruiken en moet de **visudo** editor gebruikt worden. 
 Het toevoegen van een user aan de sudoers-file kent een redelijk simpele syntax: eerst de username, daarna de rechten.  
@@ -260,18 +279,17 @@ In deze zijn de rechten onderverdeeld in 2 delen: de rechten en het gebruik van 
 
 ### *"5: Locate the files that store users, passwords, and groups. See if you can find your newly created user’s data in there."*
 Deze opdracht is redelijk simpel.
-Er zijn 2 files die deze data opslaan:
+Er zijn 3 files die deze data opslaan en alle 3 staan in de /etc/ directory:
 - Het **passwd** -file. Deze bevat de userinformatie, maar niet de password informatie.
-- het **shadow** -file. Deze bevat wel de password informatie, maar dan in een hash én is beter beveiligd; toegang wordt alleen verleend aan de root en/of sudo-users.  
+- Het **shadow** -file. Deze bevat wel de password informatie, maar dan in een hash én is beter beveiligd; toegang wordt alleen verleend aan de root en/of sudo-users.  
+- Het **group** -file. Deze bevat alle groups en de leden van elke group. 
 
-
-In beide files wordt de informatie verdeeld in een .csv bestandstype met als velden in passwd:  
-username : password : userID : groupID : comment field : Home directory : default shell  
-
-
+In deze files wordt de informatie verdeeld in een .csv bestandstype.
 
 
 ![JBond in **passwd**](/00_includes/JBond_passwd.png)
 
 ![JBnd in **shadow**](/00_includes/JBond_shadow.png)
 *zonder sudo geen toegang tot het shadow-file*
+
+
