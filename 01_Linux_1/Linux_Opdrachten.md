@@ -7,6 +7,7 @@ Dit zijn de eerste 4 Linux opdrachten samengevoegd.
 - ssh
 - PKI
 - Whoami
+- pwd
 - cd
 - ls
 - echo
@@ -14,15 +15,20 @@ Dit zijn de eerste 4 Linux opdrachten samengevoegd.
 - grep
 - cat
 - adduser
+- useradd
+- passwd
 
 
 ## Gebruikte bronnen:
 
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html Voor de uitleg van het converteren van een .pem-file voor PuTTy
-- Het boek "LPIC-1 Study Guide Firth Edition" dat ik al gebruikt had voor mijn MBO opleiding. Deze was vooral handig voor de laatste 2 opdrachten, welke over topics gingen waar ik nog te weinig over wist. 
-- 
+- Het boek "LPIC-1 Study Guide Firth Edition" dat ik al gebruikt had voor mijn MBO opleiding.
+
 
 ## Welke problemen ben ik tegengekomen?
+Wat even wat moeite gaf was het gebruik van een PKI binnen PuTTY; de stappen om een .pem file naar een .pkk file om te zetten zijn soms wat vaag.  
+Een ander iet wat onhandig ding was de werking van adduser en useradd; ik wist dat 1 van de 2 heel barebones was, maar niet meer welke.  
+
 
 # Opdracht LNX-01 Setting up:
 Deze opdracht gaat over het inloggen op een VM/Container.  
@@ -38,7 +44,7 @@ Het inloggen op een remote machine kan op meerdere manieren waaronder:
 In mijn geval heb ik voor het **ssh**-commando gekozen gezien ik Windows 11 gebruik.<br>
 De syntax is voor alle SSH-clients is hetzelfde gezien het hier om een opensource programma gaat, namelijk **OpenSSH**
 
-Het gebruikte commando in zowel CMD.exe als PowerShell is:  
+Het gebruikte commando is:  
 **ssh -p 52202 -i "C:\Users\jimme\OneDrive\Bureaublad\Nest-je-Immerzeel.pem" jeroen_@3.121.130.219**
 
 ![ssh commando](/00_includes/cmd_commando_ssh.png)
@@ -165,7 +171,7 @@ Voor de derde deelopdracht moet er weer gewerkt worden met een redirection via >
 Hiermee is het te gebruiken commando:
 **cat textfile2 | grep "techgrounds" >> techgrounds.txt**
 
-![Het aanmaken van een bestand met grep filtering en redirection](/00_includes)
+![Het aanmaken van een bestand met grep filtering en redirection](/00_includes/grep_redirect.png)
 
 # Opdracht LNX-04
 
@@ -222,12 +228,50 @@ Met **cat /etc/passwd | grep "username"** kan je bekijken of een user bestaat.
 ![Grep /etc/passwd](/00_includes/grep_passwd.png)
 
 
-```
-Als een extra:
+### *"2: The new user should be part of an admin group."*
+
+### *"3: The new user should have a password."*
+
 Je kan een password aanmaken of aanpassen met het passwd commando.
 Door simpelweg "sudo passwd [username]" te gebruiken kan je een password aanpassen.
 Door gebruik te maken van argumenten kan je de regels van passwords aanpassen waaronder:
 - -d verwijder password
 - -e expire password en verplicht het aanmaken van een nieuw password bij login
 - -S laat de status van een password zien
-```
+
+![Het gebruikt van passwd](/00_includes/passwd.png)
+
+### *"4: The new user should be able to use ‘sudo’"*
+
+Accounts die sudo mogen gebruiken moeten in de sudoers-file staan, en logischerwijs mogen alleen die accounts die in de sudoers-file deze aanpassen.
+
+![Het gebruik van sudo voor accounts die niet in de sudoers-file staan geeft een foutmelding](/00_includes/su_sudoers.png)
+*Oeps, gen toestemming*  
+  
+
+Om de sudoers-file aan te passen moet je **sudo** gebruiken en moet de **visudo** editor gebruikt worden. 
+Het toevoegen van een user aan de sudoers-file kent een redelijk simpele syntax: eerst de username, daarna de rechten.  
+In deze zijn de rechten onderverdeeld in 2 delen: de rechten en het gebruik van een passwd. Als de rechten ALL=ALL zijn dan mag het account altijd sudo gebruiken; als de NOPASSWD=ALL wordt gebruikt wordt er nooit om een password gevraagd.
+
+
+
+![Het editen van de sudoers-file](/00_includes/sudoers_2.png)
+*Het toevoegen van JBond in de sudoers-file*
+
+### *"5: Locate the files that store users, passwords, and groups. See if you can find your newly created user’s data in there."*
+Deze opdracht is redelijk simpel.
+Er zijn 2 files die deze data opslaan:
+- Het **passwd** -file. Deze bevat de userinformatie, maar niet de password informatie.
+- het **shadow** -file. Deze bevat wel de password informatie, maar dan in een hash én is beter beveiligd; toegang wordt alleen verleend aan de root en/of sudo-users.  
+
+
+In beide files wordt de informatie verdeeld in een .csv bestandstype met als velden in passwd:  
+username : password : userID : groupID : comment field : Home directory : default shell  
+
+
+
+
+![JBond in **passwd**](/00_includes/JBond_passwd.png)
+
+![JBnd in **shadow**](/00_includes/JBond_shadow.png)
+*zonder sudo geen toegang tot het shadow-file*
