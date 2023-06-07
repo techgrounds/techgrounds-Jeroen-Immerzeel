@@ -1,6 +1,6 @@
 # Linux Opdrachten
 
-Dit zijn alle Linux opdrachten samengevoegd.
+Dit zijn de eerste 4 Linux opdrachten samengevoegd.
 
 ## Keyterms:
 - Linux
@@ -10,7 +10,11 @@ Dit zijn alle Linux opdrachten samengevoegd.
 - cd
 - ls
 - echo
-- 
+- Redirection
+- grep
+- cat
+- adduser
+
 
 ## Gebruikte bronnen:
 
@@ -21,7 +25,8 @@ Dit zijn alle Linux opdrachten samengevoegd.
 ## Welke problemen ben ik tegengekomen?
 
 # Opdracht LNX-01 Setting up:
-Opdracht 1 kent 2 onderdelen:
+Deze opdracht gaat over het inloggen op een VM/Container.  
+Binnen deze opdracht worden de volgende 2 deelopdrachten gevraagd:
 - Make an SSH-connection to your virtual machine. SSH requires the key file to have specific permissions, so you might need to change those.
 - When the connection is successful, type whoami in the terminal. This command should show your username.
 
@@ -59,8 +64,9 @@ Deze opdracht is zeer simpel en vraagt niets meer dan het **whoami**-commando in
 
 
 # Opdracht LNX-02 Files and directories
+Deze opdracht gaat over het beheren van files en directories.  
 
-Deze opdracht vraagt om de volgende 5 dingen:
+Binnen deze opdracht worden de volgende 5 deelopdrachten gevraagd:
 - Find out your current working directory.
 - Make a listing of all files and directories in your home directory.
 - Within your home directory, create a new directory named ‘techgrounds’.
@@ -130,6 +136,7 @@ Bij het gebruik van een relative path geef je de route aan via welke route je na
 
 # Opdracht LNX-03 
 Deze opdracht gaat over de standard input en output.  
+
 Binnen deze opdracht worden de volgende 3 deelopdrachten gevraagd:
 - Use the echo command and output redirection to write a new sentence into your text file using the command line. The new sentence should contain the word ‘techgrounds’.
 - Use a command to write the contents of your text file to the terminal. Make use of a command to filter the output so that only the sentence containing ‘techgrounds’ appears.
@@ -158,4 +165,69 @@ Voor de derde deelopdracht moet er weer gewerkt worden met een redirection via >
 Hiermee is het te gebruiken commando:
 **cat textfile2 | grep "techgrounds" >> techgrounds.txt**
 
+![Het aanmaken van een bestand met grep filtering en redirection](/00_includes)
 
+# Opdracht LNX-04
+
+Deze opdracht gaat over het aanmaken en beheren van user accounts.  
+
+Binnen deze opdracht worden de volgende 5 deelopdrachten gevraagd:
+- Create a new user in your VM. 
+- The new user should be part of an admin group.
+- The new user should have a password.
+- The new user should be able to use ‘sudo’
+- Locate the files that store users, passwords, and groups. See if you can find your newly created user’s data in there.
+
+
+
+### *"1: Create a new user in your VM"*
+
+
+Dit is op eerste gezicht een heel simpele opdracht, maar kan wat moeilijker worden mocht je het verkeerde commando gebruiken.
+Er zijn namelijk 2 commando's die user acccounts aanmaken, maar de 1 werkt anders dan de ander.   
+De 2 commando's zijn:
+- adduser
+- useradd
+Daarnaast zijn er per distribution verschillen in de configuraties van deze commando's.
+
+Het **adduser** commando.  
+Dit commando wordt vooral op Debian based distributions gebruikt, waar Ubuntu ook onder valt. Dit omdat na het opgeven van een username er gevraagd wordt om relevante informatie zoals een password, maar ook een volledige naam en andere informatie.   
+**adduser** maakt dus een compleet userprofile aan.
+
+
+![Voorbeeld van het toevoegen van een user via adduser](/00_includes/adduser.png)  
+*Het gebruik van adduser*
+
+Het **useradd** commando.  
+Dit commando maakt ook user accounts aan, maar dat is dan ook alles; dit tenzij je met argumenten gaat werken waarbij de volgende argumenten het meest belangrijk zijn:  
+-m -> maak een home directory aan  
+-d [HOME_DIRECTORY] -> maak een home directory aan op de opgegeven locatie.  
+-p [PASSWORD] -> maak het aangegeven password aan  
+-s [SHELL] -> laat de user standaard de opgegeven shell gebruiken  
+-D -> print de default configuratie voor useradd
+
+Dus om de user "jake" aan te maken en deze een een home directory te geven, is het commando dat je moet opgeven:  
+**useradd -m jake**  
+
+Om te controleren of **useradd** een home-directory heeft aangemaakt kan je **ls /home | grep [username]** gebruiken; geeft deze geen output dan is er geen home-directory voor de opgegeven user anders wordt de username de output. 
+
+
+![useradd geeft zonder -m geen /home-directory](/00_includes/useradd_m.png)
+*Zonder het -m argument wordt er geen home-directory aangemaakt.*   
+
+<br>
+Met **cat /etc/passwd | grep "username"** kan je bekijken of een user bestaat.
+
+
+![Grep /etc/passwd](/00_includes/grep_passwd.png)
+
+
+```
+Als een extra:
+Je kan een password aanmaken of aanpassen met het passwd commando.
+Door simpelweg "sudo passwd [username]" te gebruiken kan je een password aanpassen.
+Door gebruik te maken van argumenten kan je de regels van passwords aanpassen waaronder:
+- -d verwijder password
+- -e expire password en verplicht het aanmaken van een nieuw password bij login
+- -S laat de status van een password zien
+```
