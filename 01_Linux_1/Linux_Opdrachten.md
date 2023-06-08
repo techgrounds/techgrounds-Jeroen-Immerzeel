@@ -241,9 +241,9 @@ Wat ook belangrijk is dat er door het argument **-a** te gebruiken wordt het lid
 
 Dus om de user JBond toe te voegen aan de admin group en zijn lidmaatschap van zijn eigen group te behouden is het commando: **sudo usermod -aG JBond admin**
 
-![De groups waar JBond lid van was](/00_includes/JBond_group1.png)
+![De groups waar JBond lid van was](/00_includes/JBond_group1.png)  
 *De groups waar JBond lid van was*
-![De groups waar JBond lid van is na **usermod**](/00_includes/JBond_group2.png)
+![De groups waar JBond lid van is na **usermod**](/00_includes/JBond_group2.png)  
 *De groupd waar JBond lid van is na **usermod***
 
 ### *"3: The new user should have a password."*
