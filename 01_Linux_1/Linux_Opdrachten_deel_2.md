@@ -10,6 +10,9 @@
 - systemctl
 - apt suite
 
+## Bronnen
+https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number 
+
 # Opdracht LNX-05: File Permissions
 
 Deze opdracht gaat over het beheren van de rechten binnen Linux.
@@ -205,6 +208,9 @@ Binnen deze opdracht worden de volgende n deelopdrachten gevraagd:
 **Deel 2:**  
 - Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.
 
+**Deel 3:**
+- Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead.
+
 
 **Problemen die ik ben tegengekomen:**
 De naam van de httpd package bleek apache2 te zijn; dat gaf we wel even wat tijd om te realiseren.
@@ -220,23 +226,28 @@ Het volledige commando is:
 
 ### *"2: Add the scripts directory to the PATH variable."*
 
-Dit is iets complex dan opdracht 1, maar nog altijd redelijk simpel.  
+Dit is iets meer complex dan opdracht 1, maar nog altijd redelijk simpel.  
 
 Het PATH bestaat uit de locaties die Bash doorzoekt om commando's te zoeken voor het uitvoeren. Om een map of executable toe te voegen aan het PATH wordt dit basis commando gebruikt:  
 **export PATH=...:$PATH**  
+Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zetten. In deze is dat /home/jeroen_/scripts. Hierdoor is het gehele commando:  
+**export PATH=/home/jeroen_/scripts:$PATH** 
+  
 
 ![Het originele PATH variable](/00_includes/path1.png)
+*het originele PATH* 
 
-Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zetten. In deze is dat /home/jeroen_/scripts. Hierdoor is het gehele commando:  
-**export PATH=/home/jeroen_/scripts:$PATH**
+ 
+
 ![Het aangepaste PATH variable](/00_includes/path2.png)
 
 ### *"3: Create a script that appends a line of text to a text file whenever it is executed"*
 
-Hiervoor is het nodig om een bestand aan te maken met daarin een 2 onderdelen: een *shebang* en het script.
+Hiervoor is het nodig om een bestand aan te maken met daarin 2 onderdelen: een *shebang* en het script.
 
 Een **shebang** geeft aan dat de file een script is en met welke shell deze gelezen moet worden en bestaat uit een #! en het volledige pad naar de shell binairy. Dus in dit geval:  
 **#!/bin/bash**
+ 
 Na het aanmaken van een script is het nodig deze execute permissions te geven; dit gaat via   
  **chmod u+x** 
 ![Added execute permissions](/00_includes/script_own.png)
@@ -262,11 +273,15 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
 - Het starten van httpd; dit is het apache2 package
 - Het enabelen van de daemon
 
+**Het installeren van een package** 
+
  Voor de installatie van een package wordt in Ubuntu het **apt package** gebruikt. Je geeft hierbij het programma op dat je wilt installeren; in deze is dat apache2. Daarnaast moet je apt toestemming geven om iets te installeren; dit kan vooraf door het argument **-y** mee te geven.  
  Dit betekent dat het commando voor het installeren van het apache2 package dit moet zijn:  
    **apt install apache2 -y**
 
- Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando ***systemctl** gebruikt om services te bheren. Deze kent een aantal opties voor dit beheer:
+** Het starten en enablen van een service**  
+
+ Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando **systemctl** gebruikt om services te beheren. Deze kent een aantal opties voor dit beheer:
  - start -> start de service
  - stop -> stopt de service
  - pauze -> pauzeert de service
@@ -278,8 +293,60 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
  **systemctl start apache2**  
  **systemctl enable apache2** 
 
+Het gehele script is dan:  
+**#!/bin/bash  
+sudo apt install apache2 -y  
+sudo systemctl start apache2  
+sudo systemctl enable apache2**
+
 ![Het gehele script](/00_includes/script_installer.png)
 *Het gehele script*
+
+### *2:  Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.* 
+
+Deze opdracht kent meerdere onderdelen:
+- Het laten aanmaken van een random number
+- Het opslaan van dat nummer in een variable
+- Het toevoegen van dat nummer aan een tekstfile
+
+**Het aanmaken van een random number**
+Hiervoor is het nodig om wat te zoeken; de syntax is best lastig.
+De oplossing welke ik vond is het commando echo $\(\(RANDOM % 10 1\)\) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken **echo $\(\(RANDOM % 10 1\)\)
+
+
+![Het $RANDOM command]
+
+**Het opslaan van een output als variable**
+Om de output van een commando op te slaan als variable wordt dus simpelweg variable = waarde. En om de output van een variable te tonen op de commandline wordt het **echo** commando gebruikt en het variabele voorafgegaan met een **$**. In deze wordt het commando om de random numbers op te slaan als variabele:
+**random_num=$[RANDOM %10+1]**
+
+![Een random number opslaan als variabele]()
+
+En om deze te tonen is het **echo $random_num**
+
+
+
+
+**Het toevoegen van dat nummer aan een tekstfile**
+Deze is heel simpel: na het aanmaken van het eerdere script kan de output van deze worden doorgestuurd naar een andere file via de **>>** redirector. 
+Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo $random_num >> random_num.txt**
+
+![Random_num]
+
+
+### *3: Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead."*
+
+Deze opdracht kent een aantal deel opdrachten:
+
+- Het laten aanmaken van een random number tussen 1 en 10
+- Het opslaan van dat nummer in een variable
+Deze 2 stappen zijn hetzelfde als in deelopdracht 2. 
+Hierna komen er echter een aantal extra stappen:
+- Alleen als het nummer groter is dan 5 moet dit nummer aan de textfile worden toegevoegd.
+- Als het nummer kleiner is dan 5 moet er een tekstregel worden toegevoegd aan de textfile.
+
+
+
 
 # Opdracht naam
 Deze opdracht gaat over
