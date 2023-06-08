@@ -4,6 +4,11 @@
 ## Key-terms:
 - Permissions
 - File beheer
+- Bash scripting
+- PATH enviroment variable
+- shebang
+- systemctl
+- apt suite
 
 # Opdracht LNX-05: File Permissions
 
@@ -138,10 +143,12 @@ In deze moet het gehele commando 1 van deze 2 commando's zijn:
 **chmod 600 permissions.txt**  
 **chmod go-rwx permissions.txt**
 
-![Permissions verwijderen via octal mode](/00_includes/permissions_remove_octal.png)
+![Permissions verwijderen via octal mode](/00_includes/permissions_remove_octal.png)  
 *octal mode*  
 
-![Permissions verwijderen via symbolic mode](/00_includes/permissions_remove_symbolic.png)
+<br>
+
+![Permissions verwijderen via symbolic mode](/00_includes/permissions_remove_symbolic.png)  
 *symbolic mode*
 
 Na het verwijderen van de rechten voor de group en others kan de user deze nog altijd lezen; de read permission van de user er is immers nog altijd.
@@ -159,7 +166,7 @@ Dus om de user JBond de eigenaar te laten worden van de permissions.txt file is 
 
 ![Chown JBond permissions.txt](/00_includes/change_ownership_user.png)    
 *JBond is de nieuwe owner*
-
+<br>
 
 ![De user jeroen_ kan de file niet lezen](/00_includes/cat_permission_denied.png)    
 *Geen read permissions, dus "permission denied"*
@@ -176,15 +183,102 @@ Dus om de group "admin" de group te laten worden die eigenaar is van permissions
 
 ![De group was jeroen_](/00_includes/group_owner_jeroen.png)  
 *De group was jeroen_*
+
+
 ![De group na chgrp is admin](/00_includes/group_owner_admin.png)  
 *De group is nu admin* 
 
 
+# Opdracht LNX-06: Bash Scripting.
+
+Deze opdracht gaat over de basis van Bash Scripting.
+
+Binnen deze opdracht worden de volgende n deelopdrachten gevraagd:
+
+**Deel 1:**  
+- Create a directory called ‘scripts’. Place all the scripts you make in this directory.
+- Add the scripts directory to the PATH variable.
+- Create a script that appends a line of text to a text file whenever it is executed.
+- Create a script that installs the httpd package, activates httpd, and enables httpd
+- Finally, your script should print the status of httpd in the terminal.
+
+**Deel 2:**  
+- Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.
+
+
+**Problemen die ik ben tegengekomen:**
+De naam van de httpd package bleek apache2 te zijn; dat gaf we wel even wat tijd om te realiseren.
+Ook een fout maken met het PATH variable gaf mij wat problemen die ik met behulp van mijn boek kon oplossen. Hier bleek het gebruik van full paths de oplossing te zijn. 
+
+## Deel 1:
+
+### *"1: Create a directory called ‘scripts’. Place all the scripts you make in this directory."*
+
+Dit gaat simpel met **mkdir**.
+Het volledige commando is:  
+**mkdir scripts**
+
+### *"2: Add the scripts directory to the PATH variable."*
+
+Dit is iets complex dan opdracht 1, maar nog altijd redelijk simpel.  
+
+Het PATH bestaat uit de locaties die Bash doorzoekt om commando's te zoeken voor het uitvoeren. Om een map of executable toe te voegen aan het PATH wordt dit basis commando gebruikt:  
+**export PATH=...:$PATH**  
+
+Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zetten. In deze is dat /home/jeroen_/scripts. Hierdoor is het gehele commando:  
+**export PATH=/home/jeroen_/scripts:$PATH**
+
+
+### *"3: Create a script that appends a line of text to a text file whenever it is executed"*
+
+Hiervoor is het nodig om een bestand aan te maken met daarin een 2 onderdelen: een *shebang* en het script.
+
+Een **shebang** geeft aan dat de file een script is en met welke shell deze gelezen moet worden en bestaat uit een #! en het volledige pad naar de shell binairy. Dus in dit geval:  
+**#!/bin/bash**
+Na het aanmaken van een script is het nodig deze execute permissions te geven; dit gaat via   
+ **chmod u+x** 
+
+
+Het script voor deze deelopdracht redelijk simpel: deze bestaat uit een echo en een redirect naar een andere file via de >> operator. Het commando binnen het gehele script is dan:  
+**echo "This text is added to the opdracht7.sh script" 1> append.txt**
+
+![Het script]
+
+![De originele file]
+
+![De appended file]
+
+
+### *"4:Create a script that installs the httpd package, activates httpd, and enables httpd"**
+
+Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
+- Het installeren van een programma; in deze het httpd package
+- Het starten van httpd; dit is het apache2 package
+- Het enabelen van de daemon
+
+ Voor de installatie van een package wordt in Ubuntu het **apt package** gebruikt. Je geeft hierbij het programma op dat je wilt installeren; in deze is dat apache2. Daarnaast moet je apt toestemming geven om iets te installeren; dit kan vooraf door het argument **-y** mee te geven.  
+ Dit betekent dat het commando voor het installeren van het apache2 package dit moet zijn:  
+   **apt install apache2 -y**
+
+ Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando ***systemctl** gebruikt om services te bheren. Deze kent een aantal opties voor dit beheer:
+ - start -> start de service
+ - stop -> stopt de service
+ - pauze -> pauzeert de service
+ - restart -> herstart een service nadat deze gepazeerd was
+ - enable -> laat de service starten bij een systemboot
+ - disable -> laat de service niet (meer) started bij een systemboot
+
+ In deze moet de service gestart worden met **systemctl start** en enabled worden met **systemctl enable**; met in beide gevallen de service als laatste argument. De gehele commando's zijn dan:  
+ **systemctl start apache2**  
+ **systemctl enable apache2** 
+
+D
 
 # Opdracht naam
-
 Deze opdracht gaat over
 
 Binnen deze opdracht worden de volgende n deelopdrachten gevraagd:
+
+*
 
 ### *"n: "*
