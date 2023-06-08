@@ -225,9 +225,11 @@ Dit is iets complex dan opdracht 1, maar nog altijd redelijk simpel.
 Het PATH bestaat uit de locaties die Bash doorzoekt om commando's te zoeken voor het uitvoeren. Om een map of executable toe te voegen aan het PATH wordt dit basis commando gebruikt:  
 **export PATH=...:$PATH**  
 
+![Het originele PATH variable](/00_includes/path1.png)
+
 Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zetten. In deze is dat /home/jeroen_/scripts. Hierdoor is het gehele commando:  
 **export PATH=/home/jeroen_/scripts:$PATH**
-
+![Het aangepaste PATH variable](/00_includes/path2.png)
 
 ### *"3: Create a script that appends a line of text to a text file whenever it is executed"*
 
@@ -237,17 +239,21 @@ Een **shebang** geeft aan dat de file een script is en met welke shell deze gele
 **#!/bin/bash**
 Na het aanmaken van een script is het nodig deze execute permissions te geven; dit gaat via   
  **chmod u+x** 
+![Added execute permissions](/00_includes/script_own.png)
+
 
 
 Het script voor deze deelopdracht redelijk simpel: deze bestaat uit een echo en een redirect naar een andere file via de >> operator. Het commando binnen het gehele script is dan:  
 **echo "This text is added to the opdracht7.sh script" 1> append.txt**
 
-![Het script]
+![Het script](/00_includes/nano_script.png)
+*het script*
 
-![De originele file]
+![De originele file](/00_includes/append_original.png)
+*de originele inhoud*
 
-![De appended file]
-
+![De appended file](/00_includes/append_appended.png)
+*de aangepaste inhoud*
 
 ### *"4:Create a script that installs the httpd package, activates httpd, and enables httpd"**
 
@@ -272,7 +278,8 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
  **systemctl start apache2**  
  **systemctl enable apache2** 
 
-D
+![Het gehele script](/00_includes/script_installer.png)
+*Het gehele script*
 
 # Opdracht naam
 Deze opdracht gaat over
