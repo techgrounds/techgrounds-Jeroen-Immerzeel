@@ -47,6 +47,7 @@ Voor de tijd geldt dat crontab een geheel eigen, maar relijk simpele syntax kent
 
 En elke optie die niet gebruikt wordt kan met een * worden aangegeven. Als alle opties met \* worden aangegeven wordt een job elke minuut uitgevoerd.
 
+Binnen cron en scripts is het nodig om altijd de full paths te gebruiken. 
 In deze is de regel die er toevoegd moet worden dus:  
 **\* \* \* \* \* /home/jeroen_/scripts/time.sh**
 
