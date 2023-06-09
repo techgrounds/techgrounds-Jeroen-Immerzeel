@@ -1,5 +1,5 @@
-# Linux opdrachten 5 tot en met 8
-*Dit zijn de laatste 4 opdrachten voor Linux samengevoegd*
+# Linux opdrachten 5 tot en met 7
+*Dit zijn de opdrachten 5 tot en met 7 voor Linux samengevoegd*
 
 ## Key-terms:
 - Permissions
@@ -13,10 +13,10 @@
 - Command substitution
 
 ## Bronnen
-Het boek "LPIC-1 Study Guide Fith Edition" waar ik de meeste oplossingen heb gevonden.
-https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.
-https://www.howtoforge.com/how-to-install-and-use-telnet-on-ubuntu/ voor het installeren van de telnet service voor opdracht 6.
-https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number 
+Het boek "LPIC-1 Study Guide Fith Edition" waar ik de meeste oplossingen heb gevonden.  
+https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.  
+https://www.howtoforge.com/how-to-install-and-use-telnet-on-ubuntu/ voor het installeren van de telnet service voor opdracht 6.  
+https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number.  
 
 # Opdracht LNX-05: File Permissions
 
@@ -242,6 +242,25 @@ In deze is het de makkelijkste manier om **pgrep inetd** te gebruiken; welke in 
 ![Inetd PID](/00_includes/pregp_inet.png)
 *pgrep inetd*
 
+
+## *"3: Find out how much memory telnetd is using."*
+
+Voor deze opdracht is het gebruik van **systemctl status inetd** de meest snelle oplossing. De output van deze laat o.a het PID de memory-usage en CPU usage zien.
+In mijn geval gebruikt de **inetd** deamon 864.0k memory.
+
+![status inetd](/00_includes/6_4_memory.png)  
+*inetd memory*
+
+## *"4:"Stop or kill the telnetd process."*
+
+Ook hiervoor wordt **systemctl** gebuikt maar dan met het **stop** argument.
+Het gehele commando is dan ook:  
+ **sudo systemctl stop inetd**.
+
+![inetd stopped](/00_includes/inetd_stopped.png)
+*inetd status dead*
+
+
 # Opdracht LNX-07: Bash Scripting.
 
 Deze opdracht gaat over de basis van Bash Scripting.
@@ -262,7 +281,8 @@ Binnen deze opdracht worden de volgende deelopdrachten gevraagd:
 - Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead.
 
 
-**Problemen die ik ben tegengekomen:**
+**Problemen die ik ben tegengekomen:**  
+
 De naam van de httpd package bleek apache2 te zijn; dat gaf we wel even wat tijd om te realiseren. Dit gold ook voor het inetd package voor de telnet opdracht.
 Ook een fout maken met het PATH variable gaf mij wat problemen die ik met behulp van mijn boek kon oplossen. Hier bleek het gebruik van full paths de oplossing te zijn. 
 
@@ -290,6 +310,7 @@ Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zett
  
 
 ![Het aangepaste PATH variable](/00_includes/path2.png)
+*het aangepaste PATH*
 
 ### *"3: Create a script that appends a line of text to a text file whenever it is executed"*
 
@@ -301,6 +322,7 @@ Een **shebang** geeft aan dat de file een script is en met welke shell deze gele
 Na het aanmaken van een script is het nodig deze execute permissions te geven; dit gaat via   
  **chmod u+x** 
 ![Added execute permissions](/00_includes/script_own.png)
+*write permission gegeven*
 
 
 
@@ -357,8 +379,12 @@ sudo systemctl start apache2
 sudo systemctl enable apache2  
 sudo echo systemctl status apache2**
 
-![Het gehele script](/00_includes/script_7.png)
+![Het gehele script](/00_includes/script_7.png)  
 *Het gehele script*
+
+![De ouput van het script](/00_includes/status_apache_7.png)  
+*De status van de Apache service*
+
 
 ## *2:  Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.* 
 
@@ -367,7 +393,7 @@ Deze opdracht kent meerdere onderdelen:
 - Het opslaan van dat nummer in een variable
 - Het toevoegen van dat nummer aan een tekstfile
 
-**Het aanmaken van een random number**
+**Het aanmaken van een random number**  
 Hiervoor is het nodig om wat te zoeken; de syntax is best lastig.
 De oplossing welke ik vond is het commando echo $((RANDOM % 10 1)) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken :
 ```
@@ -375,24 +401,28 @@ echo $((RANDOM % 10 + 1))
 ```
 
 ![Het $RANDOM command](/00_includes/random1.png)
+*Het script*
 
-**Het opslaan van een output als variable**
+**Het opslaan van een output als variable**  
 Om de output van een commando op te slaan als variable wordt dus simpelweg variable = waarde. En om de output van een variable te tonen op de commandline wordt het **echo** commando gebruikt en het variabele voorafgegaan met een **$**. In deze wordt het commando om de random numbers op te slaan als variabele:
 ```
 random_num=$[RANDOM %10+1]
 ```
-![Een random number opslaan als variabele](/00_includes/random_var.png)
-
-En om deze te tonen is het **echo $random_num**
 
 
+En om deze te tonen is het **echo $random_num**  
+
+![Een random number opslaan als variabele](/00_includes/random_var.png)  
+*Appending numbers*
 
 
-**Het toevoegen van dat nummer aan een tekstfile**
+
+**Het toevoegen van dat nummer aan een tekstfile**  
 Deze is heel simpel: na het aanmaken van het eerdere script kan de output van deze worden doorgestuurd naar een andere file via de **>>** redirector. 
 Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo $random_num >> random_num.txt**
 
 ![Random_num](/00_includes/random_added.png)
+*Het nummer appended*
 
 
 ### *"3: Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead."*
@@ -400,14 +430,15 @@ Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo
 Deze opdracht kent een aantal deel opdrachten:
 
 - Het laten aanmaken van een random number tussen 1 en 10
-- Het opslaan van dat nummer in een variable
+- Het opslaan van dat nummer in een variable  
 Deze 2 stappen zijn hetzelfde als in deelopdracht 2. 
+
 Hierna komen er echter een aantal extra stappen:
 - Alleen als het nummer groter is dan 5 moet dit nummer aan de textfile worden toegevoegd.
 - Als het nummer kleiner is dan 5 moet er een tekstregel worden toegevoegd aan de textfile.
 
 
-Hierbij moet er gebruik gemaakt worden van een *if*statement. Binnen bash is dit redelijk simpel en gaat dit schematisch gezien via:
+Hierbij moet er gebruik gemaakt worden van een *if* statement. Binnen bash is dit redelijk simpel en gaat dit schematisch gezien via:
 ```
 if [ condition ]
 then
@@ -462,12 +493,3 @@ fi
 
 ![De output van het script in het textfile](/00_includes/random_append_append.png)  
 *De output*
-
-# Opdracht naam
-Deze opdracht gaat over
-
-Binnen deze opdracht worden de volgende n deelopdrachten gevraagd:
-
-*
-
-### *"n: "*
