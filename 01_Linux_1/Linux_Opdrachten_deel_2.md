@@ -13,6 +13,7 @@
 - Command substitution
 
 ## Bronnen
+Het boek "LPIC-1 Study Guide Fith Edition" waar ik de meeste oplossingen heb gevonden.
 https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.
 https://www.howtoforge.com/how-to-install-and-use-telnet-on-ubuntu/ voor het installeren van de telnet service voor opdracht 6.
 https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number 
@@ -262,7 +263,7 @@ Binnen deze opdracht worden de volgende deelopdrachten gevraagd:
 
 
 **Problemen die ik ben tegengekomen:**
-De naam van de httpd package bleek apache2 te zijn; dat gaf we wel even wat tijd om te realiseren.
+De naam van de httpd package bleek apache2 te zijn; dat gaf we wel even wat tijd om te realiseren. Dit gold ook voor het inetd package voor de telnet opdracht.
 Ook een fout maken met het PATH variable gaf mij wat problemen die ik met behulp van mijn boek kon oplossen. Hier bleek het gebruik van full paths de oplossing te zijn. 
 
 ## Deel 1:
@@ -368,16 +369,19 @@ Deze opdracht kent meerdere onderdelen:
 
 **Het aanmaken van een random number**
 Hiervoor is het nodig om wat te zoeken; de syntax is best lastig.
-De oplossing welke ik vond is het commando echo \$\(\(RANDOM % 10 1\)\) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken **echo $\(\(RANDOM % 10 1\)\)
+De oplossing welke ik vond is het commando echo $((RANDOM % 10 1)) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken :
+```
+echo $((RANDOM % 10 + 1))
+```
 
-
-![Het $RANDOM command]
+![Het $RANDOM command](/00_includes/random1.png)
 
 **Het opslaan van een output als variable**
 Om de output van een commando op te slaan als variable wordt dus simpelweg variable = waarde. En om de output van een variable te tonen op de commandline wordt het **echo** commando gebruikt en het variabele voorafgegaan met een **$**. In deze wordt het commando om de random numbers op te slaan als variabele:
-**random_num=$[RANDOM %10+1]**
-
-![Een random number opslaan als variabele]()
+```
+random_num=$[RANDOM %10+1]
+```
+![Een random number opslaan als variabele](/00_includes/random_var.png)
 
 En om deze te tonen is het **echo $random_num**
 
@@ -388,7 +392,7 @@ En om deze te tonen is het **echo $random_num**
 Deze is heel simpel: na het aanmaken van het eerdere script kan de output van deze worden doorgestuurd naar een andere file via de **>>** redirector. 
 Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo $random_num >> random_num.txt**
 
-![Random_num]
+![Random_num](/00_includes/random_added.png)
 
 
 ### *"3: Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead."*
@@ -419,7 +423,7 @@ Voor het vergelijken van een nummerieke output worden er gebruik gemaakt van dez
 - -gt -> greater then
 - -lt -> less then
 
-In deze moet er gekeken worden of het getal gelijk of kleiner is dan 5 of groter is dan 5; dus is het nodig om de -el (equal or less) en -gt (greater then) tests te gebruiken. 
+In deze moet er gekeken worden of het getal gelijk of kleiner is dan 5 of groter is dan 5; dus is het nodig om de -le (less or equal) en -gt (greater then) tests te gebruiken. 
 Hiermee worden de 2 *if* statements:
 
 ```
@@ -453,10 +457,10 @@ fi
 
 ```
 
-![Het script in Linux](/00_includes/random_append_script.png)
+![Het script in Linux](/00_includes/random_append_script.png)  
 *het script*
 
-![De output van het script in het textfile](/00_includes/random_append_append.png)
+![De output van het script in het textfile](/00_includes/random_append_append.png)  
 *De output*
 
 # Opdracht naam
