@@ -6,9 +6,11 @@
 - File beheer
 - Bash scripting
 - PATH enviroment variable
-- shebang
-- systemctl
-- apt suite
+- Shebang
+- Service beheer
+- Systemctl
+- Apt suite
+- Command substitution
 
 ## Bronnen
 https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.
@@ -193,6 +195,7 @@ Dus om de group "admin" de group te laten worden die eigenaar is van permissions
 ![De group na chgrp is admin](/00_includes/group_owner_admin.png)  
 *De group is nu admin* 
 
+<br>
 
 # Opdracht LNX-06
 
@@ -204,7 +207,7 @@ Binnen deze opdracht worden de volgende 4 deelopdrachten gevraagd:
 - Find out how much memory telnetd is using.
 - Stop or kill the telnetd process.
 
-## **"1: Start the telnet daemon"**
+## *"1: Start the telnet daemon"*
 Een deamon is een "system service" dat er voor zorgt dat andere programma's bepaalde taken kunnen uitvoeren. Zo heeft een print-daemon de taak om het printen mogelijk te maken. 
 
 Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando **systemctl** gebruikt om services te beheren. Deze kent een aantal opties voor dit beheer:
@@ -223,16 +226,17 @@ Na installatie wordt de daemon automatisch gestart.
 *inetd service*
 
 
-## *"2: Find out the PID of the telnet daemon."
+## *"2: Find out the PID of the telnet daemon."*
 
-Een PID is een Process ID, en elk process heeft er 1.
-Om te bekijken welke processen er actief zijn voor het commando **ps** gebruikt. Deze zal zonder argumenten alleen die processen laten zien die de huidige user gebruikt. Dit is vaak alleen de shell en het ps commando zelf.
-Om alle lopende processen te bekijken wordt vaak de combinatie **-aux** gebruik; deze combinatie van argumenten geeft een overzicht van alle processen van alle users.
+Een PID is een Process ID, en elk process heeft er 1.  
+Om te bekijken welke processen er actief zijn wordt het commando **ps** gebruikt. Deze zal zonder argumenten alleen die processen laten zien die de huidige user gebruikt. Dit is vaak alleen de shell en het ps commando zelf.  
+Om alle lopende processen te bekijken wordt vaak de combinatie **-aux** gebruik als argument; deze combinatie van argumenten geeft een overzicht van alle processen van alle users.
 
-In deze is het mogelijk om de output van **ps -aux** te filteren met **grep** op de **inetd** service; dan wordt het commando en blijkt telnetd een PID van x te hebben:  
-**ps -aux | grep "telnetd"**
+In deze is het mogelijk om de output van **ps -aux** te filteren met **grep** op de **inetd** service; dan wordt het commando:  
+**ps -aux | grep "telnetd"**  
+
 Dit is echter niet de meest elegante en snelle manier, en kan veel sneller via het **pgrep** commando. De **p** in deze staat voor **PID** en het **pgrep** commando vraagt een service als argument en geeft het **PID** als output.
-In deze is het dus het makkelijkst om **pgrep inetd** te gebruiken; welke in mijn geval een PID aangefet van 12510  
+In deze is het de makkelijkste manier om **pgrep inetd** te gebruiken; welke in mijn geval een PID aangeeft van 12510  
 
 ![Inetd PID](/00_includes/pregp_inet.png)
 *pgrep inetd*
@@ -364,7 +368,7 @@ Deze opdracht kent meerdere onderdelen:
 
 **Het aanmaken van een random number**
 Hiervoor is het nodig om wat te zoeken; de syntax is best lastig.
-De oplossing welke ik vond is het commando echo $\(\(RANDOM % 10 1\)\) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken **echo $\(\(RANDOM % 10 1\)\)
+De oplossing welke ik vond is het commando echo \$\(\(RANDOM % 10 1\)\) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken **echo $\(\(RANDOM % 10 1\)\)
 
 
 ![Het $RANDOM command]
@@ -387,7 +391,7 @@ Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo
 ![Random_num]
 
 
-### *3: Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead."*
+### *"3: Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file only if the number is bigger than 5. If the number is 5 or smaller, it should append a line of text to that same text file instead."*
 
 Deze opdracht kent een aantal deel opdrachten:
 
@@ -399,7 +403,59 @@ Hierna komen er echter een aantal extra stappen:
 - Als het nummer kleiner is dan 5 moet er een tekstregel worden toegevoegd aan de textfile.
 
 
+Hierbij moet er gebruik gemaakt worden van een *if*statement. Binnen bash is dit redelijk simpel en gaat dit schematisch gezien via:
+```
+if [ condition ]
+then
+  commands
+fi
+```
+Ook moet er binnen deze opdracht 2 waardes met elkaar vergeleken worden: de output van de \$RANDOM functie en de gegeven voorwaarden uit de opdracht.
+Voor het vergelijken van een nummerieke output worden er gebruik gemaakt van deze 6 tests:
+- -eq -> equal to
+- -ne -> not equal to
+- -ge -> greater or equal to
+- -le -> less or equal to
+- -gt -> greater then
+- -lt -> less then
 
+In deze moet er gekeken worden of het getal gelijk of kleiner is dan 5 of groter is dan 5; dus is het nodig om de -el (equal or less) en -gt (greater then) tests te gebruiken. 
+Hiermee worden de 2 *if* statements:
+
+```
+if [ *n* -le 5 ]
+then
+  commands
+fi
+```
+en
+ ```
+if [ *n* -gt 5 ]
+then
+  commands
+fi
+```
+En deze worden in 1 script samengevoegd.
+Voor de rest is het script bijna hetzelfde als bij subopdracht 2:
+
+```
+
+random_num=$($RANDOM%10+1)
+if [ $random_num -le 5 ]
+then
+  echo $random_num >> append_text.txt
+fi
+
+if [ $random_num -gt 5 ]
+then
+  echo "This number was higher then 5" >> append_text.txt
+fi
+
+```
+
+![Het script in Linux]
+
+![De output van het script in het textfile]
 
 # Opdracht naam
 Deze opdracht gaat over
