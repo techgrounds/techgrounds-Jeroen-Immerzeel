@@ -453,9 +453,11 @@ fi
 
 ```
 
-![Het script in Linux]
+![Het script in Linux](/00_includes/random_append_script.png)
+*het script*
 
-![De output van het script in het textfile]
+![De output van het script in het textfile](/00_includes/random_append_append.png)
+*De output*
 
 # Opdracht naam
 Deze opdracht gaat over
