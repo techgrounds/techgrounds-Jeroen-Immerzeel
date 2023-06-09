@@ -54,9 +54,10 @@ In deze is de regel die er toevoegd moet worden dus:
 *crontab entry voor het date commando*
 
 ![Het script](/00_includes/time_sh.png)
+*Het script voor de tijdsmeldin*
 
-![De tijds melding]
-
+![De tijds melding](/00_includes/time_log.png)
+*De tijdsmelding zelf*
 
 ### *"3: Create a script that writes available disk space to a log file in ‘/var/logs’. Use a cron job so that it runs weekly."* 
 
@@ -72,8 +73,10 @@ logger The current disk usage is: $disk_usage
 ```
 
 ![Het script](/00_includes/df_sh.png)
+*het df script*  
 
 ![De output van het df script](/00_includes/disksize.png)
+*de diskusage*
 
 #### *2: "Use a cron job so that it runs weekly."*
 
@@ -83,9 +86,9 @@ Om het aangemaakt script elke week te draaien is het nodig om met **crontab -e**
 Hiermee zal cron op de maandag het **df.sh** script draaien.
 
 
-![crontab entry](/00_includes/crontab_time.png)
+![crontab entry](/00_includes/crontab_time.png)  
 *crontab entry*  
 
 
-![de output](/00_includes/df_sh.png)
+![de output](/00_includes/df_sh.png)  
 *het df script*
