@@ -12,6 +12,7 @@
 
 ## Bronnen
 https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.
+https://www.howtoforge.com/how-to-install-and-use-telnet-on-ubuntu/ voor het installeren van de telnet service voor opdracht 6.
 https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number 
 
 # Opdracht LNX-05: File Permissions
@@ -193,11 +194,53 @@ Dus om de group "admin" de group te laten worden die eigenaar is van permissions
 *De group is nu admin* 
 
 
-# Opdracht LNX-06: Bash Scripting.
+# Opdracht LNX-06
+
+Deze opdreacht gaat over het beheer van processes
+
+Binnen deze opdracht worden de volgende 4 deelopdrachten gevraagd:
+- Start the telnet daemon.
+- Find out the PID of the telnet daemon.
+- Find out how much memory telnetd is using.
+- Stop or kill the telnetd process.
+
+## **"1: Start the telnet daemon"**
+Een deamon is een "system service" dat er voor zorgt dat andere programma's bepaalde taken kunnen uitvoeren. Zo heeft een print-daemon de taak om het printen mogelijk te maken. 
+
+Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando **systemctl** gebruikt om services te beheren. Deze kent een aantal opties voor dit beheer:
+ - start -> start de service
+ - stop -> stopt de service
+ - pauze -> pauzeert de service
+ - restart -> herstart een service nadat deze gepazeerd was
+ - enable -> laat de service starten bij een systemboot
+ - disable -> laat de service niet (meer) started bij een systemboot
+
+Dus om de telnet daemon te starten moet **systemctl start inetd** worden gebruikt; **inetd** is daarbij de daemon die telnet gebruikt.
+Echter, het telnet package is niet geinstalleerd dus zal deze eerst moeten worden geinstalleerd, wat kan via **apt install telnetd**.
+Na installatie wordt de daemon automatisch gestart.
+ 
+![Het inetd service status na installatie]
+*inetd service*
+
+
+## *"2: Find out the PID of the telnet daemon."
+
+Een PID is een Process ID, en elk process heeft er 1.
+Om te bekijken welke processen er actief zijn voor het commando **ps** gebruikt. Deze zal zonder argumenten alleen die processen laten zien die de huidige user gebruikt. Dit is vaak alleen de shell en het ps commando zelf.
+Om alle lopende processen te bekijken wordt vaak de combinatie **-aux** gebruik; deze combinatie van argumenten geeft een overzicht van alle processen van alle users.
+
+In deze is het mogelijk om de output van **ps -aux** te filteren met **grep** op de **inetd** service; dan wordt het commando en blijkt telnetd een PID van x te hebben:  
+**ps -aux | grep "telnetd"**
+Dit is echter niet de meest elegante en snelle manier, en kan veel sneller via het **pgrep** commando. De **p** in deze staat voor **PID** en het **pgrep** commando vraagt een service als argument en geeft het **PID** als output.
+In deze is het dus het makkelijkst om **pgrep inetd** te gebruiken; welke in mijn geval een PID aangefet van 12510  
+
+![Inetd PID]
+
+# Opdracht LNX-07: Bash Scripting.
 
 Deze opdracht gaat over de basis van Bash Scripting.
 
-Binnen deze opdracht worden de volgende n deelopdrachten gevraagd:
+Binnen deze opdracht worden de volgende deelopdrachten gevraagd:
 
 **Deel 1:**  
 - Create a directory called ‘scripts’. Place all the scripts you make in this directory.
@@ -283,18 +326,12 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
  
 **Het starten en enabelen van een service**  
 
- Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando **systemctl** gebruikt om services te beheren. Deze kent een aantal opties voor dit beheer:
- - start -> start de service
- - stop -> stopt de service
- - pauze -> pauzeert de service
- - restart -> herstart een service nadat deze gepazeerd was
- - enable -> laat de service starten bij een systemboot
- - disable -> laat de service niet (meer) started bij een systemboot
-
+ Zoals in opdracht 6 al vermeld wordt in deze het **systemctl** commando gebruikt voor het beheer van deamons/services. 
  In deze moet de service gestart worden met **systemctl start** en enabled worden met **systemctl enable**; met in beide gevallen de service als laatste argument.   
  
  
-**Het printen van de status van de apache2 service**
+**Het printen van de status van de apache2 service**  
+
  Om een de output van een commando te gebruiken als commando wordt *command substitution* gebruikt; hierbij wordt een commando tussen backticks gezet of tussn een dollarteken \$ en () gezet.
  Het command-substitution voor deze opdracht met het **systemctl status** commando moet dus **$(systemctl status apache2)** zijn.
  
