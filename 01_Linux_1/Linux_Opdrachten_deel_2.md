@@ -266,7 +266,7 @@ Het script voor deze deelopdracht redelijk simpel: deze bestaat uit een echo en 
 ![De appended file](/00_includes/append_appended.png)
 *de aangepaste inhoud*
 
-### *"4:Create a script that installs the httpd package, activates httpd, and enables httpd"**
+### *"4:Create a script that installs the httpd package, activates httpd, and enables httpd Finally, your script should print the status of httpd in the terminal."**
 
 Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
 - Het installeren van een programma; in deze het httpd package
@@ -279,7 +279,8 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
  Dit betekent dat het commando voor het installeren van het apache2 package dit moet zijn:  
    **apt install apache2 -y**
 
-** Het starten en enablen van een service**  
+ 
+**Het starten en enabelen van een service**  
 
  Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando **systemctl** gebruikt om services te beheren. Deze kent een aantal opties voor dit beheer:
  - start -> start de service
@@ -289,20 +290,28 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
  - enable -> laat de service starten bij een systemboot
  - disable -> laat de service niet (meer) started bij een systemboot
 
- In deze moet de service gestart worden met **systemctl start** en enabled worden met **systemctl enable**; met in beide gevallen de service als laatste argument. De gehele commando's zijn dan:  
+ In deze moet de service gestart worden met **systemctl start** en enabled worden met **systemctl enable**; met in beide gevallen de service als laatste argument.   
+ 
+ **Het gebruik van de output van een commando in een script**
+
+ Om een commando te gebruiken als output wordt *command substitution* gebruikt; hierbij wordt een commando tussen een dollarteken \$ en () gezet; voor deze opdracht moet dit voor het **systemctl status** commando en moet het dus **$(systemctl status apache2)** zijn.
+ 
+ De gehele commando's zijn dan:  
  **systemctl start apache2**  
  **systemctl enable apache2** 
+ **echo $(systemctl status apache2)**
 
 Het gehele script is dan:  
 **#!/bin/bash  
 sudo apt install apache2 -y  
 sudo systemctl start apache2  
-sudo systemctl enable apache2**
+sudo systemctl enable apache2  
+sudo echo systemctl status apache2**
 
-![Het gehele script](/00_includes/script_installer.png)
+![Het gehele script](/00_includes/)
 *Het gehele script*
 
-### *2:  Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.* 
+## *2:  Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.* 
 
 Deze opdracht kent meerdere onderdelen:
 - Het laten aanmaken van een random number
