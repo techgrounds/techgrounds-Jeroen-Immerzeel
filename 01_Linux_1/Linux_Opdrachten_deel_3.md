@@ -1,4 +1,4 @@
-# LNX-08
+# LNX-08 Cron Jobs
 
 Deze opdracht gaat over het aanmaken van cron-jobs.
 
@@ -26,8 +26,8 @@ Dit gaat zoals met alle andere scripts maak je het scriptfile aan met de shebang
 
 Het commando om de tijd en datum te tonen is  **date**, dus het commando binnen de sccript in deze is: 
 ```
-**time=$(date)  
-echo $time**
+time=$(date)  
+echo $time
 ```
 
 
