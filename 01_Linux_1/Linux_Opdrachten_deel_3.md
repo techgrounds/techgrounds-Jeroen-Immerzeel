@@ -11,7 +11,7 @@ Binnen deze opdracht worden de volgende 3 deelopdrachten gevraagd:
 ### *"Welke bronnen heb ik gebruikt?"*
 Het boek *LPIC-1 Study Guide fifth edition* voor de meeste onderdelen.  
 
-En deze websites:
+En deze websites:  
 https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/   
 https://crontab.guru/every-1-minute
 https://opensource.com/article/18/7/how-check-free-disk-space-linux
@@ -48,7 +48,7 @@ Voor de tijd geldt dat crontab een geheel eigen, maar relijk simpele syntax kent
 En elke optie die niet gebruikt wordt kan met een * worden aangegeven. Als alle opties met \* worden aangegeven wordt een job elke minuut uitgevoerd.
 
 In deze is de regel die er toevoegd moet worden dus:  
-**\* \* \* \* \* /home/script/time.sh**
+**\* \* \* \* \* /home/jeroen_/scripts/time.sh**
 
 ![Het crontab](/00_includes/crontab_time.png)
 *crontab entry voor het date commando*
@@ -73,10 +73,12 @@ logger The current disk usage is: $disk_usage
 
 ![Het script](/00_includes/df_sh.png)
 
+![De output van het df script](/00_includes/disksize.png)
+
 #### *2: "Use a cron job so that it runs weekly."*
 
 Om het aangemaakt script elke week te draaien is het nodig om met **crontab -e** de crontab te openen, en daarbinnen een zin toe te voegen met deze inhoud:  
-**\* \* \* \* \* 1 /home/scripts/df.sh**
+**\* \* \* \* \* 1 /home/jeroen_/scripts/df.sh**
 
 Hiermee zal cron op de maandag het **df.sh** script draaien.
 
