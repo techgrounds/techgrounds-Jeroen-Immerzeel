@@ -216,10 +216,10 @@ Voor het starten van de service wordt op een systeem dat **systemd** als initial
  - disable -> laat de service niet (meer) started bij een systemboot
 
 Dus om de telnet daemon te starten moet **systemctl start inetd** worden gebruikt; **inetd** is daarbij de daemon die telnet gebruikt.
-Echter, het telnet package is niet geinstalleerd dus zal deze eerst moeten worden geinstalleerd, wat kan via **apt install telnetd**.
+Echter, het telnet package is niet geinstalleerd dus zal deze eerst moeten worden geinstalleerd, wat kan via **apt install telnetd**.  
 Na installatie wordt de daemon automatisch gestart.
  
-![Het inetd service status na installatie]
+![Het inetd service status na installatie](/00_includes/inetd.png)
 *inetd service*
 
 
@@ -234,7 +234,8 @@ In deze is het mogelijk om de output van **ps -aux** te filteren met **grep** op
 Dit is echter niet de meest elegante en snelle manier, en kan veel sneller via het **pgrep** commando. De **p** in deze staat voor **PID** en het **pgrep** commando vraagt een service als argument en geeft het **PID** als output.
 In deze is het dus het makkelijkst om **pgrep inetd** te gebruiken; welke in mijn geval een PID aangefet van 12510  
 
-![Inetd PID]
+![Inetd PID](/00_includes/pregp_inet.png)
+*pgrep inetd*
 
 # Opdracht LNX-07: Bash Scripting.
 
