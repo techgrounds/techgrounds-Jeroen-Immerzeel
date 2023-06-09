@@ -11,6 +11,7 @@
 - apt suite
 
 ## Bronnen
+https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.
 https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number 
 
 # Opdracht LNX-05: File Permissions
@@ -292,11 +293,16 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
 
  In deze moet de service gestart worden met **systemctl start** en enabled worden met **systemctl enable**; met in beide gevallen de service als laatste argument.   
  
- **Het gebruik van de output van een commando in een script**
-
- Om een commando te gebruiken als output wordt *command substitution* gebruikt; hierbij wordt een commando tussen een dollarteken \$ en () gezet; voor deze opdracht moet dit voor het **systemctl status** commando en moet het dus **$(systemctl status apache2)** zijn.
  
- De gehele commando's zijn dan:  
+**Het printen van de status van de apache2 service**
+ Om een de output van een commando te gebruiken als commando wordt *command substitution* gebruikt; hierbij wordt een commando tussen backticks gezet of tussn een dollarteken \$ en () gezet.
+ Het command-substitution voor deze opdracht met het **systemctl status** commando moet dus **$(systemctl status apache2)** zijn.
+ 
+
+
+
+
+ De gehele commando's zijn dan voor deze opdracht:  
  **systemctl start apache2**  
  **systemctl enable apache2** 
  **echo $(systemctl status apache2)**
@@ -308,7 +314,7 @@ sudo systemctl start apache2
 sudo systemctl enable apache2  
 sudo echo systemctl status apache2**
 
-![Het gehele script](/00_includes/)
+![Het gehele script](/00_includes/script_7.png)
 *Het gehele script*
 
 ## *2:  Create a script that generates a random number between 1 and 10, stores it in a variable, and then appends the number to a text file.* 
