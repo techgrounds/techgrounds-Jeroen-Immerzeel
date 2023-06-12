@@ -19,9 +19,20 @@ wikipedia voor algemene informatie en extra bronnen: https://en.wikipedia.org/wi
 Het gaat in deze opdracht om het lezen van informatie over de OSI en TCP/IP modellen, en had daarbij geen problemen. 
 
 ### Resultaat
-*"Wat is het OSI model?"*
+*"Wat is het OSI model, en wat is het TCP/IP model? Op welke manier zijn deze vergelijkbaar?"*
 
-**OSI model In het kort:**  
+## Samenvatting:
+
+De OSI en TCP/IP modellen zijn beide modellen die de werking van een netwerk in lagen onderverdelen die elke een aantal eigen functies kennen. Daar waar het OSI model puur een theoretisch model is, is het TCP/IP model een beschrijving van de praktijk. 
+
+## Overlapping:
+
+Beide modellen kennen een duidelijke overlapping waarbij de layer van het OSI model binnen het TCP model 
+De overlapping van het OSI Model en het TCP/IP model is schematisch:
+
+![De overlapping van de OSI en TCP/IP modellen](/00_includes/Networking_Images/OSI-vs-TCP-vs-Hybrid-2.png)
+
+## **Het OSI model In het kort:**  
 Het OSI model is het door het OSI bedachte *"7 layer model"* voor het communiceren tussen verschillende computersystemen. Dit model is bedacht in de jaren '70 en '80, toen er nog geen standarisering was op dit vlak. Het kent 7 lagen: Physical, Datalink, Network, Transport, Session, Presentation en Application. Dit alles is in ISO/IEX 7498 en in de ITF x200 standaarden gedocumenteerd.
 
 **De 7 lagen:**
@@ -57,44 +68,31 @@ Dit is de Application layer. De primaire functie van deze laag is het mogelijk  
 - HTTP(S)voor browsing
 - IMAP, POP, SMTP voor mail
 - SSH, Telnet, RDP voor remote sessions
-- NTP, DNS, DHCP, SMB voor basic functionality
+- NTP, DNS, DHCP, SMB voor basic functionality  
 
+<br>
+<br>
 
+## **Het TCP/IP model in het kort**
 
-**TCP/IP model in het kort**
-
-Het TCP model, ook wel het **Internet Protocol suite**, is het model voor de abstractie van network functies dat in de praktijk gebruikt wordt en is vernoemd naar de belangrijkste protocollen: TCP/UDP en IP. Dit model wordt ook nog weleens het DoD model genoemd gezien het van origine vanuit het Amerikaanse Department of Defence afkomt.
+Het TCP model, ook wel het **Internet Protocol suite**, is het model voor de abstractie van network functies dat in de praktijk gebruikt wordt en is vernoemd naar de belangrijkste protocollen: TCP en UDP, en IP. Dit model wordt ook nog weleens het DoD model genoemd gezien het van origine vanuit het Amerikaanse Department of Defence afkomt.
 
 Het TCP model kent 4 lagen welke grotendeels overlappen met verschillende OSI lagen.
 
-*Layer 1*  
+- *Layer 1*  
 Dit is in het **tcp/ip model** de *Link Layer* en is vergelijkbaar met layers 1 en 2 van het OSI model. Deze kent der halve vergelijkbare fysieke onderdelen als Switches, Hubs, kabels en WiFi, en protocollen als ARP, Ethernet en WiFi(802.11.). Switching wordt binnen deze layer gefaciliteerd. 
 
-*Layer 2*  
+- *Layer 2*  
 Dit is in het **tcp/ip model** de *Internet Layer* en is vergelijkbaar met layer 3 van het OSI model. Deze gebruikt het **IP** protocol. Routers zijn der halve een TCP/IP Layer 2 device. 
 
 
-*Layer 3*  
+- *Layer 3*  
 Dit is in het **tcp/ip model** *Transport Layer* en is vergelijkbaar met layer 4 van het OSI model. TCP en UDP zijn hier de protocollen. Segmentation, flow control en het betrouwbaar(TCP) of snel (UDP) afleveren van de data stream zijn de belangrijkste functies.
 
-*Layer 4*  
+- *Layer 4*  
 Dit is in het **tcp/ip model** de *Application Layer* en is vergelijkbaar met layer 5, 6 en 7 van het OSI model. Hierbinnen vallen alle protocollen voor process-to-process communicatie.
 
-De overlapping van het OSI Model en het TCP/IP model is schematisch:
-
-![De overlapping van de OSI en TCP/IP modellen](/00_includes/Networking_Images/OSI-vs-TCP-vs-Hybrid-2.png)
 
 
-# NTW-0
 
-## Key-terms
 
-## Opdracht
-### Gebruikte bronnen
-[Plaats hier de bronnen die je hebt gebruikt.]
-
-### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
-
-### Resultaat
-[Omschrijf hoe je weet dat je opdracht gelukt is (gebruik screenshots waar nodig).]
