@@ -17,12 +17,19 @@
 
 ### Gebruikte bronnen
 Het boek Comptia Network+ Study Guide dat ik al had van een eerdere opleiding.
+ Voor de afbeelding met netwerk apparaten:  
+https://www.itrelease.com/2021/06/types-of-network-devices/
 
 
 ### Ervaren problemen
 [Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
 
 ## *"1: Benoem en beschrijf de functies van veel voorkomende netwerkapparatuur."* 
+
+**Modem**
+
+Een **modem** is een layer 1 apparaat dat via modulatie van stroom of licht analoge en digitale signalen in elkaar overzet. "Modem" is een afkorting voor MOdulation DEmodulation.
+
 
 **Switch**  
 Een **switch** is een device met een x aantal netwerkpoorten waaraan nodes zijn verbonden.  Switches werken op de **Data Link layer** van het OSI model.   
@@ -52,8 +59,24 @@ Deze gebruikt radiogolven en is daarmee erg afhankelijk van de omstandigheden va
 
 Een AP kan ook functioneren als **Wireless Bridge** waarbij deze de ruimte tussen 2 of meerdere bedrade netwerkdelen draadloos overbrugd.
 
+![Afbeelding met devices](/00_includes/Networking_Images/Types-of-network-devices.jpg)  
+*Verschillende netwerk devices*  
+
+
 ## *2: De meeste routers hebben een overzicht van alle verbonden apparaten, vind deze lijst. Welke andere informatie heeft de router over aangesloten apparatuur?"* 
 
+Ik heb zelf een Fritz Box WiFi router en deze geeft over de aangesloten apparaten de volgende informatie:
+- De naam van het apparaat.
+- De connectie medium (LAN, Wifi)
+- Het interne IP adres.
+- De properties (Type WiFi connectie, snelheid)
+
+![Aangesloten apparatuur](/00_includes/Networking_Images/Aangesloten_apparatuur.png)
 
 ## *3: Waar staat je DHCP server op jouw netwerk? Wat zijn de configuraties hiervan"*
-In mijn netwerk heeft de  de DCHP 
+In mijn netwerk heeft de **WiFi Router** ook de DCHP-functie. Deze geeft als opties:  
+- De IP range opties; dit zijn de IP adressen die er uitgedeeld mogen worden.
+- De duur van de lease van een IP adres.
+- Het adres van de lokale DNS server. 
+
+![Screenshot van de DHCP](/00_includes/Networking_Images/DHCP_Fritz.png)
