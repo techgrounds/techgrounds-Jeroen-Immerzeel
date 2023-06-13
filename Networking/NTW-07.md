@@ -2,7 +2,7 @@
 
 
 ## Key-terms
-
+- Netw
 # Opdracht
 
 Deze opdracht vraagt om het maken van een netwerkdiagram met de volgende onderdelen:
