@@ -21,23 +21,30 @@ Plaats de architectuur die je hebt gemaakt inclusief een korte uitleg in de Gith
 
 
 ## Gebruikte bronnen
-De docs website van aws voor informatie over de NAT gateway en Internet gateway:
+De docs website van aws en YouTube voor informatie over de NAT gateway en Internet gateway:
 - https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
-- https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
-Een wesbite met subent calculator:
+- https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html  
+- https://www.youtube.com/watch?v=u7obme-h3bc&t  
+
+Een wesbite met subnet calculator:
 - https://www.calculator.net/ip-subnet-calculator.html?
+
+Het in de opdracht gedeelde online tool "https://app.diagrams.net/"
 
 ## Ervaren problemen
 
-Het punt van "30 hosts exculief NAT gateway" en "de 5 hosts is exclusief de internet gateway" was wat vaag. Dit omdat zowel een NAT Gateway als een Internet gateway geen onderdeel zijn van de subnets waarom gevraagd werd... Dit was wat verwarrend, maar na goed lezen en een hint van een teamgenoot snapte ik de vraag wel goed.
+Het punt van "30 hosts exclusief NAT gateway" en "de 5 hosts is exclusief de internet gateway" was wat vaag. Dit omdat zowel een NAT Gateway als een Internet gateway geen onderdeel zijn van de subnets waarom gevraagd werd... Dit was wat verwarrend, maar na goed lezen en een hint van een teamgenoot snapte ik de vraag wel goed.
 
 # Uitwerking
 Ik ga in deze er vanuit dat we 1 VPC hebben met als private IP adres: 10.0.0.0 en het Elastic IP adres 172.16.52.63/16
+
 Voor beide subnets moet het aantal nodes worden berekend door het aantal hosts aan te vullen met een broadcastadres en een netwerkadres/gateway. 
 
 ## Subnetten: hoe en wat?
-Een subnet is een netwerk dat via het subnetmasker een deel van het adresspace gebruikt van het hele netwerk om een separaat netwerk te maken dat kleiner is dan het totale netwerk.    
-Voor een subnet wordt het hele IP adres opgeknipt. Als voorbeeld wordt het 192.168.1.0/27 netwerk in 8 subnets van elk 32 adressen, dan zijn deze subnets mogelijk:
+Een subnet is een netwerk dat via het subnetmasker een deel van het adresspace van het hele netwerk gebruikt om een separaat netwerk te maken dat kleiner is dan het totale netwerk.    
+Voor een subnet wordt het hele IP adres opgeknipt in kleinere netwerken. 
+
+Als voorbeeld als het 192.168.1.0/27 netwerk in 8 subnets van elk 32 adressen wordt opgedeeld, dan zijn deze subnets mogelijk:
 ```
 192.168.1.0 - 192.168.1.31
 192.168.1.31 - 192.168.1.63
@@ -57,7 +64,7 @@ Hier een overzicht van de subnet die gevraagd worden:
 **Eerste subnet:**  
 *"1 private subnet dat alleen van binnen het LAN bereikbaar is. Dit subnet moet minimaal 15 hosts kunnen plaatsen."* 
 
-15 hosts betekent minimaal 17 nodes/adressen. Dit is het meest efficient door een /27 CIDR te gebruiken deze geeft 32 adressen(/28 geeft met 16 adressen net 1 adres te weinig)  
+15 hosts betekent minimaal 17 nodes/adressen. Dit is het meest efficient door een /27 CIDR te gebruiken, deze geeft 32 adressen(/28 geeft met 16 adressen net 1 adres te weinig)  
 
 In deze neem ik het subnet 10.0.1.0/27.   
 Deze heeft 32 mogelijke adressen:
@@ -71,7 +78,7 @@ Dit netwerk is in het diagram met groen gekleurd.
  **Tweede subnet**  
 *"1 private subnet dat internet toegang heeft via een NAT gateway. Dit subnet moet minimaal 30 hosts kunnen plaatsen (de 30 hosts is exclusief de NAT gateway)."* 
 
-IEeneNAT gateway zit in een public subnet en heeft der halve geen eigen public IP adres nodig.   
+Een NAT gateway zit in een public subnet en heeft der halve geen eigen public IP adres nodig. Deze heeft dus geen invloed op het aantal te gebruiken adressen.   
 
 Dan zijn er 30 hosts, een gateway en een broadcast adres; dus 32 adressen, oftewel minimaal een /27 netwerk.  
 In deze neem ik het subnet 10.0.2.0/27, en deze heeft 32 mogelijke adressen:
@@ -81,18 +88,16 @@ In deze neem ik het subnet 10.0.2.0/27, en deze heeft 32 mogelijke adressen:
 - Hosts: 10.0.2.1 - 10.0.2.31
 
 
- ![Regels over NAT gateway gebruik]
- *NAT Gateway staat in het **public subnet*** 
-
 Dit netwerk is in het diagram met blauw gekleurd.
 
- **Derde Subnet**
-
+ **Derde Subnet**  
 *"1 public subnet met een internet gateway. Dit subnet moet minimaal 5 hosts kunnen plaatsen (de 5 hosts is exclusief de internet gateway)"* 
-In deze leeft het Internet Gateway buiten de sbnets en heeft deze een EIP adres (*Elastic IP adres*) nodig, en geen IP adres van het public subnet
+
+In deze leeft het Internet Gateway buiten de subnets en heeft deze een eigen EIP adres (*Elastic IP adres*) nodig, en gebruikt deze geen IP adres van het public subnet
 
 Voor een Public IP adres geldt dat deze verkregen wordt door de ISP; in deze is dat AWS en ik neem hiervoor het 172.16.52.63/16 adres.
-In deze moet het Public subnet 8 adressen groot zijn en dus minimaal een /29 netwerk.
+
+In deze moet het Public subnet 8 adressen groot zijn en dus minimaal een /29 netwerk.  
 In deze is het dus het 172.16.52.0 subnet en deze heeft deze 8 mogelijke adressen: 
 - 172.16.52.0 - 172.16.52.7
 - Netwerkadres: 172.16.52.0
