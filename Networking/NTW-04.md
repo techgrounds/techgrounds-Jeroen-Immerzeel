@@ -2,6 +2,9 @@
 
 
 ## Key-terms
+- Binary
+- Decimal
+- Hexadecimal
 
 # Opdracht
 Deze opdracht gaat over het rekenen/tellen in binary en hexadecimal noteringen en kent een aantal opdrachten tot het omrekenen van hex en binary naar decimale getallen.

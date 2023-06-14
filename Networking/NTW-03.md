@@ -4,7 +4,8 @@
 ## Key-terms
 - Protocols
 - Wireshark 
-
+- IANA
+- OSI Layers
 # Opdracht
 
 Deze opdracht gaat over de vraag welke protocollen er op welke OSI layer zijn en hoe wireshark werkt.  
@@ -17,7 +18,7 @@ Deze opdracht kent 3 deelopdrachten:
 - https://www.wireshark.org website en hun /faq pagina. Dit voor zowel het downloaden van wireshark als de informatie die nodig was om een probleem op te lossen.
 - https://www.nos.nl en http://info.cern.ch voor de voorbeelden van de wireshark opdracht.
 - https://en.wikipedia.org/wiki/List_of_network_protocols_(OSI_model) voor de verschillende protocollen  
-- Daarnaast mijn al bestaande kennis en het boek "CompTIA Network+ a study guide, fith edition".
+- Daarnaast mijn al bestaande kennis en het boek "CompTIA Network+ a study guide, fifth edition".
 
 ## Ervaren problemen
 1: wireshak gaf een foutmelding over "promiscuous mode" die ik heb kunnen oplossen met het doorlezen van de faq op https://wireshark.org/faq   

@@ -7,7 +7,7 @@
 - Bridge
 - DHCP
 - DNS
-- 
+- Modem
 
 # Inhoud van de opdracht
 - Benoem en beschrijf de functies van veel voorkomend netwerkapparatuur
@@ -16,13 +16,13 @@
 
 
 ### Gebruikte bronnen
-Het boek Comptia Network+ Study Guide dat ik al had van een eerdere opleiding.
- Voor de afbeelding met netwerk apparaten:  
+Het boek Comptia Network+ Study Guide dat ik al had van een eerdere opleiding.  
+Voor de afbeelding met netwerk apparaten:  
 https://www.itrelease.com/2021/06/types-of-network-devices/
 
 
 ### Ervaren problemen
-[Geef een korte beschrijving van de problemen waar je tegenaan bent gelopen met je gevonden oplossing.]
+Eigenlijk geen 
 
 ## *"1: Benoem en beschrijf de functies van veel voorkomende netwerkapparatuur."* 
 

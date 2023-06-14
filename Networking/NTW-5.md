@@ -12,15 +12,15 @@
 
 # Opdracht
 Deze opdracht gaat over het bestuderen van een aantal IP gerelateerde technologieën en het doen van een aantal opdrachten.
-Deze opdracht kent deze deelopdrachten:
-Bestudeer:
+Deze opdracht kent deze deelopdrachten:  
+**Bestudeer:**
 - IP adressen
 - IPv4 en IPv6
 - Public en Private IP adressen
 - NAT
 - Statische en dynamische adressen
 
-Doen:
+**Doen:**
 - Ontdek wat je publieke IP adres is van je laptop en mobiel op wifi.
 - Zijn de adressen hetzelfde of niet? Leg uit waarom.
 - Ontdek wat je privé IP adres is van je laptop en mobiel op wifi.
