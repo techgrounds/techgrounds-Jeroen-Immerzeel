@@ -115,13 +115,21 @@ Omdat we naar een IPv6 wereld toe gaan zal het gebruik van IP4 en de daarbij beh
 
 
 ## De doenopdracht:
-*"1: Ontdek wat je publieke IP adres is van je laptop en mobiel op wifi."*
+*"1: Ontdek wat je publieke IP adres is van je laptop en mobiel op wifi."* 
+(ipv een laptop gebruik ik mijn tablet)
+Mobiel:
+Tablet: 
 
 *"2: Zijn de adressen hetzelfde of niet? Leg uit waarom."*  
+Ja. 
+Door NAT wordt 1 IP adres gebruik voor buiten het netwerk en unieke private IP adressen voor binnen het interne netwerk.
 
-*"3: Zijn de adressen hetzelfde of niet? Leg uit waarom."* 
+*"3: Verander het privé IP adres van je mobiel naar dat van je tablet. Wat gebeurt er dan?"*
 
-*"4: Verander het privé IP adres van je mobiel naar dat van je laptop. Wat gebeurt er dan?"*
+Geen van beide devices kan dan verbinding maken met het netwerk.
+
+*"4: Zijn de adressen hetzelfde of niet? Leg uit waarom."* 
+Nee, de public en private adressen zijn niet hetzelfde HIER GEBLEVEN
 
 *"5: Probeer het privé IP adres van je mobiel te veranderen naar een adres buiten je netwerk. Wat gebeurt er dan?"*
 
