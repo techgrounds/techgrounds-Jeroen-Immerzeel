@@ -44,12 +44,12 @@ Sinds 2017 is er een officiële specificatie van markdown voor GitHub onder de n
 ## Wat betekenen de afkortingen WYSIWYG en WYSIWYM?
 De afkortingen WYSIWYG en WYSIWYM staan voor *What You See Is What You Get* en *What You See Is What You Mean*. 
 - WYSIWYGet is het systeem waarbij een texteditor de volledige opmaak direct laat zien. Een voorbeeld hiervan is de manier waarop Microsoft Word de opmaak van een word-file renderd.
-- WYSIWYMean is het systeem waarbij tekst door markeringen van betekenis wordt voorzien. Voorbeelden hiervan zijn markdown en HTML. Hierbij is het ook mogelijk om met style sheets de tekst van opmaak te voorzien. 
+- WYSIWYMean is het systeem waarbij tekst doormiddel van markeringen van betekenis wordt voorzien. Voorbeelden hiervan zijn markdown en HTML. Hierbij is het ook mogelijk om met style sheets de tekst van opmaak te voorzien. 
 
 # Voorbeelden van de gevraagde elementen:
 ## Headings:
 Headings zijn eigenlijk kopteksten met een groter lettertype dat ook een groter aantal pixels kent en dus "bold" is.
-Deze worden aangemaakt met of een x aantal #, of met de header tags van HTML.
+Deze worden aangemaakt met of een x aantal #.  
 Met 1 \# maak je een level 1 heading en met 6 \#\#\#\#\#\# een level 6 heading.
 
 Hierbij is het een best practice, en vaak nodig, om een spatie te plaatsen tussen de \# en de tekst van de heading.
@@ -72,9 +72,9 @@ Voor bold tekst worden er 2 \* voor en na de tekst geplaatst.
 Dus \*\* dit is bold tekst\*\* wordt gerenderd als **dit is bold tekst**.
 
 ## Het toevoegen van urls:
-Om op een snelle manier een url toevoegen gebeurt door de url tussen punthaakjes oftewel < > te plaatsen.
+Om op een snelle manier een url toevoegen gebeurt door de url tussen punthaakjes oftewel < > te plaatsen; vaak is een volledige url echter ook al voldoende.
 
-<br>
+
 Een url toevoegen als een tekst wordt gedaan door de tekst die als link fungeert tussen blokhaakjes oftewel [ ] te plaatsen en de url zelf tussen haakjes ( ).
 
 Als voorbeeld:
