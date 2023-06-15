@@ -23,12 +23,18 @@ An automatic failover to a backup web server has been configured for a website. 
 # Ervaren problemen
 
 # Resultaat
-Sudy part
-IDS and IPS
-Hack responce strategies
-The concept of systems hardening
-Different types of disaster recovery options
+** Sudy part:** 
 
+*"1: What are IDS and IPS?*
+
+*"2: What are common Hack responce strategies?*"
+
+*"3: What does the concept of systems hardening entail?"*
+
+*"4: What are different types of disaster recovery options?"* 
+
+
+**Exercise part:**
 
 *"1: A Company makes daily backups of their database. The database is automatically recovered when a failure happens using the most recent available backup. The recovery happens on a different physical machine than the original database, and the entire process takes about 15 minutes. What is the RPO of the database?"*
 
