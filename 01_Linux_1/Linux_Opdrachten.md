@@ -24,7 +24,7 @@ Dit zijn de eerste 4 Linux opdrachten samengevoegd.
 ## Gebruikte bronnen:
 
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html Voor de uitleg van het converteren van een .pem-file voor PuTTy
-- Het boek "LPIC-1 Study Guide Firth Edition" dat ik al had voor mijn MBO opleiding en waarin eigenlijk alle andere stof tot in detail wordt uitgelegd.
+- Het boek "LPIC-1 Study Guide Fifth Edition" dat ik al had voor mijn MBO opleiding en waarin eigenlijk alle andere stof tot in detail wordt uitgelegd.
 
 
 ## Welke problemen ben ik tegengekomen?
@@ -49,7 +49,7 @@ De syntax is voor alle SSH-clients is hetzelfde gezien het hier om een opensourc
 Het gebruikte commando is:  
 **ssh -p 52202 -i "C:\Users\jimme\OneDrive\Bureaublad\Nest-je-Immerzeel.pem" jeroen_@3.121.130.219**
 
-![ssh commando](/00_includes/cmd_commando_ssh.png)
+![ssh commando](/00_includes/Linux/cmd_commando_ssh.png)
 *Het ssh commando binnen cmd*
 
 Voor *PuTTy* werkt alles iets anders:
@@ -62,12 +62,7 @@ Voor *PuTTy* werkt alles iets anders:
 ### *2: When the connection is successful, type whoami in the terminal. This command should show your username.*
 Deze opdracht is zeer simpel en vraagt niets meer dan het **whoami**-commando in te geven; deze geeft als output de huidige username waaronder je ingelogd bent, in mijn geval **Jeroen_**.
 
-![whoami](/00_includes/whoami.png)
-<br>
-<br>
-<br>
-<br>
-<br>
+![whoami](/00_includes/Linux/whoami.png)
 
 
 
@@ -85,14 +80,14 @@ Binnen deze opdracht worden de volgende 5 deelopdrachten gevraagd:
 Voor deze eerste deelopdracht wordt het **pwd** commando gebruikt.   
 Deze geeft als output: **/home/jeroen_**
 
-![pwd commando](/00_includes/pwd.png)
+![pwd commando](/00_includes/Linux/pwd.png)
 
 ### *2: Make a listing of all files and directories in your home directory.*
 Voor de tweede deelopdracht wordt het **ls** commando gebruikt. Deze geeft als output niets; er zijn geen niet-verborgen bestanden. Met **ls -a** wordt de output:  
 **. .. .bash_history .bash_logout .bashrc .cache .profile .ssh**  
 
 
-![ls -a output](/00_includes/ls_a.png)
+![ls -a output](/00_includes/Linux/ls_a.png)
 
 Binnen de output zijn witte namen files, blauwe namen directories en met een . of .. wordt een bestand of directory verborgen. De gekleurde output is een optionele instelling; dit is een onderdeel van menig distribution maar kan in principe naar wens worden aangepast.
 
@@ -115,7 +110,7 @@ Deze kent een aantal argumenten die handig zijn:
 -v      Verbose; geeft een melding weer over wat het commando heeft gedaan.
 
 
-![De output van mkdir](/00_includes/mkdir.png)
+![De output van mkdir](/00_includes/Linux/mkdir.png)
 
 
 ### *4: "Within the techgrounds directory, create a file containing some text."* 
@@ -125,7 +120,7 @@ Deze heeft als standard output de tekst die wordt opgegeven. Door deze output me
 Voor de opdracht is het eerst nodig met met **cd techgrounds** naar de techgrounds folder te gaan en daarna dit commando te gebruiken:  
 **echo 'By redirecting an echo to a new file you can simply create a new file with the contents you want. This is only one way out of many to do this' > textfile2**
 
-![De output van Echo](/00_includes/echo.png)
+![De output van Echo](/00_includes/Linux/echo.png)
 *echo redirection*
 
 ### *"5: Move around your directory tree using both absolute and relative paths."*
@@ -156,9 +151,9 @@ Binnen deze opdracht worden de volgende 3 deelopdrachten gevraagd:
 Om een output naar een file weg te schrijven waarbij de originele inhoud blijft staan wordt de \>\> redirect operator gebruikt; dit in tegenstelling tot de \> operator welke de inhoud van een file vervangt.  
 
 Dus voor deze deelopdracht is het commando:
-**echo textfile2 >> Leren via techgrounds is erg leuk.**
+**echo "Leren via techgrounds is erg leuk" >> textfile2.txt**
 
-![echo commando](/00_includes/echo_redirect.png)
+![echo commando](/00_includes/Linux/echo_redirect.png)
 *echo >> output*
 
 ### *2: Use a command to write the contents of your text file to the terminal. Make use of a command to filter the output so that only the sentence containing ‘techgrounds’ appears.*
@@ -169,13 +164,13 @@ Daarom is het te gebruiken commando in deze:
 **cat textfile2 | grep "techgrounds"**
 
 
-![De output van Cat en Grep](/00_includes/grep_redirect.png)
+![De output van Cat en Grep](/00_includes/Linux/grep_redirect.png)
 ### *"3: Read your text file with the command used in the second step, once again filtering for the word ‘techgrounds’. This time, redirect the output to a new file called ‘techgrounds.txt’."*
 Voor de derde deelopdracht moet er weer gewerkt worden met een redirection via >> en een nieuwe file, maar dan ná het filteren met **grep**.
 Hiermee is het te gebruiken commando:  
 **cat textfile2 | grep "techgrounds" >> techgrounds.txt**
 
-![Het aanmaken van een bestand met grep filtering en redirection](/00_includes/grep_redirect.png)
+![Het aanmaken van een bestand met grep filtering en redirection](/00_includes/Linux/grep_redirect2.png)
 
 Er is hierbij dan ook een belangrijk verschil tussen > en >>:   
 \> vervangt de inhoud van het bestand waar naar toe verwezen wordt.  
@@ -202,7 +197,8 @@ Er zijn namelijk 2 commando's die user acccounts aanmaken, en beiden werken net 
 
 Deze 2 commando's zijn:
 - adduser
-- useradd  
+- useradd    
+
 Daarnaast zijn er per distribution verschillen in de configuraties van deze commando's.
 Dit alles maakt de boel er niet simpeler op.
 
@@ -211,7 +207,7 @@ Dit commando wordt vooral op Debian based distributions gebruikt, waar Ubuntu oo
 **adduser** maakt dus een compleet userprofile aan.
 
 
-![Voorbeeld van het toevoegen van een user via adduser](/00_includes/adduser.png)  
+![Voorbeeld van het toevoegen van een user via adduser](/00_includes/Linux/adduser.png)  
 *Het gebruik van adduser*
 
 Het **useradd** commando.  
@@ -228,14 +224,14 @@ Dus om de user "jake" aan te maken en deze een een home directory te geven, is h
 Om te controleren of **useradd** een home-directory heeft aangemaakt kan je **ls /home | grep [username]** gebruiken; geeft deze geen output dan is er geen home-directory voor de opgegeven user anders wordt de username de output. 
 
 
-![useradd geeft zonder -m geen /home-directory](/00_includes/useradd_m.png)  
+![useradd geeft zonder -m geen /home-directory](/00_includes/Linux/useradd_m.png)  
 *Zonder het -m argument wordt er geen home-directory aangemaakt.*   
 
 
 Met **cat /etc/passwd | grep [username]** kan worden gecontroleerd of een user bestaat.
 
 
-![Grep /etc/passwd](/00_includes/grep_passwd.png)
+![Grep /etc/passwd](/00_includes/Linux/grep_passwd.png)
 
 
 ### *"2: The new user should be part of an admin group."*
@@ -249,10 +245,10 @@ Wat ook belangrijk is dat door het argument **-a** te gebruiken het lidmaatschap
 
 Om de user JBond toe te voegen aan de admin group en zijn lidmaatschap van zijn eigen group te behouden is het commando: **sudo usermod -aG JBond admin**
 
-![De groups waar JBond lid van was](/00_includes/JBond_group1.png)  
+![De groups waar JBond lid van was](/00_includes/Linux/JBond_group1.png)  
 *De groups waar JBond lid van was*
-![De groups waar JBond lid van is na **usermod**](/00_includes/JBond_group2.png)  
-*De groups waar JBond lid van is na **usermod***
+![De groups waar JBond lid van is na **usermod**](/00_includes/Linux/JBond_group2.png)  
+*De groups waar JBond lid van is na **usermod -aG***
 
 ### *"3: The new user should have a password."*
 
@@ -263,7 +259,7 @@ Door gebruik te maken van argumenten kan het passwd-commando ook de regels van p
 - -e expire password en verplicht het aanmaken van een nieuw password bij login
 - -S laat de status van een password zien
 
-![Het gebruikt van passwd](/00_includes/passwd.png)
+![Het gebruikt van passwd](/00_includes/Linux/passwd.png)
 
 ### *"4: The new user should be able to use ‘sudo’"*
 
@@ -271,10 +267,10 @@ Sudo, of *Super User Do* is een toevoeging aan een commando dat kan worden gebru
 
 Accounts die sudo mogen gebruiken moeten in de sudoers-file staan, en logischerwijs mogen alleen die accounts die in de sudoers-file staan deze aanpassen.
 
-![Het gebruik van sudo voor accounts die niet in de sudoers-file staan geeft een foutmelding](/00_includes/su_sudoers.png)
+![Het gebruik van sudo voor accounts die niet in de sudoers-file staan geeft een foutmelding](/00_includes/Linux/su_sudoers.png)
 *Oeps, geen toestemming*  
   
-  ![Als iemand wel in de sudoers-file staat mag deze wel sudo gebruiken](/00_includes/JBond_sudo.png)
+  ![Als iemand wel in de sudoers-file staat mag deze wel sudo gebruiken](/00_includes/Linux/JBond_sudo.png)
   *Nu wel toestemming*
 
 
@@ -284,7 +280,7 @@ In deze zijn de rechten onderverdeeld in 2 delen: de rechten en het gebruik van 
 
 
 
-![Het editen van de sudoers-file](/00_includes/sudoers_2.png)
+![Het editen van de sudoers-file](/00_includes/Linux/sudoers_2.png)
 *Het toevoegen van JBond in de sudoers-file*
 
 ### *"5: Locate the files that store users, passwords, and groups. See if you can find your newly created user’s data in there."*
@@ -297,12 +293,12 @@ Er zijn 3 files die deze data opslaan en alle 3 staan in de /etc/ directory:
 In deze files wordt de informatie verdeeld in een .csv bestandstype.
 
 
-![JBond in **passwd**](/00_includes/JBond_passwd.png)  
+![JBond in **passwd**](/00_includes/Linux/JBond_passwd.png)  
 *De indelinng van het passwd-file*
 
-![JBond in **shadow**](/00_includes/JBond_shadow.png)
+![JBond in **shadow**](/00_includes/Linux/JBond_shadow.png)
 *zonder sudo geen toegang tot het shadow-file*
 
-![Het group -file](/00_includes/group_file.png)  
+![Het group -file](/00_includes/Linux/group_file.png)  
 *De laatste 10 lines van het group-file*
 

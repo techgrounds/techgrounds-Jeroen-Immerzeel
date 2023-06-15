@@ -9,25 +9,26 @@ Binnen deze opdracht worden de volgende 3 deelopdrachten gevraagd:
 - Create a script that writes available disk space to a log file in ‘/var/logs’. Use a cron job so that it runs weekly.
 
 ### *"Welke bronnen heb ik gebruikt?"*
-Het boek *LPIC-1 Study Guide fifth edition* voor de meeste onderdelen.  
+Het boek **LPIC-1 Study Guide fifth edition** voor de meeste onderdelen.  
 
 En deze websites:  
-https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/   
-https://crontab.guru/every-1-minute
-https://opensource.com/article/18/7/how-check-free-disk-space-linux
+https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/ voor de syntax van cronjobs   
+https://crontab.guru/every-1-minute voor het maken van een cronjob dat elke minuut draait  
+https://opensource.com/article/18/7/how-check-free-disk-space-linux voor het commando voor de diskspace opdracht
 
 
 ### *"Welke problemen ben ik tegengekomen?"*
-Het aanmaken van een cron-job dat elke minuut draait was iets wat ik echt even voor moest zoeken. 
+Het aanmaken van een cronjob dat elke minuut draait was iets wat ik echt even voor moest zoeken. 
 
 ### *"1: Create a Bash script that writes the current date and time to a file in your home directory."*
 
-Dit gaat zoals met alle andere scripts maak je het scriptfile aan met de shebang bovenaan, voeg je het script toe en geef je het bestand execute rechten met **chmod u+x**.
+Dit gaat zoals met alle andere scripts. Je maakt een scriptfile aan met de shebang bovenaan, voeg je het script toe en geef je het bestand execute rechten met **chmod u+x**.
 
-Het commando om de tijd en datum te tonen is  **date**, dus het commando binnen de sccript in deze is: 
+Het script om de tijd en datum te tonen gebruikt het **date** commando, en dat wordt met een \>\> naar een textfile doorgestuurd. 
+Het hele script is: 
 ```
 time=$(date)  
-echo $time
+echo $time >> /home/jeroen_/scripts/timekeeper.txt
 ```
 
 
@@ -35,9 +36,9 @@ echo $time
 
 ### *"2: Register the script in your crontab so that it runs every minute."* 
 
-Hiervoor moet je de cron-tab aanpassen; dit doe je met **crontab -e**.
-Hierbinnen wordt eerst de tijd waarop een job moet worden uitgevoerd noteren en vervolgens het absolute path naar het script wat er uitgevoerd moet worden.
-Voor de tijd geldt dat crontab een geheel eigen, maar relijk simpele syntax kent:  
+Hiervoor moet je de cron-tab aanpassen; dit doe je met **crontab -e**.  
+Hierbinnen wordt eerst de tijd waarop een job moet worden uitgevoerd noteren en vervolgens het absolute path naar het script wat moet worden uitgevoerd.  
+Voor de tijd geldt dat crontab een geheel eigen, maar redelijk simpele syntax kent:  
 **m h dom, mon, dow:**  
 - m -> Minuut (0-59)
 - h -> Uur (0-23)
@@ -51,13 +52,13 @@ Binnen cron en scripts is het nodig om altijd de full paths te gebruiken.
 In deze is de regel die er toevoegd moet worden dus:  
 **\* \* \* \* \* /home/jeroen_/scripts/time.sh**
 
-![Het crontab](/00_includes/crontab_time.png)
+![Het crontab](/00_includes/linux/crontab_time.png)
 *crontab entry voor het date commando*
 
-![Het script](/00_includes/time_sh.png)
+![Het script](/00_includes/linux/time_sh.png)
 *Het script voor de tijdsmeldin*
 
-![De tijds melding](/00_includes/time_log.png)
+![De tijds melding](/00_includes/linux/time_log.png)
 *De tijdsmelding zelf*
 
 ### *"3: Create a script that writes available disk space to a log file in ‘/var/logs’. Use a cron job so that it runs weekly."* 
@@ -73,10 +74,10 @@ disk_usage=$(date)
 logger The current disk usage is: $disk_usage 
 ```
 
-![Het script](/00_includes/df_sh.png)
+![Het script](/00_includes/linux/df_sh.png)
 *het df script*  
 
-![De output van het df script](/00_includes/disksize.png)
+![De output van het df script](/00_includes/linux/disksize.png)
 *de diskusage*
 
 #### *2: "Use a cron job so that it runs weekly."*
@@ -87,9 +88,9 @@ Om het aangemaakt script elke week te draaien is het nodig om met **crontab -e**
 Hiermee zal cron op de maandag het **df.sh** script draaien.
 
 
-![crontab entry](/00_includes/crontab_time.png)  
+![crontab entry](/00_includes/linux/crontab_time.png)  
 *crontab entry*  
 
 
-![de output](/00_includes/df_sh.png)  
+![de output](/00_includes/linux/df_sh.png)  
 *het df script*

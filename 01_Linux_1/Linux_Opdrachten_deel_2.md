@@ -13,7 +13,7 @@
 - Command substitution
 
 ## Bronnen
-Het boek "LPIC-1 Study Guide Fith Edition" waar ik de meeste oplossingen heb gevonden.  
+Het boek "LPIC-1 Study Guide Fifth Edition" waarin ik de meeste oplossingen gevonden heb.  
 https://www.gnu.org/software/bash/manual/ en specifiek https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html voor een aantal vragen.  
 https://www.howtoforge.com/how-to-install-and-use-telnet-on-ubuntu/ voor het installeren van de telnet service voor opdracht 6.  
 https://linuxhint.com/generate-random-number-bash/ voor de informatie over het aanmaken van een random number.  
@@ -32,14 +32,14 @@ Binnen deze opdracht worden de volgende 6 deelopdrachten gevraagd:
 - Change the group ownership of the file to a different group.
 
 ### *"1: Create a text file."*
-Deze opdracht is simpel en kan op meerdere manieren:
+Deze opdracht is simpel en kan op meerdere manieren worden uitgevoerd:
 - echo "tekst" > file.txt
 - touch > file.txt
-- met een tekst editor als VIM, Nano of Emac 
+- met een tekst editor als VIM, Nano of Emacs 
 
 Wat ook leuk is om te weten is dat in Linux elke file een tekstbestand is, en dat een extensie niet nodig is; deze zijn er puur voor de gebruiker om snel te zien waarvoor een bestand gebruikt wordt. 
 
-![Het aanmaken van een tekstfile](/00_includes/permissions_1.png)  
+![Het aanmaken van een tekstfile](/00_includes/linux/permissions_1.png)  
 *aanmaken van een tekstfile*
 
 ### *2: Make a long listing to view the file’s permissions. Who is the file’s owner and group? What kind of permissions does the file have?*
@@ -53,7 +53,7 @@ Deze deelopdracht kent een aantal onderdelen:
 
 Een *long listing* maken gaat via het **ls -l** commando.
 
-![Long listing van de aangemaakte permissions.txt](/00_includes/permissions_ls.png)  
+![Long listing van de aangemaakte permissions.txt](/00_includes/linux/permissions_ls.png)  
 *De output van ls -l*
 
 **Who is the file’s owner and group?**  
@@ -78,14 +78,14 @@ Omdat de permissies worden gelezen als *file type code* > user > group > others 
 ```
 Files en directories kennen elk iets andere definities voor de permissions:
 Files:
-**Read** geeft permission om de inhoud van de file te lezen.
-**write** geeft permission om de inhoud van een file aan te passen.
-**execute" geeft de permission tot het uitvoeren van de file als zijne een binary of script.
+**Read** geeft permissions om de inhoud van de file te lezen.
+**write** geeft permissions om de inhoud van een file aan te passen.
+**execute" geeft de permissions tot het uitvoeren van de file als zijne een binary of script.
 
 Directories:
-**read** geeft permission om de inhoud in de directory te bekijken.
-**write** geeft permission om het aanpassen van de files in de directory.
-**execute** geeft permission om de directory als working directory te gebruiken, dit zolang dit ook geldt voor parent directories.
+**read** geeft permissions om de inhoud in de directory te bekijken.
+**write** geeft permissions om het aanpassen van de files in de directory.
+**execute** geeft permissions om de directory als working directory te gebruiken, dit zolang dit ook geldt voor parent directories.
 ```
 
 ## *"3: Make the file executable by adding the execute permission (x)."*
@@ -117,7 +117,7 @@ Dus om met **octal mode** het permissions.txt -file te voorzien van een excute p
 Hierdoor is het uiteindelijke commando voor de opdracht:  
  **chmod 763 permissions.txt**
 
-![Permissions aanpassen met octal mode](/00_includes/permissions_user_octal.png)  
+![Permissions aanpassen met octal mode](/00_includes/linux/permissions_user_octal.png)  
 *octal mode*
 
 **Symbolic mode**
@@ -141,7 +141,7 @@ Het is hierbij mogelijk om zowel de user/group/others als de permissions te comb
 Hierdoor is het uiteindelijke commando voor de opdracht:  
 **chmod u+x permissions.txt**
 
-![permissions aanpassen met chmod u+x](/00_includes/permissions_user_x.png)  
+![permissions aanpassen met chmod u+x](/00_includes/linux/permissions_user_x.png)  
 *symbolic mode*
 
 ## *"4: Remove the read and write permissions (rw) from the file for the group and everyone else, but not for the owner. Can you still read it?*"
@@ -151,17 +151,17 @@ In deze moet het gehele commando 1 van deze 2 commando's zijn:
 **chmod 600 permissions.txt**  
 **chmod go-rwx permissions.txt**
 
-![Permissions verwijderen via octal mode](/00_includes/permissions_remove_octal.png)  
+![Permissions verwijderen via octal mode](/00_includes/linux/permissions_remove_octal.png)  
 *octal mode*  
 
 <br>
 
-![Permissions verwijderen via symbolic mode](/00_includes/permissions_remove_symbolic.png)  
+![Permissions verwijderen via symbolic mode](/00_includes/linux/permissions_remove_symbolic.png)  
 *symbolic mode*
 
 Na het verwijderen van de rechten voor de group en others kan de user deze nog altijd lezen; de read permission van de user er is immers nog altijd.
 
-![De user heeft nog altijd read permissions](/00_includes/cat_permissions.png)  
+![De user heeft nog altijd read permissions](/00_includes/linux/cat_permissions.png)  
 *read permission user*
 
 ### *"5: Change the owner of the file to a different user. If everything went well, you shouldn’t be able to read the file unless you assume root privileges with ‘sudo’. "*
@@ -172,11 +172,11 @@ Dit gaat via het **chown** commando. Deze heeft een zeer simpele syntax:
 Dus om de user JBond de eigenaar te laten worden van de permissions.txt file is het commando:  
 **chown JBond permissions.txt**
 
-![Chown JBond permissions.txt](/00_includes/change_ownership_user.png)    
+![Chown JBond permissions.txt](/00_includes/linux/change_ownership_user.png)    
 *JBond is de nieuwe owner*
 <br>
 
-![De user jeroen_ kan de file niet lezen](/00_includes/cat_permission_denied.png)    
+![De user jeroen_ kan de file niet lezen](/00_includes/linux/cat_permission_denied.png)    
 *Geen read permissions, dus "permission denied"*
 <br>
 <br>
@@ -189,18 +189,18 @@ Ook dit is redelijk simpel en gaat via het **chgrp** commando. Deze kent eigenli
 Dus om de group "admin" de group te laten worden die eigenaar is van permissions.txt is het commando:  
 **chgrp admin permissions.txt**
 
-![De group was jeroen_](/00_includes/group_owner_jeroen.png)  
+![De group was jeroen_](/00_includes/linux/group_owner_jeroen.png)  
 *De group was jeroen_*
 
 
-![De group na chgrp is admin](/00_includes/group_owner_admin.png)  
+![De group na chgrp is admin](/00_includes/linux/group_owner_admin.png)  
 *De group is nu admin* 
 
-<br>
+
 
 # Opdracht LNX-06
 
-Deze opdreacht gaat over het beheer van processes
+Deze opdracht gaat over het beheer van processen.
 
 Binnen deze opdracht worden de volgende 4 deelopdrachten gevraagd:
 - Start the telnet daemon.
@@ -217,13 +217,13 @@ Voor het starten van de service wordt op een systeem dat **systemd** als initial
  - pauze -> pauzeert de service
  - restart -> herstart een service nadat deze gepazeerd was
  - enable -> laat de service starten bij een systemboot
- - disable -> laat de service niet (meer) started bij een systemboot
+ - disable -> laat de service niet (meer) starten bij een systemboot
 
 Dus om de telnet daemon te starten moet **systemctl start inetd** worden gebruikt; **inetd** is daarbij de daemon die telnet gebruikt.
 Echter, het telnet package is niet geinstalleerd dus zal deze eerst moeten worden geinstalleerd, wat kan via **apt install telnetd**.  
 Na installatie wordt de daemon automatisch gestart.
  
-![Het inetd service status na installatie](/00_includes/inetd.png)
+![Het inetd service status na installatie](/00_includes/linux/inetd.png)
 *inetd service*
 
 
@@ -239,7 +239,7 @@ In deze is het mogelijk om de output van **ps -aux** te filteren met **grep** op
 Dit is echter niet de meest elegante en snelle manier, en kan veel sneller via het **pgrep** commando. De **p** in deze staat voor **PID** en het **pgrep** commando vraagt een service als argument en geeft het **PID** als output.
 In deze is het de makkelijkste manier om **pgrep inetd** te gebruiken; welke in mijn geval een PID aangeeft van 12510  
 
-![Inetd PID](/00_includes/pregp_inet.png)
+![Inetd PID](/00_includes/linux/pregp_inet.png)
 *pgrep inetd*
 
 
@@ -248,7 +248,7 @@ In deze is het de makkelijkste manier om **pgrep inetd** te gebruiken; welke in 
 Voor deze opdracht is het gebruik van **systemctl status inetd** de meest snelle oplossing. De output van deze laat o.a het PID de memory-usage en CPU usage zien.
 In mijn geval gebruikt de **inetd** deamon 864.0k memory.
 
-![status inetd](/00_includes/6_4_memory.png)  
+![status inetd](/00_includes/linux/6_4_memory.png)  
 *inetd memory*
 
 ## *"4:"Stop or kill the telnetd process."*
@@ -257,7 +257,7 @@ Ook hiervoor wordt **systemctl** gebuikt maar dan met het **stop** argument.
 Het gehele commando is dan ook:  
  **sudo systemctl stop inetd**.
 
-![inetd stopped](/00_includes/inetd_stopped.png)
+![inetd stopped](/00_includes/linux/inetd_stopped.png)
 *inetd status dead*
 
 
@@ -284,7 +284,7 @@ Binnen deze opdracht worden de volgende deelopdrachten gevraagd:
 **Problemen die ik ben tegengekomen:**  
 
 De naam van de httpd package bleek apache2 te zijn; dat gaf we wel even wat tijd om te realiseren. Dit gold ook voor het inetd package voor de telnet opdracht.
-Ook een fout maken met het PATH variable gaf mij wat problemen die ik met behulp van mijn boek kon oplossen. Hier bleek het gebruik van full paths de oplossing te zijn. 
+Ook een fout maken met het PATH variable gaf mij wat problemen die ik met behulp van mijn boek en hulp van teamgenoot kon oplossen. Hier bleek het gebruik van full paths de oplossing te zijn. 
 
 ## Deel 1:
 
@@ -304,12 +304,12 @@ Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zett
 **export PATH=/home/jeroen_/scripts:$PATH** 
   
 
-![Het originele PATH variable](/00_includes/path1.png)
+![Het originele PATH variable](/00_includes/linux/path1.png)
 *het originele PATH* 
 
  
 
-![Het aangepaste PATH variable](/00_includes/path2.png)
+![Het aangepaste PATH variable](/00_includes/linux/path2.png)
 *het aangepaste PATH*
 
 ### *"3: Create a script that appends a line of text to a text file whenever it is executed"*
@@ -321,7 +321,7 @@ Een **shebang** geeft aan dat de file een script is en met welke shell deze gele
  
 Na het aanmaken van een script is het nodig deze execute permissions te geven; dit gaat via   
  **chmod u+x** 
-![Added execute permissions](/00_includes/script_own.png)
+![Added execute permissions](/00_includes/linux/script_own.png)
 *write permission gegeven*
 
 
@@ -329,13 +329,13 @@ Na het aanmaken van een script is het nodig deze execute permissions te geven; d
 Het script voor deze deelopdracht redelijk simpel: deze bestaat uit een echo en een redirect naar een andere file via de >> operator. Het commando binnen het gehele script is dan:  
 **echo "This text is added to the opdracht7.sh script" 1> append.txt**
 
-![Het script](/00_includes/nano_script.png)
+![Het script](/00_includes/linux/nano_script.png)
 *het script*
 
-![De originele file](/00_includes/append_original.png)
+![De originele file](/00_includes/linux/append_original.png)
 *de originele inhoud*
 
-![De appended file](/00_includes/append_appended.png)
+![De appended file](/00_includes/linux/append_appended.png)
 *de aangepaste inhoud*
 
 ### *"4:Create a script that installs the httpd package, activates httpd, and enables httpd Finally, your script should print the status of httpd in the terminal."**
@@ -343,7 +343,7 @@ Het script voor deze deelopdracht redelijk simpel: deze bestaat uit een echo en 
 Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
 - Het installeren van een programma; in deze het httpd package
 - Het starten van httpd; dit is het apache2 package
-- Het enabelen van de daemon
+- Het laten starten van de daemon tijdens het bootproces
 
 **Het installeren van een package** 
 
@@ -379,10 +379,10 @@ sudo systemctl start apache2
 sudo systemctl enable apache2  
 sudo echo systemctl status apache2**
 
-![Het gehele script](/00_includes/script_7.png)  
+![Het gehele script](/00_includes/linux/script_7.png)  
 *Het gehele script*
 
-![De ouput van het script](/00_includes/status_apache_7.png)  
+![De ouput van het script](/00_includes/linux/status_apache_7.png)  
 *De status van de Apache service*
 
 
@@ -395,12 +395,12 @@ Deze opdracht kent meerdere onderdelen:
 
 **Het aanmaken van een random number**  
 Hiervoor is het nodig om wat te zoeken; de syntax is best lastig.
-De oplossing welke ik vond is het commando echo $((RANDOM % 10 1)) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken :
+De oplossing welke ik vond is het commando echo $((RANDOM % 10+1)) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken :
 ```
 echo $((RANDOM % 10 + 1))
 ```
 
-![Het $RANDOM command](/00_includes/random1.png)
+![Het $RANDOM command](/00_includes/linux/random1.png)  
 *Het script*
 
 **Het opslaan van een output als variable**  
@@ -412,16 +412,16 @@ random_num=$[RANDOM %10+1]
 
 En om deze te tonen is het **echo $random_num**  
 
-![Een random number opslaan als variabele](/00_includes/random_var.png)  
+![Een random number opslaan als variabele](/00_includes/linux/random_var.png)  
 *Appending numbers*
 
 
 
 **Het toevoegen van dat nummer aan een tekstfile**  
 Deze is heel simpel: na het aanmaken van het eerdere script kan de output van deze worden doorgestuurd naar een andere file via de **>>** redirector. 
-Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo $random_num >> random_num.txt**
+Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo $random_num >> /home/jeroen_/scripts/random_num.txt**
 
-![Random_num](/00_includes/random_added.png)
+![Random_num](/00_includes/linux/random_added.png)  
 *Het nummer appended*
 
 
@@ -430,7 +430,8 @@ Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo
 Deze opdracht kent een aantal deel opdrachten:
 
 - Het laten aanmaken van een random number tussen 1 en 10
-- Het opslaan van dat nummer in een variable  
+- Het opslaan van dat nummer in een variable   
+
 Deze 2 stappen zijn hetzelfde als in deelopdracht 2. 
 
 Hierna komen er echter een aantal extra stappen:
@@ -488,8 +489,21 @@ fi
 
 ```
 
-![Het script in Linux](/00_includes/random_append_script.png)  
+![Het script in Linux](/00_includes/linux/random_append_script.png)  
 *het script*
 
-![De output van het script in het textfile](/00_includes/random_append_append.png)  
+![De output van het script in het textfile](/00_includes/linux/random_append_append.png)  
 *De output*
+
+Ook is het mogelijk om met een *else* opdracht te werken; het script is dan wat korter en minder complex door "refactoring":
+```
+
+random_num=$($RANDOM%10+1)
+if [ $random_num -le 5 ]
+then
+  echo $random_num >> append_text.txt
+else
+  echo "This number was higher then 5" >> append_text.txt
+fi
+
+```
