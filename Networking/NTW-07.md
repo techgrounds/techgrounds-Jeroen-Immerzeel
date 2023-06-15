@@ -4,7 +4,8 @@ Het maken van een netwerkoplossing voor een klein e-commerce bedrijf.
 
 ## Key-terms
 - Networking
-- Diagram
+- Network Architecture
+- Network Diagram
 
 # Opdracht
 

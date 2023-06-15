@@ -12,6 +12,7 @@ Deze opdracht gaat over het rekenen/tellen in binary en hexadecimal noteringen e
 
 ## Gebruikte bronnen
 - Het boek CompTIA Network+ Study guide Fifth Edition
+- https://www.techtarget.com/whatis/definition/nibble voor de afbeelding
 
 ## Ervaren problemen
 Weinig. Deze stof kende ik al vanuit zowel mijn MBO opleiding als een leuke mmanier van puzzelen. 
@@ -19,16 +20,16 @@ Weinig. Deze stof kende ik al vanuit zowel mijn MBO opleiding als een leuke mman
 # Uitwerking
 Wat zijn de verschillen tussen **decimal** **hexadecimal** en **binary**??
 - **Decimal** zijn de cijfers die we kennen 0-9.
-- **Hexadecimal** is een base 16 systeem waarbij er naar 0-9 ook ABCDEF wordt gebruikt voor de notatie.
-- **Binary** is het systeem waarbij er alleen met 0 en 1 gewerkt wordt en een byte. 
+- **Hexadecimal** is een base 16 systeem waarbij er naast 0-9 ook ABCDEF wordt gebruikt voor de notatie van de cijfers 10 t/m 15.
+- **Binary** is het systeem waarbij er alleen met 0 en 1 gewerkt wordt en deze samen een byte vormen. 
 
 ## Binary
-Een binair getal bestaat uit een byte. Bytes kennen 8 mogelijke posities welke aan of kunnen staan, oftewel bestaan uit 1-en en 0-en.  
+Een binair getal bestaat uit 8 bits welke een byte vormen. Bit kennen 2 mogelijke posities; 0 of 1.  
 
 Als een positie een 1 is, wordt deze gebruikt; is het 0 wordt deze niet gebruikt.  
 
-Elke positie bestaat uit een macht van 2 waarbij de meest rechter de 1 is en de meest linker 128; oftewel 2^1(1) en 2^8(128). Het decimale getal 0 is 2^0 en dus staan dan alle posities uit.
-Binaire getallen kunnen hierom nooit groter zijn dan 255.
+Een byte positie bestaat uit 8 bits welke een macht van 2 vormen. Hierbij heeft de meest rechter bit de waarde 1 is en de meest linker bit de waarde 128; oftewel 2^1(1) en 2^8(128). Het decimale getal 0 is 2^0 en dus staan dan alle bits uit c.q. op 0.
+Binaire getallen kunnen hierom 256 waardes hebben; 0 - 255.
 
 
 Om dit uit te beelden in 5 decimale getallen:  
@@ -38,20 +39,20 @@ Om dit uit te beelden in 5 decimale getallen:
 11110000 is 240   
 1111111 is 255  
 
-Om van een decimaal getal een binair getal te maken wordt deze afgetrokkenn met de waardes van elke positie van links(128) naar rechts (1) zolang deze geen negatief getal geven.  
+Om van een decimaal getal een binair getal te maken wordt deze verminderd met de waardes van elke positie van links(128) naar rechts (1) zolang deze geen negatief getal geven.  
 
 Als voorbeeld:  
 141 ->
 - 141 kan met 128 worden verminderd waarbij 13 overblijft, dus de 128 positie wordt een 1.
-- 13 is niet af te trekken met 64, 32 of 16 zonder op een negatief getal uit te komen, dus die posities blijven uit. 
-- 13 is af te trekken met 8 waarbij er 5 overblijft, dus de 8 positie wordt een 1 
-- 5 is af te trekken met 4 waarbij er 1 over blijft, dus de 4 positie wordt een 1 , en er blijft 1 over.
-- 1 is niet af te trekken met 2, maar wel met 1, dus de 2 blijft een 0, en de 1 wordt een 1   
+- 13 is niet te verminderen met 64, 32 of 16 zonder op een negatief getal uit te komen, dus die posities blijven opp 0 staan. 
+- 13 is te verminderen met 8 waarbij er 5 overblijft, dus de 8 positie wordt een 1 
+- 5 is te verminderen met 4 waarbij er 1 over blijft, dus de 4 positie wordt een 1 , en er blijft 1 over.
+- 1 is niet te verminderen met 2, maar wel met 1, dus de 2 blijft een 0, en de 1 wordt een 1   
 
 Dus de uiteindelijke binaire notatie van het decimale getal 141 is: 10001101
 
 
-Om van een binair getal een decimaal getal te maken worden de posities bij elkaar opgeteld.  
+Om van een binair getal een decimaal getal te maken worden de waardes van de 1-bits bij elkaar opgeteld.  
 Voorbeeld:  
 01010111 ->
 - 128 -> 0   
@@ -71,23 +72,41 @@ Vervolgens worden de getallen die een 1 hebben bij elkaar opgeteld:
 
 ## Hexadecimal:
 Bij hexadecimal wordt een decimaal getal omgerekend naar hex door een **_nibble_** te maken. Een nibble is een binair getal door tweeën gesplitst: 0000 ipv 00000000. 
-Doordat deze bestaat uit 4 posities zijn er 15 mogelijke getallen per *nibble*.  
-Door de *nibble* om te rekenen kan je van een Hex een decimaal getal maken of v.v. door of beide nibbles apart te nemen (bij dec naar Hex) of samen te voegen en op te tellen zoals bij binair naar dec (bij Hex naar dec) 
+Voor de eerste nibble zijn de waardes van de postities:  
+- 128  
+- 64  
+- 32  
+- 16  
+
+
+Voor de tweede nibble zijn de waardes:  
+8  
+4  
+2   
+1  
+Deze bestaat dus uit de waardes 0 t/m 15; oftewel 0-F.
+
+Door de *nibbles* om te rekenen kan je van een Hex een decimaal getal maken of v.v. door of beide nibbles apart te nemen (bij dec naar Hex) of samen te voegen en op te tellen zoals bij binair naar dec (bij Hex naar dec) 
+
+![De vergelijking tussen nibbles, Hex en decimale getallen](/00_includes/Networking_Images/nibble_hex_dec.png)
+*De vergelijking tussen nibbles, Hex en decimale getallen*
 
 ### Voorbeelden:  
 Omrekenen van Hex naar dec gaat zo:   
 F6 ->
-F is binair 1111   
-6 is binair 0110;   
-De uitkomst is dan binair: 111101110 oftewel 246 
+F is binair 1111  
+6 is 6   
+De eerste nibble is 1111 dus 128 + 64 + 32 + 16 = 240  
+6 is 6  
+240 + 6 is 246; F6 is dus 246.
 
 Omrekenen van dec naar Hex gaat zo:  
 157 ->
-- 157 vetaald naar binair is 10011101  
+- 157 vetaald naar binair is 10011101  (128 + 16 + 8 + 4 + 1)
 - Maak nibbels van het binaire getal: 1001 1101   
 - Reken beide nibbles uit:
-- 1001 is 9 
-- 1101 is 13  
+- 1001 is 8 + 1 = 9 
+- 1101 is 8 + 4 + 1 = 13  
 - Zet getallen van 10 tot 15 om in letter notering: 
 - 13 is D  
 - Zet beide tekens naast elkaar.

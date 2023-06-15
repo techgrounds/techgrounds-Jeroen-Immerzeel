@@ -18,7 +18,7 @@ Deze opdracht kent 3 deelopdrachten:
 - https://www.wireshark.org website en hun /faq pagina. Dit voor zowel het downloaden van wireshark als de informatie die nodig was om een probleem op te lossen.
 - https://www.nos.nl en http://info.cern.ch voor de voorbeelden van de wireshark opdracht.
 - https://en.wikipedia.org/wiki/List_of_network_protocols_(OSI_model) voor de verschillende protocollen  
-- Daarnaast mijn al bestaande kennis en het boek "CompTIA Network+ a study guide, fifth edition".
+- Daarnaast mijn al bestaande kennis en het boek *CompTIA Network+ a study guide, fifth edition*.
 
 ## Ervaren problemen
 1: wireshak gaf een foutmelding over "promiscuous mode" die ik heb kunnen oplossen met het doorlezen van de faq op https://wireshark.org/faq   
@@ -37,7 +37,7 @@ Dit is de physical layer en kent protocollen voor het versturen van de bits. De 
 Dit is de DataLink Layer en kent als bekenste 2 protocollen **Ethernet** en **WiFi**. 
 
 **Layer 3**  
-Dit is de Network Layer en heeft als meest bekende en belangrijste protocol het **Internet Protocol**. Er worden nu 2 versies van dit protocol gebruikt: *IP4*  en *IPv6*.  
+Dit is de Network Layer en heeft als meest bekende en belangrijkste protocol het **Internet Protocol**. Er worden nu 2 versies van dit protocol gebruikt: *IP4*  en *IPv6*.  
 
 Omdat we een tekort hebben aan IP4 adressen is IPv6 ontwikkeld en het is de bedoeling dat we de komende jaren overgaan naar een veelal IPv6 internet.   
 Daar waar IP4 een 32 bits adres is en daarmee slechts *4,294,967,296* adressen kent, heeft IPv6 een 128 bit adres en dus *340 miljard miljard miljard* adressen; of om dit meer wiskundig te stellen heeft IP4 2^32 en IPv6 2^128 adressen.  
@@ -50,7 +50,7 @@ Dit is de Transport Layer en kent 2 zeer belangrijke protocollen: **TCP** en **U
 TCP wordt dan ook gebruikt voor het versturen van data die accuraat moet zijn waar UDP vooral gebruikt wordt voor data die snel geleverd moet worden; denk hierbij aan downloads bij TCP en streamingdiensten bij UDP.
 
 **Layer 5**  
-Dit is de session layer en kent door diens functie signalling protocollen voor het beheer van sessions, zoals de tunneling protocollen L2TP en L2f welke gebruikt worden voor VPNs.  
+Dit is de session layer en kent door diens functie signalling protocollen voor het beheer van sessions, zoals de tunneling protocollen L2TP en L2F welke gebruikt worden voor VPNs.  
 
 
 **Layer 6**  
@@ -60,7 +60,7 @@ Dit is de presentation layer, gezien deze laag de encryptie afhandeld kent deze 
 
 Dit is de application layer en kent een groot aantal protocollen; een aantal bekende voorbeelden zinn:
 - **POP**, **IMAP** en **SMTP** voor email services.
-- **HTTP**, **HTTPS** voor het versturen van hypertext documenten; brower op het web.
+- **HTTP**, **HTTPS** voor het versturen van hypertext documenten; browsen op het web.
 - **BootP**, **DHCP** voor het instellen van dynamic IP information.
 - **DNS** voor het omzetten van IP adres naar url en vice versa.
 - **SSH**, **Telnet**, **RDP** voor remote sessions
@@ -114,13 +114,14 @@ De flags bestaan uit 12 bits welke een aantal meldingen over de inhoud van het T
 - Syn Ack --> acknowledgment van het synchronisatie verzoek vanuit de server 
 - Ack -> acknowledgement van de syn ack vanuit de client
 
-Als de client of server de connectie wilt beëindigen vindt er een * "4 way handshake"* plaats plaats maar dan met deze 4 stappen:
+Als de client of server de connectie wilt beëindigen vindt er een * "4 way handshake"* plaats:
 - Fin --> verzoek tot sluiten van connectie vanuit client
 - Fin Ack --> goedkeuren van het sluiten vanuit de server
 - Fin --> verzoek tot sluiten van de connectie vanuit de server
 - Fin Ack --> goedkeuren van het sluiten vanuit de client
 
 ![Een TCP ack segment](/00_includes/Networking_Images/tcp_wireshark.png)
+*De inhoud van van een TCP header*
 
 
 Een klein weetje: bij een port scanner als NMAP, welke gebruikt wordt voor network enumeration, kan een onvolledige TCP handshake gebruikt omdat dit sneller is. Dit wordt ook wel een SYN scan genoemd. Daarom is het uitlezen van netwerk verkeer op onvolledige TCP handshakes onderdeel van menig onderzoek en wordt bijna altijd automatisch gedetecteerd door een Intrusion Detection System. 

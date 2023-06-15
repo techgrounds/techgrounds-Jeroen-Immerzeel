@@ -16,7 +16,7 @@
 
 
 ### Gebruikte bronnen
-Het boek Comptia Network+ Study Guide dat ik al had van een eerdere opleiding.  
+Het boek Comptia Network+ Study Guide Fifth Edition dat ik al had van een eerdere opleiding.  
 Voor de afbeelding met netwerk apparaten:  
 https://www.itrelease.com/2021/06/types-of-network-devices/
 
@@ -35,27 +35,27 @@ Een **modem** is een layer 1 apparaat dat via modulatie van stroom of licht anal
 Een **switch** is een device met een x aantal netwerkpoorten waaraan nodes zijn verbonden.  Switches werken op de **Data Link layer** van het OSI model.   
 Swtches zitten tussen individuele hosts in, en sturen netwerkverkeer tussen deze hosts op een slimme manier.  
 Hierbij wordt het **fysieke adres** oftewel het **MAC Adres** van de hosts voor gebruikt. De Switch gebruikt het **ARP** -protocol om het MAC Adres van de ontvanger op te vragen en stuurt de frame vervolgens door naar zijn bestemming. Een switch gebruikt vervolgens een CAM Table om MAC adressen aan netwerkpoorten te koppelen.  
-Een Switch stuurt het inkomende verkeer altijd alleen naar de juiste poort; dit in tegenstelling tot een hub. 
-Een Switch deelt het netwerk in afzonderlijke **collision domains**. 
+Een Switch stuurt het inkomende verkeer altijd alleen door naar de juiste poort; dit in tegenstelling tot een hub. 
+Een Switch deelt het netwerk in afzonderlijke **collision domains**. VLAN delen het netwerk op in indivduele **broadcast domains** en werken ook via switches. 
 
 **Hub**  
-Een hub is vergelijkbaar met een Switch in dat deze een x aantal netwerkpoorten heeft en devices zo met elkaar verbindt. Echter stuurt een Hub het inkomende netwerkverkaar naar alle poorten. Deze facto is een Hub dan ook een "domme switch"; deze wordt dan ook niet meer gebruikt in moderne netwerken.   
+Een hub is vergelijkbaar met een Switch in dat deze een x aantal netwerkpoorten heeft en devices zo met elkaar verbindt. Echter stuurt een Hub het inkomende netwerkverkeer naar alle poorten. Deze facto is een Hub dan ook een "domme switch"; deze wordt dan ook niet meer gebruikt in moderne netwerken.   
 
 **Bridge**  
-Een **bridge** zit tussen 2 netwerkdelen in en verdeeld deze in 2 aparte collision domains. Deze zit op layer 2 van het OSI model en wordt ook wel vergeleken met een Switch qua functionaliteit.
+Een **bridge** zit tussen 2 netwerkdelen in en verdeeld deze in 2 aparte collision domains. Deze zit op layer 2 van het OSI model en wordt ook wel vergeleken met een Switch qua functionaliteit op dit vlak.
 
 
 **Router**  
-Een **router** zit tussen netwerken in en zit op de Network layer van het OSI model. Een router gebruikt **IP adressen** om packets te routen. Voor routing decisions wordt een Routing Table gebruikt waarbij er aan elke port op de router een actie verbonden zit. Hierbij stuurt de router packets door naar de juist port door het IP adres te controleren en deze te vergelijken met de Routing Table.
+Een **router** zit tussen netwerken in en zit op de Network layer van het OSI model. Een router gebruikt **IP adressen** om packets te routen. Voor routing decisions wordt een Routing Table gebruikt waarbij er aan elk IP adres in de Routing table een actie verbonden zit. Hierbij stuurt de router packets door naar de juiste port door het IP adres te controleren en deze te vergelijken met de Routing Table.
 Een Router deelt netwerken op in afzonderlijke **broadcast domains**. 
 
 **WiFi Router**
 Een **WiFi Router** is het type router dat de meeste mensen thuis hebben. Dit is een router met WiFi-functionaliteit. Deze werkt dan ook op meerdere lagen van het OSI model: Layer 1 voor de NICs, Layer 2 voor de WiFi access point en Switching mogelijkheden, en Layer 3 voor de routing mogelijkheden.  
-Het WiFi gedeelte van deze maakt het mogelijk om draadloos contact te maken met het netwerk.
+Het WiFi gedeelte van deze maakt het mogelijk om draadloos contact te maken met het netwerk. Voor de rest heeft deze veelal dezelfde functionalteit als een normale router.
 
 **WiFi AP**  
 Een **WiFi Access Point** maakt het mogelijk om via Wifi (draadloos) contact te maken met een netwerk. Deze functioneert op layer 2 van het OSI model en is vergelijkbaar met een Hub: deze is dus "dom" en stuurt het inkomende signaal door naar alle aangeloten poorten/devices.  
-Deze gebruikt radiogolven en is daarmee erg afhankelijk van de omstandigheden van de ruimte waarbinnen deze zich bevind, én van welke generatie WiFi er gebruik gemaakt wordt.
+Deze gebruikt radiogolven en is daarmee erg afhankelijk van de omstandigheden van de ruimte waarbinnen deze zich bevindt, én van welke generatie WiFi er gebruik gemaakt wordt.
 
 Een AP kan ook functioneren als **Wireless Bridge** waarbij deze de ruimte tussen 2 of meerdere bedrade netwerkdelen draadloos overbrugd.
 
