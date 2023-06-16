@@ -73,7 +73,7 @@ Deze heeft 32 mogelijke adressen:
 - Broadcastadres: 10.0.1.31
 - Hosts: 10.0.1.1 - 10.0.1.30
  
-Dit netwerk is in het diagram met groen gekleurd.
+Dit netwerk heeft een vaste connectie naar de andere delen van het LAN.
 
  **Tweede subnet**  
 *"1 private subnet dat internet toegang heeft via een NAT gateway. Dit subnet moet minimaal 30 hosts kunnen plaatsen (de 30 hosts is exclusief de NAT gateway)."* 
@@ -87,8 +87,8 @@ In deze neem ik het subnet 10.0.2.0/27, en deze heeft 32 mogelijke adressen:
 - Broadcastadres: 10.0.2.31
 - Hosts: 10.0.2.1 - 10.0.2.31
 
+Dit netwerk heeft een vaste connectie naar de andere delen van het LAN, maar ook een indirecte, one-way connectie met het internet via het NAT Gateway.
 
-Dit netwerk is in het diagram met blauw gekleurd.
 
  **Derde Subnet**  
 *"1 public subnet met een internet gateway. Dit subnet moet minimaal 5 hosts kunnen plaatsen (de 5 hosts is exclusief de internet gateway)"* 
@@ -97,14 +97,14 @@ In deze leeft het Internet Gateway buiten de subnets en heeft deze een eigen EIP
 
 Voor een Public IP adres geldt dat deze verkregen wordt door de ISP; in deze is dat AWS en ik neem hiervoor het 172.16.52.63/16 adres.
 
-In deze moet het Public subnet 8 adressen groot zijn en dus minimaal een /29 netwerk.  
-In deze is het dus het 172.16.52.0 subnet en deze heeft deze 8 mogelijke adressen: 
+In deze moet het Public subnet 7 adressen groot zijn en dus minimaal een /29 netwerk met 8 nodes.  
+In deze is het dus het 172.16.52.0/29 subnet en deze heeft deze 8 mogelijke adressen: 
 - 172.16.52.0 - 172.16.52.7
 - Netwerkadres: 172.16.52.0
 - Broadcastadres: 172.16.52.7
 - Hosts: 172.16.52.1 - 172.16.52.6
 
-Dit netwerk is in het diagram met geel gekleurd.
+
 
 ## Het diagram:
 
