@@ -26,7 +26,7 @@ Om met nmap het netwerk te scannen kan je nmap [IP ADRES] opgeven als commando.
 Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden zijn:
 
 - -sT > full TCP connect scan
-- -sS > TCP SYN only scan (wordt ookwel "stealth scan" genoemd)
+- -sS > TCP SYN only scan (wordt ook wel "stealth scan" genoemd)
 - -sP  > ping scan.
 - -sV > protocol version detection
 - -O > OS detection
@@ -63,4 +63,13 @@ Met -A zal namp alle bovenstaande scans combineren én een tracerout doen. Dit i
 
 *"2: Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser."*
 
- Deze vraag was voor mij wat moeilijk om te beantwoorden doordat 
+ Deze vraag was voor mij wat moeilijk om te beantwoorden met afbeeldingen doordat mijn netwerk druk is, maar kan deze vraag makkelijk beantwoorden in tekst.
+
+ Als er een website geladen wordt, net als bij het openen van een browser, worden er achtereenvolgens deze stappen doorlopen:
+ 
+ - Bij een nog onbekende host wordt er eerst een DNS request gedaan om de URL of het FQDN te vertalen naar een IP adres.  
+ - Als het IP adres van de host bekend is wordt er naar het bijbehorende IP adres een HTTP GET request verstuurd om het HTML document waaruit de website bestaat op te vragen. 
+ - De host zal, als deze actief is, een HTTP status geven en het HTML document versturen.
+ - De browser zal hierna de HTML pagina renderen naar een bruikbare webpagina.
+
+ Als er sprake is van een nieuw netwerk wordt er voordat er een DNS verzoek wordt verstuurd ook nog een ARP request verstuurd voorr de gateway van het netwerk. Dit om zo het MAC adres van de gateway te verkrijgen. Deze is nodig omdat elk internetwerkverkeer van router naar router wordt doorgestuurd; een eventuele DNS en/of HTTP request zal dus eerst naar de router worden verstuurd, welke deze vervolgens doorstuurd naar de volgende router op de route naar de betrokken servers.
