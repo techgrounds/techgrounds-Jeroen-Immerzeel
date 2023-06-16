@@ -22,3 +22,5 @@ Nmap moet eerst worde geinstalleerd; dit gaat via **sudo apt install nmap -y**.
 Om met nmap het netwerk te scannen kan je nmap [IP ADRES] opgeven als commando.
 
 *"2: Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser."*
+
+ Deze vraag 
