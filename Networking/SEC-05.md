@@ -48,6 +48,7 @@ S/BHATS8m3qzKL58rjD4ZfucLagxSNN4VU9Vy00JSUMMyPmjVCf4Kfdit0+37sZq
 SrX0IWqYppY2hkL/AgMBAAE=
 -----END PUBLIC KEY-----
 
+---
 
 *"2: end an asymmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key. The recipient should be able to read the message, but it should remain a secret to everyone else. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the difference between this method and symmetric encryption."* 
 
@@ -57,7 +58,7 @@ In deze is het dus: keypair aanmaken -> public key delen -> versleutelen met pub
 
 Dit is dus veel veiliger dan bij symmetrisch versleutelen omdat de sleutel waarmee versleuteld wordt niet hetzelfde is als de sleutel waarmee ontsleuteld wordt; dit waar de sleutel bij symmetrische versleuteling wel hetzelfde is.
 
-![Aanmaken RSA]
+![Aanmaken RSA](/00_includes/Networking_Images/RSA1.png)
 
 
 Versturen van mijn public key

@@ -36,7 +36,7 @@ Er was slechts 1 zwak punt in het enimga cipher: een letter kon nooit in zichzel
 
 *"2: Find two digital ciphers that are being used today."
 
-**RSA**
+**RSA**  
 RSA is een asymmetrisch cipher dat aan de basis ligt van het Public Key Interface (**PKI**) waarbij er een Public/Private keypair wordt aangemaakt. 
  
 
@@ -44,12 +44,12 @@ Bij een **PKI** wordt data met de public key versleuteld waarna het alleen met d
 
 **AES**
 
-AES is een symmetrisch cipher dat de opvloger is van DES dat in 2001 door het NIST is verkozen. 
+AES is een symmetrisch cipher dat de opvloger is van DES dat in 2001 door het NIST is verkozen.   
 Als zijnde een symmetrisch cipher, word AES met dezelfde sleutel versleuteld als deze ontsleuteld wordt. 
-
-*"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."
+---
+*"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
 
 Dit is een leuke opdracht maar is praktisch onmogelijk binnen de limitaties van de opdracht.
 Symmetrische versleuteling is binnen deze immers altijd te kraken doordat de sleutel openlijk gedeeld moet worden.
 
-Alleen als de sleutel versleuteld mag worden met een asymmetrische sleutel zou dit wel kunnen; maar dat is juist wat buiten de limitaties van deze opdracht valt...
+Alleen als de sleutel versleuteld mag worden met een asymmetrische sleutel zou dit wel kunnen; maar dat is juist wat buiten de limitaties van deze opdracht valt...NOG AANPASSEN!

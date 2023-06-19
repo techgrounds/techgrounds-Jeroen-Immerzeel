@@ -11,8 +11,8 @@ De opdracht vraag het volgende:
 - Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser. 
 
 # Gebruikte bronnen
-- De website https://nmap.org/book/man.html voor hulp bij het gebruikt van NMAP
-- Deze tutorial van NetworkChuck op YouTube: https://www.youtube.com/watch?v=4t4kBkMsDbQ&t
+- De website <https://nmap.org/book/man.html voor hulp bij het gebruikt van NMAP
+- Deze tutorial van NetworkChuck op YouTube: <https://www.youtube.com/watch?v=4t4kBkMsDbQ&t
 
 # Ervaren problemen
 Door een druk netwerk was vraag 2 wat moeilijk te beantwoorden.

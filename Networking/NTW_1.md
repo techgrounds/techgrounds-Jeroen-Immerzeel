@@ -76,10 +76,12 @@ Layer 6 heeft geen specifieke *PDU*.
 
 - *Layer 7* 
 Dit is de Application layer. De primaire functie van deze laag is het mogelijk maken van de communicatie tussen de eindgebruikers en de applicaties. Op layer 7 werken een groot deel van de netwerk protcollen waaronder:
+```
 - HTTP(S)voor browsing
 - IMAP, POP, SMTP voor mail
 - SSH, Telnet, RDP voor remote sessions
 - NTP, DNS, DHCP, SMB voor basic functionality  
+```
 
 <br>
 <br>

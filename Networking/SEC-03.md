@@ -17,13 +17,13 @@ De opdracht vraag het volgende:
 
 
 # Gebruikte bronnen
-Deze website voor de 3 principles en MFA https://www.cisa.gov/MFA
-Deze website voor de principle of least priviledge: https://www.paloaltonetworks.com/cyberpedia/what-is-the-principle-of-least-privilege 
+Deze website voor de 3 principles en MFA https://www.cisa.gov/MFA  
+Deze website voor de principle of least priviledge: https://www.paloaltonetworks.com/cyberpedia/what-is-the-principle-of-least-privilege   
 Deze website voor de definitie van het begrip "attack surface" https://csrc.nist.gov/glossary/term/attack_surface
 
 
 # Ervaren problemen
-Weinig. Moest even zoeken wat het ook al weer was; meeste wist ik nog wel van eerdere opleiding.
+Weinig. Moest even zoeken wat het ook al weer precies was maar het meeste wist ik nog wel van eerdere opleiding.
 
 # Resultaat
 

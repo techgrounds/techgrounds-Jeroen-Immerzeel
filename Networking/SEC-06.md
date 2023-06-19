@@ -1,6 +1,8 @@
 # SEC-06 Public Key Infrastructure
 
 # Key-terms
+- Certificates
+- Certificate Authority
 
 
 # Opdracht
@@ -33,17 +35,18 @@ Beiden bestaan uit een RSA key en dus een lange reeks tekens.
 
 Dit is redelijk simpel. Binnen chrome klik je op het slotje en kies je voor "Verbinding is Beveiligd" en daarna voor "Certificaat is geldig" om het certificaat te bekijken.
 
-Een paar voorbeelden van deze cerficaten:
-Techgrounds: 
+Een paar voorbeelden van deze cerficaten:  
+
+**Techgrounds:**   
 ![Certificaat van techgrounds.nl](/00_includes/Networking_Images/tech_cert.png)
 
-Rijksoverheid.nl:
+**Rijksoverheid.nl:**  
 ![Certificaat va rijksoverheid.nl](/00_includes/Networking_Images/rijks_cert.png)
 
-amazon.com:
+**amazon.com:**  
 ![Certificaat van amazon.com](/00_includes/Networking_Images/amazon_cert.png)
 
-De informatie in de screenshots zijn de meest belangrijke informatie. Onder de details tab in nog meer informatie te vinden waaronder de openbare sleutel en informatie over de uitgever van het certificaat, oftewel de Certificate Authority.
+De tabs in de screenshots bevatten de meest belangrijke informatie. Onder de details tab is echter nog meer informatie te vinden waaronder de openbare sleutel en informatie over de uitgever van het certificaat, oftewel de Certificate Authority.
 
 
 *"3: Find the list of trusted certificate roots on your system (bonus points if you also find it in your VM)."* 
