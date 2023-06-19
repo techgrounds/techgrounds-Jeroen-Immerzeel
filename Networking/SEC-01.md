@@ -20,11 +20,11 @@ Door een druk netwerk was vraag 2 wat moeilijk te beantwoorden.
 
 # NMAP
 *"1: Scan the network of your Linux machine using nmap. What do you find?"*     
-Nmap moet eerst worden geinstalleerd; dit gaat via **sudo apt install nmap -y**.
-Om met nmap het netwerk te scannen kan je nmap [IP ADRES] opgeven als commando.
+Nmap moet eerst worden geinstalleerd; dit gaat via ```sudo apt install nmap -y```.
+Om met nmap het netwerk te scannen kan je ```nmap [IP ADRES]``` opgeven als commando.
 
 Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden zijn:
-
+```
 - -sT > full TCP connect scan
 - -sS > TCP SYN only scan (wordt ook wel "stealth scan" genoemd)
 - -sP  > ping scan.
@@ -32,7 +32,7 @@ Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden 
 - -O > OS detection
 - --traceroute
 - -A > een combinatie scan met -sS, -sV, -O en --traceroute
-
+```
 Als er op het 3.121.130.219/24 netwerk een -sP scan wordt uitgevoerd worden er 49 hosts ontdekt. -sP geeft een overzicht met IP adres, of de Host actief is en wat de latency is.
 
 ![-sP scan results](/00_includes/Networking_Images/nmap__sP.png) 
