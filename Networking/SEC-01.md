@@ -25,33 +25,34 @@ Om met nmap het netwerk te scannen kan je ```nmap [IP ADRES]``` opgeven als comm
 
 Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden zijn:
 ```
-- -sT > full TCP connect scan
-- -sS > TCP SYN only scan (wordt ook wel "stealth scan" genoemd)
-- -sP  > ping scan.
-- -sV > protocol version detection
-- -O > OS detection
-- --traceroute
-- -A > een combinatie scan met -sS, -sV, -O en --traceroute
+-sT > full TCP connect scan
+-sS > TCP SYN only scan (wordt ook wel "stealth scan" genoemd)
+-sP  > ping scan.
+-sV > protocol version detection
+-O > OS detection
+--traceroute
+-A > een combinatie scan met -sS, -sV, -O en --traceroute
 ```
-Als er op het <ip addr> netwerk een -sP scan wordt uitgevoerd worden er <aantal> hosts ontdekt. -sP geeft een overzicht met IP adres, of de Host actief is en wat de latency is.
+Als er op het 10.105.175.78/24 netwerk een -sP scan wordt uitgevoerd worden er <aantal> hosts ontdekt. -sP geeft een overzicht met IP adres, of de Host actief is en wat de latency is.
 
 ![-sP scan results](/00_includes/Networking_Images/nmap__sP.png) 
 *Resultaat van een -sP scan* 
 
-Als er op het <ip addr > netwerk een -sT scan wordt uitgevoerd duurt de scan wat langer, maar geeft deze wel meer informatie; van elke host wordt dan ook direct bekend welke poorten er open staan.
+Als er op het 10.105.175.78/24 netwerk een ```-sT``` scan wordt uitgevoerd duurt de scan wat langer, maar geeft deze wel meer informatie; van elke host wordt dan ook direct bekend welke poorten er open staan.
 
-Een -sS scan heeft bijna dezelfde werking en resultaten als een -sT scan, maar breekt de TCP voortijdig af. Dit maakt de scan in theorie sneller, en minder detecteerbaar door een IDS/IPS.
+Een ```-sS``` scan heeft bijna dezelfde werking en resultaten als een ```-sT``` scan, maar breekt de TCP voortijdig af. Dit maakt de scan in theorie sneller, en minder detecteerbaar door een IDS/IPS.
 
-[-sS scan resultaten]
+![-sS scan resultaten](/00_includes/Networking_Images/nmap_sS_result.png)
 
-[-sT scan resultaten]
+![-sT scan resultaten](/00_includes/Networking_Images/nmap_sT_result.png)
 
 
-Met -sV kan er gecontroleerd worden welke protocollen er actief zijn en het versienummer van deze. Dit kan handig zijn om zwakke plekken in een netwerk te ontdekken.
+Met ```-sV``` kan er gecontroleerd worden welke protocollen er actief zijn en het versienummer van deze. Dit kan handig zijn om zwakke plekken in een netwerk te ontdekken.
 
-Met het -O argument zal nmap uitzoeken welk operating system een systeem gebruikt. Hierbij kan deze een "guess" doen waarbij er een percentuele kans wordt aangegeven.
+Met het ```-O``` argument zal nmap uitzoeken welk operating system een systeem gebruikt. Hierbij kan deze een "guess" doen waarbij er een percentuele kans wordt aangegeven.
 
-Met -A zal namp alle bovenstaande scans combineren én een traceroute maken. Dit is de meest uitgebreide scan, die ook het meeste tijd kost.
+Met ```-A``` zal namp alle bovenstaande scans combineren én een traceroute maken. Dit is de meest uitgebreide scan, die ook het meeste tijd kost:
+
 
 ![-A scan resultaat](/00_includes/Networking_Images/nmap_A.png)
 
