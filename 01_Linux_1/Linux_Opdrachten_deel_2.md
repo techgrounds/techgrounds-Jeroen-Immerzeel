@@ -33,8 +33,8 @@ Binnen deze opdracht worden de volgende 6 deelopdrachten gevraagd:
 
 ### *"1: Create a text file."*
 Deze opdracht is simpel en kan op meerdere manieren worden uitgevoerd:
-- echo "tekst" > file.txt
-- touch > file.txt
+- ```echo "tekst" > file.txt```
+- ```touch > file.txt```
 - met een tekst editor als VIM, Nano of Emacs 
 
 Wat ook leuk is om te weten is dat in Linux elke file een tekstbestand is, en dat een extensie niet nodig is; deze zijn er puur voor de gebruiker om snel te zien waarvoor een bestand gebruikt wordt. 
@@ -51,7 +51,7 @@ Deze deelopdracht kent een aantal onderdelen:
 
 **Het maken van een long listing:**  
 
-Een *long listing* maken gaat via het **ls -l** commando.
+Een *long listing* maken gaat via het **```ls -l```** commando.
 
 ![Long listing van de aangemaakte permissions.txt](/00_includes/linux/permissions_ls.png)  
 *De output van ls -l*
@@ -78,21 +78,21 @@ Omdat de permissies worden gelezen als *file type code* > user > group > others 
 ```
 Files en directories kennen elk iets andere definities voor de permissions:
 Files:
-**Read** geeft permissions om de inhoud van de file te lezen.
-**write** geeft permissions om de inhoud van een file aan te passen.
-**execute" geeft de permissions tot het uitvoeren van de file als zijne een binary of script.
+Read geeft permissions om de inhoud van de file te lezen.
+Write geeft permissions om de inhoud van een file aan te passen.
+Execute geeft de permissions tot het uitvoeren van de file als zijne een binary of script.
 
 Directories:
-**read** geeft permissions om de inhoud in de directory te bekijken.
-**write** geeft permissions om het aanpassen van de files in de directory.
-**execute** geeft permissions om de directory als working directory te gebruiken, dit zolang dit ook geldt voor parent directories.
+Read geeft permissions om de inhoud in de directory te bekijken.
+Write geeft permissions om het aanpassen van de files in de directory.
+Execute geeft permissions om de directory als working directory te gebruiken, dit zolang dit ook geldt voor parent directories.
 ```
 
 ## *"3: Make the file executable by adding the execute permission (x)."*
 
 *Ik ga hierbij vanuit dat het gaat om de execute permission voor de user.*
 
-Het aanpassen van de permissions op een file of directory gaat via het **chmod** commando.
+Het aanpassen van de permissions op een file of directory gaat via het **```chmod```** commando.
 Deze kent 2 verschillende manieren om te werken:
 - Octal mode waarbij er een value wordt opgegeven, is complexer.
 - Symbolic mode waarbij er gewerkt wordt met modelevels en code, is wat simpeler.
@@ -115,7 +115,7 @@ Het is hierbij dus nodig om eerst de octal value te bepalen en deze als argument
 Dus om met **octal mode** het permissions.txt -file te voorzien van een excute permission moet deze het octal value van 7 krijgen voor de user terwijl de group en other hun permissions behouden, welke respectivelijk 6 en 3 zijn. 
 
 Hierdoor is het uiteindelijke commando voor de opdracht:  
- **chmod 763 permissions.txt**
+ **```chmod 763 permissions.txt```**
 
 ![Permissions aanpassen met octal mode](/00_includes/linux/permissions_user_octal.png)  
 *octal mode*
@@ -136,20 +136,20 @@ Met + - en = wordt het soort aanpassing gespecificeerd:
 
 Met r,w en x worden de rechten gespecificeerd.
 
-Het is hierbij mogelijk om zowel de user/group/others als de permissions te combineren; dus ugo=rwx is gewoon mogelijk.
+Het is hierbij mogelijk om zowel de user/group/others als de permissions te combineren; dus ```ugo=rwx``` is gewoon mogelijk.
 
 Hierdoor is het uiteindelijke commando voor de opdracht:  
-**chmod u+x permissions.txt**
+**```chmod u+x permissions.txt```**
 
 ![permissions aanpassen met chmod u+x](/00_includes/linux/permissions_user_x.png)  
 *symbolic mode*
 
 ## *"4: Remove the read and write permissions (rw) from the file for the group and everyone else, but not for the owner. Can you still read it?*"
 
-Dit wordt ook weer gedaan met het **chmod** commando.
+Dit wordt ook weer gedaan met het **```chmod```** commando.
 In deze moet het gehele commando 1 van deze 2 commando's zijn:  
-**chmod 600 permissions.txt**  
-**chmod go-rwx permissions.txt**
+**```chmod 600 permissions.txt```**  
+**```chmod go-rwx permissions.txt```**
 
 ![Permissions verwijderen via octal mode](/00_includes/linux/permissions_remove_octal.png)  
 *octal mode*  
@@ -166,11 +166,11 @@ Na het verwijderen van de rechten voor de group en others kan de user deze nog a
 
 ### *"5: Change the owner of the file to a different user. If everything went well, you shouldn’t be able to read the file unless you assume root privileges with ‘sudo’. "*
 
-Dit gaat via het **chown** commando. Deze heeft een zeer simpele syntax:  
-**chown [OPTIONS] NEWOWNER FILE(s)**
+Dit gaat via het **```chown```** commando. Deze heeft een zeer simpele syntax:  
+**```chown [OPTIONS] NEWOWNER FILE(s)```**
 
 Dus om de user JBond de eigenaar te laten worden van de permissions.txt file is het commando:  
-**chown JBond permissions.txt**
+**```chown JBond permissions.txt```**
 
 ![Chown JBond permissions.txt](/00_includes/linux/change_ownership_user.png)    
 *JBond is de nieuwe owner*
@@ -183,11 +183,11 @@ Dus om de user JBond de eigenaar te laten worden van de permissions.txt file is 
 
 ### *"6: Change the group ownership of the file to a different group."*
 
-Ook dit is redelijk simpel en gaat via het **chgrp** commando. Deze kent eigenlijk dezelfde syntax als **chown**:  
-**chgrp [OPTIONS] NEWGROUP FILENAME(s)**
+Ook dit is redelijk simpel en gaat via het **```chgrp```** commando. Deze kent eigenlijk dezelfde syntax als **```chown```**:  
+**```chgrp [OPTIONS] NEWGROUP FILENAME(s)```**
 
 Dus om de group "admin" de group te laten worden die eigenaar is van permissions.txt is het commando:  
-**chgrp admin permissions.txt**
+**```chgrp admin permissions.txt```**
 
 ![De group was jeroen_](/00_includes/linux/group_owner_jeroen.png)  
 *De group was jeroen_*
@@ -212,13 +212,14 @@ Binnen deze opdracht worden de volgende 4 deelopdrachten gevraagd:
 Een deamon is een "system service" dat er voor zorgt dat andere programma's bepaalde taken kunnen uitvoeren. Zo heeft een print-daemon de taak om het printen mogelijk te maken. 
 
 Voor het starten van de service wordt op een systeem dat **systemd** als initialization daemon kent wordt het het commando **systemctl** gebruikt om services te beheren. Deze kent een aantal opties voor dit beheer:
- - start -> start de service
- - stop -> stopt de service
- - pauze -> pauzeert de service
- - restart -> herstart een service nadat deze gepazeerd was
- - enable -> laat de service starten bij een systemboot
- - disable -> laat de service niet (meer) starten bij een systemboot
-
+```
+start -> start de service
+stop -> stopt de service
+pauze -> pauzeert de service
+restart -> herstart een service nadat deze gepazeerd was
+enable -> laat de service starten bij een systemboot
+disable -> laat de service niet (meer) starten bij een systemboot
+```
 Dus om de telnet daemon te starten moet **systemctl start inetd** worden gebruikt; **inetd** is daarbij de daemon die telnet gebruikt.
 Echter, het telnet package is niet geinstalleerd dus zal deze eerst moeten worden geinstalleerd, wat kan via **apt install telnetd**.  
 Na installatie wordt de daemon automatisch gestart.
@@ -230,14 +231,14 @@ Na installatie wordt de daemon automatisch gestart.
 ## *"2: Find out the PID of the telnet daemon."*
 
 Een PID is een Process ID, en elk process heeft er 1.  
-Om te bekijken welke processen er actief zijn wordt het commando **ps** gebruikt. Deze zal zonder argumenten alleen die processen laten zien die de huidige user gebruikt. Dit is vaak alleen de shell en het ps commando zelf.  
-Om alle lopende processen te bekijken wordt vaak de combinatie **-aux** gebruik als argument; deze combinatie van argumenten geeft een overzicht van alle processen van alle users.
+Om te bekijken welke processen er actief zijn wordt het commando **```ps```** gebruikt. Deze zal zonder argumenten alleen die processen laten zien die de huidige user gebruikt. Dit is vaak alleen de shell en het ps commando zelf.  
+Om alle lopende processen te bekijken wordt vaak de combinatie **```aux```** gebruik als argument; deze combinatie van argumenten geeft een overzicht van alle processen van alle users.
 
-In deze is het mogelijk om de output van **ps -aux** te filteren met **grep** op de **inetd** service; dan wordt het commando:  
-**ps -aux | grep "telnetd"**  
+In deze is het mogelijk om de output van **```ps aux```** te filteren met **```grep```** op de **```inetd```** service; dan wordt het commando:  
+**```ps -aux | grep "telnetd"```**  
 
-Dit is echter niet de meest elegante en snelle manier, en kan veel sneller via het **pgrep** commando. De **p** in deze staat voor **PID** en het **pgrep** commando vraagt een service als argument en geeft het **PID** als output.
-In deze is het de makkelijkste manier om **pgrep inetd** te gebruiken; welke in mijn geval een PID aangeeft van 12510  
+Dit is echter niet de meest elegante en snelle manier, en kan veel sneller via het **```pgrep```** commando. De **p** in deze staat voor **PID** en het **```pgrep```** commando vraagt een service als argument en geeft het **PID** als output.
+In deze is het de makkelijkste manier om **```pgrep inetd```** te gebruiken; welke in mijn geval een PID aangeeft van 12510  
 
 ![Inetd PID](/00_includes/linux/pregp_inet.png)
 *pgrep inetd*
@@ -245,17 +246,17 @@ In deze is het de makkelijkste manier om **pgrep inetd** te gebruiken; welke in 
 
 ## *"3: Find out how much memory telnetd is using."*
 
-Voor deze opdracht is het gebruik van **systemctl status inetd** de meest snelle oplossing. De output van deze laat o.a het PID de memory-usage en CPU usage zien.
-In mijn geval gebruikt de **inetd** deamon 864.0k memory.
+Voor deze opdracht is het gebruik van **```systemctl status inetd```** de meest snelle oplossing. De output van deze laat o.a het PID de memory-usage en CPU usage zien.
+In mijn geval gebruikt de **```inetd```** deamon 864.0k memory.
 
 ![status inetd](/00_includes/linux/6_4_memory.png)  
 *inetd memory*
 
 ## *"4:"Stop or kill the telnetd process."*
 
-Ook hiervoor wordt **systemctl** gebuikt maar dan met het **stop** argument.
+Ook hiervoor wordt **```systemctl```** gebuikt maar dan met het **```stop```** argument.
 Het gehele commando is dan ook:  
- **sudo systemctl stop inetd**.
+ **```sudo systemctl stop inetd```**.
 
 ![inetd stopped](/00_includes/linux/inetd_stopped.png)
 *inetd status dead*
@@ -290,18 +291,18 @@ Ook een fout maken met het PATH variable gaf mij wat problemen die ik met behulp
 
 ### *"1: Create a directory called ‘scripts’. Place all the scripts you make in this directory."*
 
-Dit gaat simpel met **mkdir**.
+Dit gaat simpel met **```mkdir```**.
 Het volledige commando is:  
-**mkdir scripts**
+**```mkdir scripts```**
 
 ### *"2: Add the scripts directory to the PATH variable."*
 
 Dit is iets meer complex dan opdracht 1, maar nog altijd redelijk simpel.  
 
 Het PATH bestaat uit de locaties die Bash doorzoekt om commando's te zoeken voor het uitvoeren. Om een map of executable toe te voegen aan het PATH wordt dit basis commando gebruikt:  
-**export PATH=...:$PATH**  
+**```export PATH=...:$PATH```**  
 Op de 3 ... wordt vervolgens de directory vermeld welke je in het path wilt zetten. In deze is dat /home/jeroen_/scripts. Hierdoor is het gehele commando:  
-**export PATH=/home/jeroen_/scripts:$PATH** 
+**```export PATH=/home/jeroen_/scripts:$PATH```** 
   
 
 ![Het originele PATH variable](/00_includes/linux/path1.png)
@@ -320,14 +321,14 @@ Een **shebang** geeft aan dat de file een script is en met welke shell deze gele
 **#!/bin/bash**
  
 Na het aanmaken van een script is het nodig deze execute permissions te geven; dit gaat via   
- **chmod u+x** 
+ **```chmod u+x```** 
 ![Added execute permissions](/00_includes/linux/script_own.png)
 *write permission gegeven*
 
 
 
 Het script voor deze deelopdracht redelijk simpel: deze bestaat uit een echo en een redirect naar een andere file via de >> operator. Het commando binnen het gehele script is dan:  
-**echo "This text is added to the opdracht7.sh script" 1> append.txt**
+**```echo "This text is added to the opdracht7.sh script" 1> append.txt```**
 
 ![Het script](/00_includes/linux/nano_script.png)
 *het script*
@@ -347,38 +348,36 @@ Binnen deze deelopdracht zijn er meerdere onderdelen benodigd voor het script:
 
 **Het installeren van een package** 
 
- Voor de installatie van een package wordt in Ubuntu het **apt package** gebruikt. Je geeft hierbij het programma op dat je wilt installeren; in deze is dat apache2. Daarnaast moet je apt toestemming geven om iets te installeren; dit kan vooraf door het argument **-y** mee te geven.  
+ Voor de installatie van een package wordt in Ubuntu het **```apt package```** gebruikt. Je geeft hierbij het programma op dat je wilt installeren; in deze is dat apache2. Daarnaast moet je apt toestemming geven om iets te installeren; dit kan vooraf door het argument **```-y```** mee te geven.  
  Dit betekent dat het commando voor het installeren van het apache2 package dit moet zijn:  
-   **apt install apache2 -y**
+   **```apt install apache2 -y```**
 
  
 **Het starten en enabelen van een service**  
 
- Zoals in opdracht 6 al vermeld wordt in deze het **systemctl** commando gebruikt voor het beheer van deamons/services. 
- In deze moet de service gestart worden met **systemctl start** en enabled worden met **systemctl enable**; met in beide gevallen de service als laatste argument.   
+ Zoals in opdracht 6 al vermeld wordt in deze het **```systemctl```** commando gebruikt voor het beheer van deamons/services. 
+ In deze moet de service gestart worden met **```systemctl start```** en enabled worden met **```systemctl enable```**; met in beide gevallen de service als laatste argument.   
  
  
 **Het printen van de status van de apache2 service**  
 
  Om een de output van een commando te gebruiken als commando wordt *command substitution* gebruikt; hierbij wordt een commando tussen backticks gezet of tussn een dollarteken \$ en () gezet.
- Het command-substitution voor deze opdracht met het **systemctl status** commando moet dus **$(systemctl status apache2)** zijn.
+ Het command-substitution voor deze opdracht met het **```systemctl status```** commando moet dus **```$(systemctl status apache2)```** zijn.
  
 
 
 
 
- De gehele commando's zijn dan voor deze opdracht:  
- **systemctl start apache2**  
- **systemctl enable apache2** 
- **echo $(systemctl status apache2)**
 
-Het gehele script is dan:  
-**#!/bin/bash  
+Het gehele script is dan: 
+
+```
+#!/bin/bash  
 sudo apt install apache2 -y  
 sudo systemctl start apache2  
 sudo systemctl enable apache2  
-sudo echo systemctl status apache2**
-
+sudo echo systemctl status apache2
+```
 ![Het gehele script](/00_includes/linux/script_7.png)  
 *Het gehele script*
 
@@ -395,7 +394,7 @@ Deze opdracht kent meerdere onderdelen:
 
 **Het aanmaken van een random number**  
 Hiervoor is het nodig om wat te zoeken; de syntax is best lastig.
-De oplossing welke ik vond is het commando echo $((RANDOM % 10+1)) waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken :
+De oplossing welke ik vond is het commando echo **$((RANDOM % 10+1))** waar n1 het hoogste nummer is en n2 het laagste nummer is welke er gegeven kan worden. In deze is het commando om te gebruiken :
 ```
 echo $((RANDOM % 10 + 1))
 ```
@@ -404,13 +403,13 @@ echo $((RANDOM % 10 + 1))
 *Het script*
 
 **Het opslaan van een output als variable**  
-Om de output van een commando op te slaan als variable wordt dus simpelweg variable = waarde. En om de output van een variable te tonen op de commandline wordt het **echo** commando gebruikt en het variabele voorafgegaan met een **$**. In deze wordt het commando om de random numbers op te slaan als variabele:
+Om de output van een commando op te slaan als variable wordt dus simpelweg variable = waarde. En om de output van een variable te tonen op de commandline wordt het **```echo```** commando gebruikt en het variabele voorafgegaan met een **$**. In deze wordt het commando om de random numbers op te slaan als variabele:
 ```
 random_num=$[RANDOM %10+1]
 ```
 
 
-En om deze te tonen is het **echo $random_num**  
+En om deze te tonen is het **```echo $random_num```**  
 
 ![Een random number opslaan als variabele](/00_includes/linux/random_var.png)  
 *Appending numbers*
@@ -419,7 +418,7 @@ En om deze te tonen is het **echo $random_num**
 
 **Het toevoegen van dat nummer aan een tekstfile**  
 Deze is heel simpel: na het aanmaken van het eerdere script kan de output van deze worden doorgestuurd naar een andere file via de **>>** redirector. 
-Hierbij wordt het **echo $random_num** deel van het script aangepast naar **echo $random_num >> /home/jeroen_/scripts/random_num.txt**
+Hierbij wordt het **```echo $random_num```** deel van het script aangepast naar **```echo $random_num >> /home/jeroen_/scripts/random_num.txt```**
 
 ![Random_num](/00_includes/linux/random_added.png)  
 *Het nummer appended*
@@ -448,13 +447,14 @@ fi
 ```
 Ook moet er binnen deze opdracht 2 waardes met elkaar vergeleken worden: de output van de \$RANDOM functie en de gegeven voorwaarden uit de opdracht.
 Voor het vergelijken van een nummerieke output worden er gebruik gemaakt van deze 6 tests:
-- -eq -> equal to
-- -ne -> not equal to
-- -ge -> greater or equal to
-- -le -> less or equal to
-- -gt -> greater then
-- -lt -> less then
-
+```
+eq -> equal to
+ne -> not equal to
+ge -> greater or equal to
+le -> less or equal to
+gt -> greater then
+lt -> less then
+```
 In deze moet er gekeken worden of het getal gelijk of kleiner is dan 5 of groter is dan 5; dus is het nodig om de -le (less or equal) en -gt (greater then) tests te gebruiken. 
 Hiermee worden de 2 *if* statements:
 

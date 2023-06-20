@@ -47,7 +47,7 @@ In mijn geval heb ik voor het **ssh**-commando gekozen gezien ik Windows 11 gebr
 De syntax is voor alle SSH-clients is hetzelfde gezien het hier om een opensource programma gaat, namelijk **OpenSSH**
 
 Het gebruikte commando is:  
-**ssh -p 52202 -i "C:\Users\jimme\OneDrive\Bureaublad\Nest-je-Immerzeel.pem" jeroen_@3.121.130.219**
+````ssh -p 52202 -i "C:\Users\jimme\OneDrive\Bureaublad\Nest-je-Immerzeel.pem" jeroen_@3.121.130.219````
 
 ![ssh commando](/00_includes/Linux/cmd_commando_ssh.png)
 *Het ssh commando binnen cmd*
@@ -77,13 +77,13 @@ Binnen deze opdracht worden de volgende 5 deelopdrachten gevraagd:
 - Move around your directory tree using both absolute and relative paths.
 
 ### *1: Find out your current working directory.*
-Voor deze eerste deelopdracht wordt het **pwd** commando gebruikt.   
+Voor deze eerste deelopdracht wordt het **````pwd````** commando gebruikt.   
 Deze geeft als output: **/home/jeroen_**
 
 ![pwd commando](/00_includes/Linux/pwd.png)
 
 ### *2: Make a listing of all files and directories in your home directory.*
-Voor de tweede deelopdracht wordt het **ls** commando gebruikt. Deze geeft als output niets; er zijn geen niet-verborgen bestanden. Met **ls -a** wordt de output:  
+Voor de tweede deelopdracht wordt het **```ls```** commando gebruikt. Deze geeft als output niets; er zijn geen niet-verborgen bestanden. Met **```ls -a```** wordt de output:  
 **. .. .bash_history .bash_logout .bashrc .cache .profile .ssh**  
 
 
@@ -91,53 +91,59 @@ Voor de tweede deelopdracht wordt het **ls** commando gebruikt. Deze geeft als o
 
 Binnen de output zijn witte namen files, blauwe namen directories en met een . of .. wordt een bestand of directory verborgen. De gekleurde output is een optionele instelling; dit is een onderdeel van menig distribution maar kan in principe naar wens worden aangepast.
 
-Als er geen colored-output gebruikt wordt kan worden gekeken of er sprake is van een directory of een file door **ls -l** te gebruiken en in de permissions te kijken of de eerst letter een d of een - is; een d geeft vervolgens aan dat het een directory is en een - dat het een file is.
+Als er geen colored-output gebruikt wordt kan worden gekeken of er sprake is van een directory of een file door **```ls -l```** te gebruiken en in de permissions te kijken of de eerst letter een d of een - is; een d geeft vervolgens aan dat het een directory is en een - dat het een file is.
 
-Voor het **ls** commando zijn ook een aantal extra argumenten:  
+Voor het **```ls```** commando zijn ook een aantal extra argumenten:  
+```
 -a      Laat alle bestanden zien, inclusief de verborgen bestanden.  
 -l      Geeft een "long listing" waarbij er extra informatie als... wordt getoond.  
 -h      Maakt de filesize output van -l "humanreable".  
--R      Recursive listing: dit laat ook de inhoud van onderliggende mappen zien.   
-<br>
+-R      Recursive listing: dit laat ook de inhoud van onderliggende mappen zien.
+```
+
 
 
 
 ### *3: "Within your home directory, create a new directory named ‘techgrounds’"*
-Voor de derde deelopdracht wordt het **mkdir** commando gebruikt.  
+Voor de derde deelopdracht wordt het **```mkdir```** commando gebruikt.  
 
 Deze kent een aantal argumenten die handig zijn:  
+```
 -p      Maakt, als het nodig is, ook direct parent folders aan.  
 -v      Verbose; geeft een melding weer over wat het commando heeft gedaan.
+```
 
 
 ![De output van mkdir](/00_includes/Linux/mkdir.png)
 
 
 ### *4: "Within the techgrounds directory, create a file containing some text."* 
-Voor deze vierde deelopdracht wordt het **echo** commando gebruikt.
+Voor deze vierde deelopdracht wordt het **```echo```** commando gebruikt.
 Deze heeft als standard output de tekst die wordt opgegeven. Door deze output met een **\>**  te redirecten naar een nog niet bestaande file wordt deze file aangemaakt met de opgegeven tekst als inhoud.  
 
-Voor de opdracht is het eerst nodig met met **cd techgrounds** naar de techgrounds folder te gaan en daarna dit commando te gebruiken:  
-**echo 'By redirecting an echo to a new file you can simply create a new file with the contents you want. This is only one way out of many to do this' > textfile2**
+Voor de opdracht is het eerst nodig met met **```cd techgrounds```** naar de techgrounds folder te gaan en daarna dit commando te gebruiken: 
+``` 
+echo 'By redirecting an echo to a new file you can simply create a new file with the contents you want. This is only one way out of many to do this' > textfile2
+```
 
 ![De output van Echo](/00_includes/Linux/echo.png)
 *echo redirection*
 
 ### *"5: Move around your directory tree using both absolute and relative paths."*
-Voor de vijfde deelopdracht wordt het **cd** commando gebruikt.
+Voor de vijfde deelopdracht wordt het **```cd```** commando gebruikt.
 
-Bij het gebruik van een absolute path wordt het gehele pad naar een folder opgegeven. Dus **cd /etc/ssh** zal de work directory verplaatsen naar de **/etc/ssh folder**.
+Bij het gebruik van een absolute path wordt het gehele pad naar een folder opgegeven. Dus **```cd /etc/ssh```** zal de work directory verplaatsen naar de **```/etc/ssh folder```**.
 
-Bij het gebruik van een relative path wordt de route aangegeven welke leidt naar de gewilde directory. Dus als **cd /etc/ssh** de working directory is en **cd ../X11** wordt ingegeven wordt er eerst 1 niveau terug gegaan naar de **/etc/** directory (het **cd ..** deel van het commando) en daarna 1 niveau omhoog gegaan naar de **/etc/X11** directory (het **cd /X11** deel van het commando).
+Bij het gebruik van een relative path wordt de route aangegeven welke leidt naar de gewilde directory. Dus als **```cd /etc/ssh```** de working directory is en **```cd ../X11```** wordt ingegeven wordt er eerst 1 niveau terug gegaan naar de **/etc/** directory (het **```cd ..```** deel van het commando) en daarna 1 niveau omhoog gegaan naar de **/etc/X11** directory (het **```cd /X11```** deel van het commando).
  
-**cd** heeft als andere veelgebruikte opties om door het bestandssysteem te lopen:
-- ..       Ga 1 niveau omhoog
-- ..\/..   Ga 2 niveaus omhoog; elke /.. voegt een extra laag toe.
-- \~       Ga naar je /HOME folder
-- \/       Ga naar de root van het bestandssysteem.
+**```cd```** heeft als andere veelgebruikte opties om door het bestandssysteem te lopen:
+```
+ ..       Ga 1 niveau omhoog
+ ../..   Ga 2 niveaus omhoog; elke /.. voegt een extra laag toe.
+ ~       Ga naar je /HOME folder
+ /       Ga naar de root van het bestandssysteem.
+```
 
-<br>
-<br>
 
 # Opdracht LNX-03 
 Deze opdracht gaat over de standard input en output.  
@@ -151,24 +157,24 @@ Binnen deze opdracht worden de volgende 3 deelopdrachten gevraagd:
 Om een output naar een file weg te schrijven waarbij de originele inhoud blijft staan wordt de \>\> redirect operator gebruikt; dit in tegenstelling tot de \> operator welke de inhoud van een file vervangt.  
 
 Dus voor deze deelopdracht is het commando:
-**echo "Leren via techgrounds is erg leuk" >> textfile2.txt**
+**```echo "Leren via techgrounds is erg leuk" >> textfile2.txt```**
 
 ![echo commando](/00_includes/Linux/echo_redirect.png)
 *echo >> output*
 
 ### *2: Use a command to write the contents of your text file to the terminal. Make use of a command to filter the output so that only the sentence containing ‘techgrounds’ appears.*
 
-Om een tekst file te bekijken binnen de terminal wordt het **cat** commando gebruikt. Om de output van een ander commando te filteren, eventueel met reguliere expressies, wordt **grep** gebruikt in commbinatie met een "redirection pipe" om de output van **cd** tot input van **grep** te maken; deze wordt met een **\|** aangegeven.   
+Om een tekst file te bekijken binnen de terminal wordt het **```cat```** commando gebruikt. Om de output van een ander commando te filteren, eventueel met reguliere expressies, wordt **```grep```** gebruikt in commbinatie met een "redirection pipe" om de output van **```cd```** tot input van **```grep```** te maken; deze wordt met een **\|** aangegeven.   
 Daarom is het te gebruiken commando in deze:
 
-**cat textfile2 | grep "techgrounds"**
+**```cat textfile2 | grep "techgrounds"```**
 
 
 ![De output van Cat en Grep](/00_includes/Linux/grep_redirect.png)
 ### *"3: Read your text file with the command used in the second step, once again filtering for the word ‘techgrounds’. This time, redirect the output to a new file called ‘techgrounds.txt’."*
-Voor de derde deelopdracht moet er weer gewerkt worden met een redirection via >> en een nieuwe file, maar dan ná het filteren met **grep**.
+Voor de derde deelopdracht moet er weer gewerkt worden met een redirection via >> en een nieuwe file, maar dan ná het filteren met **```grep```**.
 Hiermee is het te gebruiken commando:  
-**cat textfile2 | grep "techgrounds" >> techgrounds.txt**
+**```cat textfile2 | grep "techgrounds" >> techgrounds.txt```**
 
 ![Het aanmaken van een bestand met grep filtering en redirection](/00_includes/Linux/grep_redirect2.png)
 
@@ -196,15 +202,15 @@ Dit is op eerste gezicht een heel simpele opdracht, maar kan wat moeilijker word
 Er zijn namelijk 2 commando's die user acccounts aanmaken, en beiden werken net iets anders.
 
 Deze 2 commando's zijn:
-- adduser
-- useradd    
+- ```adduser```
+- ```useradd```    
 
 Daarnaast zijn er per distribution verschillen in de configuraties van deze commando's.
 Dit alles maakt de boel er niet simpeler op.
 
 Het **adduser** commando.  
 Dit commando wordt vooral op Debian based distributions gebruikt, waar Ubuntu ook onder valt. Dit omdat na het opgeven van een username er gevraagd wordt om relevante informatie zoals een password, maar ook een volledige naam en andere informatie.   
-**adduser** maakt dus een compleet userprofile aan.
+**```adduser```** maakt dus een compleet userprofile aan.
 
 
 ![Voorbeeld van het toevoegen van een user via adduser](/00_includes/Linux/adduser.png)  
@@ -212,23 +218,24 @@ Dit commando wordt vooral op Debian based distributions gebruikt, waar Ubuntu oo
 
 Het **useradd** commando.  
 Dit commando maakt ook user accounts aan, maar dat is dan ook alles; useradd maakt dus geen /home-directory aan, noch een password of comments. Dit is tenzij je met argumenten gaat werken waarbij de volgende argumenten het meest belangrijk zijn:  
+```
 -m -> maak een home directory aan  
 -d [HOME_DIRECTORY] -> maak een home directory aan op de opgegeven locatie.  
 -p [PASSWORD] -> maak het aangegeven password aan  
 -s [SHELL] -> laat de user standaard de opgegeven shell gebruiken  
 -D -> print de default configuratie voor useradd
-
+```
 Dus om de user "jake" aan te maken en deze een een home directory te geven, is het commando dat je moet opgeven:  
-**useradd -m jake**  
+**```useradd -m jake```**  
 
-Om te controleren of **useradd** een home-directory heeft aangemaakt kan je **ls /home | grep [username]** gebruiken; geeft deze geen output dan is er geen home-directory voor de opgegeven user anders wordt de username de output. 
+Om te controleren of **```useradd```** een home-directory heeft aangemaakt kan je **```ls /home | grep [username]```** gebruiken; geeft deze geen output dan is er geen home-directory voor de opgegeven user anders wordt de username de output. 
 
 
 ![useradd geeft zonder -m geen /home-directory](/00_includes/Linux/useradd_m.png)  
 *Zonder het -m argument wordt er geen home-directory aangemaakt.*   
 
 
-Met **cat /etc/passwd | grep [username]** kan worden gecontroleerd of een user bestaat.
+Met **```cat /etc/passwd | grep [username]```** kan worden gecontroleerd of een user bestaat.
 
 
 ![Grep /etc/passwd](/00_includes/Linux/grep_passwd.png)
@@ -237,13 +244,13 @@ Met **cat /etc/passwd | grep [username]** kan worden gecontroleerd of een user b
 ### *"2: The new user should be part of an admin group."*
 
 Elke user krijgt bij de creatie een eigen group.
-Op deze VM is de group "admin" al aangemaakt; was dat niet het geval kon deze worden aangemaakt met het **groupadd** commando. 
-Voor het toevoegen van een user aan een nieuwe group wordt het **usermod** commando gebruikt met het argument **-G**.   
+Op deze VM is de group "admin" al aangemaakt; was dat niet het geval kon deze worden aangemaakt met het **```groupadd```** commando. 
+Voor het toevoegen van een user aan een nieuwe group wordt het **```usermod```** commando gebruikt met het argument **```-G```**.   
 
-Wat ook belangrijk is dat door het argument **-a** te gebruiken het lidmaatschap van andere groups wordt behouden; wordt **-a** niet gebruikt wordt het lidmaatschap van alle andere groups verwijderd en daarmee ook alle rechten behorende bij deze groups. Iemand verwijderen van een group zal diegene dus ook eventuele rechten tot files behorende tot deze groups doen verliezen.
+Wat ook belangrijk is dat door het argument **```-a```** te gebruiken het lidmaatschap van andere groups wordt behouden; wordt **```-a```** niet gebruikt wordt het lidmaatschap van alle andere groups verwijderd en daarmee ook alle rechten behorende bij deze groups. Iemand verwijderen van een group zal diegene dus ook eventuele rechten tot files behorende tot deze groups doen verliezen.
 
 
-Om de user JBond toe te voegen aan de admin group en zijn lidmaatschap van zijn eigen group te behouden is het commando: **sudo usermod -aG JBond admin**
+Om de user JBond toe te voegen aan de admin group en zijn lidmaatschap van zijn eigen group te behouden is het commando: **```sudo usermod -aG JBond admin```**
 
 ![De groups waar JBond lid van was](/00_includes/Linux/JBond_group1.png)  
 *De groups waar JBond lid van was*
@@ -253,11 +260,13 @@ Om de user JBond toe te voegen aan de admin group en zijn lidmaatschap van zijn 
 ### *"3: The new user should have a password."*
 
 Een password aanmaken of aanpassen gaat met het passwd commando.
-Door  **sudo passwd [username]** te gebruiken kan een password worden aangepast.
+Door  **```sudo passwd [username]```** te gebruiken kan een password worden aangepast.
 Door gebruik te maken van argumenten kan het passwd-commando ook de regels van passwords aanpassen, waaronder:
+```
 - -d verwijder password
 - -e expire password en verplicht het aanmaken van een nieuw password bij login
 - -S laat de status van een password zien
+```
 
 ![Het gebruikt van passwd](/00_includes/Linux/passwd.png)
 
@@ -274,7 +283,7 @@ Accounts die sudo mogen gebruiken moeten in de sudoers-file staan, en logischerw
   *Nu wel toestemming*
 
 
-Om de sudoers-file aan te passen moet **sudo** worden gebruikt en de **visudo** editor. 
+Om de sudoers-file aan te passen moet **```sudo```** worden gebruikt en de **visudo** editor. 
 Het toevoegen van een user aan de sudoers-file kent een redelijk simpele syntax: eerst de username, daarna de rechten.  
 In deze zijn de rechten onderverdeeld in 2 delen: de rechten en het gebruik van een passwd. Als de rechten **ALL=ALL** zijn dan mag het account altijd sudo gebruiken; als de password regel **NOPASSWD=ALL** wordt gebruikt wordt er nooit om een password gevraagd. En zo zijn er meer opties die de regels betreffende het gebruik van sudo kunnen aanpassen.
 

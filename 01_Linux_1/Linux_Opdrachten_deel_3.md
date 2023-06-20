@@ -40,12 +40,14 @@ Hiervoor moet je de cron-tab aanpassen; dit doe je met **crontab -e**.
 Hierbinnen wordt eerst de tijd waarop een job moet worden uitgevoerd noteren en vervolgens het absolute path naar het script wat moet worden uitgevoerd.  
 Voor de tijd geldt dat crontab een geheel eigen, maar redelijk simpele syntax kent:  
 **m h dom, mon, dow:**  
-- m -> Minuut (0-59)
-- h -> Uur (0-23)
-- dom -> dag van de maand (0-31)
-- mon -> welke maand (0-11)
-- dow -> dag van de week (0-7) (sunday=0 en 7)
 
+```
+m -> Minuut (0-59)
+h -> Uur (0-23)
+dom -> dag van de maand (0-31)
+mon -> welke maand (0-11)
+dow -> dag van de week (0-7) (sunday=0 en 7)
+```
 En elke optie die niet gebruikt wordt kan met een * worden aangegeven. Als alle opties met \* worden aangegeven wordt een job elke minuut uitgevoerd.
 
 Binnen cron en scripts is het nodig om altijd de full paths te gebruiken. 
@@ -65,7 +67,7 @@ In deze is de regel die er toevoegd moet worden dus:
 
 #### *1: "Create a script that write avalaible disk space to a log file in '/var/'logs'.*
 Het controleren van de disk space kan via het **df** commando. Deze geeft per filesystem de grootte aan en hoeveel er gebruikt wordt in zowel bytes als percentage.
-Om dit op te slaan in */var/log/syslog* kan je simpelweg het **logger** commando gebruiken en deze als [message].
+Om dit op te slaan in */var/log/syslog* kan je simpelweg het **```logger```** commando gebruiken en deze als [message].
 
 Het script wordt dan:
 ```
