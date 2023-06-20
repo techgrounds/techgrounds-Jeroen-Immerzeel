@@ -47,6 +47,8 @@ Bij een **PKI** wordt data met de public key versleuteld waarna het alleen met d
 
 AES is een symmetrisch cipher dat de opvloger is van DES dat in 2001 door het NIST is verkozen.   
 Als zijnde een symmetrisch cipher, word AES met dezelfde sleutel versleuteld als deze ontsleuteld wordt. 
+
+AES wordt voor heel veel dingen gebruikt; van versleuteling door BitLocker tot compressie met RAR en 7ZIP als voor end-to-end encryption in WhatsApp en andere apps. Dit cipher is dus zeer belangrijk in de huidige praktijk.
 ___
 *"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
 
