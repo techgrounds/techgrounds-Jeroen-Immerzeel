@@ -60,7 +60,7 @@ Bij het aanmaken van een repository moet je een naam opgeven, een omschrijving v
 
 Voor de opleiding heb ik een repository met de naam “Techgrounds-Cloud-11” aangemaakt met als description “Voor de Cloud opleiding”. Daarbij heb ik ook een README file aangemaakt waarbinnen ik heb vermeld dat deze repository bedoeld is voor de Cloud opleiding.
 
-![Screenshot van het aannmaken van een nieuwe repository](../00_includes/new_repo.png)
+![Screenshot van het aannmaken van een nieuwe repository](../00_includes/Linux/new_repo.png)
  
 
 ## Het pushen van een repository:
@@ -71,7 +71,7 @@ Bij het werken binnen een repository  heb je een Master repository welke alle go
 Het onderverdelen van een repository in een Master en branches wordt gedaan om zo de master versie van het project en de versie waaraan je werkt niet door elkaar te halen en daarmee aanpassingen te maken aan de inhoud zonder problemen te veroorzaken in de master code/files.
 Een branch aanmaken kan binnen de app via Current Branch -> New Branch waarbij je bij het benamen van de nieuwe branch een waarschuwing krijgt mocht je een al gebruikte branch naam willen gebruiken.
 
-![Screenshot van het aanmaken van een nieuwe branch](../00_includes/new_branch2_warning.png) 
+![Screenshot van het aanmaken van een nieuwe branch](../00_includes/Linux/new_branch2_warning.png) 
  
 In deze is de naam “main” al gebruikt en dus wordt er een waarschuwing gegeven.
 
@@ -81,12 +81,12 @@ Een file aanpassen doe je door deze te openen in Git zelf (online of in de app) 
 
 Op de Github website is het ook mogelijk om een file te editen. Hierbij selecteer je de file onder de <> code -tab. 
 
-![Screenshot van het aanpassen van een file binnen de git websites](../00_includes/aanpassenFile_git.png)
+![Screenshot van het aanpassen van een file binnen de git websites](../00_includes/Linux/aanpassenFile_git.png)
  
 Dit is het scherm in Github wanneer je een file hebt geselecteerd.
 Door op dit potlood-icoontje te klikken kan je de geselecteerde file aanpassen; met het pijltje naast dit icoontje kan je de opties voor het editen kiezen:
  
-![Screenshot van het edit-icoontje](../00_includes/edit_icon.png)
+![Screenshot van het edit-icoontje](../00_includes/Linux/edit_icon.png)
 
 ## Delen van een eigen repository en permissies geven aan derden:
 Het delen van een repository kan op meerdere manieren.   
@@ -95,29 +95,29 @@ Een andere, veiligere manier, is door collega's oftwel "collaborators" toegang t
 
 
 
-![Screenshot van het public maken van een repository op de minder veilige manier](../00_includes/change_visibility_dangerzone.png)<br>
+![Screenshot van het public maken van een repository op de minder veilige manier](../00_includes/linux/change_visibility_dangerzone.png)<br>
 *De minder veilige manier om een repository te delen.*
 
-![Screenshot van het toegang geven tot je repository aan collaborators](../00_includes/acces_collab.png)
+![Screenshot van het toegang geven tot je repository aan collaborators](../00_includes/Linux/acces_collab.png)
 *Toegang voor collaborators*
 
 
 ## Pull/clone repository:
 Om een repository van een ander te klonen of te pullen naar je lokale machine is het nodig om naar de github pagina van de ander te gaan en daar via de <> Code -tab de gewilde repository te selecteren en vervolgens via de <> code -knop de Clone opties te openen en daarbij te kiezen voor optie die je wilt waarbij de optie “Open with Github Desktop” de meest simpele optie is.
 
-![Screenshot van het klonen van een repository](../00_includes/repo_cloning_site.png)
+![Screenshot van het klonen van een repository](../00_includes/Linux/repo_cloning_site.png)
 
 *Het schermdeel voor het klonen van een repository binnen de website.*
  
 
-![Screenshot van het binnenhalen van een kloon in de app](../00_includes/repo_cloning_app.png)
+![Screenshot van het binnenhalen van een kloon in de app](../00_includes/Liux/repo_cloning_app.png)
 
 *Het schermdeel van de app.*
 
 Als je kiest voor “Open with Github Desktop” zal de desktop app openen en kan je de URL ingeven (wat standaard al gedaan is) en de opslag locatie onder “Local path” aan te geven.
 Nadat je een repository hebt gekloond naar de app kan je deze bekijken door onder de “current repository”-tab deze te selecteren, en eventueel de branch waarbinnen je wilt werken.
 
-![Screenshot van de tabs met de current repository, branche en curentn origin](../00_includes/gekloondeRepo.png)
+![Screenshot van de tabs met de current repository, branche en curentn origin](../00_includes/Linux/gekloondeRepo.png)
 
 Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer je binnen je eigen repository zou werken.
 
@@ -126,12 +126,12 @@ Werken binnen een gekloonde repository werkt voor de rest hetzelfde als wanneer 
 Hiervoor kan je 2 manieren gebruiken:
 Bij de eerste optie deel je de gehele repository met collaborators. Hierbij moet je naar de hoofdpagina van de repository en naar de settings tab gaan.
 
-![Screenshot van de settings tab binnen een repository](../00_includes/acces_collab.png)
+![Screenshot van de settings tab binnen een repository](../00_includes/Linux/acces_collab.png)
 *De settings tab.*
 
 Binnen de settingstab onder het kopje "access" selecteer "collaborators and teams", en klik daarna op de groene "add people"-knop. Gebruik vervolgens de zoekbalk en de selecteer de persoon die je toegang wilt geven tot je repository.
 
-![De add people knop](../00_includes/manage_access.png)  
+![De add people knop](../00_includes/Linux/manage_access.png)  
 *De add people knop.*
 
 Voor de rechten van collaborators kan je, net zoals bij access control lists, kiezen voor meerdere niveau's:  
@@ -145,10 +145,10 @@ Voor de rechten van collaborators kan je, net zoals bij access control lists, ki
 De tweede optie is het delen van een link naar de specifieke file in je repository.
 Hiervoor ga je naar de file in kwestie en klik je op de "..." -knop en kies ervoor om een permalink aan te maken.
 
-![De ...-knop.](../00_includes/dropdown_file_access.png)  
+![De ...-knop.](../00_includes/Linux/dropdown_file_access.png)  
 *"..."-knop*   
 
-![Het aanmaken van een permalink](../00_includes/dropdown_file_permalink_.png)  
+![Het aanmaken van een permalink](../00_includes/Linux/dropdown_file_permalink_.png)  
 *permalink.* 
 
 ## Feedback geven aan een teamgenoot:##
