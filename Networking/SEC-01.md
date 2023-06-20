@@ -33,22 +33,18 @@ Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden 
 - --traceroute
 - -A > een combinatie scan met -sS, -sV, -O en --traceroute
 ```
-Als er op het 3.121.130.219/24 netwerk een -sP scan wordt uitgevoerd worden er 49 hosts ontdekt. -sP geeft een overzicht met IP adres, of de Host actief is en wat de latency is.
+Als er op het <ip addr> netwerk een -sP scan wordt uitgevoerd worden er <aantal> hosts ontdekt. -sP geeft een overzicht met IP adres, of de Host actief is en wat de latency is.
 
 ![-sP scan results](/00_includes/Networking_Images/nmap__sP.png) 
 *Resultaat van een -sP scan* 
 
-Als er op het 3.121.130.219/24 netwerk een -sT scan wordt uitgevoerd duurt de scan wat langer, maar geeft deze wel meer informatie; van elke host wordt dan ook direct bekend welke poorten er open staan.
+Als er op het <ip addr > netwerk een -sT scan wordt uitgevoerd duurt de scan wat langer, maar geeft deze wel meer informatie; van elke host wordt dan ook direct bekend welke poorten er open staan.
 
 Een -sS scan heeft bijna dezelfde werking en resultaten als een -sT scan, maar breekt de TCP voortijdig af. Dit maakt de scan in theorie sneller, en minder detecteerbaar door een IDS/IPS.
 
-Als we de resultaten van de -sS en -sT scans vergelijken zien we dat ze beiden bijna dezelfde informatie geven, maar niet alles is hetzelfde. Daarom is het bij netwerkscanning/emuniration nodig om meerdere scans uit te voeren. 
+[-sS scan resultaten]
 
-![-sT scan resultaten](/00_includes/Networking_Images/nmap_sT_result.png)
-*sT met 988 closed ports*
-
-![-sS scan resultaten](/00_includes/Networking_Images/nmap_sS_result.png)
-*sS met 990 closed ports*
+[-sT scan resultaten]
 
 
 Met -sV kan er gecontroleerd worden welke protocollen er actief zijn en het versienummer van deze. Dit kan handig zijn om zwakke plekken in een netwerk te ontdekken.

@@ -15,7 +15,7 @@ De opdracht vraag het volgende:
 
 # Gebruikte bronnen
 
-Stuk over het Enigma Cipher: 
+Stuk over het Enigma Cipher: <https://brilliant.org/wiki/enigma-machine/>
 
 # Ervaren problemen
 Het was onduidelijk wat deelopdracht 3 nu werkelijk vraagt. 
@@ -33,6 +33,7 @@ Daarnaast was er een systeem van switch boards en rotors om de codering nog comp
 
 Er was slechts 1 zwak punt in het enimga cipher: een letter kon nooit in zichzelf geencodeerd worden; een A kon dus nooit een A zijn. Daarnaast werden er veelgebruikte teksten gebruikt zoals het weerbericht, of een groet als "Heil Hitler". Dit gaf de mogelijkheid om via logica de codering te breken. 
 
+___
 
 *"2: Find two digital ciphers that are being used today."
 
@@ -46,7 +47,7 @@ Bij een **PKI** wordt data met de public key versleuteld waarna het alleen met d
 
 AES is een symmetrisch cipher dat de opvloger is van DES dat in 2001 door het NIST is verkozen.   
 Als zijnde een symmetrisch cipher, word AES met dezelfde sleutel versleuteld als deze ontsleuteld wordt. 
----
+___
 *"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
 
 Dit is een leuke opdracht maar is praktisch onmogelijk binnen de limitaties van de opdracht.
