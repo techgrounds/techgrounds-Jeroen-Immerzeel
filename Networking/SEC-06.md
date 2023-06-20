@@ -15,6 +15,7 @@ De opdracht vraag het volgende:
 
 # Gebruikte bronnen
 https://linuxize.com/post/creating-a-self-signed-ssl-certificate/ voor het aanmaken van een self-signed certificate
+https://prod.docs.oit.proofpoint.com/installation_guide/finding_the_path_to_the_trusted_certificates.htm de certificatie roots bij opdracht 3.
 
 # Ervaren problemen
 
@@ -28,7 +29,7 @@ Het commando om een cerificate aan te maken is in deze:
 Dit geeft na het opgeven van benodigde informatie over de uitgever, een certificate en een key als output. De .cert file is de public key, de .key file de private key; logischerwijs wordt het .crt-file gedeeld en het .key-file geheim gehouden. 
 Beiden bestaan uit een RSA key en dus een lange reeks tekens.
 
-![RSA key voor het certificaat]
+![RSA key voor het certificaat](/00_includes/Networking_Images/cert_text.png)
 
 
 *"2: Analyze some certification paths of known websites (ex. techgrounds.nl / google.com / ing.nl)"*
@@ -50,3 +51,21 @@ De tabs in de screenshots bevatten de meest belangrijke informatie. Onder de det
 
 
 *"3: Find the list of trusted certificate roots on your system (bonus points if you also find it in your VM)."* 
+
+De eerste opdracht was erg makkelijk; Windows kent de certlm.msc tool voor het bekijken van certicaten. 
+
+![certlm.msc tool](/00_includes/Networking_Images/certlm.png)
+
+De tweede opdracht, het vinden van de certificate root op Linux, was niet echt moeilijk; ik heb even gezocht op "linux certificate root" en had zo een goede bron.
+
+De benodigde stappen zijn:  
+```openssl version -d```: dit geeft het PATH met de directory voor de certificaten aan; in dit geval **/usr/lib/ssl**
+Hierna zoek je binnen deze directory naar de directory **/certs**; hierin staan alle certificaten.
+
+
+![De lijst met de certificates](/00_includes/Networking_Images/ssl_certs_1.png)  
+... ingekort ... 
+![De lijst met de certificates](/00_includes/Networking_Images/ssl_certs_2.png)  
+... ingekort ...   
+![De lijst met de certificates](/00_includes/Networking_Images/ssl_certs_3.png)  
+*De lange lijst met certificates* 

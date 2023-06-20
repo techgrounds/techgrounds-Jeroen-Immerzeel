@@ -50,15 +50,14 @@ SrX0IWqYppY2hkL/AgMBAAE=
 
 ---
 
-*"2: end an asymmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key. The recipient should be able to read the message, but it should remain a secret to everyone else. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the difference between this method and symmetric encryption."* 
+*"2: Send an asymmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key. The recipient should be able to read the message, but it should remain a secret to everyone else. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the difference between this method and symmetric encryption."* 
 
-Bij een private/public key is de (wiskundige) handeling tot versleuteling met de public key alleen terug te draaien door ontsleuteling met de private key. De public key wordt in deze dus gedeeld en gebruikt voor versleuteling; de private key blijft geheim en gebruikt voor ontsleuteling.
-
-In deze is het dus: keypair aanmaken -> public key delen -> versleutelen met public key -> bericht terugsturen -> ontsleutelen met private key.
-
-Dit is dus veel veiliger dan bij symmetrisch versleutelen omdat de sleutel waarmee versleuteld wordt niet hetzelfde is als de sleutel waarmee ontsleuteld wordt; dit waar de sleutel bij symmetrische versleuteling wel hetzelfde is.
-
-![Aanmaken RSA](/00_includes/Networking_Images/RSA1.png)
+Het verzenden van een asymmetrisch versleuteld bericht is zeer simpel en gaat via deze stappen:
+- Aanmaken van 2 public/private keypairs; 1 voor ieder
+- Het geven van elkaars public keys
+- Het versleutelen van het bericht met deze public key
+- Het opsturen
+- Het ontsleutelen met de private key:
 
 
 Versturen van mijn public key
@@ -68,3 +67,14 @@ Ontvangen van public key van peer
 Versleutelen met public key
 
 Ontsleutelen met private key
+
+
+
+Bij een private/public key is de (wiskundige) handeling tot versleuteling met de public key alleen terug te draaien door ontsleuteling met de private key. De public key wordt in deze dus gedeeld en gebruikt voor versleuteling; de private key blijft geheim en gebruikt voor ontsleuteling.
+
+
+Dit is dus veel veiliger dan bij symmetrisch versleutelen omdat de sleutel waarmee versleuteld wordt niet hetzelfde is als de sleutel waarmee ontsleuteld wordt; dit waar de sleutel bij symmetrische versleuteling wel hetzelfde is.
+
+![Aanmaken RSA](/00_includes/Networking_Images/RSA1.png)
+
+
