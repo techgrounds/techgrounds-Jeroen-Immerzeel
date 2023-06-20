@@ -23,49 +23,46 @@ Deze opdracht kent 3 deelopdrachten:
 ## Ervaren problemen
 1: wireshak gaf een foutmelding over "promiscuous mode" die ik heb kunnen oplossen met het doorlezen van de faq op https://wireshark.org/faq   
 
-<br>
-
+___
 
 # Uitwerking
 
 # *"1: Identify several other protocols and their associated OSI layer. Name at least one for each layer."*
 
-**Layer 1**  
+- **Layer 1**  
 Dit is de physical layer en kent protocollen voor het versturen van de bits. De meest bekende hiervan zijn de fysieke implementaties van Ethernet zoals 1000BASE-T voor Gigabit Ethernet die we thuis veelal gebruiken.
 
-**Layer 2**  
+- **Layer 2**  
 Dit is de DataLink Layer en kent als bekenste 2 protocollen **Ethernet** en **WiFi**. 
 
-**Layer 3**  
+- **Layer 3**  
 Dit is de Network Layer en heeft als meest bekende en belangrijkste protocol het **Internet Protocol**. Er worden nu 2 versies van dit protocol gebruikt: *IP4*  en *IPv6*.  
-
 Omdat we een tekort hebben aan IP4 adressen is IPv6 ontwikkeld en het is de bedoeling dat we de komende jaren overgaan naar een veelal IPv6 internet.   
 Daar waar IP4 een 32 bits adres is en daarmee slechts *4,294,967,296* adressen kent, heeft IPv6 een 128 bit adres en dus *340 miljard miljard miljard* adressen; of om dit meer wiskundig te stellen heeft IP4 2^32 en IPv6 2^128 adressen.  
 
-**Layer 4**  
+* **Layer 4**  
 Dit is de Transport Layer en kent 2 zeer belangrijke protocollen: **TCP** en **UDP**.
 - **TCP** wordt gebruikt voor het segmenteren en betrouwbaar versturen van deze segmenten.
-- **UDP** wordt gebruikt voor het versuren van datagrammen waarbij tijdige aflevering van groter belang is dan betrouwbaarheid.
-
+- **UDP** wordt gebruikt voor het versuren van datagrammen waarbij tijdige aflevering van groter belang is dan betrouwbaarheid.  
 TCP wordt dan ook gebruikt voor het versturen van data die accuraat moet zijn waar UDP vooral gebruikt wordt voor data die snel geleverd moet worden; denk hierbij aan downloads bij TCP en streamingdiensten bij UDP.
 
-**Layer 5**  
+- **Layer 5**  
 Dit is de session layer en kent door diens functie signalling protocollen voor het beheer van sessions, zoals de tunneling protocollen L2TP en L2F welke gebruikt worden voor VPNs.  
 
 
-**Layer 6**  
+- **Layer 6**  
 Dit is de presentation layer, gezien deze laag de encryptie afhandeld kent deze de SSL en TLS protocollen als belangrijke protocollen.
 
-**Layer 7**
-
-Dit is de application layer en kent een groot aantal protocollen; een aantal bekende voorbeelden zinn:
-- **POP**, **IMAP** en **SMTP** voor email services.
-- **HTTP**, **HTTPS** voor het versturen van hypertext documenten; browsen op het web.
-- **BootP**, **DHCP** voor het instellen van dynamic IP information.
-- **DNS** voor het omzetten van IP adres naar url en vice versa.
-- **SSH**, **Telnet**, **RDP** voor remote sessions
-- **FTP**, **SFTP**, **TFP** voor remote file sharing  
-
+- **Layer 7**  
+Dit is de application layer en kent een groot aantal protocollen; een aantal bekende voorbeelden zijn:
+```
+- POP, IMAP en SMTP voor email services.
+- HTTP, HTTPS voor het versturen van hypertext documenten; browsen op het web.
+- BootP, DHCP voor het instellen van dynamic IP information.
+- DNS voor het omzetten van IP adres naar url en vice versa.
+- SSH, Telnet, RDP voor remote sessions
+- FTP, SFTP, TFP voor remote file sharing  
+```
 
 
 # *"2: Figure out who determines what protocols we use and what is needed to introduce your own protocol."*

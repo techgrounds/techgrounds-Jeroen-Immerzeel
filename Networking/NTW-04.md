@@ -15,7 +15,7 @@ Deze opdracht gaat over het rekenen/tellen in binary en hexadecimal noteringen e
 - https://www.techtarget.com/whatis/definition/nibble voor de afbeelding
 
 ## Ervaren problemen
-Weinig. Deze stof kende ik al vanuit zowel mijn MBO opleiding als een leuke mmanier van puzzelen. 
+Weinig. Deze stof kende ik al vanuit zowel mijn MBO opleiding als een leuke manier van puzzelen. 
 
 # Uitwerking
 Wat zijn de verschillen tussen **decimal** **hexadecimal** en **binary**??
@@ -116,7 +116,7 @@ Omrekenen van dec naar Hex gaat zo:
 
 ## *"Translate the following decimal numbers into binary:"* 
 
-Decimal |   Binary  
+Decimal | Binary  
 ---
 16   --> 0001 0000   
 128 -->  1000 0000  
@@ -127,9 +127,9 @@ Decimal |   Binary
 
 
 
-*Translate the following binary numbers into decimal:*  
+## *Translate the following binary numbers into decimal:*  
 Binary | Decimal 
----- 
+---
 1010 1010 --> 170  
 1111 0000 ---> 240  
 1101 1011 --> 221  
@@ -139,9 +139,9 @@ Binary | Decimal
 
 
 
-*Translate the following decimal numbers into hexadecimal:*  
-Decimal| Hex
-----
+## *Translate the following decimal numbers into hexadecimal:*  
+Decimal | Hex
+---
 15 --> 0000 1111 -> 0F  
 37 --> 0010 0101 -> 25   
 246 --> 1111 0110 -> F6  
@@ -151,8 +151,9 @@ Decimal| Hex
 
 
 
-Translate the following hexadecimal numbers into decimal:
-Hex | Decimal  
+## *Translate the following hexadecimal numbers into decimal:*
+Hex | Decimal 
+---
 88 -> 10001000 -> 136  
 e0 -> 1110 0000 -> 224  
 cb -> 1100 1011 -> 203   

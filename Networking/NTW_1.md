@@ -20,7 +20,7 @@ De website GeeksforGeeks voor de afbeelding van de overlap en wat extra informat
 Het gaat in deze opdracht om het lezen van informatie over de OSI en TCP/IP modellen, en ik had daarbij geen problemen.   
 <br>
 
-
+___
 
 <br>  
 
@@ -82,7 +82,7 @@ Dit is de Application layer. De primaire functie van deze laag is het mogelijk m
 - SSH, Telnet, RDP voor remote sessions
 - NTP, DNS, DHCP, SMB voor basic functionality  
 ```
-
+___
 <br>
 <br>
 

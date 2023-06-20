@@ -5,8 +5,6 @@
 - Apache2 
 - Firewall rules
 - Uncomplicated Firewall
-- [x] 
-- [ ]
 
 # Opdracht
 

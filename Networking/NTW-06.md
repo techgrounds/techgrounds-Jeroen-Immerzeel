@@ -57,14 +57,14 @@ Als voorbeeld als het 192.168.1.0/27 netwerk in 8 subnets van elk 32 adressen wo
 ```
 
 Ook is het mogelijk om te werken met *Variable Lenght  Subnet Subnetmasking*, **VLSM**, waarbij elk subnetwerk een ander subnetmasker kent. Het voordeel hierbij is dat je netwerken kan creëeren die tussen de 2 en 126 hosts groot zijn zonder dat je vast zit aan gelijke hoeveelheden; 2 en 128 hosts kan dan even goed als 30, 62 en 126 hosts.
-
+___
 # De subnets:
 Hier een overzicht van de subnet die gevraagd worden:
 
 **Eerste subnet:**  
 *"1 private subnet dat alleen van binnen het LAN bereikbaar is. Dit subnet moet minimaal 15 hosts kunnen plaatsen."* 
 
-15 hosts betekent minimaal 17 nodes/adressen. Dit is het meest efficient door een /27 CIDR te gebruiken, deze geeft 32 adressen(/28 geeft met 16 adressen net 1 adres te weinig)  
+15 hosts betekent minimaal 17 adressen want je hebt 2 adressen nodig voor het broadcast adres en de gateway. Dit is het meest efficient door een /27 CIDR te gebruiken, deze geeft 32 adressen(/28 geeft met 16 adressen net 1 adres te weinig)  
 
 In deze neem ik het subnet 10.0.1.0/27.   
 Deze heeft 32 mogelijke adressen:
@@ -73,19 +73,19 @@ Deze heeft 32 mogelijke adressen:
 - Broadcastadres: 10.0.1.31
 - Hosts: 10.0.1.1 - 10.0.1.30
  
-Dit netwerk heeft een vaste connectie naar de andere delen van het LAN.
+Dit netwerk heeft via een gateway een connectie naar de andere delen van het LAN.
 
  **Tweede subnet**  
 *"1 private subnet dat internet toegang heeft via een NAT gateway. Dit subnet moet minimaal 30 hosts kunnen plaatsen (de 30 hosts is exclusief de NAT gateway)."* 
 
-Een NAT gateway zit in een public subnet en heeft der halve geen eigen public IP adres nodig. Deze heeft dus geen invloed op het aantal te gebruiken adressen.   
+Een NAT gateway zit in een public subnet en heeft der halve geen eigen IP adres nodig binnen dit netwerk. Deze heeft dus geen invloed op het aantal te gebruiken adressen.   
 
 Dan zijn er 30 hosts, een gateway en een broadcast adres; dus 32 adressen, oftewel minimaal een /27 netwerk.  
 In deze neem ik het subnet 10.0.2.0/27, en deze heeft 32 mogelijke adressen:
  - 10.0.2.0 - 10.0.2.31
 - Netwerkadres: 10.0.2.0
 - Broadcastadres: 10.0.2.31
-- Hosts: 10.0.2.1 - 10.0.2.31
+- Hosts: 10.0.2.1 - 10.0.2.30
 
 Dit netwerk heeft een vaste connectie naar de andere delen van het LAN, maar ook een indirecte, one-way connectie met het internet via het NAT Gateway.
 
@@ -97,7 +97,7 @@ In deze leeft het Internet Gateway buiten de subnets en heeft deze een eigen EIP
 
 Voor een Public IP adres geldt dat deze verkregen wordt door de ISP; in deze is dat AWS en ik neem hiervoor het 172.16.52.63/16 adres.
 
-In deze moet het Public subnet 7 adressen groot zijn en dus minimaal een /29 netwerk met 8 nodes.  
+In deze moet het Public subnet 7 adressen groot zijn voor de 5 hosts plus broadcast/gateway en dus minimaal een /29 netwerk met 8 adressen zijn.  
 In deze is het dus het 172.16.52.0/29 subnet en deze heeft deze 8 mogelijke adressen: 
 - 172.16.52.0 - 172.16.52.7
 - Netwerkadres: 172.16.52.0

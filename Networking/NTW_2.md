@@ -22,8 +22,8 @@ https://www.itrelease.com/2021/06/types-of-network-devices/
 
 
 ### Ervaren problemen
-Eigenlijk geen 
-
+Eigenlijk geen. 
+___
 ## *"1: Benoem en beschrijf de functies van veel voorkomende netwerkapparatuur."* 
 
 **Modem**
@@ -62,7 +62,7 @@ Een AP kan ook functioneren als **Wireless Bridge** waarbij deze de ruimte tusse
 ![Afbeelding met devices](/00_includes/Networking_Images/Types-of-network-devices.jpg)  
 *Verschillende netwerk devices*  
 
-
+___
 ## *2: De meeste routers hebben een overzicht van alle verbonden apparaten, vind deze lijst. Welke andere informatie heeft de router over aangesloten apparatuur?"* 
 
 Ik heb zelf een Fritz Box WiFi router en deze geeft over de aangesloten apparaten de volgende informatie:
@@ -72,7 +72,7 @@ Ik heb zelf een Fritz Box WiFi router en deze geeft over de aangesloten apparate
 - De properties (Type WiFi connectie, snelheid)
 
 ![Aangesloten apparatuur](/00_includes/Networking_Images/Aangesloten_apparatuur.png)
-
+___
 ## *3: Waar staat je DHCP server op jouw netwerk? Wat zijn de configuraties hiervan"*
 In mijn netwerk heeft de **WiFi Router** ook de DCHP-functie. Deze geeft als opties:  
 - De IP range opties; dit zijn de IP adressen die er uitgedeeld mogen worden.

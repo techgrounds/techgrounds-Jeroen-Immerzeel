@@ -33,7 +33,7 @@ Deze opdracht kent deze deelopdrachten:
 Het boek Comptia Network+ Study Guide Fifth Edition.  
 https://www.menandmice.com/blog/ipv6-reference-multicast voor uitleg over IPv6 multicast.
 ## Ervaren problemen
-- De doenopdrachten met de conflicterende adressen werkten niet doordat mijn netwerk terug kan vallen op IPv6; dit opgelost door de opdracht iets anders aan te pakken.
+- De doenopdrachten met de conflicterende adressen werkten niet omdat mijn netwerk terug kan vallen op IPv6; dit opgelost door de opdracht iets anders aan te pakken.
 
 # Uitwerking
 
@@ -127,9 +127,10 @@ Mobiel: 77.162.85.197
 Desktop: 77.162.85.197
 ![Wat is mijn IP adres?](/00_includes/Networking_Images/public_address.png)
 *Public IP adres* 
+
 *"2: Zijn de adressen hetzelfde of niet? Leg uit waarom."*  
 Ja.   
-Door NAT wordt 1 IP adres gebruik voor buiten het netwerk en unieke private IP adressen voor binnen het interne netwerk.
+Door NAT wordt 1 public IP adres gebruik voor buiten het netwerk en unieke private IP adressen voor binnen het interne netwerk.
 
 *"3: Ontdek wat je privé IP adres is van je desktop en mobiel op wifi"*   
 Mobiel: 192.186.178.37  

@@ -27,12 +27,12 @@ Weinig. Moest even zoeken wat het ook al weer precies was maar het meeste wist i
 
 # Resultaat
 
-*"1: The difference between authentication and authorization."
+*"1: The difference between authentication and authorization."* 
 
 Autenticatie is het vaststellen of een gebruiker wel de persoon is dat deze claimt te zijn. Dit gaat via een **wachtwoord** of via een **MFA** oplossing zoals een token.
 Autorisatie is het toegang verlenen op basis van vastgestelde rechten.
 
-
+___
 *"2:  The three factors of authentication and how MFA improves security."*  
 **De 3 factoren voor autentcatie**
 Dit zijn de 3 manieren waarop autenticatie kan plaatsvinden:
@@ -45,7 +45,7 @@ MFA is het gebruik van meer dan 1 factor of authetication. Bijvoorbeeld zowel ee
 Dit verbeterd de beveiliging omdat de kans dat iemand meerdere factoren kan controleren klein is. Zo is het wel mogelijk dat een wachtwoord gestolen is, maar een vingerafdruk is niet zomaar te stelen.
 Hierbij is het wel belangrijk om te weten dat niet alle oplossingen even stevig zijn; zo is SMS verificatie nog altijd breekbaar door fishing en simswapping. 
 
-
+___
 *"3: What the principle of least privilege is and how it improves security."*
 
 Dit is het idee dat gebruikers alleen die rechten krijgen die ze nodig hebben voor hun werk, om zo een netwerk op aantal punten te beveiligen:
@@ -59,7 +59,7 @@ Een **"attack surface"** wordt door het NIST gedefinieerd als:
 *"The set of points on the boundary of a system, a system element, or an environment where an attacker can try to enter, cause an effect on, or extract data from, that system, system element, or environment. "* 
 
 Of om dit in een simpele Nederlandse defintie te stellen:  
-"Die delen van een netwerk of systeem welke een cybercrimineel kan misbruiken." 
+*"Die delen van een netwerk of systeem welke een cybercrimineel kan misbruiken."* 
 
 Dit principe kan worden bereikt door maatregelen te nemen zoals het sluiten van ongebruikte netwerkpoorten en services en een degelijk autorisatie plan. Dit valt ook onder het idee van **system hardening**. 
 
