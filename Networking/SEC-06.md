@@ -31,7 +31,7 @@ Beiden bestaan uit een RSA key en dus een lange reeks tekens.
 
 ![RSA key voor het certificaat](/00_includes/Networking_Images/cert_text.png)
 
-
+___
 *"2: Analyze some certification paths of known websites (ex. techgrounds.nl / google.com / ing.nl)"*
 
 Dit is redelijk simpel. Binnen chrome klik je op het slotje en kies je voor "Verbinding is Beveiligd" en daarna voor "Certificaat is geldig" om het certificaat te bekijken.
@@ -49,7 +49,7 @@ Een paar voorbeelden van deze cerficaten:
 
 De tabs in de screenshots bevatten de meest belangrijke informatie. Onder de details tab is echter nog meer informatie te vinden waaronder de openbare sleutel en informatie over de uitgever van het certificaat, oftewel de Certificate Authority.
 
-
+___ 
 *"3: Find the list of trusted certificate roots on your system (bonus points if you also find it in your VM)."* 
 
 De eerste opdracht was erg makkelijk; Windows kent de certlm.msc tool voor het bekijken van certicaten. 

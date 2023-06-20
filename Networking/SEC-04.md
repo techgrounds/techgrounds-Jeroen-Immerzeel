@@ -52,9 +52,7 @@ AES wordt voor heel veel dingen gebruikt; van versleuteling door BitLocker tot c
 ___
 *"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
 
-Dit is een leuke opdracht en heeft wat logisch omdenken nodig.
-
-Alleen door de symmetrische sleutel te versleutelen in een asymmetrische sleutel kan deze opdracht worden voldaan.
+Dit is een leuke opdracht en heeft wat logisch omdenken nodig. En de enige oplossing die wel kan werken binnen de beperkingen van de opdracht is eigenlijk vals spelen door de symetrische sleutel te versleutelen met een symmetrische sleutel.
 
 De stappen zijn dan: 
 - Het aanmaken van de symmetrische sleutel en een assymetrisch sleutel paar. (beide partijen)
@@ -63,3 +61,5 @@ De stappen zijn dan:
 - Het versleutelen van de symmetrische sleutel in de asymetrische publieke sleutel van de ontvanger
 - Het versturen van het versleutelde bericht en de versleutelde symmetriche sleutel naar de ontvanger
 - De ontvanger ontsleuteld dan eerst de versleutelde sleutel en daarna het bericht met de symmetrisch sleutel
+
+Een andere mogelijkheid is steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of met bepaalde programma's als ```steghide``` in Linux. 

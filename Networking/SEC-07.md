@@ -15,15 +15,26 @@ De opdracht vraag het volgende:
 Despite the bad password, and the fact that Linux uses common hashing algorithms, you won’t get a match in the Rainbow Table. This is because the password is salted. To understand how salting works, find a peer who has the same password in /etc/shadow, and compare hashes.
 
 # Gebruikte bronnen
+Hashing:
+https://www.wired.com/2016/06/hacker-lexicon-password-hashing/
+Rainbow Tables:
+
+Salting:
 
 # Ervaren problemen
 
 # Resultaat
 
 *"1: Find out what hashing is and why it is preferred over symmetric encryption for storing passwords."
+Hashing is een "one-way" wiskundige omzetting van een string in een string willekeurige tekens. Dit wordt gedaan om zo de originele string (vaak een wachtwoord) onleesbaar te maken alvorens deze op te slaan. Op deze manier wordt een wachtwoord niet leesbaar vezonden en opgeslagen.
+
+
+Het voordeel van hashing over 
+
+
 "*2: Find out how a Rainbow Table can be used to crack hashed passwords."*
-*"3: Below are two MD5 password hashes. One is a weak password, the other is a string of 16 randomly generated characters. Try to look up both hashes in a Rainbow Table."*
-Hash 1: **03F6D7D1D9AAE7160C05F71CE485AD31**
+*"3: Below are two MD5 password hashes. One is a weak password, the other is a string of 16 randomly generated characters. Try to look up both hashes in a Rainbow Table."*  
+Hash 1: **03F6D7D1D9AAE7160C05F71CE485AD31**  
 Hash 2: **03D086C9B98F90D628F2D1BD84CFA6CA**
 
 *"4_1: Create a new user in Linux with the password 12345. Look up the hash in a Rainbow Table."

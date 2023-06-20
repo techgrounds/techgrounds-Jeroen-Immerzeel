@@ -57,16 +57,7 @@ Het verzenden van een asymmetrisch versleuteld bericht is zeer simpel en gaat vi
 - Het geven van elkaars public keys
 - Het versleutelen van het bericht met deze public key
 - Het opsturen
-- Het ontsleutelen met de private key:
-
-
-Versturen van mijn public key
-
-Ontvangen van public key van peer 
-
-Versleutelen met public key
-
-Ontsleutelen met private key
+- Het ontsleutelen met de private key
 
 
 
