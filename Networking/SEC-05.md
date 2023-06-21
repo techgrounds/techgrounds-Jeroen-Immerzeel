@@ -54,18 +54,18 @@ SrX0IWqYppY2hkL/AgMBAAE=
 
 Het verzenden van een asymmetrisch versleuteld bericht is zeer simpel en gaat via deze stappen:
 - Aanmaken van 2 public/private keypairs; 1 voor ieder
-- Het geven van elkaars public keys
-- Het versleutelen van het bericht met deze public key
-- Het opsturen
+- Het delen van elkaars public keys
+- Het versleutelen van het bericht met de public key van de ontvanger
+- Het opsturen van het bericht
 - Het ontsleutelen met de private key
 
 
 
-Bij een private/public key is de (wiskundige) handeling tot versleuteling met de public key alleen terug te draaien door ontsleuteling met de private key. De public key wordt in deze dus gedeeld en gebruikt voor versleuteling; de private key blijft geheim en gebruikt voor ontsleuteling.
-
+Bij een private/public key pair is de (wiskundige) handeling tot versleuteling met de public key alleen terug te draaien door ontsleuteling met de private key.   De public key wordt in deze dus gedeeld en gebruikt voor versleuteling; de private key blijft geheim en gebruikt voor ontsleuteling.
 
 Dit is dus veel veiliger dan bij symmetrisch versleutelen omdat de sleutel waarmee versleuteld wordt niet hetzelfde is als de sleutel waarmee ontsleuteld wordt; dit waar de sleutel bij symmetrische versleuteling wel hetzelfde is.
 
 ![Aanmaken RSA](/00_includes/Networking_Images/RSA1.png)
 
 
+Een asymmetrische sleutel werkt met een zogenaamde "one-way function": een term in de informatica voor een wiskundige functie die, theoretisch, maar op 1 manier kan worden uitgevoerd. De vraag is echter of dit werkelijk bestaat; de complexiteit van de huidige implementaties laat hier nog geen duidelijk antwoord over zijn. Voor assymetrische sleutels is het echter zo dat deze voldoende complex zijn en er nog geen manieren zijn gevonden om deze op een andere manier te ontsleutelen dan met de private key.

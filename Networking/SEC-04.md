@@ -62,4 +62,4 @@ De stappen zijn dan:
 - Het versturen van het versleutelde bericht en de versleutelde symmetriche sleutel naar de ontvanger
 - De ontvanger ontsleuteld dan eerst de versleutelde sleutel en daarna het bericht met de symmetrisch sleutel
 
-Een andere mogelijkheid is steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of met bepaalde programma's als ```steghide``` in Linux. 
+Een andere mogelijkheid is steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of bepaalde gespecialiseerde programma's als ```steghide``` in Linux. 

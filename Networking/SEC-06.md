@@ -15,10 +15,13 @@ De opdracht vraag het volgende:
 
 # Gebruikte bronnen
 https://linuxize.com/post/creating-a-self-signed-ssl-certificate/ voor het aanmaken van een self-signed certificate
-https://prod.docs.oit.proofpoint.com/installation_guide/finding_the_path_to_the_trusted_certificates.htm de certificatie roots bij opdracht 3.
+https://prod.docs.oit.proofpoint.com/installation_guide/finding_the_path_to_the_trusted_certificates.htm   
+en  
+https://learn.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in#to-view-certificates-for-the-local-device  
+voor de certificatie roots bij opdracht 3.
 
 # Ervaren problemen
-
+Geen.
 # Resultaat
 *"1: Create a self-signed certificate on your VM."*
 
@@ -59,8 +62,8 @@ De eerste opdracht was erg makkelijk; Windows kent de certlm.msc tool voor het b
 De tweede opdracht, het vinden van de certificate root op Linux, was niet echt moeilijk; ik heb even gezocht op "linux certificate root" en had zo een goede bron.
 
 De benodigde stappen zijn:  
-```openssl version -d```: dit geeft het PATH met de directory voor de certificaten aan; in dit geval **/usr/lib/ssl**
-Hierna zoek je binnen deze directory naar de directory **/certs**; hierin staan alle certificaten.
+```openssl version -d```: dit geeft het PATH met de directory voor de certificaten aan; in dit geval **/usr/lib/ssl**  
+Hierna zoek je binnen deze directory naar de subdirectory **/certs** waar alle certificaten staan.
 
 
 ![De lijst met de certificates](/00_includes/Networking_Images/ssl_certs_1.png)  
@@ -69,3 +72,11 @@ Hierna zoek je binnen deze directory naar de directory **/certs**; hierin staan 
 ... ingekort ...   
 ![De lijst met de certificates](/00_includes/Networking_Images/ssl_certs_3.png)  
 *De lange lijst met certificates* 
+
+## Extra stof:
+De introductie van de opdracht spreekt over x.506 en de 3 entiteiten die bij deze standaard betrokken zijn. 
+X.506 gebuikt een Certificate Authority om certificaten uit te geven. Deze kan delen van zijn rol uitbesteden aan een Registration Authority en een Validation Authority:
+
+- Een certification Authority, CA, registreerd en valideerd certificaten en geeft deze uit. En registreert de entiteiten die een certificaat bezitten. 
+- Een Registration Authority kan het registreren van certificaten en hun aanvragers op zich nemen in plaats van een CA. 
+- Een Validation Authority kan identificatie van en het delen van informatie over de unieke entiteiten op zich nemen in plaats van een CA  
