@@ -94,34 +94,24 @@ Hashcat kan namelijk wachtwoorden niet alleen hashen met MD5 of SHA-256, maar oo
 
 Het enige nadeel is dat deze alleen werkt als men een gelekte database met usernames en wachtwoorden heeft; maar dat is in deze tijd van vele datalekken niet echt een probleem. Daarom is het gebruik van hetzelfde wachtwoord ook zo'n probleem.
 
-En dat zijn puur simpele programma's; een AI kan dit nog sneller.
-
-## Waarom langere wachtwoorden veiliger zijn
-
-Hoewel men met rainbow tables en gespecialiseerde tools wachtwoorden kan kraken, zijn dit geen middelen met beperkingen. Zo zijn langere wachtwoorden moeilijker om te kraken; of ze nu gehashed zijn of niet. En het is ondoenbaar om elk wachtwoord in een rainbow table of wordlist te plaatsen.
-
-Tijd is dan ook de meest beperkende factor.  
-De regel is dat de complexiteit van een wachtwoord wordt bepaald door het aantal verschillende tekens tot de macht van het aantal tekens:
-10 cijfers * lengte -> 4 cijfers -> 10^4 -> 10.000 mogelijkheden.
-26 letters * lengte -> 4 letters ->  26^4 -> 456.976 mogelijkheden
-62 alfanumerieke tekens * lengte > 4 tekens -> 62^4 -> 14.7 miljoen mogelijkheden
-
-Het kraken van een wachtwoord met alleen 4 cijfers is dus zelfs met de hand makkelijk te doen; waar een wachtwoord bestaande uit alleen 4 hoofdletters al een stuk moeilijker is.
-
-De lengte van een wachtwoord is echter belangrijker; 10^12 is veel meer dan 62^6 ->  1.000 miljard vs 56.8 miljard.
-En daar zit het probleem: mensen kunnen een wachtwoord van zulke lengte niet goed onthouden. Hierdoor gebruikt men veelal dezelfde wachtwoorden en dat is zoals we hebben gezien niet veilig.
-
+En dat zijn nog simpele programma's; een AI kan dit nog veel sneller. Zo meldt ZDNet dat een AI genaamd PassGAN de meeste wachtwoorden, ongeacht lengte of complexiteit, binnen een realistisch tijdsbestek kan breken. Echter geldt ook hier dat langere en/of meer complexe wachtwoorden het meest krachtig zijn.  
+https://www.zdnet.com/article/how-an-ai-tool-could-crack-your-passwords-in-seconds/
 
 ![Time to crack a password](/00_includes/Networking_Images/time_to_crack.png)
 *de tijd die een AI nodig heeft om een wachtwoord te kraken*
-## Alternatieven voor wachtwoorden
-Er zijn goede oplossingen om wachtwoorden te vervangen, of aan te vullen.
-MFA is een bekend voorbeeld: je moet hierbij een extra stap doorlopen alvorens je kan inloggen.
 
-Maar op dit moment is er een revolutie gaande: de **passkeys**.
-Passkeys zijn de facto een MFA oplossing waarbij men moet inloggen via een app met biometrie, pattern of PIN, maar veel geavanceerder. Deze gebruiken namelijk een public/private key certification systeem waarbij de gebruiker inlogt op diens app en de app inlogt op het systeem dmv een digitaal certificaat.
+## Breaking the limits
+
+Dit alles laat zien dat sterke wachtwoorden uit zowel lengte als complexiteit bestaan. 
+En daar zit het probleem: mensen kunnen zulke wachtwoorden niet goed onthouden. Hierdoor gebruikt men veelal dezelfde wachtwoorden of simpele wachtwoorden en dat is zoals we hebben gezien niet veilig.
+
+Er zijn echter goede oplossingen om wachtwoorden te vervangen, of aan te vullen.
+**MFA** is een bekend voorbeeld: de extra stap die men moet doorlopen zou voor meer veiligheid moeten zorgen. Echter weten we dat oplossingen als een controle via een SMS-bericht te breken zijn.
+
+Maar op dit moment is er een revolutie gaande om al dit op te lossen: de **passkeys**.
+Passkeys zijn een oplossing waarbij men moet inloggen met een app via biometrie, pattern of PIN, maar op een veel geavanceerdere manier dan MFA. Hierbij wordt er namelijk gewerkt met PKI certification systeem waarbij de gebruiker inlogt op diens app en de app inlogt op het systeem dmv een digitaal certificaat.
 Bij dit systeem is er dus geen sprake van een wachtwoord, maar een beveiligingslaag in de vorm van de app en het device waarop deze app staat.
 
-Dit alternatief wordt dan ook de toekomst; deze is beter beveiligd, en simpeler in het gebruik voor de user en de developers/systeembeheerders.
+Dit alternatief wordt dan ook de toekomst; deze is beter beveiligd, en simpeler in het gebruik voor de user en de developers/systeembeheerders. En is in tegenstelling tot een wachtwoord niet te kraken door de standaard aanvallen.
 
 
