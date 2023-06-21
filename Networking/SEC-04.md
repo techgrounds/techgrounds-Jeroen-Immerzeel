@@ -23,7 +23,7 @@ Het was onduidelijk wat deelopdracht 3 nu werkelijk vraagt.
 
 # Resultaat
 
-*"1: Find one more historic cipher besides the Caesar cipher."  
+## *"1: Find one more historic cipher besides the Caesar cipher."  
 Het **Enigma Cipher**.
 
 Dit is het cipher dat de Duitsers gebruikte tijdens de Tweede Wereldoorlog en door het gebruik van een Enimga machine zo moeilijk te kraken was dat de Britten onder leiding van Alexander Turing er een computer voor bouwden genaamd de "Bombe Machine".
@@ -35,7 +35,7 @@ Er was slechts 1 zwak punt in het enimga cipher: een letter kon nooit in zichzel
 
 ___
 
-*"2: Find two digital ciphers that are being used today."
+## *"2: Find two digital ciphers that are being used today."
 
 **RSA**  
 RSA is een asymmetrisch cipher dat aan de basis ligt van het Public Key Interface (**PKI**) waarbij er een Public/Private keypair wordt aangemaakt. 
@@ -50,11 +50,11 @@ Als zijnde een symmetrisch cipher, word AES met dezelfde sleutel versleuteld als
 
 AES wordt voor heel veel dingen gebruikt; van versleuteling door BitLocker tot compressie met RAR en 7ZIP als voor end-to-end encryption in WhatsApp en andere apps. Dit cipher is dus zeer belangrijk in de huidige praktijk.
 ___
-*"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
+## *"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
 
-Dit is een leuke opdracht en heeft wat logisch omdenken nodig. En de enige oplossing die wel kan werken binnen de beperkingen van de opdracht is eigenlijk vals spelen door de symetrische sleutel te versleutelen met een symmetrische sleutel.
+Dit is een leuke opdracht en heeft wat logisch omdenken nodig. En de enige oplossing die wel kan werken binnen de beperkingen van de opdracht is eigenlijk vals spelen door de symetrische sleutel te versleutelen met een symmetrische sleutel. Maar dat was wel de oplossing volgens onze learning coach.
 
-De stappen zijn dan: 
+De stappen om deze oplossing uit te voeren zijn: 
 - Het aanmaken van de symmetrische sleutel en een assymetrisch sleutel paar. (beide partijen)
 - Het delen van de publieke sleutel van de ontvanger
 - Het maken van een bericht en deze versleutelen met de symmetrische sleutel
@@ -62,4 +62,4 @@ De stappen zijn dan:
 - Het versturen van het versleutelde bericht en de versleutelde symmetriche sleutel naar de ontvanger
 - De ontvanger ontsleuteld dan eerst de versleutelde sleutel en daarna het bericht met de symmetrisch sleutel
 
-Een andere mogelijkheid is steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of bepaalde gespecialiseerde programma's als ```steghide``` in Linux. 
+Een andere mogelijkheid om in het geheim berichten te verzeonde is via steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of bepaalde gespecialiseerde programma's als ```steghide``` in Linux. 

@@ -11,17 +11,17 @@ De opdracht vraag het volgende:
 - Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser. 
 
 # Gebruikte bronnen
-- De website <https://nmap.org/book/man.html voor hulp bij het gebruikt van NMAP
-- Deze tutorial van NetworkChuck op YouTube: <https://www.youtube.com/watch?v=4t4kBkMsDbQ&t
+- De website https://nmap.org/book/man.html voor hulp bij het gebruikt van NMAP
+- Deze tutorial van NetworkChuck op YouTube: https://www.youtube.com/watch?v=4t4kBkMsDbQ&t
 
 # Ervaren problemen
 Door een druk netwerk was vraag 2 wat moeilijk te beantwoorden.
 # Resultaat
 
 # NMAP
-*"1: Scan the network of your Linux machine using nmap. What do you find?"*     
-Nmap moet eerst worden geinstalleerd; dit gaat via ```sudo apt install nmap -y```.
-Om met nmap het netwerk te scannen kan je ```nmap [IP ADRES]``` opgeven als commando.
+## *"1: Scan the network of your Linux machine using nmap. What do you find?"*     
+Nmap moet eerst worden geinstalleerd; dit gaat via ```sudo apt install nmap -y```.  
+Om met nmap het netwerk te scannen kan je ```nmap [OPTION] [IP ADRES]``` opgeven als commando.
 
 Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden zijn:
 ```
@@ -40,7 +40,7 @@ Als er op het 10.105.175.78/24 netwerk een -sP scan wordt uitgevoerd worden er 1
 
 Als er op het 10.105.175.78/24 netwerk een ```-sT``` scan wordt uitgevoerd duurt de scan wat langer, maar geeft deze wel meer informatie; van elke host wordt dan ook direct bekend welke poorten er open staan.
 
-Een ```-sS``` scan heeft bijna dezelfde werking en resultaten als een ```-sT``` scan, maar breekt de TCP voortijdig af. Dit maakt de scan in theorie sneller en minder detecteerbaar door een IDS/IPS.
+Een ```-sS``` scan heeft bijna dezelfde werking en resultaten als een ```-sT``` scan, maar breekt de TCP connectie voortijdig af. Dit maakt de scan in theorie sneller en minder detecteerbaar door een IDS/IPS.
 
 ![-sS scan resultaten](/00_includes/Networking_Images/nmap_sS_result.png)
 
@@ -66,13 +66,13 @@ Met ```-A``` zal namp alle bovenstaande scans combineren én een traceroute make
 # Wireshark
 
 
-*"2: Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser."*
+## *"2: Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser."*
 
  Deze vraag was voor mij wat moeilijk om te beantwoorden met afbeeldingen doordat mijn netwerk druk is, en doe het dan ook alleen in tekst.
 
  Wireshark laat alle data zien dat verstuurd wordt over een medium. Hierbij deelt deze de data in op welke inhoud deze heeft: protocollen, de grootte in bits, source en destination en meer.
 
- Als er een website geladen wordt, net als bij het openen van een browser, worden er opp net netwerk achtereenvolgens deze stappen doorlopen:
+ Als er een website geladen wordt, net als bij het openen van een browser, worden er op net netwerk achtereenvolgens deze stappen doorlopen:
  
  - Bij een nog onbekende host wordt er eerst een DNS request gedaan om de URL of het FQDN te vertalen naar een IP adres. Dit geeft een DNS request frame in Wireshark.
  - Als het IP adres van de host bekend is wordt er naar het bijbehorende IP adres een HTTP GET request verstuurd om het HTML document waaruit de website bestaat op te vragen. Dit geeft een HTTP GET frame in Wireshark.

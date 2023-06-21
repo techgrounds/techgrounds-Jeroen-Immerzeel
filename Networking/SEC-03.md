@@ -3,7 +3,7 @@
 # Key-terms
 - Autenticatie
 - MFA
-- 3 Factoren
+- 3 Factoren van autenticatie
 - Wireshark
 
 # Opdracht
@@ -27,28 +27,37 @@ Weinig. Moest even zoeken wat het ook al weer precies was maar het meeste wist i
 
 # Resultaat
 
-*"1: The difference between authentication and authorization."* 
+## *"1: The difference between authentication and authorization."* 
 
-Autenticatie is het vaststellen of een gebruiker wel de persoon is dat deze claimt te zijn. Dit gaat via een **wachtwoord** of via een **MFA** oplossing zoals een token.
-Autorisatie is het toegang verlenen op basis van vastgestelde rechten.
+Autenticatie is het vaststellen of een gebruiker wel de persoon is welke deze claimt te zijn. Dit gaat via een **wachtwoord** en/of via een **MFA** oplossing zoals een token.
+Autorisatie is het toegang verlenen tot data op basis van vooraf vastgestelde rechten.
+
+Hiernaast is er ook nog identificatie. Deze stap komt voor autenticatie en stelt de identiteit van de gebruiker vast; dit meestal via een username.
+
+De 3 stappen voor Identity and Access management zijn:
+- Identificatie: wie wilt inloggen?
+- Autenticatie: is de entiteit die in wilt loggen echt?
+- Autorisatie: wat zijn de rechten die de entiteit krijgt/heeft?
 
 ___
-*"2:  The three factors of authentication and how MFA improves security."*  
-**De 3 factoren voor autentcatie**
+## *"2:  The three factors of authentication and how MFA improves security."*  
+**De 3 factoren voor autentcatie**  
 Dit zijn de 3 manieren waarop autenticatie kan plaatsvinden:
 - Dat wat je weet: wachtwoord of PIN.  
 - Dat wat je hebt: een token of smartcard.   
-- Dat wat je bent: biometrie dus bijvoorbeeld een vingerafdruk of irisscan.  
+- Dat wat je bent: biometrie dus bijvoorbeeld een vingerafdruk of irisscan. 
+
+Autenticatie kan door 1 van de factoren worden gedaan, maar ook door meerdere factoren; dan spreken we over Multifactor Authetication. 
 
 **MFA**  
 MFA is het gebruik van meer dan 1 factor of authetication. Bijvoorbeeld zowel een wachtwoord als een code van een token op je mobiel. 
-Dit verbeterd de beveiliging omdat de kans dat iemand meerdere factoren kan controleren klein is. Zo is het wel mogelijk dat een wachtwoord gestolen is, maar een vingerafdruk is niet zomaar te stelen.
+Dit verbeterd de beveiliging omdat de kans dat een bad actor meerdere factoren kan controleren klein is. Zo is het wel mogelijk dat een wachtwoord gestolen is, maar een vingerafdruk is niet zomaar te stelen.
 Hierbij is het wel belangrijk om te weten dat niet alle oplossingen even stevig zijn; zo is SMS verificatie nog altijd breekbaar door fishing en simswapping. 
 
 ___
-*"3: What the principle of least privilege is and how it improves security."*
+## *"3: What the principle of least privilege is and how it improves security."*
 
-Dit is het idee dat gebruikers alleen die rechten krijgen die ze nodig hebben voor hun werk, om zo een netwerk op aantal punten te beveiligen:
+Dit is het idee dat gebruikers alleen die rechten krijgen die ze nodig hebben voor hun werk. Dit om zo een netwerk op aantal punten te beveiligen:
 - Verkleinen van de "attack surface"
 - De kans op malware te verkleinen
 - Het gebruik van system resources te verlagen
