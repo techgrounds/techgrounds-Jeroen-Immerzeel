@@ -63,3 +63,40 @@ De stappen om deze oplossing uit te voeren zijn:
 - De ontvanger ontsleuteld dan eerst de versleutelde sleutel en daarna het bericht met de symmetrisch sleutel
 
 Een andere mogelijkheid om in het geheim berichten te verzeonde is via steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of bepaalde gespecialiseerde programma's als ```steghide``` in Linux. 
+
+# Extra opdracht:
+## *"Asymmetric Key generation on our VM. Instead of using an online tool, in this exercise we're going to use the GPG program on our VM to generate a key."* 
+
+Voor ```GPG``` is de syntax redelijk simpel: ```gpg [OPTIONS][FILES]```
+In deze moet er een assymmetrische sleutel worden aangemaakt daarvoor is de optie ```--generate-key```
+
+Om zeker te zijn dat alles werkt zoals de verwachting is kan er gekozen worden om een "dry run" te draaien waarbij wel alle stappen worden doorlopen maar er geen echte keys worden aangemaakt. Dit kan met de ```-n```optie.
+
+Het eerste commando wordt dan ```gpg -n --generate-key```.
+De stappen welke dan worden doorlopen zijn:
+- Het vragen van persoonlijke informatie als naam en emailadres.
+- Het vragen naar een passphrase.
+- Het genereren van de keys waarbij extra muisbewegingen en toetsaanslagen worden gevraagd voor "entropy"(de basis van de willekeurige tekens)
+- Het aanmaken van de opslag locaties mocht dit nodig zijn
+- Het rapporteren van de handelingen.
+
+![Enter Passphrase](/00_includes/Networking_Images/gpg_passphrase_is_Techgrounds.png)  
+*Enter Passphrase* 
+
+![Melding van een zwak wachtwoord](/00_includes/Networking_Images/gpg_passphrase_Techgrounds_insecure.png)  
+*passphrase is weak* 
+
+![gpg dry run](/00_includes/Networking_Images/gpg_dryRun.png)
+*GPG dry run* 
+
+Een echte run is bijna hetzelfde als een dry run, echter wordt de ```-n``` optie niet gebruikt en is het commando dus ```gpg --generate-key```
+
+![aanmaken van GPG key pair](/00_includes/Networking_Images/gpg_fullrun.png)
+*aanmaken van GPG key pair*
+
+Nadat een keypair is aangemaakt word de public key gestoond in de output en de private key opgeslagen in de private-keys-v1.d  subdirectory in de .gnupgp directory:
+![.gnugpg directory](/00_includes/Networking_Images/gpg_folder.png)
+*gnupgp directory*
+
+![gpg public key](/00_includes/Networking_Images/gpg_public_key.png)
+*de public key*

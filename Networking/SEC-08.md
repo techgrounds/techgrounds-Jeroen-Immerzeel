@@ -147,6 +147,6 @@ ___
 ### *"2: An automatic failover to a backup web server has been configured for a website. Because the backup has to be powered on first and has to pull the newest version of the website from GitHub, the process takes about 8 minutes. What is the RTO of the website?"* 
 
 Over de RTO zegt de Quest Blog:   
-*"Think of your recovery point objective as the point in time back to which you want to be able to recover your data. A recovery point is essentially the time at which a data backup was completed successfully."*
+*"RTO is the amount of time it takes to recover data for use again in production"*
 
 Omdat in deze de RTO bepaald hoelang het hele proces voor het terugzetten van de backup duurt, is deze in dit voorbeeld 8 minuten.
