@@ -70,9 +70,10 @@ Een andere mogelijkheid om in het geheim berichten te verzeonde is via steganogr
 Voor ```GPG``` is de syntax redelijk simpel: ```gpg [OPTIONS][FILES]```
 In deze moet er een assymmetrische sleutel worden aangemaakt daarvoor is de optie ```--generate-key```
 
-Om zeker te zijn dat alles werkt zoals de verwachting is kan er gekozen worden om een "dry run" te draaien waarbij wel alle stappen worden doorlopen maar er geen echte keys worden aangemaakt. Dit kan met de ```-n```optie.
+Om zeker te zijn dat alles werkt zoals de verwachting is kan er gekozen worden om een "dry run" te draaien waarbij wel alle stappen worden doorlopen maar er geen echte keys worden aangemaakt.   
+Dit kan met de ```-n```optie.
 
-Het eerste commando wordt dan ```gpg -n --generate-key```.
+Het eerste commando wordt dan ```gpg -n --generate-key```.  
 De stappen welke dan worden doorlopen zijn:
 - Het vragen van persoonlijke informatie als naam en emailadres.
 - Het vragen naar een passphrase.
@@ -94,7 +95,7 @@ Een echte run is bijna hetzelfde als een dry run, echter wordt de ```-n``` optie
 ![aanmaken van GPG key pair](/00_includes/Networking_Images/gpg_fullrun.png)
 *aanmaken van GPG key pair*
 
-Nadat een keypair is aangemaakt word de public key gestoond in de output en de private key opgeslagen in de private-keys-v1.d  subdirectory in de .gnupgp directory:
+Nadat een keypair is aangemaakt word de public key getoond in de output en de private key opgeslagen in de private-keys-v1.d subdirectory in de .gnupgp directory:
 ![.gnugpg directory](/00_includes/Networking_Images/gpg_folder.png)
 *gnupgp directory*
 
