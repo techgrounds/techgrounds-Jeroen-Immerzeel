@@ -22,5 +22,12 @@ Bestudeer:
 
 
 ### Resultaat
+*"1: Wat is een Azure Region?"*
+
+*"2: Wat is een Azure Availability Zone?* 
+
+*"3: Wat is een Azure Region Pair?"*
+
+"*4: Waarom zou je een regio boven een andere verkiezen?"* 
 
 
