@@ -184,13 +184,61 @@ Het is ook mogelijk om een "managed instance" te maken. Dit is een database die 
 # Event Grid, Queue Storage, Service Bus
 
 
-**Event grid** is een manier om events van 1 service naar een andere service door te sturen. Dit is primair voor IoT solutions.
+**Event grid**
+---
+Een essential service, staat altijd aan.
 
-**Queue storage** is een soort van load balancer om berichten tussen apps zo te versturen dat de ontvangende app niet overstroomd wordt.
+Dit is een manier om events van 1 service naar een andere service door te sturen. Dit is een systeem dat werkt met de volgende termen:  
+- Event: een applicatie(event source) doet iets en stuurt de resultaten van deze handeling naar het endpoint  
+- Endpoint: is de Event grid.  
+- Topic: is datgene waar het event onder valt; bijvoorbeeld een stuk code, of de melding dat er een bestand is geuploeded.  
+- Event subscription: is de manier voor event handlers om topics te ontvangen.  
+- Event handler: ontvangt een topic en doet daar iets mee; andere apps dus.  
 
-**Service bus** is een manier om asynchroon berichten te versturen tussen applicaties.  
+Denk aan het uploaden van een afbeelding naar de storage Blob; dit triggert een event dat de event grid doorstuurt naar een andere applicatie die als event handler zich heeft subscribed op dat event als topic.
+
+Om de bepalen welke topics een event handler gaat ontvangen wordt er een filter toegepast.
+
+![De werking van Event grid](/00_includes/Cloud2/event-grid.png)
+*De werking van Event Grid*
+
+**Queue storage** 
+--
+Kan een groot aantal messages opslaan voor verwerking door apps; 20.000 p/s voor 1KiB berichten, en 500GB op 1 queue.
+Er kunnen meerdere queues op 1 storage account zijn, elk met 2.000 p/s throughput; totale opslag is dan 500TB.
+
+Een message kan nooit groter zijn dan 64KB, en heeft standaard een TTL van 7 dagen; dit kan worden aangepast (-1 = ongemiliteerd)  
+Messages worden door applicaties verwerkt als onderdeel van hun functioneren; bijvoorbeeld een query binnen een database.  
+Queue storage kan hierdoor ook een soort van load balancer zijn om berichten tussen apps zo te versturen dat de ontvangende apps niet overstroomd wordt. Dit vooral bij SQL databases met veel gebruikers.
+
+Authorization gaat via:  
+Shared Access Signatures  
+AAD RBAC, met de rollen:
+- Contributor (alle rechten, admin)
+- Reader (read only)
+- Message processor (read + process)
+- Message sender (send only)
+
+Een message kan alleen worden verwijderd door verwerking of het overschreiden van de TTL.
+![Queue](/00_includes/Cloud2/queue.png)   
+*Message queue*
+
+![Topics](/00_includes/Cloud2/topics.png)  
+*Topics*
+
+**Service bus** 
+--
+Service bus is een enterprise message broker; een mix tussen Queue Storage en Event Grid.  
+Sessions garanderen een Fi-Fo processing.
+Auto-forwarding laat berichten uit de ene queue worden verstuurd naar een andere queue.
+Dead Letter Queue: deze bevat messages die aan geen enkele ontvanger verstuurd kunnen worden. 
+Deferral: dit maakt het zo dat als de ontvangende app van een message deze niet kan verwerken, de message in de queue blijft. 
+
 
 Alle 3 kunnen simpel worden bereikt door naar hun naam te zoeken.
+
+## Samenwerking
+Omdat alle drie brokers zijn tussen apps, werken deze standaard samen met Apps, Logic Apps, Functions, en meer.
 
 
 # Azure Support Plans
