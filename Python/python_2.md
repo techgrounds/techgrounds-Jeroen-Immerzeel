@@ -1,11 +1,15 @@
 # Python 2
 
 ## Onderwerp:
-Opdrachten 4 t/m x
+Opdrachten 4 en 5
 
 ## Key-terms:
-- 
-
+- if, elif, else -statements
+- loops
+- range() -function
+- for loop
+- while loop
+- conditional operators
 
 ## Gebruikte bronnen:
 De lessen aangeboden op:
@@ -55,12 +59,13 @@ Dit gaat via een while loop en heeft de volgende uitwerking:
 
 ## **exercise 2:**
 ### Copy the code below into your script:
-```for i in range(10):
+```
+for i in range(10):
 	# do something here
 ```
 Zeer simpele copy&paste.
 
-### print the value of i in the for loop. You did not manually assign a value to i. Figure out how its value is determined.
+### Print the value of i in the for loop. You did not manually assign a value to i. Figure out how its value is determined.
 De range()-fucntion zal de cijfers 0 - 9 printen. Dit omdat i een lege variabele is en bij elke iteratie van de range()-functie een value krijgen van 0 - 9. 
 Hierbij is het belangrijk om te snappen dat Python "0-indexing" gebruikt; elke indexering start daarbij met 0 ipv 1.
 
