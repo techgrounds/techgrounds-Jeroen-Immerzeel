@@ -29,17 +29,13 @@ Daarnaast vraagt de opdracht om het aanmaken van dit document met daarin de volg
 - Codeblocks
 - Bold tekst
 - urls
-<br>
-<br>
-<br>
+
 
 ## Wat is markdown?
 Markdown is een markup language bedoeld voor het formatteren van tekst met een plain-texteditor.
 De GitHub versie van Markdown wordt sinds 2009 gebruikt en kent extra features zoals nesting block content en het automatisch linken naar GitHub features.   
 Sinds 2017 is er een officiële specificatie van markdown voor GitHub onder de naam "GitHub Flavoured markdown".  
-<br>
-<br>
-  <br>
+<
 
 ## Wat betekenen de afkortingen WYSIWYG en WYSIWYM?
 De afkortingen WYSIWYG en WYSIWYM staan voor *What You See Is What You Get* en *What You See Is What You Mean*. 
