@@ -25,7 +25,7 @@ for i in range(10):
 		print(i)
 ```
 
-Dit kan opgelost worden door dit simplerer te schrijve met:
+Dit kan opgelost worden door dit simpeler te schrijven met:
 ```
 for i in range(10):
 	if i < 5 or i >= 8:
@@ -170,9 +170,9 @@ print(foo)
 ```
 
 Dit is een wat complexere opdracht.
-Op deze manier zal er 1 maal de ouput ```aaa5|||5|||5|||``` worden getoond. Er moeten dus 2 aanpassingen worden gedaan:
+Op deze manier zal er 1 maal de output ```aaa5|||5|||5|||``` worden getoond. Er moeten dus 2 aanpassingen worden gedaan:
 1) "a" moet maar 1 keer getoond worden; dit kan door de ```for i in range(3)``` aan te passen naar ```for i in range(1)```.
-2) De gehele string moet daarna 3 keer getoon worden; dit gaat door de print statement aan te passen naar ```print(foo*3)```.
+2) De gehele string moet daarna 3 keer getoond worden; dit gaat door de print statement aan te passen naar ```print(foo*3)```.
 Dit zal het volgende script worden:
 
 ```

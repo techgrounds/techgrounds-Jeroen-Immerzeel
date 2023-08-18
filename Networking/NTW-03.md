@@ -33,7 +33,7 @@ ___
 Dit is de physical layer en kent protocollen voor het versturen van de bits. De meest bekende hiervan zijn de fysieke implementaties van Ethernet zoals 1000BASE-T voor Gigabit Ethernet die we thuis veelal gebruiken.
 
 - **Layer 2**  
-Dit is de DataLink Layer en kent als bekenste 2 protocollen **Ethernet** en **WiFi**. 
+Dit is de DataLink Layer en kent als bekendste 2 protocollen **Ethernet** en **Wi-Fi**. 
 
 - **Layer 3**  
 Dit is de Network Layer en heeft als meest bekende en belangrijkste protocol het **Internet Protocol**. Er worden nu 2 versies van dit protocol gebruikt: *IP4*  en *IPv6*.  
@@ -43,7 +43,7 @@ Daar waar IP4 een 32 bits adres is en daarmee slechts *4,294,967,296* adressen k
 * **Layer 4**  
 Dit is de Transport Layer en kent 2 zeer belangrijke protocollen: **TCP** en **UDP**.
 - **TCP** wordt gebruikt voor het segmenteren en betrouwbaar versturen van deze segmenten.
-- **UDP** wordt gebruikt voor het versuren van datagrammen waarbij tijdige aflevering van groter belang is dan betrouwbaarheid.  
+- **UDP** wordt gebruikt voor het versturen van datagrammen waarbij tijdige aflevering van groter belang is dan betrouwbaarheid.  
 TCP wordt dan ook gebruikt voor het versturen van data die accuraat moet zijn waar UDP vooral gebruikt wordt voor data die snel geleverd moet worden; denk hierbij aan downloads bij TCP en streamingdiensten bij UDP.
 
 - **Layer 5**  
@@ -51,7 +51,7 @@ Dit is de session layer en kent door diens functie signalling protocollen voor h
 
 
 - **Layer 6**  
-Dit is de presentation layer, gezien deze laag de encryptie afhandeld kent deze de SSL en TLS protocollen als belangrijke protocollen.
+Dit is de presentation layer, gezien deze laag de encryptie afhandelt kent deze de SSL en TLS protocollen als belangrijke protocollen.
 
 - **Layer 7**  
 Dit is de application layer en kent een groot aantal protocollen; een aantal bekende voorbeelden zijn:
@@ -68,7 +68,7 @@ Dit is de application layer en kent een groot aantal protocollen; een aantal bek
 # *"2: Figure out who determines what protocols we use and what is needed to introduce your own protocol."*
 Het IANA, of Internet Assigned Numbers Association beheert de regels betreffende de protocollen hun port nummers. Hierbij worden 3 verschillende groepen poorten gebruikt:
 - Poorten 0-1023 worden *"well known ports"* genoemd en hebben een officieel geassocieerd protocol. 
-- Poorten 1024 tot 49151 zijn *"registered ports"* en hebben ook een geassocieerd protocol; deze kunnen officieel door het IANA zijn erkent, of onofficieel zijn maar wel gestandaardizeerd voor dat gebruik zijn.  
+- Poorten 1024 tot 49151 zijn *"registered ports"* en hebben ook een geassocieerd protocol; deze kunnen officieel door het IANA zijn erkent, of onofficieel zijn maar wel gestandaardiseerd voor dat gebruik zijn.  
 - Poorten met poortnummers tussen de 49152 en 655535 zijn *"emphemeral ports"* en mogen door elk programma gebruikt worden; deze worden o.a. voor **Port Address Translation** gebruikt.  
 
 Voor het registreren van het gebruik voor ports is een specifieke procedure waarbij er een "Request for Change" moet worden ingediend bij het IANA waarna er na een inspraak procedure toestemming kan komen om deze port te gebruiken.   
@@ -85,14 +85,14 @@ Het opvangen van netwerk data gaat in een aantal simpele stappen:
 - Kies de NIC welke je wilt afluisteren.
 - Om een connectie te filteren gebruik de filter box. 
 
-In mijn geval heb ik mijn Ethernet 2 connectie en TCP geselecteerd en ben ik naar 2 sites gesurfed: https://nos.nl/ en http://info.cern.ch . De eerste site is beveiligd met TLS/SSL versleuteling, de tweede is zonder enige versleuteling. (De tweede site is overigens de eerste website ooit gemaakt.)
+In mijn geval heb ik mijn Ethernet 2 connectie en TCP geselecteerd en ben ik naar 2 sites gesurft: https://nos.nl/ en http://info.cern.ch . De eerste site is beveiligd met TLS/SSL versleuteling, de tweede is zonder enige versleuteling. (De tweede site is overigens de eerste website ooit gemaakt.)
 
 Daar waar de data stream van en naar de eerste site alleen uit wat willekeurige tekens bestaat en daarmee totaal onleesbaar is, is de data stream van de tweede site geheel leesbaar.
 
 ![De versleutelde data van en naar de nos.nl website](/00_includes/Networking_Images/https_stream.png)
 *onleesbare data stream* 
 
-![De onversleutelde data van en naar de cern.ch website](/00_includes/Networking_Images/http_stream.png)  
+![De niet versleutelde data van en naar de cern.ch website](/00_includes/Networking_Images/http_stream.png)  
 *geheel leesbare data stream*
 
 De TCP informatie die wireshark geeft bestaat uit alle onderdelen in de TCP header. 

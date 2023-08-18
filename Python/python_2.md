@@ -66,7 +66,7 @@ for i in range(10):
 Zeer simpele copy&paste.
 
 ### Print the value of i in the for loop. You did not manually assign a value to i. Figure out how its value is determined.
-De range()-fucntion zal de cijfers 0 - 9 printen. Dit omdat i een lege variabele is en bij elke iteratie van de range()-functie een value krijgen van 0 - 9. 
+De range()-function zal de cijfers 0 - 9 printen. Dit omdat i een lege variabele is en bij elke iteratie van de range()-functie een value krijgen van 0 - 9. 
 Hierbij is het belangrijk om te snappen dat Python "0-indexing" gebruikt; elke indexering start daarbij met 0 ipv 1.
 
 ### Add a variable x with value 5 at the top of your script.
@@ -82,7 +82,7 @@ arr = ["Coen", "Casper", "Joshua", "Abdessamad", "Saskia"]
 Dit is een simpele copy&paste.
 
 ### Use a for loop to loop over the array. Print every name individually.
-Dit gaat weer met een print() statement waarbij de for loop itereerd over de namen in de arr-list. De namen krijgen de tijdelijke variabele *name* mee, waardoor de for loop de syntax ```for name in arr:``` krijgt en deze de print(name) opdracht krijgt:
+Dit gaat weer met een print() statement waarbij de for loop itereert over de namen in de arr-list. De namen krijgen de tijdelijke variabele *name* mee, waardoor de for loop de syntax ```for name in arr:``` krijgt en deze de print(name) opdracht krijgt:
 
 ![for name in arr](/00_includes/Python_images/opdracht4_3_1.png)  
 *for name in arr* 
@@ -103,7 +103,7 @@ Deze opdracht kent 2 exercises:
 Voor deze opdracht is het nodig om een conditional loop te maken. Binnen een conditional loop wordt er gebruik gemaakt van een if/else -statement eventueel aangevuld met een elif -statement en waar binnen met de logical *and*, *or* en *not* gewerkt kan worden.
 
 De opdracht zelf vraagt om een een loop waarbij de input()-functie als trigger voor de conditional geldt.
-Om de input te vergelijken met de waarde van een variabele is het nodig om een *comparison oprator* te gebruiken.
+Om de input te vergelijken met de waarde van een variabele is het nodig om een *comparison operator* te gebruiken.
 De operators die er gebruikt kunnen worden zijn:
 ```
 Operator | name
@@ -127,7 +127,7 @@ In deze wordt de *==* operator gebruikt bij de if-statement en wordt er een prin
 
 ## Exercise 2:
 ### Ask the user of your script for a number. Give them a response based on whether the number is higher than, lower than, or equal to 100.
-Ook hier wordt een if statement gebruikt, maar dan in combinatie van zowel een *else* als een *elif* statement. Een *elif* statement zal als alternatief worden vergeleken als het *if* statement niet getriggered wordt. Voor de rest werkt deze exact hetzelfde als een *if* statement.
+Ook hier wordt een if statement gebruikt, maar dan in combinatie van zowel een *else* als een *elif* statement. Een *elif* statement zal als alternatief worden vergeleken als het *if* statement niet getriggerd wordt. Voor de rest werkt deze exact hetzelfde als een *if* statement.
 
 ![if statement met een elif statement](/00_includes/Python_images/opdracht5_2_1.png)  
 *if statement met een elif statement* 
@@ -136,7 +136,7 @@ Ook hier wordt een if statement gebruikt, maar dan in combinatie van zowel een *
 *output van het if statement*
 
 ### Make the game repeat until the user inputs 100
-Dit is wat moeilijker. Hierbij is het nodig om de gehele code aan te passen. Hierbij wordt er niet alleen gebruik gemaaakt van een for loop maar ook een while loop en een exit() conditional. Deze while loop loopt totdat het goede getal geraden wordt. Om de loop te stoppen kan het *exit()* keyword worden gebruikt.
+Dit is wat moeilijker. Hierbij is het nodig om de gehele code aan te passen. Hierbij wordt er niet alleen gebruik gemaakt van een for loop maar ook een while loop en een exit() conditional. Deze while loop loopt totdat het goede getal geraden wordt. Om de loop te stoppen kan het *exit()* keyword worden gebruikt.
 
 ![While loop met if loop](/00_includes/Python_images/opdracht5_2_2.png)  
 *while loop met if loop*  

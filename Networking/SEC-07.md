@@ -37,7 +37,7 @@ Geen. Dit was letterlijk "right up my alley".
 
 ## *"1: Find out what hashing is and why it is preferred over symmetric encryption for storing passwords."
 
-Hashing is een "one-way" wiskundige omzetting van een string in een string willekeurige tekens. Dit wordt gedaan om zo de originele string (vaak een wachtwoord) onleesbaar te maken alvorens deze op te slaan. Op deze manier wordt een wachtwoord niet leesbaar vezonden en opgeslagen.
+Hashing is een "one-way" wiskundige omzetting van een string in een string willekeurige tekens. Dit wordt gedaan om zo de originele string (vaak een wachtwoord) onleesbaar te maken alvorens deze op te slaan. Op deze manier wordt een wachtwoord niet leesbaar verzonden en opgeslagen.
 
 
 Het voordeel van hashing over symmetrische encryptie zit 'm in het feit dat hashes niet kunnen worden terug veranderd in de originele input waar dit bij symmetrische encryptie juist wel kan. 
@@ -47,7 +47,7 @@ Het voordeel van hashing over symmetrische encryptie zit 'm in het feit dat hash
 
 Een rainbow table is een lijst met hashes van bekende wachtwoorden. Dit zijn vaak lijsten van duizenden gelekte wachtwoorden die omgezet zijn naar de verschillende hash functies.
 
-Dus als je een gehashde wachtwoord wilt kraken gebruik je een website zoals https://crackstation.net of software om de hash van het wachtwoord te vergelijken met bekende hashes in de rainbow tables.  
+Dus als je een gehasht wachtwoord wilt kraken gebruik je een website zoals https://crackstation.net of software om de hash van het wachtwoord te vergelijken met bekende hashes in de rainbow tables.  
 
 
 ## *"3: Below are two MD5 password hashes. One is a weak password, the other is a string of 16 randomly generated characters. Try to look up both hashes in a Rainbow Table."*  
@@ -91,11 +91,11 @@ Het bovenstaande laat zien dat hashing door rainbow tables gebroken kan worden m
 
 Zo kunnen programma's als **hashcat** en **hydra** ondanks de hashing en salting van Linux wachtwoorden, deze wel kraken.
 
-**Hydra** gebruikt hierbij een lijst met wachtwoorden voor een zogehete "dictionary attack" waarbij het programma een lijst met wachtwoorden (een "wordlist") gebruikt. Dit is bijna hetzelfde als een raindow table, echter worden hierbij de niet-gehashte wachtwoorden gebruikt. Hydra werkt de wachtwoorden in de wordlist 1 vopor 1 af bij inlog-pogingen totdat er 1 goed blijkt te zijn.
+**Hydra** gebruikt hierbij een lijst met wachtwoorden voor een zogeheten "dictionary attack" waarbij het programma een lijst met wachtwoorden (een "wordlist") gebruikt. Dit is bijna hetzelfde als een rainbow table, echter worden hierbij de niet-gehasht wachtwoorden gebruikt. Hydra werkt de wachtwoorden in de wordlist 1 voor 1 af bij inlog-pogingen totdat er 1 goed blijkt te zijn.
 
 Dit heeft als nadeel dat als er een goed werkende firewall of IDS/IPS is, de aanval zal worden ontdekt en deze zal worden gestopt. 
 
-**Hashcat** werkt in tegenstelling tot hydra offline. Deze tool is erg bruikbaar bij het kraken van gelekte combinaties van usernames en gehashde wachtwoorden.
+**Hashcat** werkt in tegenstelling tot hydra offline. Deze tool is erg bruikbaar bij het kraken van gelekte combinaties van usernames en gehashte wachtwoorden.
 Hashcat kan namelijk wachtwoorden niet alleen hashen met MD5 of SHA-256, maar ook direct de salting meenemen. En deze heeft daarvoor een groot aantal opties.
 
 Het enige nadeel is dat deze alleen werkt als men een gelekte database met usernames en wachtwoorden heeft; maar dat is in deze tijd van vele datalekken niet echt een probleem. Daarom is het gebruik van hetzelfde wachtwoord ook zo'n probleem.

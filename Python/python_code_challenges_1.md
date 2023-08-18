@@ -21,7 +21,7 @@ for name in ls:
 	print(loo,name)
 ```
 
-Dit is een heel simpele tyefout: ```print(loo, name)``` moet zijn ```print(foo, name)```.
+Dit is een heel simpele typefout: ```print(loo, name)``` moet zijn ```print(foo, name)```.
 
 ## Opdracht 2:
 
@@ -97,7 +97,7 @@ elif foo < 100:
 	print(foo)
 ```
 
-Het probleem hier is dat de ```else``` en ```elif``` statement van de if-statement verkeerdom staan.
+Het probleem hier is dat de ```else``` en ```elif``` statement van de if-statement verkeerd om staan.
 De juist manier is:
 
 ```foo = 80
@@ -153,7 +153,7 @@ bar = 2
 print(foo**bar)
 ```
 
-Deze is ook weer redelijk simpel: de print()-statement heeft een kleine fout; deze moet ```foo*bar``` zijn. Met 2 * wordt er een machtverheffing aangegeven, waar dit een multiplicatie moet zijn.
+Deze is ook weer redelijk simpel: de print()-statement heeft een kleine fout; deze moet ```foo*bar``` zijn. Met 2 * wordt er een machtsverheffing aangegeven, waar dit een multiplicatie moet zijn.
 
 
 

@@ -26,7 +26,7 @@ De docs website van aws en YouTube voor informatie over de NAT gateway en Intern
 - https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html  
 - https://www.youtube.com/watch?v=u7obme-h3bc&t  
 
-Een wesbite met subnet calculator:
+Een website met subnet calculator:
 - https://www.calculator.net/ip-subnet-calculator.html?
 
 Het in de opdracht gedeelde online tool "https://app.diagrams.net/"
@@ -38,10 +38,10 @@ Het punt van "30 hosts exclusief NAT gateway" en "de 5 hosts is exclusief de int
 # Uitwerking
 Ik ga in deze er vanuit dat we 1 VPC hebben met als private IP adres: 10.0.0.0 en het Elastic IP adres 172.16.52.63/16
 
-Voor beide subnets moet het aantal nodes worden berekend door het aantal hosts aan te vullen met een broadcastadres en een netwerkadres/gateway. 
+Voor beide subnets moet het aantal nodes worden berekend door het aantal hosts aan te vullen met een broadcast address en een netwerkadres/gateway. 
 
 ## Subnetten: hoe en wat?
-Een subnet is een netwerk dat via het subnetmasker een deel van het adresspace van het hele netwerk gebruikt om een separaat netwerk te maken dat kleiner is dan het totale netwerk.    
+Een subnet is een netwerk dat via het subnetmasker een deel van het address space van het hele netwerk gebruikt om een separaat netwerk te maken dat kleiner is dan het totale netwerk.    
 Voor een subnet wordt het hele IP adres opgeknipt in kleinere netwerken. 
 
 Als voorbeeld als het 192.168.1.0/27 netwerk in 8 subnets van elk 32 adressen wordt opgedeeld, dan zijn deze subnets mogelijk:
@@ -56,7 +56,7 @@ Als voorbeeld als het 192.168.1.0/27 netwerk in 8 subnets van elk 32 adressen wo
 192.168.1.224 - 192.168.1.255
 ```
 
-Ook is het mogelijk om te werken met *Variable Lenght  Subnet Subnetmasking*, **VLSM**, waarbij elk subnetwerk een ander subnetmasker kent. Het voordeel hierbij is dat je netwerken kan creëeren die tussen de 2 en 126 hosts groot zijn zonder dat je vast zit aan gelijke hoeveelheden; 2 en 128 hosts kan dan even goed als 30, 62 en 126 hosts.
+Ook is het mogelijk om te werken met *Variable Length  Subnet Subnetmasking*, **VLSM**, waarbij elk subnetwerk een ander subnetmasker kent. Het voordeel hierbij is dat je netwerken kan creëren die tussen de 2 en 126 hosts groot zijn zonder dat je vast zit aan gelijke hoeveelheden; 2 en 128 hosts kan dan even goed als 30, 62 en 126 hosts.
 ___
 # De subnets:
 Hier een overzicht van de subnet die gevraagd worden:
@@ -70,7 +70,7 @@ In deze neem ik het subnet 10.0.1.0/27.
 Deze heeft 32 mogelijke adressen:
 - 10.0.1.0 - 10.0.1.31 
 - Netwerkadres: 10.0.1.0
-- Broadcastadres: 10.0.1.31
+- Broadcast address: 10.0.1.31
 - Hosts: 10.0.1.1 - 10.0.1.30
  
 Dit netwerk heeft via een gateway een connectie naar de andere delen van het LAN.
@@ -84,7 +84,7 @@ Dan zijn er 30 hosts, een gateway en een broadcast adres; dus 32 adressen, oftew
 In deze neem ik het subnet 10.0.2.0/27, en deze heeft 32 mogelijke adressen:
  - 10.0.2.0 - 10.0.2.31
 - Netwerkadres: 10.0.2.0
-- Broadcastadres: 10.0.2.31
+- Broadcast address: 10.0.2.31
 - Hosts: 10.0.2.1 - 10.0.2.30
 
 Dit netwerk heeft een vaste connectie naar de andere delen van het LAN, maar ook een indirecte, one-way connectie met het internet via het NAT Gateway.
@@ -101,7 +101,7 @@ In deze moet het Public subnet 7 adressen groot zijn voor de 5 hosts plus broadc
 In deze is het dus het 172.16.52.0/29 subnet en deze heeft deze 8 mogelijke adressen: 
 - 172.16.52.0 - 172.16.52.7
 - Netwerkadres: 172.16.52.0
-- Broadcastadres: 172.16.52.7
+- Broadcast address: 172.16.52.7
 - Hosts: 172.16.52.1 - 172.16.52.6
 
 

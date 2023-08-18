@@ -9,7 +9,7 @@
 
 De opdracht vraag het volgende:
 - Create a self-signed certificate on your VM.
-- Analyze some certification paths of known websites (ex. techgrounds.nl / google.com / ing.nl).
+- Analyze some certification paths of known websites (ex. Techgrounds.nl / google.com / ing.nl).
 - Find the list of trusted certificate roots on your system (bonus points if you also find it in your VM).
 
 
@@ -25,8 +25,8 @@ Geen.
 # Resultaat
 ## *"1: Create a self-signed certificate on your VM."*
 
-Dit gaat via openssl.
-Het commando om een cerificate aan te maken is in deze:
+Dit gaat via openSSL.
+Het commando om een certificate aan te maken is in deze:
 **sudo openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out techgrounds.crt -keyout techgrounds.key**
 
 Dit geeft na het opgeven van benodigde informatie over de uitgever, een certificate en een key als output. De .cert file is de public key, de .key file de private key; logischerwijs wordt het .crt-file gedeeld en het .key-file geheim gehouden. 
@@ -39,7 +39,7 @@ ___
 
 Dit is redelijk simpel. Binnen chrome klik je op het slotje en kies je voor "Verbinding is Beveiligd" en daarna voor "Certificaat is geldig" om het certificaat te bekijken.
 
-Een paar voorbeelden van deze cerficaten:  
+Een paar voorbeelden van deze certificaten:  
 
 **Techgrounds:**   
 ![Certificaat van techgrounds.nl](/00_includes/Networking_Images/tech_cert.png)
@@ -55,11 +55,11 @@ De tabs in de screenshots bevatten de meest belangrijke informatie. Onder de det
 ___ 
 ## *"3: Find the list of trusted certificate roots on your system (bonus points if you also find it in your VM)."* 
 
-De eerste opdracht was erg makkelijk; Windows kent de certlm.msc tool voor het bekijken van certicaten. 
+De eerste opdracht was erg makkelijk; Windows kent de certlm.msc tool voor het bekijken van certificaten. 
 
 ![certlm.msc tool](/00_includes/Networking_Images/certlm.png)
 
-De tweede opdracht, het vinden van de certificate root op Linux, was niet echt moeilijk; ik heb even gezocht op "linux certificate root" en had zo een goede bron.
+De tweede opdracht, het vinden van de certificate root op Linux, was niet echt moeilijk; ik heb even gezocht op "Linux certificate root" en had zo een goede bron.
 
 De benodigde stappen zijn:  
 ```openssl version -d```: dit geeft het PATH met de directory voor de certificaten aan; in dit geval **/usr/lib/ssl**  
@@ -77,6 +77,6 @@ Hierna zoek je binnen deze directory naar de subdirectory **/certs** waar alle c
 De introductie van de opdracht spreekt over x.506 en de 3 entiteiten die bij deze standaard betrokken zijn. 
 X.506 gebuikt een Certificate Authority om certificaten uit te geven. Deze kan delen van zijn rol uitbesteden aan een Registration Authority en een Validation Authority:
 
-- Een certification Authority, CA, registreerd en valideerd certificaten en geeft deze uit. En registreert de entiteiten die een certificaat bezitten. 
+- Een certification Authority, CA, registreert en valideert certificaten en geeft deze uit. En registreert de entiteiten die een certificaat bezitten. 
 - Een Registration Authority kan het registreren van certificaten en hun aanvragers op zich nemen in plaats van een CA. 
 - Een Validation Authority kan identificatie van en het delen van informatie over de unieke entiteiten op zich nemen in plaats van een CA  

@@ -26,12 +26,12 @@ Het was onduidelijk wat deelopdracht 3 nu werkelijk vraagt.
 ## *"1: Find one more historic cipher besides the Caesar cipher."  
 Het **Enigma Cipher**.
 
-Dit is het cipher dat de Duitsers gebruikte tijdens de Tweede Wereldoorlog en door het gebruik van een Enimga machine zo moeilijk te kraken was dat de Britten onder leiding van Alexander Turing er een computer voor bouwden genaamd de "Bombe Machine".
+Dit is het cipher dat de Duitsers gebruikte tijdens de Tweede Wereldoorlog en door het gebruik van een Enigma machine zo moeilijk te kraken was dat de Britten onder leiding van Alexander Turing er een computer voor bouwden genaamd de "Bombe Machine".
 
-Dit cipher maakte gebruik van substitutie, net als het Cesar Cipher, maar ook van een dagelijks veranderde "seed" (een basis getal of letter) en een systeem waarij bij elke input de substitutie veranderde. Waar het Cesar cipher binnen dezelfde en/decodering een A altijd een C wordt, was het bij het enigma cipher zo dat een A eerst een C werd en daarna elk andere letter kon zijn.
+Dit cipher maakte gebruik van substitutie, net als het Cesar Cipher, maar ook van een dagelijks veranderde "seed" (een basis getal of letter) en een systeem waarbij bij elke input de substitutie veranderde. Waar het Cesar cipher binnen dezelfde en/decodering een A altijd een C wordt, was het bij het enigma cipher zo dat een A eerst een C werd en daarna elk andere letter kon zijn.
 Daarnaast was er een systeem van switch boards en rotors om de codering nog complexer te maken.
 
-Er was slechts 1 zwak punt in het enimga cipher: een letter kon nooit in zichzelf geencodeerd worden; een A kon dus nooit een A zijn. Daarnaast werden er veelgebruikte teksten gebruikt zoals het weerbericht, of een groet als "Heil Hitler". Dit gaf de mogelijkheid om via logica de codering te breken. 
+Er was slechts 1 zwak punt in het enigma cipher: een letter kon nooit in zichzelf gecodeerd worden; een A kon dus nooit een A zijn. Daarnaast werden er veelgebruikte teksten gebruikt zoals het weerbericht, of een groet als "Heil Hitler". Dit gaf de mogelijkheid om via logica de codering te breken. 
 
 ___
 
@@ -45,24 +45,24 @@ Bij een **PKI** wordt data met de public key versleuteld waarna het alleen met d
 
 **AES**
 
-AES is een symmetrisch cipher dat de opvloger is van DES dat in 2001 door het NIST is verkozen.   
+AES is een symmetrisch cipher dat de opvolger is van DES dat in 2001 door het NIST is verkozen.   
 Als zijnde een symmetrisch cipher, word AES met dezelfde sleutel versleuteld als deze ontsleuteld wordt. 
 
 AES wordt voor heel veel dingen gebruikt; van versleuteling door BitLocker tot compressie met RAR en 7ZIP als voor end-to-end encryption in WhatsApp en andere apps. Dit cipher is dus zeer belangrijk in de huidige praktijk.
 ___
 ## *"3: Send a symmetrically encrypted message to one of your peers via the public Slack channel. They should be able to decrypt the message using a key you share with them. Try to think of a way to share this encryption key without revealing it to everyone. You are not allowed to use any private messages or other communication channels besides the public Slack channel. Analyse the shortcomings of symmetric encryption for sending messages."*
 
-Dit is een leuke opdracht en heeft wat logisch omdenken nodig. En de enige oplossing die wel kan werken binnen de beperkingen van de opdracht is eigenlijk vals spelen door de symetrische sleutel te versleutelen met een symmetrische sleutel. Maar dat was wel de oplossing volgens onze learning coach.
+Dit is een leuke opdracht en heeft wat logisch omdenken nodig. En de enige oplossing die wel kan werken binnen de beperkingen van de opdracht is eigenlijk vals spelen door de symmetrische sleutel te versleutelen met een symmetrische sleutel. Maar dat was wel de oplossing volgens onze learning coach.
 
 De stappen om deze oplossing uit te voeren zijn: 
-- Het aanmaken van de symmetrische sleutel en een assymetrisch sleutel paar. (beide partijen)
+- Het aanmaken van de symmetrische sleutel en een asymmetrisch sleutel paar. (beide partijen)
 - Het delen van de publieke sleutel van de ontvanger
 - Het maken van een bericht en deze versleutelen met de symmetrische sleutel
-- Het versleutelen van de symmetrische sleutel in de asymetrische publieke sleutel van de ontvanger
-- Het versturen van het versleutelde bericht en de versleutelde symmetriche sleutel naar de ontvanger
+- Het versleutelen van de symmetrische sleutel in de asymmetrische publieke sleutel van de ontvanger
+- Het versturen van het versleutelde bericht en de versleutelde symmetrische sleutel naar de ontvanger
 - De ontvanger ontsleuteld dan eerst de versleutelde sleutel en daarna het bericht met de symmetrisch sleutel
 
-Een andere mogelijkheid om in het geheim berichten te verzeonde is via steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of bepaalde gespecialiseerde programma's als ```steghide``` in Linux. 
+Een andere mogelijkheid om in het geheim berichten te verzenden is via steganography: het verbergen van data van het ene bestand in een ander bestand. Hierbij kan de **Alternate Data Stream (ADS)** van het NFS filesysteem in Windows worden gebruikt of bepaalde gespecialiseerde programma's als ```steghide``` in Linux. 
 
 # Extra opdracht:
 ## *"Asymmetric Key generation on our VM. Instead of using an online tool, in this exercise we're going to use the GPG program on our VM to generate a key."* 
@@ -75,7 +75,7 @@ Dit kan met de ```-n```optie.
 
 Het eerste commando wordt dan ```gpg -n --generate-key```.  
 De stappen welke dan worden doorlopen zijn:
-- Het vragen van persoonlijke informatie als naam en emailadres.
+- Het vragen van persoonlijke informatie als naam en e-mailadres.
 - Het vragen naar een passphrase.
 - Het genereren van de keys waarbij extra muisbewegingen en toetsaanslagen worden gevraagd voor "entropy"(de basis van de willekeurige tekens)
 - Het aanmaken van de opslag locaties mocht dit nodig zijn

@@ -23,7 +23,7 @@ Ik wilde de Apache2 default page bekijken met ```curl http://localhost/``` maar 
 # Resultaat
 ## *"1: Installeer een webserver op je VM."* 
 
-Een simpele webserver is apache2. Deze is in een eerdere opdracht al geinstalleerd. Mocht deze wel geinstalleerd moeten worden is het commando:  
+Een simpele webserver is apache2. Deze is in een eerdere opdracht al geïnstalleerd. Mocht deze wel geïnstalleerd moeten worden is het commando:  
 ```apt install apache2 -y```
 ___
 ##*"2 Bekijk de standaardpagina die met de webserver geïnstalleerd is."*  

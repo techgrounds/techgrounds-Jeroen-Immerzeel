@@ -40,7 +40,7 @@ De overlapping van het OSI Model en het TCP/IP model is schematisch:
 ![De overlapping van de OSI en TCP/IP modellen](/00_includes/Networking_Images/OSI-vs-TCP-vs-Hybrid-2.png)
 
 # **Het OSI model In het kort:**  
-Het OSI model is het door het ISO bedachte *"7 layer model"* voor het communiceren tussen verschillende computersystemen. Dit model is bedacht in de jaren '70 en '80, toen er nog geen standarisering was op dit vlak. Het kent 7 lagen: Physical, Datalink, Network, Transport, Session, Presentation en Application. Dit alles is in ISO/IEX 7498 en in de ITF x200 standaarden gedocumenteerd.
+Het OSI model is het door het ISO bedachte *"7 layer model"* voor het communiceren tussen verschillende computersystemen. Dit model is bedacht in de jaren '70 en '80, toen er nog geen standaardisering was op dit vlak. Het kent 7 lagen: Physical, Datalink, Network, Transport, Session, Presentation en Application. Dit alles is in ISO/IEX 7498 en in de ITF x200 standaarden gedocumenteerd.
 
 **Encapsulation en Protocol Data Units**  
 De verschillende lagen werken met *encapsulation* waarbij de inhoud van de bovenliggende laag omvat wordt in de header van de onderliggende laag. Andersom, bij het ontvangen van data wordt op elke laag aan *decapsulation* gedaan en wordt de header van de onderliggende laag van de data gestript alvorens deze naar de bovenliggende laag gestuurd wordt. 
@@ -50,7 +50,7 @@ Verschillende protocollen kennen zo een eigen Protocol Data Unit.
 
 
 - *Layer 1*  
-Dit is de **physical layer** en omvat het fysieke deel van het netwerk met daarin bekabeling, NICs, Hubs, USB connectiviteit en WiFi controllers en gebruikt hierbij electrische signalen, licht signalen en radiogolven. De primaire functie van deze laag is het doorsturen van de data over het medium.  
+Dit is de **physical layer** en omvat het fysieke deel van het netwerk met daarin bekabeling, NICs, Hubs, USB connectiviteit en WiFi controllers en gebruikt hierbij elektrische signalen, licht signalen en radiogolven. De primaire functie van deze laag is het doorsturen van de data over het medium.  
 Layer 1 heeft als *PDU* de **bit**.
 
 - *Layer 2*  
@@ -62,7 +62,7 @@ Dit is de **Network layer** en kent als belangrijkste protocol het Internet Prot
 Layer 3 heeft als *PDU* het **packet**.
 
 - *Layer 4*   
-Dit de **Transport layer** en kent als belangrijkste protollen TCP en UDP. De primaire functie van deze laag is onder andere: het segmenteren van de datastream, flow control, en het betrouwbaar (TCP) of snel(UDP) afleveren van de segments.   
+Dit de **Transport layer** en kent als belangrijkste protocollen TCP en UDP. De primaire functie van deze laag is onder andere: het segmenteren van de datastream, flow control, en het betrouwbaar (TCP) of snel(UDP) afleveren van de segments.   
 Layer 4 heeft als *PDU* het **segment**
 
 - *Layer 5*  
@@ -71,11 +71,11 @@ Layer 5 heeft geen specifieke *PDU*.
 
 
 - *Layer 6*  
-Dit is de Presentation layer en heeft als primaire functie het vertalen, formateren en aanleveren van de data naar een bruikbare vorm voor de application layer of voor de receiving host. Hierbij handeld deze laag ook de encryptie en decryptie af.
+Dit is de Presentation layer en heeft als primaire functie het vertalen, formatteren en aanleveren van de data naar een bruikbare vorm voor de application layer of voor de receiving host. Hierbij handelt deze laag ook de encryptie en decryptie af.
 Layer 6 heeft geen specifieke *PDU*.    
 
 - *Layer 7* 
-Dit is de Application layer. De primaire functie van deze laag is het mogelijk maken van de communicatie tussen de eindgebruikers en de applicaties. Op layer 7 werken een groot deel van de netwerk protcollen waaronder:
+Dit is de Application layer. De primaire functie van deze laag is het mogelijk maken van de communicatie tussen de eindgebruikers en de applicaties. Op layer 7 werken een groot deel van de netwerk protocollen waaronder:
 ```
 - HTTP(S)voor browsing
 - IMAP, POP, SMTP voor mail

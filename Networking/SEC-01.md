@@ -11,7 +11,7 @@ De opdracht vraag het volgende:
 - Open Wireshark in Windows/MacOS Machine. Analyse what happens when you open an internet browser. 
 
 # Gebruikte bronnen
-- De website https://nmap.org/book/man.html voor hulp bij het gebruikt van NMAP
+- De website https://nmap.org/book/man.html voor hulp bij het gebruikt van nmap
 - Deze tutorial van NetworkChuck op YouTube: https://www.youtube.com/watch?v=4t4kBkMsDbQ&t
 
 # Ervaren problemen
@@ -20,7 +20,7 @@ Door een druk netwerk was vraag 2 wat moeilijk te beantwoorden.
 
 # NMAP
 ## *"1: Scan the network of your Linux machine using nmap. What do you find?"*     
-Nmap moet eerst worden geinstalleerd; dit gaat via ```sudo apt install nmap -y```.  
+Nmap moet eerst worden geïnstalleerd; dit gaat via ```sudo apt install nmap -y```.  
 Om met nmap het netwerk te scannen kan je ```nmap [OPTION] [IP ADRES]``` opgeven als commando.
 
 Nmap kan op veel verschillende manieren scans uitvoeren. Een aantal voorbeelden zijn:
@@ -79,6 +79,6 @@ Met ```-A``` zal namp alle bovenstaande scans combineren én een traceroute make
  - De host zal, als deze actief is, een HTTP status geven en het HTML document versturen.
  - De browser zal hierna de HTML pagina renderen naar een bruikbare webpagina.
 
- Als er sprake is van een nieuw netwerk wordt er voordat er een DNS verzoek wordt verstuurd ook nog een ARP request verstuurd voor de gateway van het netwerk. Dit om zo het MAC adres van de gateway te verkrijgen. Deze is nodig omdat elk internetwerkverkeer van router naar router wordt doorgestuurd; een eventuele DNS en/of HTTP request zal dus eerst naar de router worden verstuurd, welke deze vervolgens doorstuurd naar de volgende router op de route naar de betrokken servers. Ook deze ARP frames worden getoond in Wireshark.
+ Als er sprake is van een nieuw netwerk wordt er voordat er een DNS verzoek wordt verstuurd ook nog een ARP request verstuurd voor de gateway van het netwerk. Dit om zo het MAC adres van de gateway te verkrijgen. Deze is nodig omdat elk internetwerkverkeer van router naar router wordt doorgestuurd; een eventuele DNS en/of HTTP request zal dus eerst naar de router worden verstuurd, welke deze vervolgens doorgestuurd naar de volgende router op de route naar de betrokken servers. Ook deze ARP frames worden getoond in Wireshark.
 
  

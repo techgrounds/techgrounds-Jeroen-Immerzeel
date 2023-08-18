@@ -68,4 +68,4 @@ Dit is dus veel veiliger dan bij symmetrisch versleutelen omdat de sleutel waarm
 ![Aanmaken RSA](/00_includes/Networking_Images/RSA1.png)
 
 
-Een asymmetrische sleutel werkt met een zogenaamde "one-way function": een term in de informatica voor een wiskundige functie die, theoretisch, maar op 1 manier kan worden uitgevoerd. De vraag is echter of dit werkelijk bestaat; de complexiteit van de huidige implementaties laat hier nog geen duidelijk antwoord over zijn. Voor assymetrische sleutels is het echter zo dat deze voldoende complex zijn en er nog geen manieren zijn gevonden om deze op een andere manier te ontsleutelen dan met de private key.
+Een asymmetrische sleutel werkt met een zogenaamde "one-way function": een term in de informatica voor een wiskundige functie die, theoretisch, maar op 1 manier kan worden uitgevoerd. De vraag is echter of dit werkelijk bestaat; de complexiteit van de huidige implementaties laat hier nog geen duidelijk antwoord over zijn. Voor asymmetrische sleutels is het echter zo dat deze voldoende complex zijn en er nog geen manieren zijn gevonden om deze op een andere manier te ontsleutelen dan met de private key.

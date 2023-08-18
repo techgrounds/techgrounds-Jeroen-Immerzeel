@@ -29,23 +29,23 @@ https://blog.quest.com/recovery-time-and-recovery-point-objective-everything-you
 Disaster Recovery
 https://www.vmware.com/topics/glossary/content/disaster-recovery.html
 # Ervaren problemen
-Het RTO en RPO gedeeldte was wat moeilijk, en opdracht 4 was geheel onduidelijk.
+Het RTO en RPO gedeelte was wat moeilijk, en opdracht 4 was geheel onduidelijk.
 
 # Resultaat
 ** Sudy part:** 
 
 ## *"1: What are IDS and IPS?*  
 **IDS**
-Een IDS is een "Intrusin Detection System"; een systeem dat het netwerkverkeer controleerd op de tekenen van bekende aanvallen en een waarschuwing geeft mocht er een (mogelijke) aanval worden gedetecteerd.
+Een IDS is een "Intrusion Detection System"; een systeem dat het netwerkverkeer controleert op de tekenen van bekende aanvallen en een waarschuwing geeft mocht er een (mogelijke) aanval worden gedetecteerd.
 
 Een IDS zal zelf dus geen acties ondernemen.
 
 **IPS**
-Een IPS is een "Intrusion Protection System"; deze controleert ook het netwerkverkeer op mogelijke aanvallen, maar als er een (mogelijke) aanval wordt gedetecteerd zal deze het netwerkverkeer blokkeren en evetueel acties ondernemen.
+Een IPS is een "Intrusion Protection System"; deze controleert ook het netwerkverkeer op mogelijke aanvallen, maar als er een (mogelijke) aanval wordt gedetecteerd zal deze het netwerkverkeer blokkeren en eventueel acties ondernemen.
 Een IPS kan als acties uitvoeren mocht er een mogelijke aanval worden gedetecteerd: 
 - het sluiten van sessies, dit om zo indringers te stoppen
 - het versterken van de Firewall door extra regels in te voeren en zo eventuele misbruikte zwakheden op te vangen   
-- het opruimmen van malware
+- het opruimen van malware
 
 In een moderne omgeving worden IPS en IDS veelal gecombineerd en tezamen met een SIEM, een System Information and Event Management systeem, werken om zo de beheerders van het netwerk te informeren en eventuele geautomatiseerde handelingen uit te voeren.
 
@@ -73,7 +73,7 @@ Ook kunnen er tijdens het onderzoek meer dingen aan het licht komen, zoals de sc
 
 
 **contain**
-Als de aanval geidentificeerd is, is het tijd om deze te stoppen, of in ieder geval te limiteren.
+Als de aanval geïdentificeerd is, is het tijd om deze te stoppen, of in ieder geval te limiteren.
 Dit kan door:
 - Het afsluiten van delen van het netwerk die wel/niet geraakt zijn
 - De routing naar en toegang tot de verschillende onderdelen van het netwerk aanpassen of onmogelijk maken
@@ -94,7 +94,7 @@ Echter, is het altijd nog belangrijk om het lek te melden aan belanghebbenden; d
 
 ---
 ## *"3: What does the concept of systems hardening entail?"*
-Bij systems hardening wordt een systeem zo aangepast dat deze een kleinere attack surface heeft oftwel minder kans heeft om aangevallen te worden doordat zwakke plekken worden voorkomen.
+Bij systems hardening wordt een systeem zo aangepast dat deze een kleinere attack surface heeft oftewel minder kans heeft om aangevallen te worden doordat zwakke plekken worden voorkomen.
 
 Bij system hardening worden maatregelen genomen waarbij hardware en software worden aangepast.
 Een aantal voorbeelden van het aanpassen van de hardware zijn:

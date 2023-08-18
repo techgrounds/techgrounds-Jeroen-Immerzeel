@@ -33,7 +33,7 @@ Deze opdracht kent deze deelopdrachten:
 Het boek Comptia Network+ Study Guide Fifth Edition.  
 https://www.menandmice.com/blog/ipv6-reference-multicast voor uitleg over IPv6 multicast.
 ## Ervaren problemen
-- De doenopdrachten met de conflicterende adressen werkten niet omdat mijn netwerk terug kan vallen op IPv6; dit opgelost door de opdracht iets anders aan te pakken.
+- De opdrachten met de conflicterende adressen werkten niet omdat mijn netwerk terug kan vallen op IPv6; dit opgelost door de opdracht iets anders aan te pakken.
 
 # Uitwerking
 
@@ -61,7 +61,7 @@ IPv6 kent een andere notering dan IP4 met daarin een aantal verbeteringen zoals 
 Een voorbeeld van een IPv6 adres is:   
 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 
-Dit is heel wat complexer qua uiterlijk, maar qua indeling is dit ergens heel logisch, IPv6 adressen zijn namelijk ingedeeld in een prefix voor het netwerk en een willekeurig getal of verkregen via DHCPv6 host gedeelte. De prefex wordt bepaald aan de hand van de grootte van het subnet; een groot subnet heeft ook een grotere prefix.
+Dit is heel wat complexer qua uiterlijk, maar qua indeling is dit ergens heel logisch, IPv6 adressen zijn namelijk ingedeeld in een prefix voor het netwerk en een willekeurig getal of verkregen via DHCPv6 host gedeelte. De prefix wordt bepaald aan de hand van de grootte van het subnet; een groot subnet heeft ook een grotere prefix.
 
 Daarnaast heet IPv6 verschillende type adressen:
 - Link Local: prefix: fe0::/10 (/64 in de praktijk): wordt gebruikt om verkeer binnen het directe lokale netwerk (local link) te versturen/ontvangen; is niet routable binnen de eigen site.
@@ -89,12 +89,12 @@ En een adres als 2001:0db8:0000:0000:8a2e:0000:0370:7334 mag worden ingekort naa
 
 Er is een tekort aan IP4 adressen en daarom zijn er meerdere technologieën bedacht om dit tekort het hoofd te bieden; 1 daarvan is de onderscheid tussen private en public adressen.
 
-**Private adressen** zijn 3 reeksen, gereserveerde en niet routeerbare addresspools die men zelf kan gebruiken op het eigen interne netwerk. Deze bestaan uit een enkel classfull adres* (A, B of C):
+**Private adressen** zijn 3 reeksen, gereserveerde en non-routable address pools die men zelf kan gebruiken op het eigen interne netwerk. Deze bestaan uit een enkel classfull address* (A, B of C):
 - 10.0.0.0/8 -10.255.255.255 heeft 16,7 miljoen mogelijke adressen
 - 172.16.0.0/12 - 172.31.25.255 heeft 1 miljoen mogelijke adressen 
 - 192.1680.0 - 192.168.255.255, heeft 65.536 mogelijke adressen.
 
-Deze adressen mogen alleen binnen een privaat netwerk worden gebruikt en zijn niet naar het internet routeerbaar.
+Deze adressen mogen alleen binnen een privaat netwerk worden gebruikt en zijn niet naar het internet routable.
 
 (*classfull adressen zijn een niet meer gebruikt systeem om de IP4 adres space te verdelen)
 
@@ -119,8 +119,8 @@ Gezien netwerkverkeer altijd van poort naar poort gaat is deze indeling de meest
 Omdat we naar een IPv6 wereld toe gaan zal het gebruik van IP4 en de daarbij behorende oplossingen uiteindelijk verdwijnen.
 
 
-## De doenopdracht:
-*"1: Ontdek wat je publieke IP adres is van je desktop en mobiel op wifi."* 
+## De praktijk opdracht:
+*"1: Ontdek wat je publieke IP adres is van je desktop en mobiel op Wi-fi."* 
  
 Dit kan je doen door naar https://whatismyipaddress.com  
 Mobiel: 77.162.85.197  
@@ -132,7 +132,7 @@ Desktop: 77.162.85.197
 Ja.   
 Door NAT wordt 1 public IP adres gebruik voor buiten het netwerk en unieke private IP adressen voor binnen het interne netwerk.
 
-*"3: Ontdek wat je privé IP adres is van je desktop en mobiel op wifi"*   
+*"3: Ontdek wat je privé IP adres is van je desktop en mobiel op Wi-fi"*   
 Mobiel: 192.186.178.37  
 Desktop: 192.186.178.20
 

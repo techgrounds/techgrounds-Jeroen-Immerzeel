@@ -71,12 +71,12 @@ Functies worden aangemaakt met het ```def```-keyword. Na het keyword wordt de na
 
 
 ### Rewrite your function so that it takes a string as an argument. Then, it should print “Hello, <string>!”.
-Hierbij krijgt myfunction() een *argument* die in de function call wordt opgegeven tussen de (); in deze is dit het ```arg``` arguemnt welke in de function call de string ```"world!"``` meekrijgt:"  
+Hierbij krijgt myfunction() een *argument* die in de function call wordt opgegeven tussen de (); in deze is dit het ```arg``` argument welke in de function call de string ```"world!"``` meekrijgt:"  
 ![myfunction(arg)](/00_includes/Python_images/opdracht6_2_2.png)  
 *myfunction() met argument* 
 
 ![Output van de myfunction(arg) call](/00_includes/Python_images/opdracht6_2_2_output.png)  
-*output van de myfuction(arg) call* 
+*output van de myfunction(arg) call* 
 
 ## Exercise 3:
 ### Copy the code below into your script:
@@ -94,8 +94,8 @@ print("The average of",x,"and",y,"is",z)
 
 Hierbij is het nodig om binnen de avg() -function een tweetal argumenten aan te geven. In deze geef ik deze X en Y. Daarnaast is er een *return*-function nodig die de gemiddelde van X en Y berekend: ```return (x + y)/2``` 
 Voor de rest blijft de code het zelfde.
-![de avg()-fucntion](/00_includes/Python_images/opdracht6_3_1.png)  
+![de avg()-function](/00_includes/Python_images/opdracht6_3_1.png)  
 *de avg() -function*
 
-![De ouput van de avg() -function](/00_includes/Python_images/opdracht6_3_1_output.png)  
+![De output van de avg() -function](/00_includes/Python_images/opdracht6_3_1_output.png)  
 *de output van de avg() -function*

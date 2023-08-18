@@ -41,7 +41,7 @@ Python kent verschillende datatypes. Deze worden in opdracht 3 besproken maar vo
 Om aan te geven dat een stuk tekst een string als datatype heeft wordt deze tussen aanhalingstekens gezet; zowel enkele of dubbele aanhalingstekens kunnen gebruikt worden, echter mogen deze NIET gecombineerd worden.
 ```
 # Opdracht 2: Variables:
-Deze opdracht bestaat uit 3 excersises:
+Deze opdracht bestaat uit 3 excersizes:
 
 ### Exercise 1:
 - Create a new script.
@@ -115,7 +115,7 @@ Dit gaat via de syntax ```variable = value``` waarbij de value een string moet z
 
 ### **Print the text ```Hello, <your name here>!``` Use name in the print statement.**  
 
-De ```print()``` functie kan naast strings ook de waarde van variablen printen. Hierbij is het via **concatenation** mogelijk om verschillende datatypes me 1 print statement te printen.   
+De ```print()``` functie kan naast strings ook de waarde van variabelen printen. Hierbij is het via **concatenation** mogelijk om verschillende datatypes me 1 print statement te printen.   
 Bij concetanation worden verschillende onderdelen van een ```print()```statement aan elkaar gekoppeld met een + of een , (comma). Dit zal alle onderdelen binnen het statement als 1 zin printen.
 
 Bij deze opdracht is de syntax: ```print("Hello", name)``` en zal de printopdracht ```Hello Jeroen``` printen. Hierbij is "hello" een string en **name** een variable:  
@@ -212,7 +212,7 @@ Dit geeft eerst de foutmelding ```TypeError: unsupported operand type(s) for +: 
 *x = b + d*   
 
 ![x = b + d foutmelding](/00_includes/Python_images/opdracht3_1_2_output.png)     
-*x = b + d foutmeling* 
+*x = b + d foutmelding* 
 
 Om dit probleem op te lossen en van de output een *float* te maken is het nodig om de ```float()``` functie te gebruiken waarbij de syntax ```float(var)``` is:  
 

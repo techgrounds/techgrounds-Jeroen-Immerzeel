@@ -108,6 +108,6 @@ Dit gaf als output na het converteren binnen Excel:
 ![Excel bestand met de csv data geconverteerd naar rijen en columns](/00_includes/Python_images/opdracht8_excel.png)
 
 
-Dit was opzich voldoende voor de opdracht, maar ik snapte nog steeds niet wat het script nu echt deed.
+Dit was op zich voldoende voor de opdracht, maar ik snapte nog steeds niet wat het script nu echt deed.
 Toen ik elke stap apart bekeek kwam ik uit op de volgende uitleg per stap:
 ![Het script met voor elke stap een comment met uitleg](/00_includes/Python_images/opdracht8_2_1.png)
