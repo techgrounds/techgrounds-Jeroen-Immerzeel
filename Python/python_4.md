@@ -11,7 +11,9 @@ De lessen aangeboden op:
 De cursus "Python Crash Course" op Cousera welke is aangeboden door Google: 
     https://www.coursera.org/professional-certificates/google-it-automation
 De informatie op https://www.w3schools.com/ 
-chatgpt
+Hulp van chatgpt
+De informatie op https://docs.python.org/3/library/csv.html en andere pagina's van de python.org website.
+
 
 # Ervaren problemen:
 Voor opdracht8, exercise 2 kon ik eigenlijk nergens de informatie vinden die dit duidelijk uitlegde. IK he hiervoor ChatGPT gebruikt.
@@ -96,20 +98,16 @@ Hiervoor zijn de volgende stappen nodig:
 
 ### Write the information to a csv file (comma-separated values). The data should not be overwritten when you run the script multiple times.
 
-Dit is zeer complex.
-Hierbij is het nodig om de csv package en het os package te importeren.
-Daarna moet er een file path worden bepaald.
-En als laatste moet een aantal regels worden toegevoegd: een writer, een header en de values zelf. En daarnaast nog een hele hoop andere dingen.
+Dit was voor mij veruit de moeilijkste opdracht; dit bleek ook zo te zijn voor bijna alle medestudenten.
+Ik kon zelf in eerste instantie geen werkend script maken. Na het gebruik van chatGPT en python.org om het een en ander te bouwen kwam ik uit op het volgende:
 
-Hierbij wordt het script bijvoorbeeld:
+![Het script](/00_includes/Python_images/opdracht8_2_2.png)
+*Mijn eerste versie*
 
-![Het script](/00_includes/Python_images/opdracht8_2_1.png)
+Dit gaf als output na het converteren binnen Excel:  
+![Excel bestand met de csv data geconverteerd naar rijen en columns](/00_includes/Python_images/opdracht8_excel.png)
 
-Een ander voorbeeld is:
-![Alternatief](/00_includes/Python_images/opdracht8_2_2.png) 
 
-Dit is geenzins een simpel iets, en ik snap dit geheel niet voldoende nog. 
-Wat is wel snap is:  
-- ```with open``` opent een file  
-- ```csv.writer``` schrijft een csv file  
-- ```de 'w' en 'a' ``` staan voor "write" en "append"  
+Dit was opzich voldoende voor de opdracht, maar ik snapte nog steeds niet wat het script nu echt deed.
+Toen ik elke stap apart bekeek kwam ik uit op de volgende uitleg per stap:
+![Het script met voor elke stap een comment met uitleg](/00_includes/Python_images/opdracht8_2_1.png)
