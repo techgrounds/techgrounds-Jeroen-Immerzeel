@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-08-23T09:31:04.084Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="iApAfgqFuILWvk_b6CG0" version="21.6.8" type="device">
+<mxfile host="app.diagrams.net" modified="2023-08-23T12:51:05.972Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" etag="JVTeKA1suw8tuKVvKDLK" version="21.6.8" type="device">
   <diagram name="Pagina-1" id="UoyJ0l-6ss4mj00balDl">
     <mxGraphModel dx="1562" dy="822" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -57,10 +57,22 @@
           <mxGeometry x="110" y="553.5" width="290" height="115" as="geometry" />
         </mxCell>
         <mxCell id="KK85A-Czj-PDCO1rTAJK-30" value="management connection" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" edge="1" parent="1" source="KK85A-Czj-PDCO1rTAJK-13" target="KK85A-Czj-PDCO1rTAJK-14">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="255" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="KK85A-Czj-PDCO1rTAJK-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="80" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="KK85A-Czj-PDCO1rTAJK-13" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Webserver&lt;br&gt;vnet-web" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="180" y="140" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="KK85A-Czj-PDCO1rTAJK-14" target="KK85A-Czj-PDCO1rTAJK-38">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="KK85A-Czj-PDCO1rTAJK-14" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Management&lt;br&gt;vnet-mngt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="545" y="350" width="150" height="150" as="geometry" />
@@ -116,6 +128,9 @@
         </mxCell>
         <mxCell id="KK85A-Czj-PDCO1rTAJK-36" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Recovery_Services_Vaults.svg;" vertex="1" parent="1">
           <mxGeometry x="632" y="563" width="49.45" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-38" value="Internet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="58" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

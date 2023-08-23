@@ -28,7 +28,7 @@ Uitgebreid:
 - 2 vnets
 - Elk vnet kent een eigen subnet 
 - 1 voor de productieomgeving met daarin een Webserver in availability zone 2 en een NSG 
-- 1 voor de managementlayer met daarin een managementserver in availability zone 1 en een NSG  
+- 1 voor de management layer met daarin een managementserver in availability zone 1 en een NSG  
 - Beide Vnets moeten gepeered worden
 
 
@@ -58,7 +58,7 @@ Uitgebreid:
 - De web server role moet via een script automatisch geïnstalleerd worden; dit gaat via een script met custom data.
 - Web server moet vanaf het internet bereikbaar zijn; heeft dus een public en private IP nodig.
 - Alleen de ports die nodig zijn voor de webserver moeten bereikbaar zijn vanaf het internet; de SSH/RDP ports moeten alleen bereikbaar zijn vanaf het management vnet en/of IP adres van de management VM. 
-- Gezien het gebruik van SSH wordt er een keypair aangemmaakt; de username ```manager``` is en keypair name ```webserv-key``` is, en de SSH port 22 open staat
+- Gezien het gebruik van SSH wordt er een key pair aangemaakt; de username ```manager``` is en keypair name ```webserv-key``` is, en de SSH port 22 open staat
 
 ### Server  opties algemeen
 - Disks zijn managed disks
@@ -75,7 +75,7 @@ Uitgebreid:
 
 ### NSGs
 - Er moet voor elk subnet een NSG komen. Deze moet de toegang tot de servers instellen via trusted IPs 
-- De connectie tussen manager thuis en server gaat via een VPN
+- De connectie tussen manager thuis en de management server gaat via de regel "allow connection via <IP>"
 - Toegang tot SSH/RDP (ports 22 en 3389) van Web server alleen vanaf management server/VPN
 
 ### Key vault
