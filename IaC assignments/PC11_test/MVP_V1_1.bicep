@@ -9,10 +9,6 @@ Main template: Strorage + keyvault + managed IDs
 Module network: Vnets, subnets
 Module VMs: VMs, NSGs (dit omdat de nodige NSG rules voor de toegang tot VMs worden gebruikt)
 */
-
-/*
-Adding storage endpoints, endpointPolicies en endpointDefinitions
-*/
 @description('The location of the resource group.')
 param location string = 'germanywestcentral'
 
@@ -177,11 +173,12 @@ resource pc11keyvault 'Microsoft.KeyVault/vaults@2023-02-01' =  {
     defaultAction:'Deny'
     virtualNetworkRules:[
      {
-      id:'${webservervnet.id}subnets/webserverSubnet' //werkt niet
+      id: resourceId('Microsoft.Network/virtualNetworks/subnets', webserverVnetName, webserverSubnetName)
+
       ignoreMissingVnetServiceEndpoint: false
      }
      {
-      id: '${managementvnet.id}/subnets/managementSubnet'
+      id: resourceId('Microsoft.Network/virtualNetworks/subnets', managementVnetName, managementSubnetName)
       ignoreMissingVnetServiceEndpoint: false
      }
     ]
@@ -225,6 +222,9 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
               service: 'Microsoft.KeyVault'
               locations: ['*']
             }
+            {
+              service: 'Microsoft.Storage'
+            }
           ]
         }
       }
@@ -239,7 +239,7 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
           allowVirtualNetworkAccess:true
           doNotVerifyRemoteGateways:false
           peeringState:'Connected'
-
+          
           remoteAddressSpace:{
             addressPrefixes:[
               '10.20.0.0/16'
@@ -283,9 +283,15 @@ resource webservervnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
           serviceEndpoints:[
             {
               service: 'Microsoft.KeyVault'
-
+              locations:['*']
             }
-
+            {
+              service: 'Microsoft.Storage'
+              locations:[
+                '*'
+              ]
+            }
+            
           ]
         }
       }
@@ -303,7 +309,7 @@ resource endpointPolicy 'Microsoft.Network/serviceEndpointPolicies@2023-04-01' =
         id:storageAccount.id
         name:endpointPolicyName
         properties:{
-          service:storageAccount.id 
+          service:'Microsoft.Storage'
           serviceResources: [
             storageAccount.id
           ]
@@ -314,14 +320,3 @@ resource endpointPolicy 'Microsoft.Network/serviceEndpointPolicies@2023-04-01' =
   }
 }
 
-resource endpointDefinition 'Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions@2023-04-01'  = {
-  name: endpointDefinitionName
-  parent: endpointPolicy
-  properties:{
-    service: 'Microsoft.storage'
-    serviceResources:[
-      storageAccount.id
-    ]
-  }
-
-}
