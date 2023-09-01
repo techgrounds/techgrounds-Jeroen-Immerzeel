@@ -3,6 +3,7 @@ Dit zijn notities voor de IaC opdracht.
 Unknowns worden nog gevraagd aan Product Owner 
 Budget is €50 voor bouw, niet voor gebruik.
 
+
 ## Sprintreviews zijn op 1 en 15 september
 Bij de eerste review moet er al een werkend deel opgeleverd zijn.
 De actiepunten die tijdens de reviews naar bovenkomen zijn de User Stories voor de volgende sprint
@@ -107,13 +108,14 @@ Alles in 1 subscription
 ### Volgorde van handelingen:
 -   Controleren van de opties per sectie.
 -	Aanmaken resource group (dit ook als onderdeel van ontwerp doc)
--	Storage account
--	2 vnets met peering en 2 avail zones
--	2 subnets voor servers
--	VMs en servers
--	Instellen back-ups
--	Key vault, recovery vault
+-	~~Storage account~~
+-	~~2 vnets met peerings, keyvaul en subnets~~
+-	
+-	VMs
+-	Instellen back-ups, recovery vault
 
 
 # Notes:
-Public IP for SSH can be output via the output keyword
+Public IP for SSH can be output via output
+Aanmaken vault, public IPs en RBAC role  
+

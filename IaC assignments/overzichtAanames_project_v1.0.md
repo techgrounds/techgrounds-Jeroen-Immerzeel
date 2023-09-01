@@ -41,3 +41,6 @@ Voor de beveiliging van de servers neem ik aan dat:
 **key vault**
 - Er is een kans dat de keys voor login per ongeluk verwijderd worden. Hiervoor wordt de purge protection optie aangezet
 - Alleen de admin mag toegang krijgen tot de vault. Hiervoor wordt Azure RBAC gebruikt; de admin de owner-role
+
+**back-up**
+- De back-ups worden 7 dagen bewaart; de snapshots 6. Dit gaat via een zelf aangemaakte regel.

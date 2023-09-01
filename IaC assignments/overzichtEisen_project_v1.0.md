@@ -8,15 +8,15 @@ De onderdelen die niet worden vermeld in deze omschrijving maar die wel nodig zi
 
 # In het kort:
 - 1 subscription
-- 1 resource group
-- 1 storage account met blob storage voor post deployment scripts
-- 2 vnets
-- 2 NSGs met regels om access naar VMs te reguleren
-- 2 subnets; 1 per vnet
-- peering tussen vnets
-- 1 VM met webserver role
+- 1 resource group 
+- 1 storage account met blob storage voor post deployment scripts 
+- 2 vnets 
+- 2 NSGs met regels om access naar VMs te regulerenv 
+- 2 subnets; 1 per vnet 
+- peering tussen vnets v
+- 1 VM met webserver role 
 - 1 VM voor management/admin 
-- Een Key Vault voor de opslag van de SSH/RDP keys en andere keys
+- Een Key Vault voor de opslag van de SSH/RDP keys en andere keys 
 - Een recovery vault voor de opslag van de back-ups
 
 # Een uitgebreide beschrijving van alle bekende eisen: 
