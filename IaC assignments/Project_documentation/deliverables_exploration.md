@@ -1,11 +1,40 @@
-#Deliverable 2 
-**Een puntsgewijs overzicht van alle aannames**
+# Deliverables Exploration Epic
 
-Dit document bevat alle aannames en beslissingen voor de niet vooraf bepaalde onderdelen van het ontwerp
+
+In het Exploration Epic worden de volgende deliverables gevraagd:
+
+- Een puntsgewijze omschrijving van alle eisen
+- Een puntsgewijs overzicht van alle aannames
+- Een overzicht van alle diensten die gebruikt gaan worden.
+
+Deze 3 deliverables staan hieronder:
+
+# Deliverable 1:
+*Een puntsgewijze omschrijving van alle eisen*
+
+**De puntsgewijze omschrijving:**
+- 1 subscription
+- 1 resource group 
+- 1 storage account met blob storage voor post deployment scripts 
+- 2 vnets 
+- 2 NSGs met regels om access naar VMs te regulerenv 
+- 2 subnets; 1 per vnet 
+- peering tussen vnets v
+- 1 VM met webserver role 
+- 1 VM voor management/admin 
+- Een Key Vault voor de opslag van de SSH/RDP keys en andere keys 
+- Een recovery vault voor de opslag van de back-ups
+- Een database (optioneel) na aanleiding van een later verzoek
+
+
+# Deliverable 2 
+
+**Een puntsgewijs overzicht van alle aannames
+
+Dit deel bevat alle aannames voor de onderdelen van het project.
 
 **algemeen**  
-De naam die ik geef aan de onderdelen van dit project is projectcloud11 (of pc11 als resource naam te lang mocht zijn)  
-Om de benaming van resources duidelijk te houden wordt de syntax ```ProjectCloud11-resource```  dus bijvoorbeeld```ProjectCloud11-mngtVM``` of ```PC11-vnet1``` 
+
 
 
 **Resource group**  
@@ -44,3 +73,19 @@ Voor de beveiliging van de servers neem ik aan dat:
 
 **back-up**
 - De back-ups worden 7 dagen bewaart; de snapshots 6. Dit gaat via een zelf aangemaakte regel.
+
+
+# Deliverable 3
+**Een overzicht van alle diensten die gebruikt gaan worden.**
+
+Dit is een overzicht dat nog wordt aangevuld totdat het project klaar is; het is nog niet geheel duidelijk welke diensten er nu uiteindelijk allemaal gebruikt gaat worden.
+
+1) Resource Group
+2) Storage account met daarin een Blob Storage
+3) 2 Vnets
+4) Network Security Groups
+5) 2 VMs
+6) Key vault
+7) Backup vault
+8) Network Peering
+9) 

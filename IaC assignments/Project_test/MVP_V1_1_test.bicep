@@ -22,6 +22,8 @@ param storageAccountName string = 'pc11storage${uniqueString(resourceGroup().id)
 ])
 param environmentType string
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
+var softdeletion = (environmentType == 'dev') ? false : true
+var softDeleteInDays = (environmentType == 'dev') ? 7 : 90
 
 
 @description('The name and IP prefix of the managenent vnet.')
@@ -46,12 +48,9 @@ param keyvault_name string = 'pc11vault'
 param keyvaultUri string = '${keyvault_name} enviroment()'
 
 
+
 @description('The name of the endpointPolicy.')
 param endpointPolicyName string = 'endpointpolicy-${uniqueString(resourceGroup().id)}'
-
-@description('The name of the endpoint definition')
-param endpointDefinitionName string = 'endpointdefinition-${uniqueString(resourceGroup().id)}'
-
 
 
 
@@ -190,17 +189,16 @@ resource pc11keyvault 'Microsoft.KeyVault/vaults@2023-02-01' =  {
     enabledForDeployment:true
     enabledForDiskEncryption:true
     enabledForTemplateDeployment:true
-    enablePurgeProtection:true
-    enableRbacAuthorization:true
-    softDeleteRetentionInDays: 90
+    enablePurgeProtection:softdeletion
+    enableRbacAuthorization:false
+    softDeleteRetentionInDays: softDeleteInDays
     provisioningState: 'Succeeded'
     publicNetworkAccess: 'enabled'
 
   }
 }
 
-//'/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/presentation/providers/Microsoft.Network/virtualNetworks/vnet-mngt/managementSubnet'
-//'/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/presentation/providers/Microsoft.Network/virtualNetworks/vnet-webserv/webserverSubnet'
+
 
 // Dit deel moet in een module
 resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
