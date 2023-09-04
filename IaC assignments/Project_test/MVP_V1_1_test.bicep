@@ -9,6 +9,11 @@ Main template: Strorage + keyvault + managed IDs
 Module network: Vnets, subnets
 Module VMs: VMs, NSGs (dit omdat de nodige NSG rules voor de toegang tot VMs worden gebruikt)
 */
+
+/*
+
+testing the usage of a new branch
+*/
 @description('The location of the resource group.')
 param location string = 'germanywestcentral'
 
