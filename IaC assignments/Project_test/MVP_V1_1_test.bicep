@@ -14,6 +14,8 @@ Module VMs: VMs, NSGs (dit omdat de nodige NSG rules voor de toegang tot VMs wor
 
 testing the usage of a new branch
 */
+
+/*2nd test*/
 @description('The location of the resource group.')
 param location string = 'germanywestcentral'
 
