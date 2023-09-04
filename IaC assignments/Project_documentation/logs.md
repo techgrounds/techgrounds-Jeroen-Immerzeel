@@ -150,3 +150,26 @@ Het gebruik van het .id en enviroment() functions.
 ## Learnings
 Dat de environment() function simpeler werkt dan ik dacht.
 __
+
+# Log Maandag 4 september
+
+## Dagverslag 
+Vandaag gewerkt aan de implementatie van de VMs; heb daarvoor een VM, en een IP, NSG en NIC gedefinieerd 
+## Obstakels
+Ik verdrink soms in de grote hoeveelheid opties
+
+## Oplossingen
+Ik heb mijzelf aangeleerd om de refences te lezen en deze te vergelijken met wat ik heb. Daarnaast gebruik ik nu de "bicep vizualizer"
+
+## Learnings
+Aardig wat opties geleerd, en het gebruik van de vizualizer om de connecties tussen de resources te bekijken.
+
+# Log dinsdag 5 september
+
+## Dagverslag (1 zin)
+
+## Obstakels
+
+## Oplossingen
+
+## Learnings

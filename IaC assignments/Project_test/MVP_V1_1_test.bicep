@@ -53,6 +53,33 @@ param keyvaultUri string = '${keyvault_name} enviroment()'
 param endpointPolicyName string = 'endpointpolicy-${uniqueString(resourceGroup().id)}'
 
 
+// de onderdelen van de module
+@description('The id of the NIC')
+param NICname string  = '${vm_name}-NIC'
+
+
+@description('The size of the VMs')
+param vm_size string = 'Standard_B1s'
+
+@description('The name of the VM')
+param vm_name string = 'mngt-vm'
+
+@description('The name of the Network Security Group')
+param NSG_name string = '${vm_name}NSG' 
+
+@description('The name of the public IP addresses')
+param publicIPadressName string = '${NICname}IpAddress'
+
+@secure()
+@description('The administrator password')
+param adminPassword string = ''
+
+@description('The administrator username')
+@secure()
+param adminUsername string = ''
+
+@description('Any custom data that needs to be processed during system boot.')
+param customData string = ''
 
 
 //StorageAccount
@@ -314,6 +341,159 @@ resource endpointPolicy 'Microsoft.Network/serviceEndpointPolicies@2023-04-01' =
         }
       }
     ]
+
+  }
+}
+
+
+// later moduliseren
+
+resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
+  name: NICname
+  location: location
+  properties:{
+    networkSecurityGroup: NSG
+    ipConfigurations:[
+      {
+        name:publicIPadressName
+        properties:{
+          publicIPAddress: {
+            id: resourceId(resourceGroup().name, 'MicrosoftNetwork.publicIpAddresses', publicIPadressName)
+            properties:{
+              deleteOption:'Delete'
+              ipAddress:publicIPadressName
+              linkedPublicIPAddress:publicIP
+            }  
+
+          }
+          subnet:{
+           id: managementSubnetPrefix 
+          }
+
+        }
+      }
+    ]
+  }
+}
+
+
+resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
+  name: NSG_name
+  properties:{
+    securityRules:[
+      {
+        name: 'SSH'
+        properties:{
+          access: 'allow'
+          direction: 'Inbound'
+          priority: 300
+          protocol: 'TCP'
+          destinationPortRange: '22'
+          sourcePortRange: '*'
+
+        }
+      }
+    ]
+  }
+
+}
+
+resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
+  name: publicIPadressName
+  properties:{
+    deleteOption:'Detach'
+    publicIPAllocationMethod:'Static'
+
+  }
+  sku:{
+    name:'Standard'
+  }
+  zones:[
+    '2'
+  ]
+  
+}
+
+
+resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
+  name: 'mngt-vm' 
+  location: location
+  properties:{
+    hardwareProfile:{
+      vmSize:vm_size
+    }
+    osProfile:{
+      adminPassword: adminPassword
+      adminUsername: adminUsername
+      customData: customData
+      linuxConfiguration:{
+        disablePasswordAuthentication: true 
+        /*
+        ssh:{
+          publicKeys:[
+            
+          ]
+        }*/
+      }
+    }
+
+
+
+  
+  storageProfile: {
+    osDisk:{
+      createOption: 'FromImage'
+      deleteOption:'Delete'
+      osType:'Linux'
+      
+    }
+    imageReference:{
+      publisher: 'Canonical'
+      offer:'0001-com-ubuntu-server-jammy'
+      version: 'latest'
+      sku: '22_04-lts-gen2'
+    }
+  }
+networkProfile:{
+  
+  networkInterfaces:[
+    {
+      id:mngtNIC.id
+    }
+  ]
+  networkApiVersion:'2020-11-01'
+  networkInterfaceConfigurations:[
+    {
+      name: 'Microsoft.Network/networkInterfaces@2023-04-01'
+      properties:{
+        ipConfigurations: [
+          {
+            name: publicIPadressName
+            properties:{
+              primary: true
+              privateIPAddressVersion:'IPv4'
+              publicIPAddressConfiguration:{
+                name: publicIPadressName
+                sku:{
+                  name:'Standard'
+                }
+                properties:{
+                  deleteOption:'Detach'
+                }
+              }
+              subnet:{
+                id:managementSubnetPrefix
+              }
+            }
+          }
+        ]
+        networkSecurityGroup:{
+          id:NSG_name
+        }
+      }
+    }
+  ]
+}
 
   }
 }
