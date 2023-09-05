@@ -167,6 +167,64 @@ Aardig wat opties geleerd, en het gebruik van de vizualizer om de connecties tus
 # Log dinsdag 5 september
 
 ## Dagverslag (1 zin)
+Een foutmelding over de NSG opgelost, backup vault en -policy aangemaakt en ook daar foutmelding van opgelost.
+## Obstakels
+Een tweetal foutmeldingen die hardnekkig waren. 
+## Oplossingen
+De eerste foutmelding kreeg ik weg door de resource apart te maken ipv onderdeel van een ander resource. De tweede bleek te liggen aan een reference guide van Microsoft welke foute of onduidelijke informatie bevat.
+## Learnings
+Niet er altijd vanuit gaan dat de reference guides 100% kloppen.
+ 
+# Log woensdag 6 september
+
+## Dagverslag (1 zin)
+
+## Obstakels
+
+## Oplossingen
+
+## Learnings
+
+# Log donderdag 7 september
+
+## Dagverslag (1 zin)
+
+## Obstakels
+
+## Oplossingen
+
+## Learnings
+# Log vrijdag 8 september
+
+## Dagverslag (1 zin)
+
+## Obstakels
+
+## Oplossingen
+
+## Learnings
+
+# Log maandag
+
+## Dagverslag (1 zin)
+
+## Obstakels
+
+## Oplossingen
+
+## Learnings
+# Log dinsdag
+
+## Dagverslag (1 zin)
+
+## Obstakels
+
+## Oplossingen
+
+## Learnings
+# Log  woensdag
+
+## Dagverslag (1 zin)
 
 ## Obstakels
 

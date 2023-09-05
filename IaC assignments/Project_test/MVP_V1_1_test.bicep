@@ -24,8 +24,8 @@ param storageAccountName string = 'pc11storage${uniqueString(resourceGroup().id)
 ])
 param environmentType string
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
-var softdeletion = (environmentType == 'dev') ? false : true
-var softDeleteInDays = (environmentType == 'dev') ? 7 : 90
+//var softdeletion = (environmentType == 'dev') ? false : true
+//var softDeleteInDays = (environmentType == 'dev') ? 7 : 90
 
 
 @description('The name and IP prefix of the managenent vnet.')
@@ -43,7 +43,7 @@ param managementSubnetPrefix string = '10.10.10.0/24'
 param webserverSubnetPrefix string = '10.20.20.0/24'
 
 @description('The name of the keyvault.')
-param keyvault_name string = 'pc11vault'
+param keyvault_name string = 'pc11keyvault'
 
 
 @description('The Uri of the Keyvault.')
@@ -56,21 +56,22 @@ param endpointPolicyName string = 'endpointpolicy-${uniqueString(resourceGroup()
 
 
 // de onderdelen van de module
-@description('The id of the NIC')
-param NICname string  = '${vm_name}-NIC'
+@description('The id of the mngt NIC')
+param mngtNICname string  = 'mngt-NIC'
+
+@description('The id of the webserver NIC')
+param webservNICname string  = 'webserv-NIC'
 
 
 @description('The size of the VMs')
 param vm_size string = 'Standard_B1s'
 
-@description('The name of the VM')
-param vm_name string = 'mngt-vm'
 
 @description('The name of the Network Security Group')
-param NSG_name string = '${vm_name}NSG' 
+param NSG_name string = 'NSG-${uniqueString(resourceGroup().id)}' 
 
 @description('The name of the public IP addresses')
-param publicIPadressName string = '${NICname}IpAddress'
+param publicIPadressName string = 'IpAddress-${uniqueString(resourceGroup().id)}'
 
 @secure()
 @description('The administrator password')
@@ -83,6 +84,25 @@ param adminUsername string = ''
 @description('Any custom data that needs to be processed during system boot.')
 param customData string = ''
 
+@description('The name of the management VM')
+param mngtVmName string = 'mngt-VM'
+
+@description('The name of the webserver VM')
+param webservVmName string = 'webserv-VM'
+
+@description('The name of the Backup and recovery Vault')
+param vaultName string = 'backupVault-${uniqueString(resourceGroup().id)}'
+
+@allowed([
+  'LRS'
+  'GRS'
+  'ZRS'
+])
+@description('The storage type of the backup vault')
+param backupVaultType string = (environmentType == 'prod') ? 'GRS' : 'ZRS'
+
+@description('The name of the backup policy')
+param backupPolicyName string = '${vaultName}-policy'
 
 //StorageAccount
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
@@ -218,12 +238,11 @@ resource pc11keyvault 'Microsoft.KeyVault/vaults@2023-02-01' =  {
     enabledForDeployment:true
     enabledForDiskEncryption:true
     enabledForTemplateDeployment:true
-    enablePurgeProtection:softdeletion
+    //enablePurgeProtection:softdeletion
     enableRbacAuthorization:false
-    softDeleteRetentionInDays: softDeleteInDays
+    //softDeleteRetentionInDays: softDeleteInDays
     provisioningState: 'Succeeded'
     publicNetworkAccess: 'enabled'
-
   }
 }
 
@@ -253,38 +272,7 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
               service: 'Microsoft.Storage'
             }
           ]
-          networkSecurityGroup:{
-            id:'NSG_name'
-            location:location
-            properties:{
-              securityRules: [
-                {
-                  name: 'AllowSSH'
-                  properties:{
-                    access: 'allow'
-                    direction: 'Inbound'
-                    priority: 300
-                    protocol: 'TCP'
-                    destinationPortRange: '22'
-                    sourcePortRange: '*'
-          
-                  } 
-                }
-                {
-                  name: 'AllowRDP'
-                  properties:{
-                    access: 'allow'
-                    direction: 'Inbound'
-                    priority: 320
-                    protocol: 'TCP'
-                    destinationPortRange: '3389'
-                    sourcePortRange: '*'
-          
-                  }
-                }  
-              ]
-            }
-          }
+         
         }
       }
 
@@ -307,7 +295,7 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
           }
           remoteVirtualNetworkAddressSpace:{
             addressPrefixes:[
-             '10.20.0.0/16'
+             '10.10.0.0/16'
             ]
             
           }
@@ -324,29 +312,6 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
   }
 }
 
-
-/*
-resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: NSG_name
-  properties:{
-    securityRules:[
-      {
-        name: 'SSH'
-        properties:{
-          access: 'allow'
-          direction: 'Inbound'
-          priority: 300
-          protocol: 'TCP'
-          destinationPortRange: '22'
-          sourcePortRange: '*'
-
-        }
-      }
-    ]
-  }
-
-}
-*/
 
 
 resource webservervnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
@@ -407,7 +372,7 @@ resource endpointPolicy 'Microsoft.Network/serviceEndpointPolicies@2023-04-01' =
 // later moduliseren
 
 resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
-  name: NICname
+  name: mngtNICname
   location: location
   properties:{
     nicType:'Standard'
@@ -417,7 +382,7 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
         name:publicIPadressName
         properties:{
           publicIPAddress: {
-            id: resourceId(resourceGroup().name, 'MicrosoftNetwork.publicIpAddresses', publicIPadressName)
+            id: publicIP.id
             properties:{
               deleteOption:'Delete'
               ipAddress:publicIPadressName
@@ -429,7 +394,7 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
 
           }
           subnet:{
-           id: managementSubnetName
+           id: managementvnet.id 
            properties:{
             addressPrefix:managementSubnetPrefix
            } 
@@ -443,6 +408,7 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
 
 resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
   name: publicIPadressName
+  location:location
   properties:{
     deleteOption:'Detach'
     publicIPAllocationMethod:'Static'
@@ -459,8 +425,175 @@ resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
 
 
 resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
-  name: 'mngt-vm' 
+  name: mngtVmName
   location: location
+  zones:[
+  '2'
+  ]
+  properties:{
+
+    hardwareProfile:{
+      vmSize:vm_size
+    }
+    osProfile:{
+      adminPassword: adminPassword
+      adminUsername: adminUsername
+      customData: customData
+      linuxConfiguration:{
+        disablePasswordAuthentication: true 
+        /*
+        ssh:{
+          publicKeys:[
+            
+          ]
+        }*/
+      }
+    }
+  
+  storageProfile: {
+    osDisk:{
+      createOption: 'FromImage'
+      deleteOption:'Delete'
+      osType:'Linux'
+      
+    }
+    imageReference:{
+      publisher: 'Canonical'
+      offer:'0001-com-ubuntu-server-jammy'
+      version: 'latest'
+      sku: '22_04-lts-gen2'
+    }
+  }
+networkProfile:{
+  
+  networkInterfaces:[
+    {
+      id:mngtNIC.id
+
+    }
+  ]
+  networkApiVersion:'2020-11-01'
+  networkInterfaceConfigurations:[
+    {
+      name: 'Microsoft.Network/networkInterfaces@2023-04-01'
+      properties:{
+        ipConfigurations: [
+          {
+            name: publicIPadressName
+            properties:{
+              primary: true
+              privateIPAddressVersion:'IPv4'
+              publicIPAddressConfiguration:{
+                name: publicIPadressName
+                sku:{
+                  name:'Standard'
+                }
+                properties:{
+                  deleteOption:'Detach'
+                }
+              }
+              subnet:{
+                id:managementSubnetName
+              }
+            }
+          }
+        ]
+        networkSecurityGroup:{
+          id:NSG_name
+        }
+      }
+    }
+  ]
+}
+}
+
+}
+
+resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
+  name: NSG_name
+  location:location
+  dependsOn:[
+    managementvnet
+    webservervnet
+  ]
+  properties:{
+    securityRules: [
+    {
+      name:'AllowSSH'
+      properties:{
+        access:'Allow'
+        direction:'Inbound'
+        priority: 300
+        protocol:'Tcp'
+        destinationPortRange:'22'
+        destinationAddressPrefix: '*'
+        sourcePortRange: '*'
+        sourceAddressPrefix: '*'
+        
+      //hier?
+      }
+    }
+    {
+      name:'AllowRDP'
+      properties:{
+        access: 'Allow'
+        direction: 'Inbound'
+        priority: 320
+        protocol: 'Tcp'
+        destinationPortRange:'3389'
+        destinationAddressPrefix: '*'
+        sourcePortRange: '*'
+        sourceAddressPrefix: '*'
+        
+      }
+    }
+    ]
+
+  }
+}
+
+resource webservNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
+  name: webservNICname
+  location: location
+  properties:{
+    nicType:'Standard'
+    enableIPForwarding:true
+    ipConfigurations:[
+      {
+        name:publicIPadressName
+        properties:{
+          publicIPAddress: {
+            id: publicIP.id
+            properties:{
+              deleteOption:'Delete'
+              ipAddress:publicIPadressName
+              linkedPublicIPAddress:publicIP
+              publicIPAddressVersion: 'IPv4'
+              publicIPAllocationMethod: 'Static'
+
+            }  
+
+          }
+          subnet:{
+           id: webservervnet.id  //subnet ipv vnet
+           properties:{
+            addressPrefix:managementSubnetPrefix
+           } 
+          }
+
+        }
+      }
+    ]
+  }
+}
+
+
+resource webservVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
+  name: webservVmName 
+  location: location
+  zones:[
+    '1'
+  ]
   properties:{
     hardwareProfile:{
       vmSize:vm_size
@@ -535,5 +668,41 @@ networkProfile:{
     }
   ]
 }
+}
+
+}
+
+resource backupVault 'Microsoft.RecoveryServices/vaults@2023-04-01'={
+  name: vaultName
+  location:location
+  sku:{
+    name: 'RS0'
+    tier:'Standard'
+  }
+}
+
+resource backUpolicy 'Microsoft.RecoveryServices/vaults/backupPolicies@2023-04-01' ={
+  name: backupPolicyName
+  parent:backupVault
+  location:location
+  properties:{
+    backupManagementType: 'AzureIaasVM'
+    instantRpRetentionRangeInDays: 3
+    schedulePolicy: {
+      scheduleRunFrequency: 'Daily'
+      scheduleRunTimes: ['2023-09-05T00:00:00Z']
+      schedulePolicyType: 'SimpleSchedulePolicy'
+   }
+  retentionPolicy: {
+    retentionPolicyType:'LongTermRetentionPolicy'
+    dailySchedule: {
+      retentionTimes:['2023-09-05T23:00:00Z']
+      retentionDuration: {
+        count: 7
+        durationType: 'Days'
+      }
+    }
+  }
+  timeZone: 'UTC'
 }
 }
