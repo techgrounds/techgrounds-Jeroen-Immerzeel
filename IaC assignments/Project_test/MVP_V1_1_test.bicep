@@ -10,12 +10,7 @@ Module network: Vnets, subnets
 Module VMs: VMs, NSGs (dit omdat de nodige NSG rules voor de toegang tot VMs worden gebruikt)
 */
 
-/*
 
-testing the usage of a new branch
-*/
-
-/*2nd test*/
 @description('The location of the resource group.')
 param location string = 'germanywestcentral'
 
@@ -370,11 +365,17 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
               deleteOption:'Delete'
               ipAddress:publicIPadressName
               linkedPublicIPAddress:publicIP
+              publicIPAddressVersion: 'IPv4'
+              publicIPAllocationMethod: 'Static'
+
             }  
 
           }
           subnet:{
-           id: managementSubnetPrefix 
+           id: managementSubnetName
+           properties:{
+            addressPrefix:managementSubnetPrefix
+           } 
           }
 
         }
@@ -383,7 +384,7 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
   }
 }
 
-
+//inbouwen in Vnet
 resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
   name: NSG_name
   properties:{
