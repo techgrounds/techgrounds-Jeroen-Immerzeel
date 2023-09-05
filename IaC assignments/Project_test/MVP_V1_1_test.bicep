@@ -253,10 +253,43 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
               service: 'Microsoft.Storage'
             }
           ]
+          networkSecurityGroup:{
+            id:'NSG_name'
+            location:location
+            properties:{
+              securityRules: [
+                {
+                  name: 'AllowSSH'
+                  properties:{
+                    access: 'allow'
+                    direction: 'Inbound'
+                    priority: 300
+                    protocol: 'TCP'
+                    destinationPortRange: '22'
+                    sourcePortRange: '*'
+          
+                  } 
+                }
+                {
+                  name: 'AllowRDP'
+                  properties:{
+                    access: 'allow'
+                    direction: 'Inbound'
+                    priority: 320
+                    protocol: 'TCP'
+                    destinationPortRange: '3389'
+                    sourcePortRange: '*'
+          
+                  }
+                }  
+              ]
+            }
+          }
         }
       }
-    ] 
 
+    ] 
+    
     virtualNetworkPeerings:[
       {
         name: 'mngtToWebPeering'
@@ -283,7 +316,7 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
           }
           useRemoteGateways:false
           peeringSyncLevel:'FullyInSync'
-        
+          
         }
 
       }
@@ -291,6 +324,29 @@ resource managementvnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
   }
 }
 
+
+/*
+resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
+  name: NSG_name
+  properties:{
+    securityRules:[
+      {
+        name: 'SSH'
+        properties:{
+          access: 'allow'
+          direction: 'Inbound'
+          priority: 300
+          protocol: 'TCP'
+          destinationPortRange: '22'
+          sourcePortRange: '*'
+
+        }
+      }
+    ]
+  }
+
+}
+*/
 
 
 resource webservervnet 'Microsoft.Network/virtualNetworks@2023-04-01' = {
@@ -354,7 +410,8 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
   name: NICname
   location: location
   properties:{
-    networkSecurityGroup: NSG
+    nicType:'Standard'
+    enableIPForwarding:true
     ipConfigurations:[
       {
         name:publicIPadressName
@@ -382,28 +439,6 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
       }
     ]
   }
-}
-
-//inbouwen in Vnet
-resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
-  name: NSG_name
-  properties:{
-    securityRules:[
-      {
-        name: 'SSH'
-        properties:{
-          access: 'allow'
-          direction: 'Inbound'
-          priority: 300
-          protocol: 'TCP'
-          destinationPortRange: '22'
-          sourcePortRange: '*'
-
-        }
-      }
-    ]
-  }
-
 }
 
 resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
@@ -444,9 +479,6 @@ resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
         }*/
       }
     }
-
-
-
   
   storageProfile: {
     osDisk:{
@@ -467,6 +499,7 @@ networkProfile:{
   networkInterfaces:[
     {
       id:mngtNIC.id
+
     }
   ]
   networkApiVersion:'2020-11-01'
@@ -490,7 +523,7 @@ networkProfile:{
                 }
               }
               subnet:{
-                id:managementSubnetPrefix
+                id:managementSubnetName
               }
             }
           }
@@ -502,7 +535,5 @@ networkProfile:{
     }
   ]
 }
-
-  }
 }
-
+}
