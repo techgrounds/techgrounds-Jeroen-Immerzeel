@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/test/providers/Microsoft.KeyVault/vaults/testvault-jjoijk1"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "adminUsername": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/test/providers/Microsoft.KeyVault/vaults/testvault-jjoijk1"
+        },
+        "secretName": "adminUsername"
+      }
+    },
+    "linuxUser": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/test/providers/Microsoft.KeyVault/vaults/testvault-jjoijk1"
+        },
+        "secretName": "linuxUsername"
+      }
+    },
+    "linuxPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/test/providers/Microsoft.KeyVault/vaults/testvault-jjoijk1"
+        },
+        "secretName": "linuxPassword"
+      }
+    }
+  }
+}

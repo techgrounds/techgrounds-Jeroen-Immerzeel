@@ -25,40 +25,39 @@ Dit bevat de keuzes en afwegingen die er gemaakt worden, waaronder over:
 De devilerables voor de epic Exploration zijn:
 [x] Opsommen van vragen
 [x] Opsomming van aannames na aanleiding van niet beantwoorde vragen.
-[] Opsomming van diensten die wel nodig zijn maar niet benoemd zijn; AD gebruik bijv.
-[] IaC-code voor aanmaken resource group
-[] IaC-code voor aanmaken storage account
+[x] Opsomming van diensten die wel nodig zijn maar niet benoemd zijn; AD gebruik bijv.
+[x] IaC-code voor aanmaken resource group
+[x] IaC-code voor aanmaken storage account
 
-[] IaC-code voor het netwerk en alle onderdelen w.o. avail zones
-[] IaC-code voor een webserver 
-[] IaC-code voor een management server
-[] IaC-code voor scripts(niet publieke toegankelijk)
-[] IaC-code voor versleuteling van **alle** data
-[] IaC-code voor back-up voorzieningen.
-[] Ontwerpdocumentatie voor de klant|in simpele termen
-[] Configuratie voor een MVP deployment
+[x] IaC-code voor het netwerk en alle onderdelen 
+[x] IaC-code voor een webserver 
+[x] IaC-code voor een management server
+[x] IaC-code voor versleuteling van **alle** data
+[x] IaC-code voor back-up voorzieningen.
+[x] Ontwerpdocumentatie voor de klant|in simpele termen
+[x] Configuratie voor een MVP deployment
 
 ### Eerste sprint
 De minimale onderdelen voor de eerste sprint (voor 1 september af)
 [x] Opsommen van vragen
 [x] Opsomming van aannames na aanleiding van niet beantwoorde vragen.
-[] IaC-code voor het netwerk en alle onderdelen
-[] IaC-code voor een webserver en management server
+[x] IaC-code voor het netwerk en alle onderdelen
+[x] IaC-code voor een webserver en management server
 
 ### Eerste deel tweede sprint (8 september af)
 De minimale onderdelen voor eerste deel van de tweede sprint (voor 8 september af)
-[] IaC-code voor scripts(niet publieke toegankelijk)
-[] IaC-code voor versleuteling van **alle** data
-[] IaC-code voor back-up voorzieningen.
+[x] IaC-code voor versleuteling van **alle** data
+[x] IaC-code voor back-up voorzieningen.
 
 ### Tweede deel van de tweede sprint (14 september af)
-[] Ontwerpdocumentatie voor de klant|in simpele termen
-[] Configuratie voor een MVP deployment
-[] Werkend geheel
-[] Opsomming van diensten die wel nodig zijn maar niet benoemd zijn
+[x] Ontwerpdocumentatie voor de klant|in simpele termen
+[x] Configuratie voor een MVP deployment
+[x] Werkend geheel
+[x] Opsomming van diensten die wel nodig zijn maar niet benoemd zijn
 
 # De onderdelen van het systeem
-Locatie: unknown
+Locatie: 'Germany West Central'
+Dit omdat daar wel alle resources aanwezig zijn én deze dichtbij is.
 
 ### Het netwerk:
 2 Vnets
@@ -66,7 +65,7 @@ Locatie: unknown
 - 2 availability zones elk
 - NSGs voor beide VNets met de volgende regels
 ```
-conectie tussen web en management server via SSH/RDP
+conectie tussen web en management server via SSH/
 connectie naar management server mag alleen vanaf thuislocatie van manager
 Webserver moet vanaf buiten bereikbaar zijn
 ```
@@ -76,46 +75,31 @@ Webserver moet vanaf buiten bereikbaar zijn
 ### Servers
 2 servers: 1 webserver, 1 management server
 
-Webserver:
-IP public, SKU unknown 
-OS, unknown
-Subnet 1
-Access controlled by AD, alleen bereikbaar vanaf management server 
-Management server:
-IP public ivm bereikbaarheid voor manager vanaf thuis locatie, SKU unknown, access controlled bij AD
-OS unknown
+#### Webserver:  
+IP public: Standard
+OS: Linux
+Subnet 1  
+Alleen bereikbaar vanaf management server  
+
+#### Management server:
+IP public ivm bereikbaarheid voor manager vanaf thuis locatie, SKU: Standard
+OS Windows Server 2022
 Subnet 2
 
-VM:
-Type: Unknown
-OS disk size: Unknown
-Inbound ports: off. Gaat via NSG.
-Back-up elke dag; tijd en type onbekend
-Is binnen Azure, of binnen webserver zelf? Unknown
-- bij geen antwoord: tijd 0:00 uur en zondag + woensdag volledig, rest incrementeel.
-Disks alleen OS of ook data unknown
+VM:  
+Type: laat keuze over aan product owner; heb 3 beste keuzes gedefinieerd. 
+OS disk size: standard size, 30 GiB  
+Inbound ports: gaan via NSG.  
+Back-up elke dag; tijd 0:00 uur.
+Gaat via backup policy.
 
 ### Instellingen
-AD tenant en NSG met regels:
-- alleen manager mag toegang tot management systeem vanaf thuislocatie (AD Conditional Access)
-- alleen vanaf management server toegang tot management deel van webserver via SSH/RDP
-
+NSG regels:
+- alleen manager mag toegang tot management systeem vanaf thuislocatie 
+- alleen vanaf management server toegang tot management deel van webserver via SSH
+- Webserver kan worden bereikt via port 80 en 443 almede via SSH (port 22)
 ### Overige onderdelen
 Storage account
 Key Vault
 Alles in 1 subscription
-
-### Volgorde van handelingen:
--   Controleren van de opties per sectie.
--	Aanmaken resource group (dit ook als onderdeel van ontwerp doc)
--	~~Storage account~~
--	~~2 vnets met peerings, keyvaul en subnets~~
--	
--	VMs
--	Instellen back-ups, recovery vault
-
-
-# Notes:
-Public IP for SSH can be output via output
-Aanmaken vault, public IPs en RBAC role  
 

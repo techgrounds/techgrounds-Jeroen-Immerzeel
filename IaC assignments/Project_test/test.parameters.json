@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "webserverSubnetName": {
+        "value": "webserverSubnet"
+      },
+      "webserverVnetName": {
+        "value": "webVnet"
+      },
+
+      "location":{
+        "value": "germanywestcentral"
+      },
+      
+      "linuxName": {
+        "value": "LinuxWebserver"
+      },
+      "linuxUsername": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/app/providers/Microsoft.KeyVault/vaults/app-keyvault-pc11"
+          },
+          "secretName": "linuxUser"
+        }
+      },
+      "linuxPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/app/providers/Microsoft.KeyVault/vaults/app-keyvault-pc11"
+          },
+          "secretName": "linuxPassword"
+        }
+      }
+    }
+  }

@@ -9,7 +9,7 @@ Main template: Strorage + keyvault + managed IDs
 Module network: Vnets, subnets
 Module VMs: VMs, NSGs (dit omdat de nodige NSG rules voor de toegang tot VMs worden gebruikt)
 */
-
+//verwijderen van netwerk interfaces
 
 @description('The location of the resource group.')
 param location string = 'germanywestcentral'
@@ -42,6 +42,8 @@ param webserverSubnetName string = 'webserverSubnet'
 param managementSubnetPrefix string = '10.10.10.0/24'
 param webserverSubnetPrefix string = '10.20.20.0/24'
 
+
+
 @description('The name of the keyvault.')
 param keyvault_name string = 'pc11keyvault'
 
@@ -55,7 +57,7 @@ param keyvaultUri string = '${keyvault_name} enviroment()'
 param endpointPolicyName string = 'endpointpolicy-${uniqueString(resourceGroup().id)}'
 
 
-// de onderdelen van de module
+
 @description('The id of the mngt NIC')
 param mngtNICname string  = 'mngt-NIC'
 
@@ -81,6 +83,9 @@ param adminPassword string = ''
 @secure()
 param adminUsername string = ''
 
+@description('Specifies the SSH public key file. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.')
+param adminPublicKey string
+
 @description('Any custom data that needs to be processed during system boot.')
 param customData string = ''
 
@@ -91,7 +96,7 @@ param mngtVmName string = 'mngt-VM'
 param webservVmName string = 'webserv-VM'
 
 @description('The name of the Backup and recovery Vault')
-param vaultName string = 'backupVault-${uniqueString(resourceGroup().id)}'
+param backupVaultName string = 'backupVault-${uniqueString(resourceGroup().id)}'
 
 @allowed([
   'LRS'
@@ -102,7 +107,7 @@ param vaultName string = 'backupVault-${uniqueString(resourceGroup().id)}'
 param backupVaultType string = (environmentType == 'prod') ? 'GRS' : 'ZRS'
 
 @description('The name of the backup policy')
-param backupPolicyName string = '${vaultName}-policy'
+param backupPolicyName string = '${backupVaultName}-policy'
 
 //StorageAccount
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
@@ -154,6 +159,9 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
             id: '${webservervnet.id}/subnets/webserversubnet'
             action: 'Allow'
             state:'Succeeded'
+          }
+          {
+            id: '${managementvnet.id}/subnets/managementsubnet'
           }
         ]
         ipRules:[]
@@ -382,31 +390,33 @@ resource mngtNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
         name:publicIPadressName
         properties:{
           publicIPAddress: {
-            id: publicIP.id
             properties:{
               deleteOption:'Delete'
               ipAddress:publicIPadressName
-              linkedPublicIPAddress:publicIP
               publicIPAddressVersion: 'IPv4'
-              publicIPAllocationMethod: 'Static'
-
+              publicIPAllocationMethod: 'Dynamic'
             }  
+            sku:{
+              name:'Standard'
+            }
 
           }
           subnet:{
-           id: managementvnet.id 
+           id: '${managementvnet.id}/subnets/managementsubnet' 
            properties:{
             addressPrefix:managementSubnetPrefix
-           } 
+           }
           }
 
         }
       }
     ]
+    networkSecurityGroup:{
+      id:NSG_name
+    }
   }
 }
-
-resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
+/*resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
   name: publicIPadressName
   location:location
   properties:{
@@ -421,7 +431,28 @@ resource publicIP 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
     '2'
   ]
   
+}*/
+
+/*
+resource publicIP_2 'Microsoft.Network/publicIPAddresses@2023-04-01' ={
+  name: '${publicIPadressName}_2'
+  location:location
+  properties:{
+    deleteOption:'Detach'
+    publicIPAllocationMethod:'Static'
+
+  }
+  sku:{
+    name:'Standard'
+  }
+  zones:[
+    '2'
+  ]
+  
 }
+
+*/
+
 
 
 resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
@@ -563,24 +594,19 @@ resource webservNIC 'Microsoft.Network/networkInterfaces@2023-04-01'= {
         name:publicIPadressName
         properties:{
           publicIPAddress: {
-            id: publicIP.id
             properties:{
               deleteOption:'Delete'
-              ipAddress:publicIPadressName
-              linkedPublicIPAddress:publicIP
               publicIPAddressVersion: 'IPv4'
               publicIPAllocationMethod: 'Static'
 
-            }  
-
+            } 
           }
           subnet:{
-           id: webservervnet.id  //subnet ipv vnet
+           id: '${webservervnet.id}/subnets/webserversubnet'
            properties:{
-            addressPrefix:managementSubnetPrefix
+            addressPrefix:webserverSubnetPrefix
            } 
           }
-
         }
       }
     ]
@@ -604,12 +630,14 @@ resource webservVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
       customData: customData
       linuxConfiguration:{
         disablePasswordAuthentication: true 
-        /*
         ssh:{
           publicKeys:[
-            
+            {
+              keyData:adminPublicKey
+              path: '/home/${adminUsername}/.ssh/authorized_keys'
+            }
           ]
-        }*/
+        }
       }
     }
   
@@ -627,82 +655,102 @@ resource webservVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
       sku: '22_04-lts-gen2'
     }
   }
-networkProfile:{
+  networkProfile:{
   
-  networkInterfaces:[
-    {
-      id:mngtNIC.id
-
-    }
-  ]
-  networkApiVersion:'2020-11-01'
-  networkInterfaceConfigurations:[
-    {
-      name: 'Microsoft.Network/networkInterfaces@2023-04-01'
-      properties:{
-        ipConfigurations: [
-          {
-            name: publicIPadressName
-            properties:{
-              primary: true
-              privateIPAddressVersion:'IPv4'
-              publicIPAddressConfiguration:{
-                name: publicIPadressName
-                sku:{
-                  name:'Standard'
+    networkInterfaces:[
+      {
+        id:webservNIC.id
+  
+      }
+    ]
+    networkApiVersion:'2020-11-01'
+    networkInterfaceConfigurations:[
+      {
+        name: 'Microsoft.Network/networkInterfaces@2023-04-01'
+        properties:{
+          ipConfigurations: [
+            {
+              name: publicIPadressName
+              properties:{
+                primary: true
+                privateIPAddressVersion:'IPv4'
+                publicIPAddressConfiguration:{
+                  name: publicIPadressName
+                  sku:{
+                    name:'Standard'
+                  }
+                  properties:{
+                    deleteOption:'Detach'
+                  }
                 }
-                properties:{
-                  deleteOption:'Detach'
+                subnet:{
+                  id:webserverSubnetName
                 }
-              }
-              subnet:{
-                id:managementSubnetName
               }
             }
+          ]
+          networkSecurityGroup:{
+            id:NSG_name
           }
-        ]
-        networkSecurityGroup:{
-          id:NSG_name
         }
       }
-    }
-  ]
-}
+    ]
+  }
 }
 
 }
+
+
 
 resource backupVault 'Microsoft.RecoveryServices/vaults@2023-04-01'={
-  name: vaultName
+  name: backupVaultName
   location:location
   sku:{
     name: 'RS0'
     tier:'Standard'
   }
-}
-
-resource backUpolicy 'Microsoft.RecoveryServices/vaults/backupPolicies@2023-04-01' ={
-  name: backupPolicyName
-  parent:backupVault
-  location:location
   properties:{
-    backupManagementType: 'AzureIaasVM'
-    instantRpRetentionRangeInDays: 3
-    schedulePolicy: {
-      scheduleRunFrequency: 'Daily'
-      scheduleRunTimes: ['2023-09-05T00:00:00Z']
-      schedulePolicyType: 'SimpleSchedulePolicy'
-   }
-  retentionPolicy: {
-    retentionPolicyType:'LongTermRetentionPolicy'
-    dailySchedule: {
-      retentionTimes:['2023-09-05T23:00:00Z']
-      retentionDuration: {
-        count: 7
-        durationType: 'Days'
+
+    publicNetworkAccess:'Enabled'
+    securitySettings:{
+      immutabilitySettings:{
+        state:'Disabled'
       }
     }
   }
-  timeZone: 'UTC'
 }
+
+resource backUpPolicy 'Microsoft.RecoveryServices/vaults/backupPolicies@2023-04-01' = {
+  name: backupPolicyName
+  location:location
+  parent:backupVault
+  properties:{
+    backupManagementType: 'AzureIaasVM'
+    policyType:'V2'
+    instantRPDetails:{}
+    schedulePolicy:{
+      schedulePolicyType: 'SimpleSchedulePolicyV2'
+      scheduleRunFrequency:'Daily'
+      dailySchedule:{
+        scheduleRunTimes:[
+          '2023-09-06-T00:00:00Z'
+        ]
+      }
+    }
+    retentionPolicy:{
+      retentionPolicyType: 'LongTermRetentionPolicy'
+      dailySchedule:{
+        retentionTimes:[
+          '2023-09-06-T00:00:00Z'
+        ]
+        retentionDuration: {
+          count:7
+          durationType: 'Days'
+        }
+      }
+    }
+    instantRpRetentionRangeInDays: 6
+    timeZone: 'Central European Time'
+    protectedItemsCount: 0
+  }  
 }

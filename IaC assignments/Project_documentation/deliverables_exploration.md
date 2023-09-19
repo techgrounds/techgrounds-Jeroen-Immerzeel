@@ -17,7 +17,7 @@ Deze 3 deliverables staan hieronder:
 - 1 resource group 
 - 1 storage account met blob storage voor post deployment scripts 
 - 2 vnets 
-- 2 NSGs met regels om access naar VMs te regulerenv 
+- 2 NSGs met regels om access naar VMs te reguleren
 - 2 subnets; 1 per vnet 
 - peering tussen vnets v
 - 1 VM met webserver role 
@@ -34,16 +34,18 @@ Deze 3 deliverables staan hieronder:
 Dit deel bevat alle aannames voor de onderdelen van het project.
 
 **algemeen**  
-
+- De eerste stap die genomen zal moeten worden voor de deployment is het opzetten van een resource group en daarna een key vault met secrets via de cli zodat de rest van de deployment van deze resources gebruik kunnen maken.
 
 
 **Resource group**  
 - De gehele resource group en alles daarbinnen wordt in de West Germany Central location geplaatst. Dit gezien deze location dichtbij is en alle onderdelen ondersteund
 
 **Storage account** 
-- Gebruik van redundancy is altijd nodig. Bij uitval van datacenter kan er dan toch nog een omgeving wordt gedeployt. Ik kies daarom voor GRS als replication van de storage
-- Er is geen public access tot de storage en dus wordt er gebruik gemaakt van een private link
+- Gebruik van redundancy is altijd nodig. Bij uitval van datacenter kan er dan toch nog een omgeving wordt deployed. Ik kies daarom voor GRS-RA als replication van de storage
 - Soft delete en versioning is nodig om zo het onbruikbaar maken of verwijderen van de deployment scripts en andere data te voorkomen
+- Er wordt een Blob, File en table storage gemaakt
+- De blob storage is voor het opslaan van de ongestructureerde data
+- File storage is nodig om de data tussen de administratie en webserver VMs te kunnen delen; dit is handig voor de administratie
 
 **Vnets** en  **subnets**
  - Peering tussen de vnets is nodig gezien beide servers in een apart vnet staan en er een veilige connectie moet worden gemaakt
@@ -52,27 +54,26 @@ Dit deel bevat alle aannames voor de onderdelen van het project.
 
 **Beveiliging servers**
 Voor de beveiliging van de servers neem ik aan dat:
-- Er gebruik gemaakt moet worden van in ieder geval NSG rules
-- De webserver beheert zal worden via SSH of RDP (eisen OS nog onduidelijk)
+- Er gebruik gemaakt moet worden van in ieder geval NSG rules voor network access
+- De webserver beheert zal worden via SSH; deze wordt een Linux server met custom data voor de deployment van de Apache webserver
 - De management server kan alleen bereikt worden via NSG firewall regels of RBAC
-- De encryptie voor de servers gaat via de optie *platform managed key*; dit is de meest simpele manier, maar heeft toch wat setup nodig (zie https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell#prerequisites)
-- De optie *NIC network security group* op *none* gaat gezien deze al via NSGs worden beheerd
+- De encryptie voor de servers gaat via "Encryption at host"; dit versleuteld ook gelijk de backups gezien de voorliggende data van de backups al versleuteld is. 
+
 
 - Voor de connectie met de management server wordt de NSG regel "allow source: my IP address" gebruikt
-- De back-ups gaan via Azure en worden 7 dagen bewaart. Er wordt elke dag een snapshot gemaakt en elke 7e dag wordt er een volledige back-up gemaakt
-
+- De back-ups gaan dagelijks via de Azure backup policy en worden 7 dagen bewaart.
 
 **Servers algemeen**
 - De webserver wordt een Linux server. Dit maakt het opzetten een heel stuk simpeler door het gebruik van een custom script bij het aanmaken van de VM
 - Er worden standard SKU Public IP adressen aangemaakt want alleen standard SKU kent ondersteuning voor availability zones
-- De management server wordt een Windows 11 VM. Dit om gemak van de GUI, SSH via powershell/cmd en login via RDP dus build-in voor meeste systemen thuis
+- De management server wordt een Windows server 22 datacenter edition VM. Dit om gemak van de GUI, SSH via powershell/cmd en login via RDP dus build-in voor meeste systemen thuis
 
 **key vault**
 - Er is een kans dat de keys voor login per ongeluk verwijderd worden. Hiervoor wordt de purge protection optie aangezet
-- Alleen de admin mag toegang krijgen tot de vault. Hiervoor wordt Azure RBAC gebruikt; de admin de owner-role
+- Alleen de admin mag toegang krijgen tot de vault. Deze heeft standaard als enige toegang.
 
 **back-up**
-- De back-ups worden 7 dagen bewaart; de snapshots 6. Dit gaat via een zelf aangemaakte regel.
+- De back-ups worden 7 dagen bewaart; de snapshots 6. Dit gaat via een zelf aangemaakte policy.
 
 
 # Deliverable 3
@@ -81,11 +82,14 @@ Voor de beveiliging van de servers neem ik aan dat:
 Dit is een overzicht dat nog wordt aangevuld totdat het project klaar is; het is nog niet geheel duidelijk welke diensten er nu uiteindelijk allemaal gebruikt gaat worden.
 
 1) Resource Group
-2) Storage account met daarin een Blob Storage
+2) Storage account met daarin
+ - Blob Storage
+ - File storage
+ - Table storage
 3) 2 Vnets
-4) Network Security Groups
-5) 2 VMs
-6) Key vault
-7) Backup vault
-8) Network Peering
-9) 
+4) Network Peering
+5) Network Security Group
+6) 2 VMs
+7) Key vault
+8) Backup vault
+9) Backup policy

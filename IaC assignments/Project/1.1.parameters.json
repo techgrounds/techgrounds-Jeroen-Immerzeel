@@ -1,0 +1,89 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "webserverSubnetName": {
+        "value": "webserverSubnet"
+      },
+      "webserverSubnetPrefix": {
+        "value": "10.20.20.0/24"
+      },
+      "webserverVnetName": {
+        "value": "vnet-webserv"
+      },
+      "webserverVnetPrefix": {
+        "value": "10.20.0.0/16"
+      },
+      "location":{
+        "value": "germanywestcentral"
+      },
+      "managementSubnetName": {
+        "value": "managementSubnet"
+      },
+      "managementVnetName": {
+        "value": "vnet-mngt"
+      },
+      "managementVnetPrefix": {
+        "value": "10.10.0.0/16"
+      },
+      "managementSubnetPrefix": {
+        "value": "10.10.10.0/24"
+      },
+      "linuxName": {
+        "value": "LinuxWebserver"
+      },
+      "managementName": {
+        "value": "adminVM"
+      },
+      "webserverName": {
+        "value": "webserverVM"
+      },
+      "backupPolicyName": {
+        "value": "backupTestpolicy-19sept"
+      },
+      "vaultName": {
+        "value": "pc11-backupvault-19sept"
+      },
+      "scheduleRunTimes": {
+        "value": "2023-09-15T12:30:00Z"
+      },
+      "windowsName": {
+        "value": "adminServer"
+      },
+      "keyvaultName": {
+        "value": "app-vault-"
+      },
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourcegroups/app-RG/providers/Microsoft.KeyVault/vaults/app-vault-19sept"
+          },
+          "secretName": "adminPassword"
+        }
+      },
+      "adminUser": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourcegroups/app-RG/providers/Microsoft.KeyVault/vaults/app-vault-19sept"
+          },
+          "secretName": "adminUser"
+        }
+      },
+      "linuxUser": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourcegroups/app-RG/providers/Microsoft.KeyVault/vaults/app-vault-19sept"
+          },
+          "secretName": "linuxUser"
+        }
+      },
+      "linuxPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourcegroups/app-RG/providers/Microsoft.KeyVault/vaults/app-vault-19sept"
+          },
+          "secretName": "linuxPassword"
+        }
+      }
+    }
+  }

@@ -137,7 +137,7 @@ __
 # Log donderdag 31 augustus
 
 ## Dagverslag (1 zin)
-Na het oplossen van de laatste foutmeldingen nu een geheel werkende basis met Storages, VNets/Subnets en Keyvault.
+Na het oplossen van de laatste foutmeldingen nu een geheel werkende basis met Storages, VNets/Subnets en Key vault.
 
 
 ## Obstakels
@@ -159,7 +159,7 @@ Vandaag gewerkt aan de implementatie van de VMs; heb daarvoor een VM, en een IP,
 Ik verdrink soms in de grote hoeveelheid opties
 
 ## Oplossingen
-Ik heb mijzelf aangeleerd om de refences te lezen en deze te vergelijken met wat ik heb. Daarnaast gebruik ik nu de "bicep vizualizer"
+Ik heb mijzelf aangeleerd om de references te lezen en deze te vergelijken met wat ik heb. Daarnaast gebruik ik nu de "bicep vizualizer"
 
 ## Learnings
 Aardig wat opties geleerd, en het gebruik van de vizualizer om de connecties tussen de resources te bekijken.
@@ -178,56 +178,118 @@ Niet er altijd vanuit gaan dat de reference guides 100% kloppen.
 # Log woensdag 6 september
 
 ## Dagverslag (1 zin)
+Veel moeilijke foutmeldingen proberen op te lossen; grotendeels niet gelukt
 
 ## Obstakels
-
+Een aantal onduidelijke foutmeldingen
 ## Oplossingen
-
+De werkende code teruggezet en vanuit daar heropbouwen
 ## Learnings
+Altijd werkende code achterhouden
+Bijhouden wat er aangepast is
 
 # Log donderdag 7 september
 
 ## Dagverslag (1 zin)
-
+Compleet werkend gemaakt van een groot deel van het systeem.
 ## Obstakels
-
+Backup geeft wat problemen.
 ## Oplossingen
+Nog geen; waarschijnlijk een property dat niet goed staat.
 
 ## Learnings
+"computerName" is zowel een property van een VM als van een Linux machine. Belangrijk dus om bij een foutmelding dit te realiseren. 
 # Log vrijdag 8 september
 
 ## Dagverslag (1 zin)
-
+Veel tijd kwijt geweest aan het inbouwen van de backup.
 ## Obstakels
-
+Was erg heet weer deze week, daarom minder helder in het denken; heb daarom werk gedaan dat niet gedaan hoefde te worden. Er is geen aparte encryptie nodig voor de backup; iets waar ik bijna de gehele tijd aan gewerkt heb.
 ## Oplossingen
-
+Minder warm zijn en de opdracht beter volgen.
 ## Learnings
+De betekening van een aantal foutmeldingen.
 
-# Log maandag
+
+# Log maandag 11 september
 
 ## Dagverslag (1 zin)
-
+Aardig opgeschoten, moet alleen nog maar de credentials oplossen.
 ## Obstakels
-
+Uitvinden hoe de credentials gebruikt kunnen worden.
 ## Oplossingen
+Ik ga wat informatie lezen.
 
 ## Learnings
-# Log dinsdag
+Kwam er achter dat het versleutelen van de VM disks erg makkelijk was. Dit was puur een kwestie van een cli-opdracht en een enkele parameter aanzetten.
+Weet nu ook redelijk hoe zelf modules te maken.
+# Log dinsdag 12 september
 
 ## Dagverslag (1 zin)
-
+Laatst stappen lijken af; project is waarschijnlijk klaar. 
 ## Obstakels
-
+Het controleren of alles 100% werkt; zeer kleine obstakel dus nog.
 ## Oplossingen
+De documentatie nakijken en deze vergelijken met de gebouwde app.
 
 ## Learnings
-# Log  woensdag
+Kam er achter dat het inbouwen van een link tussen aan te maken Key Vault secrets en de plekken waar deze gebruik moeten worden niet te doen lijkt te zijn.
+
+# Log woensdag 13 september
 
 ## Dagverslag (1 zin)
+Wat bugs weggewerkt, nu bijna geheel werkend systeem; aan documentatie gewerkt. 
+## Obstakels
+Een paar kleine bugs.
+## Oplossingen
+Grootste probleem was het doorvoeren van modules; dit probleem verholpen door even goed te lezen.
+## Learnings
+Moet soms meer rust pakken om beter te lezen
+
+
+# Log donderdag 14 september
+## Dagverslag (1 zin)
+Systeem nu geheel werkend.
+## Obstakels
+Een klein probleem met 1 resources die op 1 of andere manier toch nog foutmeldingen gaven.
+## Oplossingen
+Bugs weggewerkt waaronder een setting die verplicht aan moest staan maar uit stond.
+
+## Learnings  
+Soms is het beter om niets te veranderen.
+
+# Log vrijdag 15 september
+
+## Dagverslag
+Op locatie geweest, weinig gedaan buiten wat aantekeningen maken.
+## Obstakels
+Geen
+## Oplossingen
+nvt
+## Learnings
+
+
+# Log maandag 18 september
+
+## Dagverslag
+Systeem wat netter gemaakt; backups nu in 1 resource declaratie; wel wat bugs
+## Obstakels
+Bugs...
+## Oplossingen
+Nog geen gevonden
+## Learnings
+Het gebruik van een "for i in range()* loop
+
+# Log dinsdag 19 september
+
+## Dagverslag
+Systeem nu wel 100% klaar; alles bug vrij en op een nette manier gedeclareerd.
 
 ## Obstakels
+Een paar hardnekkige bugs, en wat hoofdpijn
 
 ## Oplossingen
-
-## Learnings
+Een bug was een error over een parameter die niet bestond; bleek een verouderde API te veroorzaken. Een andere was een probleem met een backup policy; bleek een versie probleem te zijn waarbij alleen de V2 policyType Azure trusted VMs kan back-uppen. 
+## Learnings:
+De aanhouder wint.  
+Soms is op meer obscure plekken zoeken het beste.

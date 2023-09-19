@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentType": {
+      "value": "dev"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "adminPassword"
+        },
+        "secretName": "adminPassword"
+      }
+    },
+    "adminUsername": {
+      "reference": {
+        "keyVault": {
+          "id": "adminUsername"
+        },
+        "secretName": "adminUsername"
+      }
+    },
+    "linuxUser": {
+      "reference": {
+        "keyVault": {
+          "id": "linuxPassword"
+        },
+        "secretName": "linuxUser"
+      }
+    },
+    "linuxPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "linuxPassword"
+        },
+        "secretName": "linuxPassword"
+      }
+    }
+  }
+}

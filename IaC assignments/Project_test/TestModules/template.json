@@ -1,0 +1,63 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "networkInterfaces_mngt_vm758_z2_name": {
+            "defaultValue": "mngt-vm758_z2",
+            "type": "String"
+        },
+        "publicIPAddresses_mngt_vm_ip_externalid": {
+            "defaultValue": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/dev/providers/Microsoft.Network/publicIPAddresses/mngt-vm-ip",
+            "type": "String"
+        },
+        "virtualNetworks_vnet_mngt_externalid": {
+            "defaultValue": "/subscriptions/180a468a-5df4-41f7-a716-a1ff81e87bb7/resourceGroups/dev/providers/Microsoft.Network/virtualNetworks/vnet-mngt",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2023-04-01",
+            "name": "[parameters('networkInterfaces_mngt_vm758_z2_name')]",
+            "location": "germanywestcentral",
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mngt_vm758_z2_name')), '/ipConfigurations/ipconfig1')]",
+                        "etag": "W/\"b19d3b1d-c6ed-4f30-8fd2-e64409660778\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.10.10.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[parameters('publicIPAddresses_mngt_vm_ip_externalid')]",
+                                "properties": {
+                                    "deleteOption": "Detach"
+                                }
+                            },
+                            "subnet": {
+                                "id": "[concat(parameters('virtualNetworks_vnet_mngt_externalid'), '/subnets/managementSubnet')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "nicType": "Standard",
+                "auxiliaryMode": "None",
+                "auxiliarySku": "None"
+            }
+        }
+    ]
+}
