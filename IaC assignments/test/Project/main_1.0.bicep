@@ -203,7 +203,7 @@ resource recoveryVault  'Microsoft.RecoveryServices/vaults@2023-04-01' ={
       }
       softDeleteSettings:{
         softDeleteState:'Enabled'
-        softDeleteRetentionPeriodInDays:7
+        softDeleteRetentionPeriodInDays:14
       }
     }
   }

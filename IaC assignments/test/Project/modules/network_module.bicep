@@ -429,13 +429,21 @@ resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
       computerName:windowsName
       adminPassword:adminPassword
       adminUsername:adminUsername
+      windowsConfiguration:{
+        patchSettings:{
+          enableHotpatching:true
+          patchMode: 'AutomaticByPlatform'
+        }
+        provisionVMAgent:true
+        enableAutomaticUpdates:true
+      }
     }
   securityProfile:{
     encryptionAtHost:true
     securityType:'TrustedLaunch'
     uefiSettings:{
-      secureBootEnabled:true
-      vTpmEnabled:true
+      secureBootEnabled:true //??
+      vTpmEnabled:true //??
     }
   }
   storageProfile: {
@@ -448,7 +456,7 @@ resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
     imageReference:{
       publisher: 'MicrosoftWindowsServer'
       offer:'WindowsServer'
-      sku:'2022-datacenter'
+      sku:'2022-datacenter-azure-edition-hotpatch'
       version:'latest'
     }
   }
@@ -462,6 +470,11 @@ networkProfile:{
       }
     }
   ]
+}
+diagnosticsProfile:{
+  bootDiagnostics:{
+    enabled:true
+  }
 }
   }
 }
