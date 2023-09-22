@@ -34,7 +34,10 @@ param managementSubnetPrefix string
 
 //VM general data
 @description('The size of the VM, the preset is the most balanced between power and costs')
-param VM_size string = 'Standard_B2s'
+param adminVM_size string = 'Standard_B2s'
+
+@description('The size of the VM, the preset is the most balanced between power and costs')
+param webserverVM_size string = 'Standard_B1s'
 
 
 
@@ -47,7 +50,7 @@ param linuxName string
 
 @secure()
 @description('The username for the Linux based webserver VM.')
-param linuxUser string 
+param linuxUsername string 
 
 @secure()
 @description('The password for the Linux based webserver VM')
@@ -71,7 +74,7 @@ param adminPassword string
 
 @secure()
 @description('The administrator username')
-param adminUser string
+param adminUsername string
 
 
 //NSG resource link
@@ -125,15 +128,15 @@ resource webserverVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
 
   properties:{
     hardwareProfile:{
-      vmSize:VM_size
+      vmSize:webserverVM_size
     }
     osProfile:{
       computerName:linuxName
       adminPassword:linuxPassword
-      adminUsername: linuxUser
-      customData:base64('sudo su && apt update && apt upgrade -y && apt install apache2 && ufw enable && ufw allow apache && ufw allow 443 && ufw allow 80 && systemctl enable apache2 && systemctl restart apache2')
+      adminUsername: linuxUsername
+      customData:loadFileAsBase64('/')
       linuxConfiguration:{
-        disablePasswordAuthentication: false 
+        disablePasswordAuthentication: false
       }
     }
    securityProfile:{
@@ -144,6 +147,7 @@ resource webserverVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
       vTpmEnabled:true
     }
   } 
+
   
   storageProfile: {
     osDisk:{
@@ -423,12 +427,12 @@ resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
   ]
   properties:{
     hardwareProfile:{
-      vmSize:VM_size
+      vmSize:adminVM_size
     }
     osProfile:{
       computerName:windowsName
       adminPassword:adminPassword
-      adminUsername:adminUser
+      adminUsername:adminUsername
     }
   securityProfile:{
     encryptionAtHost:true

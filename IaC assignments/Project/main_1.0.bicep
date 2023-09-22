@@ -46,14 +46,11 @@ param managementSubnetPrefix string
 
 
 //VMs
-@description('The size of the VM, ordered by compute power and price from lowest to highest: B1s, B1ms, B2s.')
-@allowed( [
-  'Standard_B1s'
-  'Standard_B1ms'
-  'Standard_B2s'
-])
-param VM_size string
- 
+@description('The size of the VM, the preset is the most balanced between power and costs')
+param adminVM_size string = 'Standard_B2s'
+
+@description('The size of the VM, the preset is the most balanced between power and costs')
+param webserverVM_size string = 'Standard_B1s'
 
 
 @description('The name of the Windows based management server.')
@@ -106,11 +103,12 @@ param existingVirtualMachines array = [
  param existingVirtualMachinesResourceGroup string = resourceGroup().name
 
 //modules
-module VM  'modules/VM_networking.bicep' = {
+module VM  'modules/network_module.bicep' = {
   name: 'main_deployment'
   params: {
     location:location
-    VM_size:VM_size
+    webserverVM_size:webserverVM_size
+    adminVM_size:adminVM_size
     windowsName:windowsName
     linuxName:linuxName
     adminIP:adminIP

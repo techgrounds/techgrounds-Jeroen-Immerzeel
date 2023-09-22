@@ -17,6 +17,12 @@
       "location":{
         "value": "germanywestcentral"
       },
+      "adminVM_size": {
+        "value": "Standard_B2s"
+      },
+      "webserverVM_size": {
+        "value": "Standard_B1s"
+      },
       "managementSubnetName": {
         "value": "managementSubnet"
       },

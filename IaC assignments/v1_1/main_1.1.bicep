@@ -1,8 +1,9 @@
 //This is the main template. This contains the resources definitions of the Storage Account and Network Security Group.
 
+
 //parameters
 
-//General Resource Parameters
+//general
 @description('The locaton of the resource group')
 param location string 
 
@@ -15,7 +16,6 @@ param location string
 param environmentType string
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
 
-@description('The name of the storage account.')
 @maxLength(24)
 param storageAccountName string = 'storage${uniqueString(resourceGroup().id)}'
 
@@ -44,6 +44,7 @@ param managementVnetPrefix string
 @description('The IP prefix of the management subnet.')
 param managementSubnetPrefix string 
 
+
 //VMs
 @description('The size of the VM, ordered by compute power and price from lowest to highest: B1s, B1ms, B2s.')
 @allowed( [
@@ -53,6 +54,8 @@ param managementSubnetPrefix string
 ])
 param VM_size string
  
+
+
 @description('The name of the Windows based management server.')
 param windowsName string
 
@@ -72,33 +75,35 @@ param adminPassword string
 param linuxPassword string
         
 @secure()
-param linuxUsername string
+param linuxUser string
 
 @secure()
-param adminUsername string 
+param adminUser string 
+
 
 @description('The IP address of the administrators computer.')
 param adminIP string = '77.192.85.197'
 
-@description('The name of the backup vault')
+@description('The name of the key Vault')
+param keyvaultName string
+
+//Backup Vault and Policy
 param vaultName string
 
-@description('The name of the backup policy.')
 param backupPolicyName string
 
-@description('The runtimes for the backup schedule.')
 param scheduleRunTimes string 
+var backupFabric = 'Azure'
+var v2VmContainer = 'iaasvmcontainer;iaasvmcontainerv2;'
+var v2Vm = 'vm;iaasvmcontainerv2;'
+
 
 @description('Array of Azure virtual machines.')
 param existingVirtualMachines array = [
   webserverName
   managementName
 ]
-param existingVirtualMachinesResourceGroup string = resourceGroup().name
-
-var backupFabric = 'Azure'
-var v2VmContainer = 'iaasvmcontainer;iaasvmcontainerv2;'
-var v2Vm = 'vm;iaasvmcontainerv2;'
+ param existingVirtualMachinesResourceGroup string = resourceGroup().name
 
 //modules
 module VM  'modules/network_module.bicep' = {
@@ -109,10 +114,10 @@ module VM  'modules/network_module.bicep' = {
     windowsName:windowsName
     linuxName:linuxName
     adminIP:adminIP
-    adminPassword:adminPassword 
-    adminUsername:adminUsername
+    adminPassword:adminPassword
+    adminUser:adminUser
     linuxPassword:linuxPassword
-    linuxUsername:linuxUsername
+    linuxUser:linuxUser
     managementSubnetName:managementSubnetName
     managementSubnetPrefix:managementSubnetPrefix
     managementVnetName:managementVnetName
@@ -209,7 +214,10 @@ resource recoveryVault  'Microsoft.RecoveryServices/vaults@2023-04-01' ={
   }
 }
 
-//Backup Resources
+
+//new 
+
+
 resource backupPolicy 'Microsoft.RecoveryServices/vaults/backupPolicies@2023-04-01' ={
   name: backupPolicyName
   location:location
@@ -270,3 +278,10 @@ resource webVM 'Microsoft.Compute/virtualMachines@2023-03-01' existing ={
   name: webserverName
 }
 
+resource backupVault 'Microsoft.RecoveryServices/vaults@2023-04-01' existing ={
+  name: vaultName
+}
+
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing ={
+  name: keyvaultName
+}

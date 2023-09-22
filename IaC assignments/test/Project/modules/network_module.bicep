@@ -47,7 +47,7 @@ param linuxName string
 
 @secure()
 @description('The username for the Linux based webserver VM.')
-param linuxUser string 
+param linuxUsername string 
 
 @secure()
 @description('The password for the Linux based webserver VM')
@@ -71,7 +71,7 @@ param adminPassword string
 
 @secure()
 @description('The administrator username')
-param adminUser string
+param adminUsername string
 
 
 //NSG resource link
@@ -130,8 +130,8 @@ resource webserverVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
     osProfile:{
       computerName:linuxName
       adminPassword:linuxPassword
-      adminUsername: linuxUser
-      customData:base64('sudo su && apt update && apt upgrade -y && apt install apache2 && ufw enable && ufw allow apache && ufw allow 443 && ufw allow 80 && systemctl enable apache2 && systemctl restart apache2')
+      adminUsername: linuxUsername
+      customData:loadFileAsBase64('webserver.sh')
       linuxConfiguration:{
         disablePasswordAuthentication: false 
       }
@@ -428,10 +428,15 @@ resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
     osProfile:{
       computerName:windowsName
       adminPassword:adminPassword
-      adminUsername:adminUser
+      adminUsername:adminUsername
     }
   securityProfile:{
     encryptionAtHost:true
+    securityType:'TrustedLaunch'
+    uefiSettings:{
+      secureBootEnabled:true
+      vTpmEnabled:true
+    }
   }
   storageProfile: {
     osDisk:{
@@ -537,14 +542,3 @@ resource NSG 'Microsoft.Network/networkSecurityGroups@2023-04-01' = {
     ]
   }
 }
-
-
-
-
-
-//testing
-
-
- 
-
-
