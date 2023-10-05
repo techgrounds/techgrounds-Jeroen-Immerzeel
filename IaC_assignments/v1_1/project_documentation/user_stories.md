@@ -7,7 +7,7 @@ Gezien dit voor mij de eerste keer is dat ik deze maak zal ik eerst volgens een 
 
 In de eerdere versie van deze opdracht (versie 1.0) kregen wij de benodigde user stories aangeleverd, ik zal deze opmaak toevoegen als voorbeeld en gebruiken als opmaak voor de user stories van deze opdracht.
 
-![Een voorbeeld van een User Story](/images/example_user_story.png)
+![Een voorbeeld van een User Story](/project_documentation/images/example_user_story.png)
 
 # Epics
 ### Omschrijving van wat Epics zijn
@@ -120,7 +120,7 @@ Werkende IaC code.
 *bouw*  
 
 **Beschrijving**   
-Er is werkende code nodig voor een VM scale set waarbij er altijd minimaal 1 VM met webserver role actief is, en deze gescaled kan worden naar 3 instances. Deze scale set moet achter een load balancer staan en zodoende niet meer "naakt" vanaf het internet bereikbaar zijn.  
+Er is werkende code nodig voor een VM scale set waarbij er altijd minimaal 1 VM met webserver role actief is, en deze geschaald kan worden naar maximaal 3 instances. Deze scale set moet achter een load balancer staan en zodoende niet meer "naakt" vanaf het internet bereikbaar zijn maar alleen via de adminVM via ssh.  
 
 **Deliverable**   
 Werkende IaC code voor een VM scale set.
@@ -159,6 +159,12 @@ Een self signed certificate dat de load balancer gebruikt. Hierbij moet ook dire
 ---
 
 **User Story**  
-**Epic**    
-**Beschrijving**    
+*Er moeten aanpassingen komen aan meerdere onderdelen van de V1.0 app* 
+**Epic**
+*bouw*  
+
+**Beschrijving**
+Hoewel bijna alles gelijk blijft op de webserverVM na, het is wel nodig om een aantal kleine aanpassingen door te voeren op de backup, NSG en adminVM code.
+
 **Deliverable** 
+Aangepaste code voor backup, NSG en adminVM.

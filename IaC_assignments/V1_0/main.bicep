@@ -48,10 +48,11 @@ param managementSubnetPrefix string
 @description('The size of the VM, ordered by compute power and price from lowest to highest: B1s, B1ms, B2s.')
 @allowed( [
   'Standard_B1s'
-  'Standard_B1ms'
   'Standard_B2s'
+  'Standard_B2ms'
 ])
 param VM_size string
+param adminVM_size string //B2s set, B2sm better?
  
 @description('The name of the Windows based management server.')
 param windowsName string
@@ -123,6 +124,7 @@ module VM  'modules/network_module.bicep' = {
     webserverVnetPrefix:webserverVnetPrefix
     managementName:managementName
     webserverName:webserverName
+    adminVM_size:adminVM_size
   }
 }
 
@@ -203,7 +205,7 @@ resource recoveryVault  'Microsoft.RecoveryServices/vaults@2023-04-01' ={
       }
       softDeleteSettings:{
         softDeleteState:'Enabled'
-        softDeleteRetentionPeriodInDays:14
+        softDeleteRetentionPeriodInDays: 7
       }
     }
   }
@@ -255,7 +257,7 @@ resource protectedItems 'Microsoft.RecoveryServices/vaults/backupFabrics/protect
 
   ]
   properties: {
-    protectedItemType: 'Microsoft.Compute/virtualMachines'
+    protectedItemType: 'Microsoft.ClassicCompute/virtualMachines'
     policyId:backupPolicy.id
     sourceResourceId: resourceId(subscription().subscriptionId, existingVirtualMachinesResourceGroup, 'Microsoft.Compute/virtualMachines', '${item}')
     

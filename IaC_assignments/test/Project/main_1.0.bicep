@@ -1,9 +1,8 @@
 //This is the main template. This contains the resources definitions of the Storage Account and Network Security Group.
 
-
 //parameters
 
-//general
+//General Resource Parameters
 @description('The locaton of the resource group')
 param location string 
 
@@ -16,6 +15,7 @@ param location string
 param environmentType string
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
 
+@description('The name of the storage account.')
 @maxLength(24)
 param storageAccountName string = 'storage${uniqueString(resourceGroup().id)}'
 
@@ -44,18 +44,16 @@ param managementVnetPrefix string
 @description('The IP prefix of the management subnet.')
 param managementSubnetPrefix string 
 
-
 //VMs
 @description('The size of the VM, ordered by compute power and price from lowest to highest: B1s, B1ms, B2s.')
 @allowed( [
   'Standard_B1s'
-  'Standard_B1ms'
   'Standard_B2s'
+  'Standard_B2ms'
 ])
 param VM_size string
+param adminVM_size string //B2s set, B2sm better?
  
-
-
 @description('The name of the Windows based management server.')
 param windowsName string
 
@@ -75,35 +73,33 @@ param adminPassword string
 param linuxPassword string
         
 @secure()
-param linuxUser string
+param linuxUsername string
 
 @secure()
-param adminUser string 
-
+param adminUsername string 
 
 @description('The IP address of the administrators computer.')
 param adminIP string = '77.192.85.197'
 
-@description('The name of the key Vault')
-param keyvaultName string
-
-//Backup Vault and Policy
+@description('The name of the backup vault')
 param vaultName string
 
+@description('The name of the backup policy.')
 param backupPolicyName string
 
+@description('The runtimes for the backup schedule.')
 param scheduleRunTimes string 
-var backupFabric = 'Azure'
-var v2VmContainer = 'iaasvmcontainer;iaasvmcontainerv2;'
-var v2Vm = 'vm;iaasvmcontainerv2;'
-
 
 @description('Array of Azure virtual machines.')
 param existingVirtualMachines array = [
   webserverName
   managementName
 ]
- param existingVirtualMachinesResourceGroup string = resourceGroup().name
+param existingVirtualMachinesResourceGroup string = resourceGroup().name
+
+var backupFabric = 'Azure'
+var v2VmContainer = 'iaasvmcontainer;iaasvmcontainerv2;'
+var v2Vm = 'vm;iaasvmcontainerv2;'
 
 //modules
 module VM  'modules/network_module.bicep' = {
@@ -114,10 +110,10 @@ module VM  'modules/network_module.bicep' = {
     windowsName:windowsName
     linuxName:linuxName
     adminIP:adminIP
-    adminPassword:adminPassword
-    adminUser:adminUser
+    adminPassword:adminPassword 
+    adminUsername:adminUsername
     linuxPassword:linuxPassword
-    linuxUser:linuxUser
+    linuxUsername:linuxUsername
     managementSubnetName:managementSubnetName
     managementSubnetPrefix:managementSubnetPrefix
     managementVnetName:managementVnetName
@@ -128,6 +124,7 @@ module VM  'modules/network_module.bicep' = {
     webserverVnetPrefix:webserverVnetPrefix
     managementName:managementName
     webserverName:webserverName
+    adminVM_size:adminVM_size
   }
 }
 
@@ -208,16 +205,13 @@ resource recoveryVault  'Microsoft.RecoveryServices/vaults@2023-04-01' ={
       }
       softDeleteSettings:{
         softDeleteState:'Enabled'
-        softDeleteRetentionPeriodInDays:7
+        softDeleteRetentionPeriodInDays: 7
       }
     }
   }
 }
 
-
-//new 
-
-
+//Backup Resources
 resource backupPolicy 'Microsoft.RecoveryServices/vaults/backupPolicies@2023-04-01' ={
   name: backupPolicyName
   location:location
@@ -278,10 +272,3 @@ resource webVM 'Microsoft.Compute/virtualMachines@2023-03-01' existing ={
   name: webserverName
 }
 
-resource backupVault 'Microsoft.RecoveryServices/vaults@2023-04-01' existing ={
-  name: vaultName
-}
-
-resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing ={
-  name: keyvaultName
-}

@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net" modified="2023-10-04T14:45:15.951Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="bxfGTP_A-qcq7v_Xh_oi" version="22.0.2" type="device">
+  <diagram name="Pagina-1" id="UoyJ0l-6ss4mj00balDl">
+    <mxGraphModel dx="1562" dy="822" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-1" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="20" y="710" as="sourcePoint" />
+            <mxPoint x="140" y="60" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="30" y="110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-2" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="20" y="710" as="sourcePoint" />
+            <mxPoint x="800" y="60" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-3" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="60" as="sourcePoint" />
+            <mxPoint x="800" y="60" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-6" value="Vnet1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;gradientColor=none;arcSize=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="155" y="119.11" width="200" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-10" value="Peering" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;startArrow=none;startFill=0;strokeColor=#000000;" parent="1" edge="1">
+          <mxGeometry x="0.0364" relative="1" as="geometry">
+            <mxPoint x="515.5" y="380.0100000000001" as="sourcePoint" />
+            <mxPoint x="350.5" y="380.0100000000001" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="380" />
+              <mxPoint x="460" y="380" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-7" value="Vnet2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;arcSize=1;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="520" y="119.11" width="200" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="KK85A-Czj-PDCO1rTAJK-8" target="KK85A-Czj-PDCO1rTAJK-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" parent="1" source="KK85A-Czj-PDCO1rTAJK-8" target="KK85A-Czj-PDCO1rTAJK-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-8" value="storage account&lt;br&gt;Blob, file storage&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="555" width="430" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-30" value="management connection" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;" parent="1" source="KK85A-Czj-PDCO1rTAJK-13" target="KK85A-Czj-PDCO1rTAJK-14" edge="1">
+          <mxGeometry x="0.1429" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="440" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-13" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;VM Scaleset" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="170" y="320" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-14" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Management&lt;br&gt;vnet-mngt" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="544.99" y="150" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-15" value="Notes:&lt;br&gt;1 subscription&lt;br&gt;2 Vnets&lt;br&gt;2 subnets, 1 per Vnet&lt;br&gt;Subnet1 10.20.20.0/24&amp;nbsp;&lt;br&gt;Subnet2 10.10.10.0/24&amp;nbsp;&lt;br&gt;Application gateway IPs:&lt;br&gt;Public: x.x.x.x&amp;nbsp;&lt;br&gt;Private: 10.20.20.1&lt;br&gt;Management server IP:&lt;br&gt;Public: x.x.x.x&lt;br&gt;Private: 10.10.10.1&lt;br&gt;&lt;br&gt;Peering tussen vnets&lt;br&gt;NSGs voor security&lt;br&gt;&lt;br&gt;Geen naakte connectie naar webserver; alleen via management server&lt;br&gt;&lt;br&gt;storage account met Blob storage&lt;br&gt;key vault en recovery vault" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1040" width="550" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-18" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Virtual_Machine.svg;" parent="1" vertex="1">
+          <mxGeometry x="593.04" y="190" width="53.91" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-19" value="Availability Zone 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#66B2FF;strokeWidth=2;collapsible=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="125" width="700" height="180" as="geometry">
+            <mxRectangle x="80" y="125" width="50" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-20" value="Availability zone 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#66B2FF;strokeWidth=2;backgroundOutline=0;collapsible=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="310" width="700" height="170" as="geometry">
+            <mxRectangle x="70" y="310" width="50" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-21" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="80" as="sourcePoint" />
+            <mxPoint x="40" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-24" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks.svg;" parent="1" vertex="1">
+          <mxGeometry x="330" y="370.00000000000006" width="30.5" height="18.21" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-25" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Virtual_Networks.svg;" parent="1" vertex="1">
+          <mxGeometry x="514.49" y="370" width="30.5" height="18.21" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-26" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Storage_Accounts.svg;" parent="1" vertex="1">
+          <mxGeometry x="137.5" y="586.5" width="65" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-27" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Blob_Block.svg;" parent="1" vertex="1">
+          <mxGeometry x="375" y="586.5" width="65" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-31" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/security/Key_Vaults.svg;" parent="1" vertex="1">
+          <mxGeometry x="729" y="563" width="51" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="baXsAsq7W98yEQtjhTq1-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="KK85A-Czj-PDCO1rTAJK-32" target="KK85A-Czj-PDCO1rTAJK-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-32" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Network_Security_Groups.svg;" parent="1" vertex="1">
+          <mxGeometry x="385" y="74" width="45" height="54.65" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-36" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/storage/Recovery_Services_Vaults.svg;" parent="1" vertex="1">
+          <mxGeometry x="632" y="563" width="49.45" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="KK85A-Czj-PDCO1rTAJK-38" value="Internet" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="400" y="58" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9iQpBhtz6SzkbI5DMBgU-1" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Resource_Groups.svg;" parent="1" vertex="1">
+          <mxGeometry x="20" y="10" width="68" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="Twr3D7NNSOvf6hvklSP7-1" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/VM_Scale_Sets.svg;" parent="1" vertex="1">
+          <mxGeometry x="211.29" y="329.11" width="68" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="baXsAsq7W98yEQtjhTq1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="Twr3D7NNSOvf6hvklSP7-2" target="KK85A-Czj-PDCO1rTAJK-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="baXsAsq7W98yEQtjhTq1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Twr3D7NNSOvf6hvklSP7-2" target="KK85A-Czj-PDCO1rTAJK-32">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Twr3D7NNSOvf6hvklSP7-2" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/Application_Gateways.svg;" parent="1" vertex="1">
+          <mxGeometry x="207.5" y="165" width="75" height="75" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,4 +1,4 @@
-using './main_1.0.bicep'
+using './main.bicep'
 
 param location = 'GermanyWestCentral'
 param environmentType = 'dev'
@@ -19,8 +19,8 @@ param adminPassword = az.getSecret('180a468a-5df4-41f7-a716-a1ff81e87bb7', 'test
 param linuxPassword = az.getSecret('180a468a-5df4-41f7-a716-a1ff81e87bb7', 'test', 'testvault-jjoijk1', 'linuxPassword')
 param linuxUsername = getSecret('180a468a-5df4-41f7-a716-a1ff81e87bb7', 'test', 'testvault-jjoijk1', 'linuxUsername')
 param adminUsername= az.getSecret('180a468a-5df4-41f7-a716-a1ff81e87bb7', 'test', 'testvault-jjoijk1', 'adminUsername')
-param vaultName = 'testvault-jjoijk1'
-param backupPolicyName = 'workingPolicy-ggyh'
+param vaultName = 'recoveryVault'
+param backupPolicyName = 'workingPolicy'
 param scheduleRunTimes = '2023-09-15T12:30:00Z'
 param adminIP = '77.192.85.197'
-
+param adminVM_size = 'Standard_B2s'

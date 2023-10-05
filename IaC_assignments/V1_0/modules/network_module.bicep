@@ -36,6 +36,7 @@ param managementSubnetPrefix string
 @description('The size of the VM, the preset is the most balanced between power and costs')
 param VM_size string = 'Standard_B2s'
 
+param adminVM_size string
 
 
 //VM webserver
@@ -334,45 +335,7 @@ resource NIC_management 'Microsoft.Network/networkInterfaces@2023-04-01' ={
     enableIPForwarding:false
     networkSecurityGroup:{
       id: NSG.id
-      location:location
-      properties:{
-        securityRules: [
-        { 
-          name:'AllowSSH'
-          properties:{
-          access:'Allow'
-          direction:'Inbound'
-          priority: 300
-          protocol:'TCP'
-          destinationPortRange:'22'
-          destinationAddressPrefix: '*'
-          destinationAddressPrefixes:[]
-          sourceAddressPrefixes: []
-          sourceAddressPrefix: '*'
-          sourcePortRange: '*'
-          }
-        }
-      {
-        name:'AllowRDP'
-        properties:{
-          access: 'Allow'
-          direction: 'Inbound'
-          priority: 320
-          protocol: 'TCP'
-          destinationPortRange:'3389'
-          destinationAddressPrefix: '*'
-          destinationAddressPrefixes:[]
-          sourceAddressPrefixes: []
-          sourceAddressPrefix: adminIP
-          sourcePortRange: '*' 
-        }
-      }
-      
-    ]
-  }
-      
     }
-    
     ipConfigurations:[
       {
         type: 'Microsoft.Network/publicIPAddresses@2023-04-01'
@@ -423,7 +386,7 @@ resource managementVM 'Microsoft.Compute/virtualMachines@2023-03-01' ={
   ]
   properties:{
     hardwareProfile:{
-      vmSize:VM_size
+      vmSize:adminVM_size
     }
     osProfile:{
       computerName:windowsName
